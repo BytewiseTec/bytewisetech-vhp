@@ -1,0 +1,17 @@
+@import "/assets/css/bootstrap.min.css";
+@import "/assets/css/fontawesome.css";
+@import "/assets/css/animate.min.css";
+@import "/assets/css/swiper-bundle.min.css";
+@import "/assets/css/magnific-popup.min.css";
+@import "/assets/css/odometer.min.css";
+@import "/assets/css/style.css";
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+/* @layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} */
