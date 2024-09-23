@@ -13,7 +13,7 @@ function makeClient() {
     headers: {
       Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
     },
-    fetchOptions: { cache: 'no-store' },
+    fetchOptions: { next: { revalidate: 0 } },
   })
 
   return new ApolloClient({

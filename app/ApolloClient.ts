@@ -13,7 +13,7 @@ export const { getClient, query, PreloadQuery } = registerApolloClient(() => {
       headers: {
         Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
       },
-      fetchOptions: { cache: 'no-store' },
+      fetchOptions: { next: { revalidate: 0 } },
     }),
   })
 })
