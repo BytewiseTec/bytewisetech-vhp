@@ -22,14 +22,11 @@ export default function AboutCaseStudies() {
         <div className="row align-items-center justify-content-lg-between">
           <div className="col-lg-7 order-lg-last">
             <div className="about_image_2">
-              <div className="image_wrap">
+              {/* <div className="image_wrap">
                 <img src="/assets/images/about/about_image_6.webp" alt="Techco - About Image" />
-              </div>
-              <div
-                className="about_funfact_info"
-                style={{ backgroundImage: 'url(\'assets/images/shapes/shape_bg_1.webp\')' }}
-              >
-                <div className="customer_count">
+              </div> */}
+              <div className="about_funfact_info">
+                {/* <div className="customer_count">
                   <ul className="unordered_list">
                     {aboutData.aboutimage.map((item,index)=>
                     <li key={index}>
@@ -43,8 +40,8 @@ export default function AboutCaseStudies() {
                   <p className="mb-0">
                     Happy Customer
                   </p>
-                </div>
-                <div className="about_funfact_counter">
+                </div> */}
+                {/* <div className="about_funfact_counter">
                   {aboutData.aboutdata.map((item, index) =>
                     <div key={index} className="funfact_item">
                       <div className="counter_value">
@@ -53,7 +50,7 @@ export default function AboutCaseStudies() {
                       <h3 className="funfact_title mb-0">{item.title}</h3>
                     </div>
                   )}
-                </div>
+                </div> */}
                 <a className="btn btn-primary" href={'/about'}>
                   <span className="btn_label" data-text="Learn More">Learn More</span>
                   <span className="btn_icon">
@@ -64,9 +61,9 @@ export default function AboutCaseStudies() {
                   <img src="/assets/images/icons/icon_global.svg" alt="Icon Globe" />
                 </div>
               </div>
-              <div className="space_line">
+              {/* <div className="space_line">
                 <img src="/assets/images/shapes/shape_line.webp" alt="Shape Line" />
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="col-lg-5">
@@ -79,10 +76,10 @@ export default function AboutCaseStudies() {
                   About Us
                 </div>
                 <h2 className="heading_text">
-                  Techco <mark>Mission & Goal</mark>
+                  Bytewise Technologies <mark>Mission & Goal</mark>
                 </h2>
                 <p className="heading_description mb-0">
-                  {aboutData.abouttext}
+                  From our experience, true transformation and value creation begins with understanding the problem.  We don't just chase the newest tech trends.  Our focus is on empowering you to be better.  Technology is a tool to help achieve this, not the solution itself.
                 </p>
               </div>
             </div>

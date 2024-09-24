@@ -141,7 +141,7 @@ export default function Footer() {
       >
         <div className="container d-md-flex align-items-md-center justify-content-md-between">
           <p className="copyright_text m-0">
-            Copyright © 2024 Infinitude Tech, All rights reserved
+            Copyright © 2024 Bytewise Technologies, All rights reserved
           </p>
           <ul className="icon_list unordered_list">
             <li>

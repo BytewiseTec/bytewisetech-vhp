@@ -14,27 +14,27 @@ const { data, loading, error } = await query<FeatureQuery>({
     return <div>No service available</div>
   }
 
-  return (
-    <div className="feature_partners_section">
-      <div className="container position-relative">
-        <div className="title_text text-white">
-          Our Featured Partner&apos;s
-        </div>
-        <div className="client_logo_carousel">
-          <div className="swiper-wrapper">
-            {
-              data.partnerCollection.items.map((feature,index) =>(
-                <div className="swiper-slide" key={index}>
-                <div className="client_logo_item">
-                <Image src={feature.logo.url} alt={feature.company} width={feature.logo.width} height={feature.logo.height} />
-                </div>
-              </div>
-              ))
-            }
-          </div>
+  return (<></>
+    // <div className="feature_partners_section">
+    //   <div className="container position-relative">
+    //     <div className="title_text text-white">
+    //       Our Featured Partner&apos;s
+    //     </div>
+    //     <div className="client_logo_carousel">
+    //       <div className="swiper-wrapper">
+    //         {
+    //           data.partnerCollection.items.map((feature,index) =>(
+    //             <div className="swiper-slide" key={index}>
+    //             <div className="client_logo_item">
+    //             <Image src={feature.logo.url} alt={feature.company} width={feature.logo.width} height={feature.logo.height} />
+    //             </div>
+    //           </div>
+    //           ))
+    //         }
+    //       </div>
         
-        </div>
-      </div>
-    </div>
+    //     </div>
+    //   </div>
+    // </div>
   )
 }
