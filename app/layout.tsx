@@ -9,10 +9,10 @@ import CallToAction from '@/components/CallToAction'
 import { ApolloWrapper } from './ApolloWrapper'
 
 export const metadata: Metadata = {
-  title: 'Infinitude Tech',
+  title: 'Bytewise Technologies',
   description: 'Where push comes to shove, you can count on us.',
   keywords: '',
-  authors: { name: 'Infinitude Tech', url: 'https://infinitudetech.ai' },
+  authors: { name: 'Bytewise Tech', url: 'https://bytewisetechnologies.com' },
   icons: {
     shortcut: [{
       url: '/assets/images/site_logo/favourite_icon_2.svg',

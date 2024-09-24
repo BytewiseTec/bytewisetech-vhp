@@ -33,7 +33,7 @@ export default function Navbar() {
             <div className="col-lg-3 col-5">
               <div className="site_logo">
                 <Link className="site_link" href={home.href}>
-                  <Image width={200} height={200} src="/assets/images/site_logo/logo-white.svg" alt="Site Logo – Infinitude Tech – IT Solutions & Technology, Business Consulting, Software Company" />
+                  <Image width={9380} height={2330} src="/assets/images/site_logo/logo-white.svg" alt="Site Logo – Bytewise Technologies – IT Solutions & Technology, Business Consulting, Software Company" />
                 </Link>
               </div>
             </div>

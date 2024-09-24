@@ -22,7 +22,7 @@ export default function Hero() {
                 {Herodata.title}
               </div>
               <h1 className="text-white">
-                We Help Companies in <mark>Digitizing</mark> Their Businesses.
+              Solutions tailored to your <mark>business</mark> needs, not just tech.
               </h1>
               <p>
               {Herodata.description}
@@ -51,7 +51,7 @@ export default function Hero() {
                       <strong className="text-white">{Herodata.phone}</strong>
                     </span>
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
