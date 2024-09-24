@@ -27,11 +27,11 @@ export default function ContactUs() {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:Techco@gmail.com">
+                  <a href="mailto:info@bytewisetechnologies.com">
                     <span className="icon">
                       <i className="fa-solid fa-envelope"></i>
                     </span>
-                    <span className="text">Techco@gmail.com</span>
+                    <span className="text">info@bytewisetechnologies.com</span>
                   </a>
                 </li>
                 <li>
@@ -39,7 +39,7 @@ export default function ContactUs() {
                     <span className="icon">
                       <i className="fa-solid fa-location-dot"></i>
                     </span>
-                    <span className="text">Sunshine Business Park</span>
+                    <span className="text">Surrey, Canada</span>
                   </a>
                 </li>
               </ul>
@@ -129,9 +129,6 @@ export default function ContactUs() {
       </div>
       <div className="decoration_item shape_image_2">
         <img src="/assets/images/shapes/shape_line_6.svg" alt="Techco Shape" />
-      </div>
-      <div className="decoration_item shape_image_3">
-        <img src="/assets/images/shapes/shape_space_5.svg" alt="Techco Shape" />
       </div>
     </section>
   )

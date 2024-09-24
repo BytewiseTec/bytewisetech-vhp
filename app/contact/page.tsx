@@ -25,7 +25,7 @@ export default function ContactPage() {
                 <div className="iconbox_content">
                   <h3 className="iconbox_title">Location</h3>
                   <p className="mb-0">
-                    Sunshine Business Park Sector-94, Poland
+                    105 AVE, SURREY, CANADA
                   </p>
                 </div>
               </div>
@@ -49,8 +49,7 @@ export default function ContactPage() {
                 </div>
                 <div className="iconbox_content">
                   <h3 className="iconbox_title">Email</h3>
-                  <p className="mb-0">Techco@example.com</p>
-                  <p className="mb-0">gmail.@example.com</p>
+                  <p className="mb-0">info@bytewisetechnologies.com</p>
                 </div>
               </div>
             </div>
@@ -61,8 +60,8 @@ export default function ContactPage() {
                 </div>
                 <div className="iconbox_content">
                   <h3 className="iconbox_title">Visit Between</h3>
-                  <p className="mb-0">Mon - Sat: 8.00-5.00</p>
-                  <p className="mb-0">Sunday: Closed</p>
+                  <p className="mb-0">Mon - Fri: 8.00-5.00</p>
+                  <p className="mb-0">Saturday - Sunday: Closed</p>
                 </div>
               </div>
             </div>
@@ -81,14 +80,14 @@ export default function ContactPage() {
                       <div className="form-group">
                         <label className="input_title" htmlFor="input_name">Full Name
                         </label>
-                        <input id="input_name" className="form-control" type="text" name="name" placeholder="Goladra Gomaz" required />
+                        <input id="input_name" className="form-control" type="text" name="name" placeholder="Jhon Doe" required />
                       </div>
                     </div>
                     <div className="col-md-6">
                       <div className="form-group">
                         <label className="input_title" htmlFor="input_email">Your Email
                         </label>
-                        <input id="input_email" className="form-control" type="email" name="email" placeholder="Techco@example.com" required />
+                        <input id="input_email" className="form-control" type="email" name="email" placeholder="doe@example.com" required />
                       </div>
                     </div>
                     <div className="col-12">
@@ -110,11 +109,6 @@ export default function ContactPage() {
                       </button>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div className="col-lg-5">
-                <div className="gmap_canvas ps-lg-5">
-                  <iframe src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
                 </div>
               </div>
             </div>

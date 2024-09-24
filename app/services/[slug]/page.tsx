@@ -41,14 +41,14 @@ export default async function ServiceDetailsPage({ params }: ServiceDetailsPageP
 
         <section className="service_details_section section_space bg-light">
           <div className="container">
-            <div className="details_item_image position-relative">
+            {/* <div className="details_item_image position-relative">
               <img src="/assets/images/services/service_details_image_1.webp" alt="Service Details Image" />
               <a className="video_btn ripple_effect" href="https://www.youtube.com/watch?v=7e90gBu4pas">
                 <span className="btn_icon">
                   <i className="fa-solid fa-play"></i>
                 </span>
               </a>
-            </div>
+            </div> */}
             
             {service.p0 && <div dangerouslySetInnerHTML={{ __html: renderHtml(service.p0.json) }} />}
 
@@ -101,7 +101,7 @@ export default async function ServiceDetailsPage({ params }: ServiceDetailsPageP
                 </ul>
               </div>
             </div>
-            <div className="row">
+            {/* <div className="row">
               <div className="col-lg-4 col-md-6 col-sm-6">
                 <div className="details_item_image m-0">
                   <img src="/assets/images/services/service_details_image_2.webp" alt="Service Details Image" />
@@ -117,7 +117,7 @@ export default async function ServiceDetailsPage({ params }: ServiceDetailsPageP
                   <img src="/assets/images/services/service_details_image_4.webp" alt="Service Details Image" />
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
     </>

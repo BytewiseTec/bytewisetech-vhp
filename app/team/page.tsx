@@ -35,10 +35,8 @@ export default async function TeamPage() {
       >
         <div className="container">
           <div className="heading_focus_text text-white">
-            <span className="badge bg-secondary">Team</span>
-            Members 😍
+            <span className="badge bg-secondary">Team 😍</span>
           </div>
-          <h1 className="page_title mb-0 text-white">Team Member</h1>
         </div>
       </section>
 
@@ -47,7 +45,7 @@ export default async function TeamPage() {
           <div className="row align-items-center justify-content-lg-between">
             <div className="col-lg-6 order-lg-last">
               <div className="team_cartoon_image">
-                <img src="/assets/images/team/team_cartoon_image.webp" alt="Team Cartoon Image - Techco - About Image" />
+                <img src="/assets/images/team/team.png" alt="Team Cartoon Image - Techco - About Image" />
               </div>
             </div>
             <div className="col-lg-5">
@@ -58,10 +56,10 @@ export default async function TeamPage() {
                     <span className="badge bg-secondary text-white">Team 🙂</span>
                   </div>
                   <h2 className="heading_text">
-                    Get to Know Our Expert Techco Team
+                    Get to Know Our Bytewise Team
                   </h2>
                   <p className="heading_description mb-0">
-                    Get acquainted with the powerhouse behind Techco – our expert team of professionals dedicated to revolutionizing the IT landscape.
+                  Bytewise Technologies is inviting you to meet their exceptional team of IT professionals who are revolutionizing the industry with their innovative ideas and groundbreaking work.
                   </p>
                 </div>
                 <a className="btn" href="contact.html">
@@ -76,7 +74,7 @@ export default async function TeamPage() {
         </div>
       </section>
 
-      <section className="team_section section_space">
+      {/* <section className="team_section section_space">
         <div className="container">
           <div className="heading_block text-center">
             <div className="heading_focus_text">
@@ -150,7 +148,7 @@ export default async function TeamPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   )
 }

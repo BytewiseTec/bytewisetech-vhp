@@ -82,60 +82,7 @@ export default function Navbar() {
                                     </span>
                                   </Link>
                                 </li>
-                                <li>
-                                  <div className="review_short_info_2">
-                                    <div className="review_admin_logo">
-                                      <Image width={200} height={200} src="/assets/images/clients/client_logo_9.webp" alt="Client Logo" />
-                                    </div>
-                                    <div className="review_info_content">
-                                      <ul className="rating_block unordered_list">
-                                        <li><i className="fa-solid fa-star fa-fw"></i></li>
-                                        <li><i className="fa-solid fa-star fa-fw"></i></li>
-                                        <li><i className="fa-solid fa-star fa-fw"></i></li>
-                                        <li><i className="fa-solid fa-star fa-fw"></i></li>
-                                        <li><i className="fa-solid fa-star fa-fw"></i></li>
-                                      </ul>
-                                      <div className="review_counter">From <b>200+</b> reviews</div>
-                                    </div>
-                                  </div>
-                                </li>
-                                <li>
-                                  <div className="review_short_info_2">
-                                    <div className="review_admin_logo">
-                                      <Image width={200} height={200} src="/assets/images/clients/client_logo_10.webp" alt="Client Logo" />
-                                    </div>
-                                    <div className="review_info_content">
-                                      <ul className="rating_block unordered_list">
-                                        <li><i className="fa-solid fa-star fa-fw"></i></li>
-                                        <li><i className="fa-solid fa-star fa-fw"></i></li>
-                                        <li><i className="fa-solid fa-star fa-fw"></i></li>
-                                        <li><i className="fa-solid fa-star fa-fw"></i></li>
-                                        <li><i className="fa-solid fa-star fa-fw"></i></li>
-                                      </ul>
-                                      <div className="review_counter">From <b>200+</b> reviews</div>
-                                    </div>
-                                  </div>
-                                </li>
                               </ul>
-                            </div>
-                            <div className="col-lg-3">
-                              <div className="site_author bg-primary">
-                                <div className="author_box">
-                                  <div className="author_image bg-light">
-                                    <Image width={200} height={200} src={teamMember.portrait.url} alt="Site Author Image" />
-                                  </div>
-                                  <div className="author_box_content">
-                                    <h3 className="author_name text-white">{teamMember.fullName}</h3>
-                                    <span className="author_designation text-white">{teamMember.title}</span>
-                                  </div>
-                                  <div className="quote_icon">
-                                    <Image width={200} height={200} src="/assets/images/icons/icon_quote.svg" alt="Quote Icon" />
-                                  </div>
-                                </div>
-                                <p className="mb-0 text-white">
-                                  {teamMember.bio}
-                                </p>
-                              </div>
                             </div>
                           </div>
                         </div>

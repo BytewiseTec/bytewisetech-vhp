@@ -179,7 +179,7 @@ export default function TechnologyReview() {
           </div>
         </div>
 
-        <div className="row">
+        {/* <div className="row">
           <div className="col-lg-4">
             <div className="deals_winner_customers">
               <h3 className="title_text">
@@ -264,10 +264,10 @@ export default function TechnologyReview() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
-      <div className="decoration_item shape_image_1">
+      {/* <div className="decoration_item shape_image_1">
         <img src="/assets/images/shapes/shape_line_2.svg" alt="Techco Shape" />
       </div>
       <div className="decoration_item shape_image_2">
@@ -278,7 +278,7 @@ export default function TechnologyReview() {
       </div>
       <div className="decoration_item shape_image_4">
         <img src="/assets/images/shapes/shape_space_3.svg" alt="Techco Shape" />
-      </div>
+      </div> */}
     </section>
   )
 }
