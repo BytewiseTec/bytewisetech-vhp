@@ -1,24 +1,30 @@
 'use client'
-
 import Image from 'next/image'
-import { FieldsLinksQuery, GET_FIELDS, GET_LINKS, GET_SERVICES, HeaderLinksQuery, ServicesLinksQuery } from './query'
+import {  GET_CASE_STUDIES,CaseStudiesQuery,GET_TEAM, TeamMemberQuery, FieldsLinksQuery, GET_FIELDS, GET_LINKS, GET_SERVICES, HeaderLinksQuery, ServicesLinksQuery } from './query'
 import { useSuspenseQuery } from '@apollo/client'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import Badge from '../Badge'
-
+const getSocialMediaIcon = (url: string) => {
+  if (url.includes('https://www.facebook.com/muhammadkh4n')) return 'fa-facebook-f'
+  if (url.includes('https://www.github.com/muhammadkh4n')) return 'fa-github'
+  if (url.includes('https://www.linkedin.com/in/muhammadkh4n')) return 'fa-linkedin-in'
+  return null
+}
 export default function Navbar() {
   const { data: linksCollection } = useSuspenseQuery<HeaderLinksQuery>(GET_LINKS)
   const { data: servicesCollection } = useSuspenseQuery<ServicesLinksQuery>(GET_SERVICES)
+  const { data: teamMemberData } = useSuspenseQuery<TeamMemberQuery>(GET_TEAM)
+  const { data: projectData } = useSuspenseQuery<CaseStudiesQuery>(GET_CASE_STUDIES)
   const { data: fieldsCollection } = useSuspenseQuery<FieldsLinksQuery>(GET_FIELDS)
   const { home, company, portfolio, services, fields, product, contact, pages } = linksCollection?.links.header || {}
   const { items: serviceLinks } = servicesCollection?.serviceCollection || {}
   const { items: fieldLinks } = fieldsCollection?.fieldCollection || {}
   const pathName = usePathname()
   const router = useRouter()
-
+  const teamMember = teamMemberData?.teamCollection?.items[0]
+ const ProjectMember = projectData?.projectCollection?.items[0]
   const isRouteActive = (isActive: boolean) => isActive ? 'active' : ''
-
   return (
     <header className="site_header site_header_2">
       <div className="header_bottom stricky">
@@ -116,18 +122,18 @@ export default function Navbar() {
                               <div className="site_author bg-primary">
                                 <div className="author_box">
                                   <div className="author_image bg-light">
-                                    <Image width={200} height={200} src="/assets/images/avatar/avatar_7.webp" alt="Site Author Image" />
+                                    <Image width={200} height={200} src={teamMember.portrait.url} alt="Site Author Image" />
                                   </div>
                                   <div className="author_box_content">
-                                    <h3 className="author_name text-white">Maverick Phoenix</h3>
-                                    <span className="author_designation text-white">CEO At Techco</span>
+                                    <h3 className="author_name text-white">{teamMember.fullName}</h3>
+                                    <span className="author_designation text-white">{teamMember.title}</span>
                                   </div>
                                   <div className="quote_icon">
                                     <Image width={200} height={200} src="/assets/images/icons/icon_quote.svg" alt="Quote Icon" />
                                   </div>
                                 </div>
                                 <p className="mb-0 text-white">
-                                  As a CEO at Techco  I have been voice crying in the wilderness,  trying to make requirements clear, use every minute to deliver the  result, and not reinvent the wheel. Here at Techco, I made that possible  for the clients.
+                                  {teamMember.bio}
                                 </p>
                               </div>
                             </div>
@@ -200,26 +206,17 @@ export default function Navbar() {
                               </div>
                               <div className="social_area">
                                 <ul className="social_icons_block unordered_list" data-text="Follow Us:">
-                                  <li>
-                                    <a href="#!">
-                                      <i className="fa-brands fa-facebook-f"></i>
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a href="#!">
-                                      <i className="fa-brands fa-twitter"></i>
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a href="#!">
-                                      <i className="fa-brands fa-linkedin-in"></i>
-                                    </a>
-                                  </li>
-                                  <li>
-                                    <a href="#!">
-                                      <i className="fa-brands fa-dribbble"></i>
-                                    </a>
-                                  </li>
+
+                                  {teamMember.social.map((socialLink, index) => {
+                                    const Icon = getSocialMediaIcon(socialLink)
+                                    return (
+                                      <li key={index}>
+                                        <Link href={socialLink} target="_blank" rel="noopener noreferrer">
+                                          <i className={`fa-brands ${Icon}`}></i>
+                                        </Link>
+                                      </li>
+                                    )
+                                  })}
                                 </ul>
                                 <p className="career_link m-0">Looking for new career? <Link href={contact.href}>We’re Hiring</Link></p>
                               </div>
@@ -227,9 +224,9 @@ export default function Navbar() {
                             <div className="col-lg-3">
                               <div className="megamenu_case bg-primary">
                                 <h3>Computer Software</h3>
-                                <h4>Astarte Medical</h4>
-                                <Image width={200} height={200} src="/assets/images/case/case_image_4.webp" alt="Case Image" />
-                                <Link className="btn" href={portfolio.href}>
+                                <h4>{ProjectMember.name}</h4>
+                                <Image width={200} height={200} src={ProjectMember.banner.url} alt="Case Image" />
+                                <Link className="btn" href={ProjectMember.slug}>
                                   <span className="btn_label" data-text="Read Case">Read Case</span>
                                   <span className="btn_icon">
                                     <i className="fa-solid fa-arrow-up-right"></i>
@@ -256,7 +253,7 @@ export default function Navbar() {
                         ))}
                       </ul>
                     </li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href={contact.href}>Contact</a></li>
                   </ul>
                 </div>
               </nav>
@@ -269,7 +266,7 @@ export default function Navbar() {
                   </button>
                 </li>
                 <li>
-                  <a className="btn btn-primary" href="pricing.html">
+                  <a className="btn btn-primary" href={contact.href}>
                     <span className="btn_label" data-text="Get Started">Get Started</span>
                     <span className="btn_icon">
                       <i className="fa-solid fa-arrow-up-right"></i>

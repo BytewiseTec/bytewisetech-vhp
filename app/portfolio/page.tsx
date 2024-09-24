@@ -1,11 +1,10 @@
 import Image from 'next/image'
 import { query } from '../ApolloClient'
 import { GET_PROJECTS, ProjectsQuery } from './query'
-
+import Link from 'next/link'
 export default async function PortfolioPage() {
-  const { data: projectsData } = await query<ProjectsQuery>({
-    query: GET_PROJECTS,
-  })
+  const { data: projectsData } = await query<ProjectsQuery>({query: GET_PROJECTS}
+  )
 
   const { items: projects } = projectsData.projectCollection || {}
 
@@ -31,19 +30,19 @@ export default async function PortfolioPage() {
               <div className="col-lg-6 technology" key={project._id}>
                 <div className="portfolio_block portfolio_layout_2">
                   <div className="portfolio_image">
-                    <a className="portfolio_image_wrap bg-light" href={`/portfolio/${project.slug}`}>
+                    <Link className="portfolio_image_wrap bg-light" href={`/portfolio/${project.slug}`}>
                       <Image
                         src={project.thumbnail.url}
                         width={project.thumbnail.width}
                         height={project.thumbnail.height}
                         alt={project.thumbnail.title} />
-                    </a>
+                    </Link>
                   </div>
                   <div className="portfolio_content">
                     <h3 className="portfolio_title">
-                      <a href={`/portfolio/${project.slug}`}>
+                      <Link href={`/portfolio/${project.slug}`}>
                         {project.title}
-                      </a>
+                      </Link>
                     </h3>
                     <ul className="category_list unordered_list">
                       <li><i className="fa-solid fa-tags"></i> {project.industry}</li>

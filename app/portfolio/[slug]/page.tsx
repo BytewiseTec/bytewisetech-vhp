@@ -14,7 +14,7 @@ interface PortfolioDetailsPageProps {
 export default async function PortfolioDetailsPage({ params }: PortfolioDetailsPageProps) {
   const { data: projectsData } = await query<ProjectIdQuery>({
     query: GET_PROJECT_ID,
-    variables: {
+    variables:{
       slug: params.slug
     }
   })

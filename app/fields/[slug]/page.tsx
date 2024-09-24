@@ -39,7 +39,7 @@ export default async function FieldsPage({ params }: FieldsPageProps) {
           <div className="details_item_image">
             <img src="/assets/images/services/service_details_image_5.webp" alt="Service Details Image" />
           </div>
-          {field.p0 && <div dangerouslySetInnerHTML={{ __html: renderHtml(field.p0.json) }} />}
+          {/* {field.p0 && <div dangerouslySetInnerHTML={{ __html: renderHtml(field.p0.json) }} />} */}
 
           {field.p1 && (
             <div dangerouslySetInnerHTML={{ __html: renderHtml(field.p1.json, {

@@ -1,4 +1,17 @@
+'use client'
+import { useSuspenseQuery } from '@apollo/client'
+import { GET_CASE_STUDIES, CaseStudiesQuery } from './query'
+import { GET_LINKS, HeaderLinksQuery } from '../Navbar/query'
+import Link from 'next/link'
+
+
 export default function AboutCaseStudies() {
+
+  const { data, error } = useSuspenseQuery<CaseStudiesQuery>(GET_CASE_STUDIES)
+  const { data: linksCollection } = useSuspenseQuery<HeaderLinksQuery>(GET_LINKS)
+  const { portfolio } = linksCollection?.links.header || {}
+  const aboutData = data?.projectCollection.items[0]
+  if (error) return <div>Error loading case studies</div>
   return (
     <section
       className="about_and_case_section section_space section_decoration bg-dark"
@@ -18,15 +31,11 @@ export default function AboutCaseStudies() {
               >
                 <div className="customer_count">
                   <ul className="unordered_list">
-                    <li>
-                      <img src="/assets/images/avatar/avatar_1.webp" alt="Customer Avatar" />
-                    </li>
-                    <li>
-                      <img src="/assets/images/avatar/avatar_2.webp" alt="Customer Avatar" />
-                    </li>
-                    <li>
-                      <img src="/assets/images/avatar/avatar_3.webp" alt="Customer Avatar" />
-                    </li>
+                    {aboutData.aboutimage.map((item,index)=>
+                    <li key={index}>
+                    <img src={item} alt="Customer Avatar" />
+                  </li>
+                    )}
                     <li>
                       <span>6k+</span>
                     </li>
@@ -36,22 +45,16 @@ export default function AboutCaseStudies() {
                   </p>
                 </div>
                 <div className="about_funfact_counter">
-                  <div className="funfact_item">
-                    <div className="counter_value">
-                      <span className="odometer" data-count="6">0</span>
-                      <span>K+</span>
+                  {aboutData.aboutdata.map((item, index) =>
+                    <div key={index} className="funfact_item">
+                      <div className="counter_value">
+                        <span className="odometer" >{item.icon}</span>
+                      </div>
+                      <h3 className="funfact_title mb-0">{item.title}</h3>
                     </div>
-                    <h3 className="funfact_title mb-0">Projects Done</h3>
-                  </div>
-                  <div className="funfact_item">
-                    <div className="counter_value">
-                      <span className="odometer" data-count="100">0</span>
-                      <span>%</span>
-                    </div>
-                    <h3 className="funfact_title mb-0">Results Guaranteed</h3>
-                  </div>
+                  )}
                 </div>
-                <a className="btn btn-primary" href="about.html">
+                <a className="btn btn-primary" href={'/about'}>
                   <span className="btn_label" data-text="Learn More">Learn More</span>
                   <span className="btn_icon">
                     <i className="fa-solid fa-arrow-up-right"></i>
@@ -79,18 +82,17 @@ export default function AboutCaseStudies() {
                   Techco <mark>Mission & Goal</mark>
                 </h2>
                 <p className="heading_description mb-0">
-                  At Techco, our mission is to empower businesses through innovative software solutions that streamline operations, foster growth, and drive success. With a commitment to excellence and customer satisfaction we strive.
+                  {aboutData.abouttext}
                 </p>
               </div>
             </div>
           </div>
         </div>
-
         <div className="pt-170">
           <div className="heading_block text-center text-white">
             <div
               className="heading_focus_text has_underline d-inline-flex"
-              style={{ backgroundImage: 'url(\'assets/images/shapes/shape_title_under_line.svg\')' }}
+              style={{ backgroundImage: 'url(\'/assets/images/shapes/shape_title_under_line.svg\')' }}
             >
               Case Studies
             </div>
@@ -100,141 +102,69 @@ export default function AboutCaseStudies() {
           </div>
 
           <div className="case_studies_wrapper">
-            <div className="case_study_block">
-              <div className="case_study_image">
-                <img src="/assets/images/case/case_image_1.webp" alt="Techco - Cases Image" />
-              </div>
-              <div className="case_study_content">
-                <ul className="category_list unordered_list text-uppercase">
-                  <li><a href="portfolio.html">Computer Software</a></li>
-                </ul>
-                <h3 className="case_title">
-                  <a href="portfolio_details.html">Astarte Medical</a>
-                </h3>
-                <p>
-                  Creating software for Astarte Medical involves a meticulous process aimed at addressing their specific needs and objectives. It begins with thorough research and planning to understand the requirements goals of the project.
-                </p>
-                <ul className="icon_list unordered_list">
-                  <li>
-                    <span className="icon_list_text">
-                      <strong className="text-dark">Industry:</strong> Computer software
-                    </span>
-                  </li>
-                  <li>
-                    <span className="icon_list_text">
-                      <strong className="text-dark">Country:</strong> Germany, Issum
-                    </span>
-                  </li>
-                </ul>
-                <ul className="case_technologies unordered_list" data-text="Core Technologies:">
-                  <li>
-                    <img src="/assets/images/case/icon_angular.svg" alt="Angular" />
-                  </li>
-                  <li>
-                    <img src="/assets/images/case/icon_elephent.svg" alt="Elephent" />
-                  </li>
-                </ul>
-                <a className="btn btn-primary" href="portfolio_details.html">
-                  <span className="btn_label" data-text="Read Case">Read Case</span>
-                  <span className="btn_icon">
-                    <i className="fa-solid fa-arrow-up-right"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div className="case_study_block">
-              <div className="case_study_image">
-                <img src="/assets/images/case/case_image_2.webp" alt="Techco - Cases Image" />
-              </div>
-              <div className="case_study_content">
-                <ul className="category_list unordered_list text-uppercase">
-                  <li><a href="portfolio.html">Healthcare</a></li>
-                </ul>
-                <h3 className="case_title">
-                  <a href="portfolio_details.html">CAE Blue Phantom</a>
-                </h3>
-                <p>
-                  CAE Blue Phantom is a cutting-edge simulation technology designed to revolutionize medical training and education. Utilizing advanced virtual reality and artificial intelligence, CAE Blue Phantom provides.
-                </p>
-                <ul className="icon_list unordered_list">
-                  <li>
-                    <span className="icon_list_text">
-                      <strong className="text-dark">Industry:</strong> Wellness & Fitness
-                    </span>
-                  </li>
-                  <li>
-                    <span className="icon_list_text">
-                      <strong className="text-dark">Country:</strong> Germany, Issum
-                    </span>
-                  </li>
-                </ul>
-                <ul className="case_technologies unordered_list" data-text="Core Technologies:">
-                  <li>
-                    <img src="/assets/images/case/icon_angular.svg" alt="Angular" />
-                  </li>
-                  <li>
-                    <img src="/assets/images/case/icon_netcore.svg" alt="Elephent" />
-                  </li>
-                </ul>
-                <a className="btn btn-primary" href="portfolio_details.html">
-                  <span className="btn_label" data-text="Read Case">Read Case</span>
-                  <span className="btn_icon">
-                    <i className="fa-solid fa-arrow-up-right"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div className="case_study_block">
-              <div className="case_study_image">
-                <img src="/assets/images/case/case_image_3.webp" alt="Techco - Cases Image" />
-              </div>
-              <div className="case_study_content">
-                <ul className="category_list unordered_list text-uppercase">
-                  <li><a href="portfolio.html">Real Estate</a></li>
-                </ul>
-                <h3 className="case_title">
-                  <a href="portfolio_details.html">Liberkeys</a>
-                </h3>
-                <p>
-                  Liberkeys is a modern real estate platform that is revolutionizing the way people buy, sell, and rent properties. With a focus on transparency, efficiency, and customer satisfaction, Liberkeys streamlines.
-                </p>
-                <ul className="icon_list unordered_list">
-                  <li>
-                    <span className="icon_list_text">
-                      <strong className="text-dark">Industry:</strong> Real estate
-                    </span>
-                  </li>
-                  <li>
-                    <span className="icon_list_text">
-                      <strong className="text-dark">Country:</strong> France, Paris
-                    </span>
-                  </li>
-                </ul>
-                <ul className="case_technologies unordered_list" data-text="Core Technologies:">
-                  <li>
-                    <img src="/assets/images/case/vuejs.svg" alt="Angular" />
-                  </li>
-                  <li>
-                    <img src="/assets/images/case/icon_python.svg" alt="Elephent" />
-                  </li>
-                </ul>
-                <a className="btn btn-primary" href="portfolio_details.html">
-                  <span className="btn_label" data-text="Read Case">Read Case</span>
-                  <span className="btn_icon">
-                    <i className="fa-solid fa-arrow-up-right"></i>
-                  </span>
-                </a>
-              </div>
-            </div>
+            {data.projectCollection.items.length > 0 ? (
+              data.projectCollection.items.map((caseStudy) => (
+                <div className="case_study_block" key={caseStudy._id}>
+                  <div className="case_study_image">
+                    <img
+                      src={caseStudy.thumbnail.url || '/assets/images/default_case_study_image.svg'}
+                      alt={caseStudy.name}
+                    />
+                  </div>
+                  <div className="case_study_content">
+                    <ul className="category_list unordered_list text-uppercase">
+                      <li>
+                        {caseStudy.field}
+                      </li>
+                    </ul>
+                    <h3 className="case_title">
+                      <Link href={`${portfolio.href}/${caseStudy.slug}`}>
+                        {caseStudy.name}
+                      </Link>
+                    </h3>
+                    <p>{caseStudy.short}</p>
+                    <ul className="icon_list unordered_list">
+                      <li>
+                        <span className="icon_list_text">
+                          <strong className="text-dark">Industry:</strong> {caseStudy.industry}
+                        </span>
+                      </li>
+                      <li>
+                        <span className="icon_list_text">
+                          <strong className="text-dark">Country:</strong> {caseStudy.address}
+                        </span>
+                      </li>
+                    </ul>
+                    <ul className="case_technologies unordered_list" data-text="Core Technologies:">
+                      <li>
+                        <img src="/assets/images/case/icon_angular.svg" alt="Angular" />
+                      </li>
+                      <li>
+                        <img src="/assets/images/case/icon_elephent.svg" alt="Elephent" />
+                      </li>
+                    </ul>
+                    <Link className="btn btn-primary" href={`${portfolio.href}/${caseStudy.slug}`}>
+
+                      <span className="btn_label" data-text="Read Case">Read Case</span>
+                      <span className="btn_icon">
+                        <i className="fa-solid fa-arrow-up-right"></i>
+                      </span>
+                    </Link>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div>No case studies available</div>
+            )}
           </div>
 
           <div className="btns_group pb-0">
-            <a className="btn btn-primary" href="portfolio.html">
+            <Link className="btn btn-primary" href={`${portfolio.href}`}>
               <span className="btn_label" data-text="View More Cases Study">View More Cases Study</span>
               <span className="btn_icon">
                 <i className="fa-solid fa-arrow-up-right"></i>
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

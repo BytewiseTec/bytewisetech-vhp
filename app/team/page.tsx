@@ -1,9 +1,37 @@
-export default function TeamPage() {
+import React from 'react'
+import { GET_TEAM_COLLECTION, TeamCollectionQuery } from './query'
+import Link from 'next/link'
+import { GET_ROUTES, RouteLinksQuery } from '../global.query'
+import { query } from '../ApolloClient'
+const getSocialMediaIcon = (url: string) => {
+  if (url.includes('https://www.facebook.com/muhammadkh4n')) return  'fa-facebook-f'
+  if (url.includes('https://www.github.com/muhammadkh4n')) return 'fa-github'
+  if (url.includes('https://www.linkedin.com/in/muhammadkh4n')) return 'fa-linkedin-in'
+  return null
+}
+export default async function TeamPage() {
+  const { data, error } = await query<TeamCollectionQuery>({
+    query: GET_TEAM_COLLECTION
+  })
+
+  const { data: routesData } = await query<RouteLinksQuery>({
+    query: GET_ROUTES,
+    variables:{
+      id: '5wSNq34HGEvBudALxOO3ZD'
+    }
+  })
+  const teamsPageRoute = routesData.links?.routes?.team
+
+  if (error) return <div>Error loading team members</div>
+  if (!data || !data.teamCollection.items.length) {
+    return <div>No team members available</div>
+  }
+
   return (
     <>
       <section
         className="page_banner_section text-center"
-        style={{ backgroundImage: 'url(\'assets/images/shapes/bg_pattern_4.svg\')' }}
+        style={{ backgroundImage: 'url(\'/assets/images/shapes/bg_pattern_4.svg\')' }}
       >
         <div className="container">
           <div className="heading_focus_text text-white">
@@ -33,11 +61,11 @@ export default function TeamPage() {
                     Get to Know Our Expert Techco Team
                   </h2>
                   <p className="heading_description mb-0">
-                    Get acquainted with the powerhouse behind Techco – our expert team of professionals dedicated to revolutionizing the IT landscape. Comprising.
+                    Get acquainted with the powerhouse behind Techco – our expert team of professionals dedicated to revolutionizing the IT landscape.
                   </p>
                 </div>
                 <a className="btn" href="contact.html">
-                  <span className="btn_label" data-text="Talk to an Expart">Talk to an Expart</span>
+                  <span className="btn_label" data-text="Talk to an Expert">Talk to an Expert</span>
                   <span className="btn_icon">
                     <i className="fa-solid fa-arrow-up-right"></i>
                   </span>
@@ -61,234 +89,43 @@ export default function TeamPage() {
           </div>
 
           <div className="row">
-            <div className="col-lg-4 col-md-6 col-sm-6">
-              <div className="team_block">
-                <div className="team_member_image">
-                  <a className="image_wrap" aria-label="Team Details Button" href="team_details.html">
-                    <img src="/assets/images/team/team_member_image_1.webp" alt="Team Member Image" />
+            {data.teamCollection.items.map((member) => (
+              <div key={member._id} className="col-lg-4 col-md-6 col-sm-6">
+                <div className="team_block">
+                  <div className="team_member_image">
+                    
+                  <Link
+                      className="image_wrap"
+                      aria-label={`Details for ${member.fullName}`}
+                      href={`${teamsPageRoute}/${member.slug}`} 
+                    >
+                      <img src={member.portrait.url} alt={`Portrait of ${member.fullName}`} />
                       <i className="fa-solid fa-arrow-up-right"></i>
-                  </a>
-                </div>
-                <div className="team_member_info">
-                  <h3 className="team_member_name">
-                    <a href="team_details.html">Atticus Sterling</a>
-                  </h3>
-                  <h4 className="team_member_designation">Systems Engineer</h4>
-                  <ul className="social_icons_block unordered_list justify-content-center">
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_facebook.svg" alt="Icon Facebook" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_twitter_x.svg" alt="Icon Twitter X" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_linkedin.svg" alt="Icon Linkedin" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_instagram.svg" alt="Icon Instagram" />
-                      </a>
-                    </li>
-                  </ul>
+                    </Link>
+                  </div>
+                  <div className="team_member_info">
+                    <h3 className="team_member_name">
+                      <Link   href={`${teamsPageRoute}/${member.slug}`} >
+                        {member.fullName}
+                      </Link>
+                    </h3>
+                    <h4 className="team_member_designation">{member.title}</h4>
+                    <ul className="social_icons_block unordered_list justify-content-center"> 
+                  {data.teamCollection.items[0].social.map((socialLink, index) => {
+                    const Icon = getSocialMediaIcon(socialLink)
+                    return (
+                      <li key={index}>
+                        <Link href={socialLink} target="_blank" rel="noopener noreferrer">
+                          <i className={`fa-brands ${Icon}`}></i>
+                        </Link>
+                      </li>
+                    )
+                  })}
+                </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-6">
-              <div className="team_block">
-                <div className="team_member_image">
-                  <a className="image_wrap" aria-label="Team Details Button" href="team_details.html">
-                    <img src="/assets/images/team/team_member_image_2.webp" alt="Team Member Image" />
-                      <i className="fa-solid fa-arrow-up-right"></i>
-                  </a>
-                </div>
-                <div className="team_member_info">
-                  <h3 className="team_member_name">
-                    <a href="team_details.html">Orion Jasper</a>
-                  </h3>
-                  <h4 className="team_member_designation">IT Consultant</h4>
-                  <ul className="social_icons_block unordered_list justify-content-center">
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_facebook.svg" alt="Icon Facebook" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_twitter_x.svg" alt="Icon Twitter X" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_linkedin.svg" alt="Icon Linkedin" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_instagram.svg" alt="Icon Instagram" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-6">
-              <div className="team_block">
-                <div className="team_member_image">
-                  <a className="image_wrap" aria-label="Team Details Button" href="team_details.html">
-                    <img src="/assets/images/team/team_member_image_3.webp" alt="Team Member Image" />
-                      <i className="fa-solid fa-arrow-up-right"></i>
-                  </a>
-                </div>
-                <div className="team_member_info">
-                  <h3 className="team_member_name">
-                    <a href="team_details.html">August Everest</a>
-                  </h3>
-                  <h4 className="team_member_designation">systems engineer</h4>
-                  <ul className="social_icons_block unordered_list justify-content-center">
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_facebook.svg" alt="Icon Facebook" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_twitter_x.svg" alt="Icon Twitter X" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_linkedin.svg" alt="Icon Linkedin" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_instagram.svg" alt="Icon Instagram" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-6">
-              <div className="team_block">
-                <div className="team_member_image">
-                  <a className="image_wrap" aria-label="Team Details Button" href="team_details.html">
-                    <img src="/assets/images/team/team_member_image_4.webp" alt="Team Member Image" />
-                      <i className="fa-solid fa-arrow-up-right"></i>
-                  </a>
-                </div>
-                <div className="team_member_info">
-                  <h3 className="team_member_name">
-                    <a href="team_details.html">Maverick Phoenix</a>
-                  </h3>
-                  <h4 className="team_member_designation">data analyst</h4>
-                  <ul className="social_icons_block unordered_list justify-content-center">
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_facebook.svg" alt="Icon Facebook" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_twitter_x.svg" alt="Icon Twitter X" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_linkedin.svg" alt="Icon Linkedin" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_instagram.svg" alt="Icon Instagram" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-6">
-              <div className="team_block">
-                <div className="team_member_image">
-                  <a className="image_wrap" aria-label="Team Details Button" href="team_details.html">
-                    <img src="/assets/images/team/team_member_image_5.webp" alt="Team Member Image" />
-                      <i className="fa-solid fa-arrow-up-right"></i>
-                  </a>
-                </div>
-                <div className="team_member_info">
-                  <h3 className="team_member_name">
-                    <a href="team_details.html">Daxton Atlas</a>
-                  </h3>
-                  <h4 className="team_member_designation">Project Manager</h4>
-                  <ul className="social_icons_block unordered_list justify-content-center">
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_facebook.svg" alt="Icon Facebook" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_twitter_x.svg" alt="Icon Twitter X" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_linkedin.svg" alt="Icon Linkedin" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_instagram.svg" alt="Icon Instagram" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-6">
-              <div className="team_block">
-                <div className="team_member_image">
-                  <a className="image_wrap" aria-label="Team Details Button" href="team_details.html">
-                    <img src="/assets/images/team/team_member_image_1.webp" alt="Team Member Image" />
-                      <i className="fa-solid fa-arrow-up-right"></i>
-                  </a>
-                </div>
-                <div className="team_member_info">
-                  <h3 className="team_member_name">
-                    <a href="team_details.html">Atticus Sterling</a>
-                  </h3>
-                  <h4 className="team_member_designation">Systems Engineer</h4>
-                  <ul className="social_icons_block unordered_list justify-content-center">
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_facebook.svg" alt="Icon Facebook" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_twitter_x.svg" alt="Icon Twitter X" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_linkedin.svg" alt="Icon Linkedin" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#!">
-                        <img src="/assets/images/icons/icon_instagram.svg" alt="Icon Instagram" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -307,7 +144,7 @@ export default function TeamPage() {
 
           <div className="row justify-content-center">
             <div className="col-lg-10">
-              <div className="team_map_image  text-center">
+              <div className="team_map_image text-center">
                 <img src="/assets/images/team/team_map.webp" alt="Techco - Team Map Image" />
               </div>
             </div>

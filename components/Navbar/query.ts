@@ -1,6 +1,7 @@
 import { Link } from '@/app/layout.types'
 import gql from 'graphql-tag'
-
+import { TeamMember } from '@/app/about/query'
+import { Media } from '@/app/content.types'
 export interface HeaderLinks {
   home: Link;
   company: Link;
@@ -11,7 +12,11 @@ export interface HeaderLinks {
   pages: Link;
   contact: Link;
 }
-
+export interface CaseStudy {
+  name: string;
+  slug: string;
+  banner: Media;
+}
 export interface NavLink {
   _id: string;
   name: string;
@@ -23,6 +28,48 @@ export interface HeaderLinksQuery {
     header: HeaderLinks;
   }
 }
+
+export interface TeamMemberQuery {
+  teamCollection: {
+    items: TeamMember[];
+  }
+}
+export const GET_TEAM = gql`
+  query TeamCollection {
+    teamCollection {
+        items {
+            fullName
+            title
+            portrait {
+                url
+                width
+                height
+            }
+            bio
+            slug
+            social
+        }
+    }
+}
+`
+export interface CaseStudiesQuery {
+  projectCollection: {
+    items: CaseStudy[];
+  };
+}
+export const GET_CASE_STUDIES = gql`
+query ProjectCollection {
+  projectCollection {
+    items {
+      name
+      slug
+      banner {
+        url
+      }
+    }
+  }
+}
+`
 
 export const GET_LINKS = gql`
   query Links {

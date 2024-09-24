@@ -1,4 +1,12 @@
+'use client'
+import { useSuspenseQuery } from '@apollo/client'
+import {GET_HERO,HeroQuery,GET_LINKS, HeaderLinksQuery } from './query'
+
 export default function Hero() {
+  const { data: linksCollection } = useSuspenseQuery<HeaderLinksQuery>(GET_LINKS)
+  const { data: heroData } = useSuspenseQuery<HeroQuery>(GET_HERO)
+  const {  contact } = linksCollection?.links.header || {}
+  const Herodata=heroData?.heroCollection.items[0]
   return (
     <section className="software_company_hero_section xb-hidden">
       <div className="container">
@@ -11,21 +19,22 @@ export default function Hero() {
                   backgroundImage: 'url(\'assets/images/shapes/shape_title_under_line.svg\')'
                 }}
               >
-                Perfect Company Solution
+                {Herodata.title}
               </div>
               <h1 className="text-white">
                 We Help Companies in <mark>Digitizing</mark> Their Businesses.
               </h1>
               <p>
-                In today&apos;s rapidly evolving digital landscape, staying ahead of the curve is essential for businesses aiming to thrive and succeed.
+              {Herodata.description}
               </p>
               <ul className="step_list text-white unordered_list_block">
-                <li>Focus on quality first</li>
-                <li>Get to the market on time</li>
+                {Herodata.points.map((items,index)=>
+                 <li key={index}>{items}</li>
+                )}
               </ul>
               <ul className="btns_group unordered_list p-0 justify-content-start">
                 <li>
-                  <a className="btn" href="pricing.html">
+                  <a className="btn" href={contact.href}>
                     <span className="btn_label" data-text="Contact Us Today!">Contact Us Today!</span>
                     <span className="btn_icon">
                       <i className="fa-solid fa-arrow-up-right"></i>
@@ -33,13 +42,13 @@ export default function Hero() {
                   </a>
                 </li>
                 <li>
-                  <a className="hotline_block" href="tel:+420318568511">
+                  <a className="hotline_block" href={Herodata.phone}>
                     <span className="hotline_icon">
                       <i className="fa-solid fa-phone-volume"></i>
                     </span>
                     <span className="hotline_content">
                       <small>CONTACT US DAILY</small>
-                      <strong className="text-white">(+420) 318 568 511</strong>
+                      <strong className="text-white">{Herodata.phone}</strong>
                     </span>
                   </a>
                 </li>
@@ -80,3 +89,4 @@ export default function Hero() {
     </section>
   )
 }
+

@@ -70,7 +70,7 @@ export default async function ServiceDetailsPage({ params }: ServiceDetailsPageP
                 }
               }) }} />
             )}
-
+            
             <div className="row mb-4">
               <div className="col-lg-6">
                 <ul className="icon_list unordered_list_block">

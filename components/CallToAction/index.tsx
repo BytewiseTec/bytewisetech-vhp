@@ -13,7 +13,7 @@ export default function CallToAction() {
             Our team of experts is ready to collaborate with you every step of the way, from initial consultation to implementation.
           </p>
         </div>
-        <a className="btn btn-primary" href="contact.html">
+        <a className="btn btn-primary" href="/contact">
           <span className="btn_label" data-text="Contact Us Today!">Contact Us Today!</span>
           <span className="btn_icon">
             <i className="fa-solid fa-arrow-up-right"></i>

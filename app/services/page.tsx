@@ -1,4 +1,18 @@
-export default function ServicesPage() {
+import { GET_SERVICES, ServicesQuery } from './query'
+import { query } from '../ApolloClient'
+import Link from 'next/link'
+
+
+export default async function ServicesPage() {
+const { data, loading, error } = await query<ServicesQuery>({
+  query:GET_SERVICES
+})
+
+  if (loading) return <div>Loading...</div>
+  if (error) return <div>Error loading services: {error.message}</div>
+  if (!data || !data.serviceCollection.items.length) {
+    return <div>No service available</div>
+  }
   return (
     <>
       <section
@@ -37,7 +51,7 @@ export default function ServicesPage() {
                   </p>
                 </div>
                 <a className="btn" href="contact.html">
-                  <span className="btn_label" data-text="Talk to an Expart">Talk to an Expart</span>
+                  <span className="btn_label" data-text="Talk to an Expert">Talk to an Expert</span>
                   <span className="btn_icon">
                     <i className="fa-solid fa-arrow-up-right"></i>
                   </span>
@@ -61,153 +75,42 @@ export default function ServicesPage() {
           </div>
 
           <div className="row">
-            <div className="col-lg-6">
-              <div className="service_block">
-                <div className="service_image">
-                  <img src="/assets/images/services/service_image_1.webp" alt="IT Management Services" />
-                </div>
-                <div className="service_content">
-                  <h3 className="service_title">
-                    <a href="service_details.html">IT Management Services</a>
-                  </h3>
-                  <div className="links_wrapper">
-                    <ul className="category_btns_group unordered_list">
-                      <li><a href="#!">Strategy</a></li>
-                      <li><a href="#!">Consultation</a></li>
-                    </ul>
-                    <a className="icon_block" href="service_details.html">
-                      <i className="fa-regular fa-arrow-up-right"></i>
-                    </a>
+            {data.serviceCollection.items.map((service, index) => {
+              let colClass
+              if (index < 2) {
+                colClass = 'col-lg-6'
+              } else if (index < 5) {
+                colClass = 'col-lg-4'
+              } else {
+                colClass = 'col-lg-6'
+              }
+
+              return (
+                <div className={colClass} key={service._id}>
+                  <div className="service_block">
+                    <div className="service_image">
+                      <img src={service.banner.url} alt={service.banner.title} />
+                    </div>
+                    <div className="service_content">
+                      <h3 className="service_title">
+                        <Link href={`/services/${service.slug}`}>
+                          {service.name}
+                        </Link>
+                      </h3>
+                      <div className="links_wrapper">
+                        <ul className="category_btns_group unordered_list">
+                          <li><a href="#!">{service.heading}</a></li>
+                          <li><a href="#!">{service.heading2}</a></li>
+                        </ul>
+                        <a className="icon_block" href={`/services/${service.slug}`}>
+                          <i className="fa-regular fa-arrow-up-right"></i>
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="service_block">
-                <div className="service_image">
-                  <img src="/assets/images/services/service_image_2.webp" alt="IT Management Services" />
-                </div>
-                <div className="service_content">
-                  <h3 className="service_title">
-                    <a href="service_details.html">Data Tracking and Security</a>
-                  </h3>
-                  <div className="links_wrapper">
-                    <ul className="category_btns_group unordered_list">
-                      <li><a href="#!">Management</a></li>
-                      <li><a href="#!">Transfer</a></li>
-                    </ul>
-                    <a className="icon_block" href="service_details.html">
-                      <i className="fa-regular fa-arrow-up-right"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="service_block">
-                <div className="service_image">
-                  <img src="/assets/images/services/service_image_3.webp" alt="IT Management Services" />
-                </div>
-                <div className="service_content">
-                  <h3 className="service_title">
-                    <a href="service_details.html">Website development</a>
-                  </h3>
-                  <div className="links_wrapper">
-                    <ul className="category_btns_group unordered_list">
-                      <li><a href="#!">Landing Page</a></li>
-                      <li><a href="#!">Plugins</a></li>
-                    </ul>
-                    <a className="icon_block" href="service_details.html">
-                      <i className="fa-regular fa-arrow-up-right"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="service_block">
-                <div className="service_image">
-                  <img src="/assets/images/services/service_image_4.webp" alt="IT Management Services" />
-                </div>
-                <div className="service_content">
-                  <h3 className="service_title">
-                    <a href="service_details.html">Modern Technology Solution</a>
-                  </h3>
-                  <div className="links_wrapper">
-                    <ul className="category_btns_group unordered_list">
-                      <li><a href="#!">Consultation</a></li>
-                      <li><a href="#!">solution</a></li>
-                    </ul>
-                    <a className="icon_block" href="service_details.html">
-                      <i className="fa-regular fa-arrow-up-right"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="service_block">
-                <div className="service_image">
-                  <img src="/assets/images/services/service_image_5.webp" alt="IT Management Services" />
-                </div>
-                <div className="service_content">
-                  <h3 className="service_title">
-                    <a href="service_details.html">UI/UX Design Services</a>
-                  </h3>
-                  <div className="links_wrapper">
-                    <ul className="category_btns_group unordered_list">
-                      <li><a href="#!">Website</a></li>
-                      <li><a href="#!">Mobile App</a></li>
-                    </ul>
-                    <a className="icon_block" href="service_details.html">
-                      <i className="fa-regular fa-arrow-up-right"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="service_block">
-                <div className="service_image">
-                  <img src="/assets/images/services/service_image_6.webp" alt="IT Management Services" />
-                </div>
-                <div className="service_content">
-                  <h3 className="service_title">
-                    <a href="service_details.html">Network Infrastructure and Design</a>
-                  </h3>
-                  <div className="links_wrapper">
-                    <ul className="category_btns_group unordered_list">
-                      <li><a href="#!">Strategy</a></li>
-                      <li><a href="#!">Consultation</a></li>
-                    </ul>
-                    <a className="icon_block" href="service_details.html">
-                      <i className="fa-regular fa-arrow-up-right"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="service_block">
-                <div className="service_image">
-                  <img src="/assets/images/services/service_image_7.webp" alt="IT Management Services" />
-                </div>
-                <div className="service_content">
-                  <h3 className="service_title">
-                    <a href="service_details.html">Software Development and Customization</a>
-                  </h3>
-                  <div className="links_wrapper">
-                    <ul className="category_btns_group unordered_list">
-                      <li><a href="#!">Management</a></li>
-                      <li><a href="#!">Transfer</a></li>
-                    </ul>
-                    <a className="icon_block" href="service_details.html">
-                      <i className="fa-regular fa-arrow-up-right"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+              )
+            })}
           </div>
         </div>
       </section>

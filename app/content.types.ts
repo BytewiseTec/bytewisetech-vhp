@@ -1,5 +1,5 @@
 export type ListItem = {
-  title: string;
+  title?: string;
   description?: string;
   children?: ListItem[];
   icon?: string;

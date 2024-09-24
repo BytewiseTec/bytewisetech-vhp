@@ -1,4 +1,19 @@
-export default function Featured() {
+import React from 'react'
+import { GET_FEATURED, FeatureQuery } from './query'
+import { query } from '../../app/ApolloClient'
+import Image from 'next/image'
+
+export default async function Featured() {
+const { data, loading, error } = await query<FeatureQuery>({
+  query:GET_FEATURED
+})
+
+  if (loading) return <div>Loading...</div>
+  if (error) return <div>Error loading feature: {error.message}</div>
+  if (!data || !data.partnerCollection.items.length) {
+    return <div>No service available</div>
+  }
+
   return (
     <div className="feature_partners_section">
       <div className="container position-relative">
@@ -7,147 +22,17 @@ export default function Featured() {
         </div>
         <div className="client_logo_carousel">
           <div className="swiper-wrapper">
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_1.webp" alt="Techco - Client Logo Image" />
+            {
+              data.partnerCollection.items.map((feature,index) =>(
+                <div className="swiper-slide" key={index}>
+                <div className="client_logo_item">
+                <Image src={feature.logo.url} alt={feature.company} width={feature.logo.width} height={feature.logo.height} />
+                </div>
               </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_2.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_3.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_4.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_5.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_6.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_7.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_1.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_2.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_3.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_4.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_5.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_6.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_7.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_1.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_2.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_3.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_4.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_5.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_6.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_7.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_1.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_2.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_3.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_4.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_5.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_6.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
-            <div className="swiper-slide">
-              <div className="client_logo_item">
-                <img src="/assets/images/clients/client_logo_7.webp" alt="Techco - Client Logo Image" />
-              </div>
-            </div>
+              ))
+            }
           </div>
+        
         </div>
       </div>
     </div>

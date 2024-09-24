@@ -1,4 +1,21 @@
+'use client'
+import { useSuspenseQuery } from '@apollo/client'
+import { GET_SERVICES, ServicesQuery } from './query'
+import Link from 'next/link'
+import { GET_LINKS, HeaderLinksQuery } from '../Navbar/query'
+
 export default function Services() {
+  const { data, error } = useSuspenseQuery<ServicesQuery>(GET_SERVICES)
+  const { data: linksCollection } = useSuspenseQuery<HeaderLinksQuery>(GET_LINKS)
+  const { services } = linksCollection?.links.header || {}
+
+  
+  if (error) return <div>Error loading services</div>
+
+  if (!data || !data.serviceCollection.items.length) {
+    return <div>No services available</div>
+  }
+  const displayedServices = data.serviceCollection.items.slice(0, 6)
   return (
     <section className="service_section pt-175 pb-80 bg-light section_decoration xb-hidden">
       <div className="container">
@@ -6,7 +23,7 @@ export default function Services() {
           <div
             className="heading_focus_text has_underline d-inline-flex"
             style={{
-              backgroundImage: 'url(\'assets/images/shapes/shape_title_under_line.svg\')'
+              backgroundImage: 'url(\'/assets/images/shapes/shape_title_under_line.svg\')'
             }}
           >
             Our Services
@@ -17,282 +34,30 @@ export default function Services() {
         </div>
 
         <div className="row">
-          <div className="col-lg-4">
-            <div className="service_block_2">
-              <div className="service_icon">
-                <img src="/assets/images/icons/icon_code.svg" alt="Techco - Service icon" />
+          {displayedServices.map((service) => (
+            <div className="col-lg-4" key={service._id}>
+              <div className="service_block_2">
+                <div className="service_icon">
+                <img src={service.icon?.url ||'/assets/images/default_icon.svg'} alt="Tech Service icon"/>
+                </div>
+                <h3 className="service_title">
+                  <Link href={`${services.href}/${service?.slug}`}>
+                    {service.name}
+                  </Link>
+                </h3>
+                <ul className="icon_list unordered_list_block">
+                  {service.areasjson?.map((detail, index) => (
+                    <li key={index}>
+                      <span className="icon_list_icon">
+                        <i className="fa-regular fa-circle-dot"></i>
+                      </span>
+                      <span className="icon_list_text">{detail}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="service_title">
-                <a href="service_details.html">
-                  Custom Software Development
-                </a>
-              </h3>
-              <ul className="icon_list unordered_list_block">
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    Software architecture design
-                  </span>
-                </li>
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    System integration services
-                  </span>
-                </li>
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    Data migration services
-                  </span>
-                </li>
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    Legacy app modernization
-                  </span>
-                </li>
-              </ul>
             </div>
-          </div>
-          <div className="col-lg-4">
-            <div className="service_block_2">
-              <div className="service_icon">
-                <img src="/assets/images/icons/icon_programming_tree.svg" alt="Techco - Service icon" />
-              </div>
-              <h3 className="service_title">
-                <a href="service_details.html">
-                  Audit & IT Consulting Services
-                </a>
-              </h3>
-              <ul className="icon_list unordered_list_block">
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    TechGuard Audit
-                  </span>
-                </li>
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    CyberSafe Audit & IT Consulting
-                  </span>
-                </li>
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    AssuranceEdge & IT Consulting
-                  </span>
-                </li>
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    IT Sentry Audit & IT Consulting
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="col-lg-4">
-            <div className="service_block_2">
-              <div className="service_icon">
-                <img src="/assets/images/icons/icon_monitor_2.svg" alt="Techco - Service icon" />
-              </div>
-              <h3 className="service_title">
-                <a href="service_details.html">
-                  Web Application Design and Development
-                </a>
-              </h3>
-              <ul className="icon_list unordered_list_block">
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    Web app development services
-                  </span>
-                </li>
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    Web portal development services
-                  </span>
-                </li>
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    Website development services
-                  </span>
-                </li>
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    Offshore web development
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="col-lg-4">
-            <div className="service_block_2">
-              <div className="service_icon">
-                <img src="/assets/images/icons/icon_phone.svg" alt="Techco - Service icon" />
-              </div>
-              <h3 className="service_title">
-                <a href="service_details.html">
-                  Mobile App Design and Development
-                </a>
-              </h3>
-              <ul className="icon_list unordered_list_block">
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    Android development services
-                  </span>
-                </li>
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    iOS app development services
-                  </span>
-                </li>
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    Mobile application design services
-                  </span>
-                </li>
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    Enterprise mobile app development
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="col-lg-4">
-            <div className="service_block_2">
-              <div className="service_icon">
-                <img src="/assets/images/icons/icon_bug.svg" alt="Techco - Service icon" />
-              </div>
-              <h3 className="service_title">
-                <a href="service_details.html">
-                  Best UI/UX Design Services
-                </a>
-              </h3>
-              <ul className="icon_list unordered_list_block">
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    PixelPerfection UI/UX Design
-                  </span>
-                </li>
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    DesignCraft UI/UX Design
-                  </span>
-                </li>
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    CreativeWave UI/UX Design
-                  </span>
-                </li>
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    InterfaceGenius UI/UX Design
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="col-lg-4">
-            <div className="service_block_2">
-              <div className="service_icon">
-                <img src="/assets/images/icons/icon_programming.svg" alt="Techco - Service icon" />
-              </div>
-              <h3 className="service_title">
-                <a href="service_details.html">
-                  Maintenance and Customer Support
-                </a>
-              </h3>
-              <ul className="icon_list unordered_list_block">
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    CareCraft Maintenance
-                  </span>
-                </li>
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    FixItPro Maintenance
-                  </span>
-                </li>
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    TechCare Maintenance
-                  </span>
-                </li>
-                <li>
-                  <span className="icon_list_icon">
-                    <i className="fa-regular fa-circle-dot"></i>
-                  </span>
-                  <span className="icon_list_text">
-                    AssistEdge Maintenance
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
