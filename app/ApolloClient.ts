@@ -1,5 +1,3 @@
-import '../envConfig'
-
 import { HttpLink } from '@apollo/client'
 import {
   registerApolloClient,
@@ -11,9 +9,9 @@ export const { getClient, query, PreloadQuery } = registerApolloClient(() => {
   return new ApolloClient({
     cache: new InMemoryCache(),
     link: new HttpLink({
-      uri: process.env.CONTENTFUL_GRAPHQL_ENDPOINT,
+      uri: process.env.NEXT_PUBLIC_CONTENTFUL_GRAPHQL_ENDPOINT,
       headers: {
-        Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN}`,
       },
       fetchOptions: { next: { revalidate: 0 } },
     }),
