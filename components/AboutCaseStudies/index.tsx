@@ -3,6 +3,7 @@ import { useSuspenseQuery } from '@apollo/client'
 import { GET_CASE_STUDIES, CaseStudiesQuery } from './query'
 import { GET_LINKS, HeaderLinksQuery } from '../Navbar/query'
 import Link from 'next/link'
+import Image from 'next/image'
 
 
 export default function AboutCaseStudies() {
@@ -102,10 +103,18 @@ export default function AboutCaseStudies() {
             {data.projectCollection.items.length > 0 ? (
               data.projectCollection.items.map((caseStudy) => (
                 <div className="case_study_block" key={caseStudy._id}>
-                  <div className="case_study_image">
-                    <img
+                  <div
+                    className="case_study_image"
+                    style={{
+                      backgroundColor: '#49515B',
+                      padding: '20px 20px'
+                    }}
+                  >
+                    <Image
                       src={caseStudy.thumbnail.url || '/assets/images/default_case_study_image.svg'}
                       alt={caseStudy.name}
+                      width={caseStudy.thumbnail.width || 200}
+                      height={caseStudy.thumbnail.height || 200}
                     />
                   </div>
                   <div className="case_study_content">
