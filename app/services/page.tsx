@@ -89,7 +89,9 @@ const { data, loading, error } = await query<ServicesQuery>({
                 <div className={colClass} key={service._id}>
                   <div className="service_block">
                     <div className="service_image">
-                      <img src={service.banner.url} alt={service.banner.title} />
+                      {service.banner && (
+                        <img src={service.banner.url} alt={service.banner.title} />
+                      )}
                     </div>
                     <div className="service_content">
                       <h3 className="service_title">

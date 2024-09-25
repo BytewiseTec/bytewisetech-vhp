@@ -1,3 +1,5 @@
+import '../envConfig'
+
 import { HttpLink } from '@apollo/client'
 import {
   registerApolloClient,
@@ -9,7 +11,7 @@ export const { getClient, query, PreloadQuery } = registerApolloClient(() => {
   return new ApolloClient({
     cache: new InMemoryCache(),
     link: new HttpLink({
-      uri: 'https://graphql.contentful.com/content/v1/spaces/g9e5ilkl8pzh',
+      uri: process.env.CONTENTFUL_GRAPHQL_ENDPOINT,
       headers: {
         Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
       },

@@ -9,7 +9,7 @@ import {
 
 function makeClient() {
   const httpLink = new HttpLink({
-    uri: 'https://graphql.contentful.com/content/v1/spaces/g9e5ilkl8pzh',
+    uri: process.env.CONTENTFUL_GRAPHQL_ENDPOINT,
     headers: {
       Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
     },

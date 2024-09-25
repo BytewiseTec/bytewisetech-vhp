@@ -80,7 +80,7 @@ export default function AboutCaseStudies() {
                   Bytewise Technologies <mark>Mission & Goal</mark>
                 </h2>
                 <p className="heading_description mb-0">
-                  From our experience, true transformation and value creation begins with understanding the problem.  We don't just chase the newest tech trends.  Our focus is on empowering you to be better.  Technology is a tool to help achieve this, not the solution itself.
+                  From our experience, true transformation and value creation begins with understanding the problem.  We don&apos;t just chase the newest tech trends.  Our focus is on empowering you to be better.  Technology is a tool to help achieve this, not the solution itself.
                 </p>
               </div>
             </div>

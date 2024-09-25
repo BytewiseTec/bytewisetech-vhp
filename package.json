@@ -12,6 +12,7 @@
     "@apollo/client": "^3.11.4",
     "@apollo/experimental-nextjs-app-support": "^0.11.2",
     "@contentful/rich-text-html-renderer": "^16.6.4",
+    "@next/env": "^14.2.13",
     "classnames": "^2.5.1",
     "contentful": "^10.12.10",
     "graphql": "^16.9.0",
