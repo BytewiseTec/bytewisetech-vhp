@@ -51,7 +51,7 @@ export default function Hero() {
                       <strong className="text-white">{Herodata.phone}</strong>
                     </span>
                   </a>
-                </li> */}
+                </li>
               </ul>
             </div>
           </div>
