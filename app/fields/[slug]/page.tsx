@@ -7,6 +7,7 @@ import ProcessesAccordion from '@/components/ProcessesAccordion'
 import ItemIndicator from '@/components/ProcessesAccordion/ItemIndicator'
 import ExpandedIndexProvider from '@/components/ProcessesAccordion/ExpandedIndexProvider'
 import { query } from '@/app/ApolloClient'
+import Image from 'next/image'
 
 type FieldsPageProps = {
   params: {
@@ -37,7 +38,9 @@ export default async function FieldsPage({ params }: FieldsPageProps) {
       <section className="service_details_section section_space bg-light">
         <div className="container">
           <div className="details_item_image">
-            <img src="/assets/images/services/service_details_image_5.webp" alt="Service Details Image" />
+            {field.banner && (
+              <Image src={field.banner.url} alt={field.banner.title} width={field.banner.width} height={field.banner.height} />
+            )}
           </div>
           {/* {field.p0 && <div dangerouslySetInnerHTML={{ __html: renderHtml(field.p0.json) }} />} */}
 

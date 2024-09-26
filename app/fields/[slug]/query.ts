@@ -1,4 +1,4 @@
-import { EntryId, ListItem } from '@/app/content.types'
+import { EntryId, ListItem, Media } from '@/app/content.types'
 import { Document } from '@contentful/rich-text-types'
 import gql from 'graphql-tag'
 
@@ -23,6 +23,7 @@ export const GET_FIELD_ID = gql`
 export interface Field {
   _id: string
   name: string
+  banner: Media
   benefits: string[]
   processes: ListItem[]
   whyUs: ListItem
@@ -44,6 +45,12 @@ export const GET_FIELD = gql`
     field(id: $id) {
       _id
       name
+      banner {
+        title
+        url
+        width
+        height
+      }
       benefits
       processes
       whyUs
