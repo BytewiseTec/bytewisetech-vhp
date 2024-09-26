@@ -6,9 +6,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const getSocialMediaIcon = (url: string) => {
-  if (url.includes('https://www.facebook.com/muhammadkh4n')) return 'fa-facebook-f'
-  if (url.includes('https://www.github.com/muhammadkh4n')) return 'fa-github'
-  if (url.includes('https://www.linkedin.com/in/muhammadkh4n')) return 'fa-linkedin-in'
+  if (url.includes('https://www.facebook.com/people/Bytewise-Technologies/61566440639702/')) return 'fa-facebook-f'
+  if (url.includes('https://github.com/BytewiseTec')) return 'fa-github'
+  if (url.includes('https://www.linkedin.com/company/bytewise-tech')) return 'fa-linkedin-in'
   return null
 }
 export default async function AboutPage() {

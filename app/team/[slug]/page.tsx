@@ -10,9 +10,9 @@ import FacebookIcon from '/public/assets/images/icons/icon_facebook.svg'
 import LinkedInIcon from '/public/assets/images/icons/icon_linkedin.svg'
 import GitHubIcon from '/public/assets/images/icons/icon_git.svg'
 const getSocialMediaIcon = (url: string) => {
-  if (url.includes('https://www.facebook.com/muhammadkh4n')) return FacebookIcon
-  if (url.includes('https://www.github.com/muhammadkh4n')) return GitHubIcon
-  if (url.includes('https://www.linkedin.com/in/muhammadkh4n')) return LinkedInIcon
+  if (url.includes('https://www.facebook.com/people/Bytewise-Technologies/61566440639702/')) return FacebookIcon
+  if (url.includes('https://github.com/BytewiseTec')) return GitHubIcon
+  if (url.includes('https://www.linkedin.com/company/bytewise-tech')) return LinkedInIcon
   return null
 }
 
