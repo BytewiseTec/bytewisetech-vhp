@@ -103,7 +103,7 @@ export default async function FieldsPage({ params }: FieldsPageProps) {
           <div className="row align-items-center justify-content-lg-between">
             <div className="col-lg-6">
               <div className="image_wrap">
-                <img src="/assets/images/about/about_image_5.webp" alt="Techco - About Image" />
+                <img src="/assets/images/about/better-services.jpg" alt="Techco - About Image" />
               </div>
             </div>
             <div className="col-lg-6">
