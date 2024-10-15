@@ -1,6 +1,7 @@
 'use client'
 import { useSuspenseQuery } from '@apollo/client'
 import {GET_HERO,HeroQuery,GET_LINKS, HeaderLinksQuery } from './query'
+import Image from 'next/image'
 
 export default function Hero() {
   const { data: linksCollection } = useSuspenseQuery<HeaderLinksQuery>(GET_LINKS)
@@ -58,16 +59,16 @@ export default function Hero() {
           <div className="col-lg-6">
             <div className="engine_image">
               <div className="image_wrap_1">
-                <img src="/assets/images/hero/circle_engine_1.webp" alt="Engine Image" />
+                <Image src="/assets/images/hero/circle_engine_1.webp" width={612} height={612} alt="Engine Image" />
               </div>
               <div className="image_wrap_2">
-                <img src="/assets/images/hero/circle_engine_2.webp" alt="Engine Image" />
+                <Image src="/assets/images/hero/circle_engine_2.webp" width={1792} height={1792} alt="Engine Image" />
               </div>
               <div className="image_wrap_3">
-                <img src="/assets/images/hero/circle_engine_3.webp" alt="Engine Image" />
+                <Image src="/assets/images/hero/circle_engine_3.webp" width={2273} height={2273} alt="Engine Image" />
               </div>
               <div className="image_wrap_4">
-                <img src="/assets/images/hero/circle_engine_4.png" alt="Engine Image" />
+                <Image src="/assets/images/hero/circle_engine_4.png" width={716} height={676} alt="Engine Image" />
               </div>
             </div>
           </div>
@@ -75,16 +76,16 @@ export default function Hero() {
       </div>
 
       <div className="shape_image_1">
-        <img src="/assets/images/hero/shape_image_1.webp" alt="Engine Image" />
+        <Image src="/assets/images/hero/shape_image_1.webp" width={4526} height={288} alt="Engine Image" />
       </div>
       <div className="shape_image_2">
-        <img src="/assets/images/hero/shape_image_2.webp" alt="Engine Image" />
+        <Image src="/assets/images/hero/shape_image_2.webp" width={4744} height={488} alt="Engine Image" />
       </div>
       <div className="shape_image_3">
-        <img src="/assets/images/hero/shape_image_3.webp" alt="Engine Image" />
+        <Image src="/assets/images/hero/shape_image_3.webp" width={1366} height={756} alt="Engine Image" />
       </div>
       <div className="shape_image_4">
-        <img src="/assets/images/hero/shape_image_4.webp" alt="Engine Image" />
+        <Image src="/assets/images/hero/shape_image_4.webp" width={1386} height={755} alt="Engine Image" />
       </div>
     </section>
   )

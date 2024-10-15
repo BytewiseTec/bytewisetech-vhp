@@ -4,7 +4,16 @@ import Script from 'next/script'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
+import '../public/assets/css/bootstrap.min.css'
+import '../public/assets/css/fontawesome.css'
+import '../public/assets/css/animate.min.css'
+import '../public/assets/css/swiper-bundle.min.css'
+import '../public/assets/css/magnific-popup.min.css'
+import '../public/assets/css/odometer.min.css'
+import '../public/assets/css/style.css'
+
 import './globals.css'
+
 import CallToAction from '@/components/CallToAction'
 import { ApolloWrapper } from './ApolloWrapper'
 

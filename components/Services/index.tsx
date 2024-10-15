@@ -3,6 +3,7 @@ import { useSuspenseQuery } from '@apollo/client'
 import { GET_SERVICES, ServicesQuery } from './query'
 import Link from 'next/link'
 import { GET_LINKS, HeaderLinksQuery } from '../Navbar/query'
+import Image from 'next/image'
 
 export default function Services() {
   const { data, error } = useSuspenseQuery<ServicesQuery>(GET_SERVICES)
@@ -71,10 +72,10 @@ export default function Services() {
         <img src="/assets/images/shapes/shape_space_1.svg" alt="Techco Shape" />
       </div>
       <div className="decoration_item shape_image_4">
-        <img src="/assets/images/shapes/shape_angle_1.webp" alt="Techco Shape Angle" />
+        <Image src="/assets/images/shapes/shape_angle_1.webp" width={1061} height={1456} alt="Techco Shape Angle" />
       </div>
       <div className="decoration_item shape_image_5">
-        <img src="/assets/images/shapes/shape_angle_2.webp" alt="Techco Shape Angle" />
+        <Image src="/assets/images/shapes/shape_angle_2.webp" width={1062} height={1080} alt="Techco Shape Angle" />
       </div>
     </section>
   )
