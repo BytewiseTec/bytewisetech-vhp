@@ -1,6 +1,6 @@
 'use client'
 
-import { sendMail } from '@/utils/send-mail'
+import { sendMail } from '../../utils/send-mail'
 import { useForm } from 'react-hook-form'
 import { toast, Toaster } from 'sonner'
 
