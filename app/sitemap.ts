@@ -23,7 +23,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const { data: fieldsCollection } = await query<FieldsLinksQuery>({
     query: GET_FIELDS
   })
-  const { company, portfolio, services } = linksCollection?.links.header || {}
+  const { portfolio, services } = linksCollection?.links.header || {}
 
   const links: MetadataRoute.Sitemap = [
     {
