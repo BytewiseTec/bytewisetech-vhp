@@ -12,8 +12,6 @@ import '../public/assets/css/magnific-popup.min.css'
 import '../public/assets/css/odometer.min.css'
 import '../public/assets/css/style.css'
 
-import './globals.css'
-
 import CallToAction from '../components/CallToAction'
 import { ApolloWrapper } from './ApolloWrapper'
 
