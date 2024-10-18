@@ -114,10 +114,10 @@ export default function BlogPosts() {
         </div>
       </div>
       <div className="decoration_item shape_image_1">
-        <img src="/assets/images/shapes/shape_line_7.svg" alt="Techco Shape" />
+        <img src="/assets/images/shapes/shape_line_7.svg" alt="Bytewise Tech Shape" />
       </div>
       <div className="decoration_item shape_image_2">
-        <img src="/assets/images/shapes/shape_angle_4.webp" alt="Techco Shape Angle" />
+        <img src="/assets/images/shapes/shape_angle_4.webp" alt="Bytewise Tech Shape Angle" />
       </div>
     </section>
   )

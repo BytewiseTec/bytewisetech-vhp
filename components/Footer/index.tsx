@@ -31,7 +31,7 @@ export default function Footer() {
       <div className="decoration_item shape_image_1">
         <Image
           src="/assets/images/shapes/shape_space_2.svg"
-          alt="Techco Shape"
+          alt="Bytewise Tech Shape"
           width={100}
           height={100}
         />
@@ -98,7 +98,7 @@ export default function Footer() {
             <div className="col-lg-4 col-md-6">
               <div className="footer_widget pe-lg-3">
                 <h2 className="footer_info_title">Newsletter</h2>
-                <p>Sign up to Techco weekly newsletter to get the latest updates</p>
+                <p>Sign up to Bytewise Tech weekly newsletter to get the latest updates</p>
                 <form className="footer_newslatter_2" action="#">
                   <label htmlFor="footer_mail_input">
                     <Image

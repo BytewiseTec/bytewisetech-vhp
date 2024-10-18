@@ -18,7 +18,7 @@ export default function BlogDetailsPage({ params }: BlogDetailsPageProps) {
       <section className="blog_details_section section_space bg-light">
         <div className="container">
           <div className="details_item_image">
-            <img src="assets/images/blog/blog_post_image_8.webp" alt="Techco - Blog Image" />
+            <img src="assets/images/blog/blog_post_image_8.webp" alt="Bytewise Tech - Blog Image" />
           </div>
           <div className="post_meta_wrap mb-4">
             <ul className="category_btns_group unordered_list">
@@ -33,10 +33,10 @@ export default function BlogDetailsPage({ params }: BlogDetailsPageProps) {
             </ul>
           </div>
           <h2 className="details_item_title">
-            Insider Perspectives on IT Solutions with Techco Thought Leaders.
+            Insider Perspectives on IT Solutions with Bytewise Tech Thought Leaders.
           </h2>
           <p>
-            Delve into the inner workings of IT solutions with Techco&apos;s esteemed thought leaders. With unparalleled expertise and a wealth of experience, our thought leaders provide invaluable insights into the ever-evolving landscape of technology.
+            Delve into the inner workings of IT solutions with Bytewise Tech&apos;s esteemed thought leaders. With unparalleled expertise and a wealth of experience, our thought leaders provide invaluable insights into the ever-evolving landscape of technology.
           </p>
           <div className="row align-items-center">
             <div className="col-md-6">
@@ -90,30 +90,30 @@ export default function BlogDetailsPage({ params }: BlogDetailsPageProps) {
                   <div className="row mb-4">
                     <div className="col-md-6 col-sm-6">
                       <div className="details_item_image m-0">
-                        <img src="assets/images/blog/blog_post_image_9.webp" alt="Techco - Blog Image" />
+                        <img src="assets/images/blog/blog_post_image_9.webp" alt="Bytewise Tech - Blog Image" />
                       </div>
                     </div>
                     <div className="col-md-6 col-sm-6">
                       <div className="details_item_image m-0">
-                        <img src="assets/images/blog/blog_post_image_10.webp" alt="Techco - Blog Image" />
+                        <img src="assets/images/blog/blog_post_image_10.webp" alt="Bytewise Tech - Blog Image" />
                       </div>
                     </div>
                   </div>
                   <p>
-                    Gain exclusive insights into the world of IT solutions with Techco&apos;s distinguished thought leaders. With years of experience and a deep understanding of industry trends, our thought leaders offer invaluable perspectives that illuminate the path to technological excellence. From emerging technologies to innovative strategies, they provide unique insights that inform and inspire. Join us as we delve into the inner workings of IT solutions, exploring the challenges.
+                    Gain exclusive insights into the world of IT solutions with Bytewise Tech&apos;s distinguished thought leaders. With years of experience and a deep understanding of industry trends, our thought leaders offer invaluable perspectives that illuminate the path to technological excellence. From emerging technologies to innovative strategies, they provide unique insights that inform and inspire. Join us as we delve into the inner workings of IT solutions, exploring the challenges.
                   </p>
                   <p>
-                    Embark on an illuminating journey into the world of IT solutions with Techco&apos;s esteemed thought leaders. Delve deep into the inner workings of technology as our seasoned experts share their wealth of knowledge and experience. With a finger on the pulse of industry trends and a keen eye for innovation, our thought leaders offer unparalleled insights that illuminate the path
+                    Embark on an illuminating journey into the world of IT solutions with Bytewise Tech&apos;s esteemed thought leaders. Delve deep into the inner workings of technology as our seasoned experts share their wealth of knowledge and experience. With a finger on the pulse of industry trends and a keen eye for innovation, our thought leaders offer unparalleled insights that illuminate the path
                   </p>
 
                   <h3 className="details_item_info_title">Sample Heading</h3>
                   <p>
-                    they provide a comprehensive and in-depth analysis that goes beyond surface-level . Join us as we uncover the secrets of IT solutions, guided by the wisdom and expertise of Techco&apos;s thought leaders. Prepare to be inspired, informed, and empowered to navigate the ever- landscape of technology with confidence and clarity. you&apos;ll gain access to unparalleled expertise and discover new possibilities for success in the ever-evolving world of technology.
+                    they provide a comprehensive and in-depth analysis that goes beyond surface-level . Join us as we uncover the secrets of IT solutions, guided by the wisdom and expertise of Bytewise Tech&apos;s thought leaders. Prepare to be inspired, informed, and empowered to navigate the ever- landscape of technology with confidence and clarity. you&apos;ll gain access to unparalleled expertise and discover new possibilities for success in the ever-evolving world of technology.
                   </p>
                   <div className="row align-items-center mb-5">
                     <div className="col-md-6">
                       <div className="details_item_image m-0">
-                        <img src="assets/images/blog/blog_post_image_11.webp" alt="Techco - Blog Image" />
+                        <img src="assets/images/blog/blog_post_image_11.webp" alt="Bytewise Tech - Blog Image" />
                       </div>
                     </div>
                     <div className="col-md-6">
@@ -229,7 +229,7 @@ export default function BlogDetailsPage({ params }: BlogDetailsPageProps) {
 
                   <div className="post_author_box">
                     <div className="author_image">
-                      <img src="assets/images/avatar/avatar_8.webp" alt="Techco - Blog Author Image" />
+                      <img src="assets/images/avatar/avatar_8.webp" alt="Bytewise Tech - Blog Author Image" />
                     </div>
                     <div className="author_content">
                       <h3 className="author_name">About Anderson</h3>
@@ -266,7 +266,7 @@ export default function BlogDetailsPage({ params }: BlogDetailsPageProps) {
                     <a href="#!">
                       <i className="fa-regular fa-arrow-left-long"></i>
                       <span>
-                        <strong>Exploring IT Solutions with Techco</strong>
+                        <strong>Exploring IT Solutions with Bytewise Tech</strong>
                         <small>Dec 24, 2024</small>
                       </span>
                     </a>
@@ -275,7 +275,7 @@ export default function BlogDetailsPage({ params }: BlogDetailsPageProps) {
                     </a>
                     <a href="#!">
                       <span>
-                        <strong>Exploring IT Solutions with Techco</strong>
+                        <strong>Exploring IT Solutions with Bytewise Tech</strong>
                         <small>Dec 24, 2024</small>
                       </span>
                       <i className="fa-regular fa-arrow-right-long"></i>
@@ -290,13 +290,13 @@ export default function BlogDetailsPage({ params }: BlogDetailsPageProps) {
                       <li>
                         <div className="comment_item">
                           <div className="comment_author_thumbnail">
-                            <img src="assets/images/avatar/avatar_9.webp" alt="Techco - Comment Author Avatar" />
+                            <img src="assets/images/avatar/avatar_9.webp" alt="Bytewise Tech - Comment Author Avatar" />
                           </div>
                           <div className="comment_author_content">
                             <h4 className="comment_author_name">John Smith</h4>
                             <div className="comment_time">Dec 24, 2024 at 10:21am</div>
                             <p className="mb-0">
-                              &ldquo;Working with Techco has been a game-changer. Their innovative IT solutions boosted our efficiency tenfold. Highly recommend!&rdquo;
+                              &ldquo;Working with Bytewise Tech has been a game-changer. Their innovative IT solutions boosted our efficiency tenfold. Highly recommend!&rdquo;
                             </p>
                             <a className="comment_reply_btn" href="#!">Reply</a>
                           </div>
@@ -305,13 +305,13 @@ export default function BlogDetailsPage({ params }: BlogDetailsPageProps) {
                           <li>
                             <div className="comment_item">
                               <div className="comment_author_thumbnail">
-                                <img src="assets/images/avatar/avatar_10.webp" alt="Techco - Comment Author Avatar" />
+                                <img src="assets/images/avatar/avatar_10.webp" alt="Bytewise Tech - Comment Author Avatar" />
                               </div>
                               <div className="comment_author_content">
                                 <h4 className="comment_author_name">Daniel Garcia</h4>
                                 <div className="comment_time">Dec 24, 2024 at 10:21am</div>
                                 <p className="mb-0">
-                                  &ldquo;Our experience with Techco has been exceptional. Their commitment to customer satisfaction stands out. Grateful for their partnership.&rdquo;
+                                  &ldquo;Our experience with Bytewise Tech has been exceptional. Their commitment to customer satisfaction stands out. Grateful for their partnership.&rdquo;
                                 </p>
                                 <a className="comment_reply_btn" href="#!">Reply</a>
                               </div>
@@ -320,13 +320,13 @@ export default function BlogDetailsPage({ params }: BlogDetailsPageProps) {
                           <li>
                             <div className="comment_item">
                               <div className="comment_author_thumbnail">
-                                <img src="assets/images/avatar/avatar_9.webp" alt="Techco - Comment Author Avatar" />
+                                <img src="assets/images/avatar/avatar_9.webp" alt="Bytewise Tech - Comment Author Avatar" />
                               </div>
                               <div className="comment_author_content">
                                 <h4 className="comment_author_name">John Smith</h4>
                                 <div className="comment_time">Dec 24, 2024 at 10:21am</div>
                                 <p className="mb-0">
-                                  &ldquo;Working with Techco has been a game-changer. Their innovative IT solutions boosted our efficiency tenfold. Highly recommend!&rdquo;
+                                  &ldquo;Working with Bytewise Tech has been a game-changer. Their innovative IT solutions boosted our efficiency tenfold. Highly recommend!&rdquo;
                                 </p>
                                 <a className="comment_reply_btn" href="#!">Reply</a>
                               </div>
@@ -337,13 +337,13 @@ export default function BlogDetailsPage({ params }: BlogDetailsPageProps) {
                       <li>
                         <div className="comment_item">
                           <div className="comment_author_thumbnail">
-                            <img src="assets/images/avatar/avatar_11.webp" alt="Techco - Comment Author Avatar" />
+                            <img src="assets/images/avatar/avatar_11.webp" alt="Bytewise Tech - Comment Author Avatar" />
                           </div>
                           <div className="comment_author_content">
                             <h4 className="comment_author_name">John Smith</h4>
                             <div className="comment_time">Dec 24, 2024 at 10:21am</div>
                             <p className="mb-0">
-                              &ldquo;Working with Techco has been a game-changer. Their innovative IT solutions boosted our efficiency tenfold. Highly recommend!&rdquo;
+                              &ldquo;Working with Bytewise Tech has been a game-changer. Their innovative IT solutions boosted our efficiency tenfold. Highly recommend!&rdquo;
                             </p>
                             <a className="comment_reply_btn" href="#!">Reply</a>
                           </div>

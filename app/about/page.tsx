@@ -53,7 +53,7 @@ export default async function AboutPage() {
                     layout="responsive"
                     height={aboutData.banner.height}
                     width={aboutData.banner.width}
-                    alt="Techco - About Image"
+                    alt="Bytewise Tech - About Image"
                     style={{ objectFit: 'cover' }}
                   />
                 </div>
@@ -67,7 +67,7 @@ export default async function AboutPage() {
               <div className="col-lg-4">
                 <div className="heading_focus_text">
                   About
-                  <span className="badge bg-secondary text-white">Techco 🙂</span>
+                  <span className="badge bg-secondary text-white">Bytewise Tech 🙂</span>
                 </div>
                 <h2 className="heading_text mb-0">
                   {aboutData.headingsections}
@@ -109,7 +109,7 @@ export default async function AboutPage() {
           <div className="row align-items-center justify-content-lg-between">
             <div className="col-lg-6">
               <div className="image_wrap">
-                <img src="/assets/images/about/better-services.jpg" alt="Techco - About Image" />
+                <img src="/assets/images/about/better-services.jpg" alt="Bytewise Tech - About Image" />
               </div>
             </div>
             <div className="col-lg-6">

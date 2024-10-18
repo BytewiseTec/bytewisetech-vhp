@@ -33,7 +33,7 @@ const { data, loading, error } = await query<ServicesQuery>({
           <div className="row align-items-center justify-content-lg-between">
             <div className="col-lg-5 order-lg-last">
               <div className="team_cartoon_image">
-                <img src="/assets/images/services/service_image_8.webp" alt="Service Cartoon Image - Techco - About Image" />
+                <img src="/assets/images/services/service_image_8.webp" alt="Service Cartoon Image - Bytewise Tech - About Image" />
               </div>
             </div>
             <div className="col-lg-5">
@@ -122,7 +122,7 @@ const { data, loading, error } = await query<ServicesQuery>({
           <div className="row align-items-center justify-content-lg-between">
             <div className="col-lg-6">
               <div className="image_wrap">
-                <img src="/assets/images/about/about_image_5.webp" alt="Techco - About Image" />
+                <img src="/assets/images/about/about_image_5.webp" alt="Bytewise Tech - About Image" />
               </div>
             </div>
             <div className="col-lg-6">

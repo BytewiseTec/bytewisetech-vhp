@@ -453,10 +453,10 @@ export default function FAQs() {
         </div>
       </div>
       <div className="decoration_item shape_image_1">
-        <img src="/assets/images/shapes/shape_space_4.svg" alt="Techco Shape" />
+        <img src="/assets/images/shapes/shape_space_4.svg" alt="Bytewise Tech Shape" />
       </div>
       <div className="decoration_item shape_image_2">
-        <img src="/assets/images/shapes/shape_angle_3.webp" alt="Techco Shape Angle" />
+        <img src="/assets/images/shapes/shape_angle_3.webp" alt="Bytewise Tech Shape Angle" />
       </div>
     </section>
   )

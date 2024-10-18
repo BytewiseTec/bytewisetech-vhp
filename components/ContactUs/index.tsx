@@ -167,10 +167,10 @@ export default function ContactUs() {
         </div>
       </div>
       <div className="decoration_item shape_image_1">
-        <img src="/assets/images/shapes/shape_line_5.svg" alt="Techco Shape" />
+        <img src="/assets/images/shapes/shape_line_5.svg" alt="Bytewise Tech Shape" />
       </div>
       <div className="decoration_item shape_image_2">
-        <img src="/assets/images/shapes/shape_line_6.svg" alt="Techco Shape" />
+        <img src="/assets/images/shapes/shape_line_6.svg" alt="Bytewise Tech Shape" />
       </div>
       <Toaster />
     </section>

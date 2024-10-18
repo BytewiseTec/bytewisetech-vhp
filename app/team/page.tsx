@@ -45,7 +45,7 @@ export default async function TeamPage() {
           <div className="row align-items-center justify-content-lg-between">
             <div className="col-lg-6 order-lg-last">
               <div className="team_cartoon_image">
-                <img src="/assets/images/team/team.png" alt="Team Cartoon Image - Techco - About Image" />
+                <img src="/assets/images/team/team.png" alt="Team Cartoon Image - Bytewise Tech - About Image" />
               </div>
             </div>
             <div className="col-lg-5">
@@ -132,7 +132,7 @@ export default async function TeamPage() {
         <div className="container">
           <div className="heading_block text-center">
             <div className="heading_focus_text">
-              <span className="badge bg-secondary text-white">Techco </span>
+              <span className="badge bg-secondary text-white">Bytewise Tech </span>
               Company 😍
             </div>
             <h2 className="heading_text mb-0">
@@ -143,7 +143,7 @@ export default async function TeamPage() {
           <div className="row justify-content-center">
             <div className="col-lg-10">
               <div className="team_map_image text-center">
-                <img src="/assets/images/team/team_map.webp" alt="Techco - Team Map Image" />
+                <img src="/assets/images/team/team_map.webp" alt="Bytewise Tech - Team Map Image" />
               </div>
             </div>
           </div>

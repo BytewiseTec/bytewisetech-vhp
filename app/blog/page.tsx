@@ -198,7 +198,7 @@ export default function BlogPage() {
                     </div>
                     <h3 className="blog_post_title">
                       <a href="blog_details.html">
-                        Charting the Course of IT Solutions with Techco Visionaries.
+                        Charting the Course of IT Solutions with Bytewise Tech Visionaries.
                       </a>
                     </h3>
                     <p>
@@ -231,11 +231,11 @@ export default function BlogPage() {
                     </div>
                     <h3 className="blog_post_title">
                       <a href="blog_details.html">
-                        Insider Perspectives on IT Solutions with Techco Thought Leaders.
+                        Insider Perspectives on IT Solutions with Bytewise Tech Thought Leaders.
                       </a>
                     </h3>
                     <p>
-                      Dive deep into the world of IT solutions with Techco&apos;s esteemed thought leaders. With unrivaled expertise and a passion for innovation,.
+                      Dive deep into the world of IT solutions with Bytewise Tech&apos;s esteemed thought leaders. With unrivaled expertise and a passion for innovation,.
                     </p>
                     <a className="btn btn-dark" href="blog_details.html">
                       <span className="btn_label" data-text="Read More">Read More</span>
@@ -269,7 +269,7 @@ export default function BlogPage() {
                     </div>
                     <h3 className="blog_post_title">
                       <a href="blog_details.html">
-                        The Journey of IT Solutions with Techco Innovators.
+                        The Journey of IT Solutions with Bytewise Tech Innovators.
                       </a>
                     </h3>
                     <p>
@@ -302,7 +302,7 @@ export default function BlogPage() {
                     </div>
                     <h3 className="blog_post_title">
                       <a href="blog_details.html">
-                        Inspiring Stories of IT Solutions from Techco Thought Leaders.
+                        Inspiring Stories of IT Solutions from Bytewise Tech Thought Leaders.
                       </a>
                     </h3>
                     <p>
@@ -340,7 +340,7 @@ export default function BlogPage() {
                     </div>
                     <h3 className="blog_post_title">
                       <a href="blog_details.html">
-                        The Journey of IT Solutions with Techco Innovators.
+                        The Journey of IT Solutions with Bytewise Tech Innovators.
                       </a>
                     </h3>
                     <p>
@@ -373,7 +373,7 @@ export default function BlogPage() {
                     </div>
                     <h3 className="blog_post_title">
                       <a href="blog_details.html">
-                        Exploring the Evolution of IT Solutions with Techco Visionaries.
+                        Exploring the Evolution of IT Solutions with Bytewise Tech Visionaries.
                       </a>
                     </h3>
                     <p>

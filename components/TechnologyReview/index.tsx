@@ -268,16 +268,16 @@ export default function TechnologyReview() {
       </div>
 
       {/* <div className="decoration_item shape_image_1">
-        <img src="/assets/images/shapes/shape_line_2.svg" alt="Techco Shape" />
+        <img src="/assets/images/shapes/shape_line_2.svg" alt="Bytewise Tech Shape" />
       </div>
       <div className="decoration_item shape_image_2">
-        <img src="/assets/images/shapes/shape_line_3.svg" alt="Techco Shape" />
+        <img src="/assets/images/shapes/shape_line_3.svg" alt="Bytewise Tech Shape" />
       </div>
       <div className="decoration_item shape_image_3">
-        <img src="/assets/images/shapes/shape_line_4.svg" alt="Techco Shape" />
+        <img src="/assets/images/shapes/shape_line_4.svg" alt="Bytewise Tech Shape" />
       </div>
       <div className="decoration_item shape_image_4">
-        <img src="/assets/images/shapes/shape_space_3.svg" alt="Techco Shape" />
+        <img src="/assets/images/shapes/shape_space_3.svg" alt="Bytewise Tech Shape" />
       </div> */}
     </section>
   )

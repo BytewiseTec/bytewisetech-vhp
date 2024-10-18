@@ -24,7 +24,7 @@ export default function AboutCaseStudies() {
           <div className="col-lg-7 order-lg-last">
             <div className="about_image_2">
               {/* <div className="image_wrap">
-                <img src="/assets/images/about/about_image_6.webp" alt="Techco - About Image" />
+                <img src="/assets/images/about/about_image_6.webp" alt="Bytewise Tech - About Image" />
               </div> */}
               <div className="about_funfact_info">
                 {/* <div className="customer_count">
@@ -175,7 +175,7 @@ export default function AboutCaseStudies() {
         </div>
       </div>
       <div className="decoration_item shape_image_1">
-        <img src="/assets/images/shapes/shape_space_2.svg" alt="Techco Shape" />
+        <img src="/assets/images/shapes/shape_space_2.svg" alt="Bytewise Tech Shape" />
       </div>
     </section>
   )

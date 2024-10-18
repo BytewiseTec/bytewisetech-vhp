@@ -63,19 +63,19 @@ export default function Services() {
       </div>
 
       <div className="decoration_item shape_image_1">
-        <img src="/assets/images/shapes/shape_line_5.svg" alt="Techco Shape" />
+        <img src="/assets/images/shapes/shape_line_5.svg" alt="Bytewise Tech Shape" />
       </div>
       <div className="decoration_item shape_image_2">
-        <img src="/assets/images/shapes/shape_line_6.svg" alt="Techco Shape" />
+        <img src="/assets/images/shapes/shape_line_6.svg" alt="Bytewise Tech Shape" />
       </div>
       <div className="decoration_item shape_image_3">
-        <img src="/assets/images/shapes/shape_space_1.svg" alt="Techco Shape" />
+        <img src="/assets/images/shapes/shape_space_1.svg" alt="Bytewise Tech Shape" />
       </div>
       <div className="decoration_item shape_image_4">
-        <Image src="/assets/images/shapes/shape_angle_1.webp" width={1061} height={1456} alt="Techco Shape Angle" />
+        <Image src="/assets/images/shapes/shape_angle_1.webp" width={1061} height={1456} alt="Bytewise Tech Shape Angle" />
       </div>
       <div className="decoration_item shape_image_5">
-        <Image src="/assets/images/shapes/shape_angle_2.webp" width={1062} height={1080} alt="Techco Shape Angle" />
+        <Image src="/assets/images/shapes/shape_angle_2.webp" width={1062} height={1080} alt="Bytewise Tech Shape Angle" />
       </div>
     </section>
   )
