@@ -1,4 +1,4 @@
-import { Link } from '@/app/layout.types'
+import { Link } from '../../app/layout.types'
 import { gql } from '@apollo/client'
 export interface Icon{
     href: string,

@@ -1,6 +1,6 @@
 'use client'
 
-import { ListItem } from '@/app/content.types'
+import { ListItem } from '../../app/content.types'
 import classNames from 'classnames'
 import { useExpandedIndex } from './ExpandedIndexProvider'
 

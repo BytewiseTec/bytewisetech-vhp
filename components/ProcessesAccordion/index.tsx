@@ -1,9 +1,8 @@
 'use client'
 
-import { ListItem } from '@/app/content.types'
-import { padWithZeros } from '@/utils/helpers'
+import { ListItem } from '../../app/content.types'
+import { padWithZeros } from '../../utils/helpers'
 import classNames from 'classnames'
-import { useState } from 'react'
 import { useExpandedIndex } from './ExpandedIndexProvider'
 
 type ProcessesAccordionProps = {

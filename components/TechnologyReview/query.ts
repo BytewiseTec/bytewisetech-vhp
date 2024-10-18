@@ -1,6 +1,5 @@
-import { Media } from '@/app/content.types'
+import { Media } from '../../app/content.types'
 import { gql } from '@apollo/client'
-import { ListItem } from '@/app/content.types'
 export interface Technology {
     _id: string;
     name: string;
@@ -13,7 +12,6 @@ export interface TechnologyQuery {
         items: Technology[];
     }
 }
-
 
 export interface BannerItem {
     title: string

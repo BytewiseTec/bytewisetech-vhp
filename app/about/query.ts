@@ -1,6 +1,5 @@
-import { Media } from '@/app/content.types'
+import { Media, ListItem } from '../content.types'
 import { gql } from '@apollo/client'
-import { ListItem } from '@/app/content.types'
 export interface Featured {
     _id: string;
     company: string;

@@ -1,8 +1,7 @@
 import { MetadataRoute } from 'next'
 import { query } from './ApolloClient'
-import { FieldsLinksQuery, GET_FIELDS, GET_LINKS, HeaderLinksQuery, ServicesLinksQuery } from '@/components/Navbar/query'
+import { FieldsLinksQuery, GET_FIELDS, GET_LINKS, HeaderLinksQuery, ServicesLinksQuery } from '../components/Navbar/query'
 import { GET_SERVICES } from './services/query'
-import { TeamMemberQuery } from './team/[slug]/query'
 import { GET_TEAM_COLLECTION, TeamCollectionQuery } from './team/query'
 import { GET_PROJECTS, ProjectsQuery } from './portfolio/query'
 

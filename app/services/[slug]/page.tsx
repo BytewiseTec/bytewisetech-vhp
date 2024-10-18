@@ -1,11 +1,11 @@
-import Badge from '@/components/Badge'
-import PageBanner from '@/components/PageBanner'
+import Badge from '../../../components/Badge'
+import PageBanner from '../../../components/PageBanner'
 import { GET_SERVICE, GET_SERVICE_ID, ServiceIdQuery, ServiceQuery } from './query'
-import { renderHtml } from '@/utils/renderers'
+import { renderHtml } from '../../../utils/renderers'
 import { BLOCKS } from '@contentful/rich-text-types'
-import { query } from '@/app/ApolloClient'
-import ProcessesAccordion from '@/components/ProcessesAccordion'
-import ItemIndicator from '@/components/ProcessesAccordion/ItemIndicator'
+import { query } from '../../ApolloClient'
+import ProcessesAccordion from '../../../components/ProcessesAccordion'
+import ItemIndicator from '../../../components/ProcessesAccordion/ItemIndicator'
 
 type ServiceDetailsPageProps = {
   params: {

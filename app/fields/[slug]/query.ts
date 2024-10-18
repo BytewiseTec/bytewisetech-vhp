@@ -1,4 +1,4 @@
-import { EntryId, ListItem, Media } from '@/app/content.types'
+import { EntryId, ListItem, Media } from '../../content.types'
 import { Document } from '@contentful/rich-text-types'
 import gql from 'graphql-tag'
 

@@ -1,9 +1,9 @@
-import { query } from '@/app/ApolloClient'
-import Badge from '@/components/Badge'
-import PageBanner from '@/components/PageBanner'
+import { query } from '../../ApolloClient'
+import Badge from '../../../components/Badge'
+import PageBanner from '../../../components/PageBanner'
 import { GET_PROJECT, GET_PROJECT_ID, ProjectIdQuery, ProjectQuery } from './query'
 import Image from 'next/image'
-import { renderHtml } from '@/utils/renderers'
+import { renderHtml } from '../../../utils/renderers'
 
 interface PortfolioDetailsPageProps {
   params: {
