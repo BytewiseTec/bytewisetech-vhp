@@ -36,12 +36,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <GoogleTagManager gtmId="G-6C9SXFJ8Q7" />
+      <GoogleTagManager gtmId="GTM-K4SHD7J6" />
       <body>
         <ApolloWrapper>
           <div className="page_wrapper">
             <div className="backtotop">
-              <a href="#" className="scroll">
+              <a title="Scroll to top" href="#" className="scroll">
                 <i className="fa-solid fa-arrow-up"></i>
               </a>
             </div>
