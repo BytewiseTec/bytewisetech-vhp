@@ -161,7 +161,10 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="#" className="termly-display-preferences">Consent Preferences</a>
+              <span className="icon_list_icon">
+                <i className="fa-solid fa-circle"></i>
+              </span>
+              <a href="#" className="icon_list_text termly-display-preferences">Consent Preferences</a>
             </li>
           </ul>
         </div>
