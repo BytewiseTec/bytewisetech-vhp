@@ -14,6 +14,7 @@ import '../public/assets/css/style.css'
 
 import CallToAction from '../components/CallToAction'
 import { ApolloWrapper } from './ApolloWrapper'
+import { GoogleTagManager } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   title: 'Bytewise Technologies',
@@ -35,6 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleTagManager gtmId="G-6C9SXFJ8Q7" />
       <body>
         <ApolloWrapper>
           <div className="page_wrapper">
