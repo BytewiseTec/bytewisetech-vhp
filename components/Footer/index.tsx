@@ -160,6 +160,9 @@ export default function Footer() {
                 <span className="icon_list_text">Privacy Policy</span>
               </a>
             </li>
+            <li>
+              <a href="#" className="termly-display-preferences">Consent Preferences</a>
+            </li>
           </ul>
         </div>
       </div>
