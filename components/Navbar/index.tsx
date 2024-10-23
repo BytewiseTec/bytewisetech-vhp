@@ -41,11 +41,6 @@ export default function Navbar() {
               <nav className="main_menu navbar navbar-expand-lg">
                 <div className="main_menu_inner collapse navbar-collapse justify-content-lg-center" id="main_menu_dropdown">
                   <ul className="main_menu_list unordered_list justify-content-center">
-                    <li className={isRouteActive(pathName === '/')}>
-                      <Link className="nav-link" href={home?.href} role="button">
-                        {home.label}
-                      </Link>
-                    </li>
                     <li className="dropdown">
                       <a className="nav-link" href="#" id="company_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {company.label}

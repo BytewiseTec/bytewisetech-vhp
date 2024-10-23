@@ -2,25 +2,25 @@
 import React from 'react'
 
 import { useSuspenseQuery } from '@apollo/client'
-import { GET_FEATURED, FooterQuery,FieldsLinksQuery, GET_FIELDS, GET_LINKS, GET_SERVICES, HeaderLinksQuery, ServicesLinksQuery } from './query'
+import { GET_FEATURED, FooterQuery, FieldsLinksQuery, GET_FIELDS, GET_LINKS, GET_SERVICES, HeaderLinksQuery, ServicesLinksQuery } from './query'
 import Image from 'next/image'
 import Link from 'next/link'
 const getSocialMediaIcon = (url: string) => {
-  if (url.includes('https://www.facebook.com/people/Bytewise-Technologies/61566440639702/')) return  'fa-facebook-f'
+  if (url.includes('https://www.facebook.com/people/Bytewise-Technologies/61566440639702/')) return 'fa-facebook-f'
   if (url.includes('https://github.com/BytewiseTec')) return 'fa-github'
   if (url.includes('https://www.linkedin.com/company/bytewise-tech')) return 'fa-linkedin-in'
   return null
 }
 export default function Footer() {
   const { data: linksCollection } = useSuspenseQuery<HeaderLinksQuery>(GET_LINKS)
-  const {  services, fields} = linksCollection?.links.header || {}
+  const { services, fields } = linksCollection?.links.header || {}
   const { data: fieldsCollection } = useSuspenseQuery<FieldsLinksQuery>(GET_FIELDS)
 
   const { data: servicesCollection } = useSuspenseQuery<ServicesLinksQuery>(GET_SERVICES)
   const { items: serviceLinks } = servicesCollection?.serviceCollection || {}
-  const { data:Collection } =useSuspenseQuery<FooterQuery>( GET_FEATURED)
+  const { data: Collection } = useSuspenseQuery<FooterQuery>(GET_FEATURED)
   const { items: fieldLinks } = fieldsCollection?.fieldCollection || {}
-  const   footer  = Collection?.footerCollection.items[0] || {}
+  const footer = Collection?.footerCollection.items[0] || {}
   return (
     <footer
       className="site_footer footer_layout_2 section_decoration"
@@ -63,9 +63,21 @@ export default function Footer() {
                     </li>
                   ))}
                 </ul>
+                <ul className="social_icons_block unordered_list mt-5">
+                  {footer.socials?.map((socialLink, index) => {
+                    const Icon = getSocialMediaIcon(socialLink)
+                    return (
+                      <li key={index}>
+                        <Link href={socialLink} target="_blank" rel="noopener noreferrer">
+                          <i className={`fa-brands ${Icon}`}></i>
+                        </Link>
+                      </li>
+                    )
+                  })}
+                </ul>
               </div>
             </div>
-            <div className="col-lg-2 col-md-6">
+            <div className="col-lg-4 col-md-6">
               <div className="footer_widget">
                 <h3 className="footer_info_title">Expertise</h3>
                 <ul className="icon_list unordered_list_block">
@@ -84,7 +96,7 @@ export default function Footer() {
                 <h3 className="footer_info_title">Industries</h3>
                 <ul className="icon_list unordered_list_block">
                   {fieldLinks.map((item, index) => (
-                      <li key={index}>
+                    <li key={index}>
                       <Link href={`${fields.href}/${item.slug}`}>
                         <span className="icon_list_text">
                           {item.name}
@@ -95,38 +107,34 @@ export default function Footer() {
                 </ul>
               </div>
             </div>
-            <div className="col-lg-4 col-md-6">
-              <div className="footer_widget pe-lg-3">
-                <h2 className="footer_info_title">Newsletter</h2>
-                <p>Sign up to Bytewise Tech weekly newsletter to get the latest updates</p>
-                <form className="footer_newslatter_2" action="#">
-                  <label htmlFor="footer_mail_input">
-                    <Image
-                      src="/assets/images/icons/icon_mail_2.svg"
-                      alt="Mail SVG Icon"
-                      width={18}
-                      height={16}
-                    />
-                  </label>
-                  <input
-                    id="footer_mail_input"
-                    type="email"
-                    name="email"
-                    placeholder="Enter your email"
-                  />
-                  <button type="submit">Send</button>
-                </form>
-                <ul className="social_icons_block unordered_list">
-                  {footer.socials?.map((socialLink, index) => {
-                    const Icon = getSocialMediaIcon(socialLink)
-                    return (
-                      <li key={index}>
-                        <Link href={socialLink} target="_blank" rel="noopener noreferrer">
-                          <i className={`fa-brands ${Icon}`}></i>
-                        </Link>
-                      </li>
-                    )
-                  })}
+            <div className="col-lg-3 col-md-6">
+              <div className="footer_widget">
+                <h3 className="footer_info_title">Contact</h3>
+                <ul className="icon_list unordered_list_block">
+                  <li>
+                    <a href="tel:+8801680636189">
+                      <span className="icon">
+                        <i className="fa-solid fa-phone-volume"></i>
+                      </span>
+                      <span className="icon-list-text">+880-1680-6361-89</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="mailto:info@bytewisetechnologies.com">
+                      <span className="icon">
+                        <i className="fa-solid fa-envelope"></i>
+                      </span>
+                      <span className="icon-list-text">info@bytewisetechnologies.com</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:void(0);">
+                      <span className="icon">
+                        <i className="fa-solid fa-location-dot"></i>
+                      </span>
+                      <span className="icon-list-text">Surrey, Canada</span>
+                    </a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -145,20 +153,20 @@ export default function Footer() {
           </p>
           <ul className="icon_list unordered_list">
             <li>
-              <a href="#">
+              <Link href="/terms-of-service">
                 <span className="icon_list_icon">
                   <i className="fa-solid fa-circle"></i>
                 </span>
-                <span className="icon_list_text">Terms of Use</span>
-              </a>
+                <span className="icon_list_text">Terms of Service</span>
+              </Link>
             </li>
             <li>
-              <a href="#">
+              <Link href="/cookie-policy">
                 <span className="icon_list_icon">
                   <i className="fa-solid fa-circle"></i>
                 </span>
-                <span className="icon_list_text">Privacy Policy</span>
-              </a>
+                <span className="icon_list_text">Cookie Policy</span>
+              </Link>
             </li>
             <li>
               <span className="icon_list_icon">
