@@ -3,8 +3,13 @@
 import { sendMail } from '../../utils/send-mail'
 import { useForm } from 'react-hook-form'
 import { toast, Toaster } from 'sonner'
+import { ContactQuery, GET_CONTACT } from './query'
+import { useSuspenseQuery } from '@apollo/client'
 
 export default function ContactPage() {
+  const { data } = useSuspenseQuery<ContactQuery>(GET_CONTACT)
+  const contact = data?.page || {}
+
   const { register, handleSubmit, formState } = useForm({
     defaultValues: {
       name: '',
@@ -42,7 +47,6 @@ export default function ContactPage() {
     <>
       <section
         className="page_banner_section text-center"
-        style={{ backgroundImage: 'url(\'assets/images/shapes/bg_pattern_4.svg\')' }}
       >
         <div className="container">
           <div className="heading_focus_text text-white">
@@ -56,54 +60,21 @@ export default function ContactPage() {
       <section className="contact_section section_space bg-light">
         <div className="container">
           <div className="contact_info_box row">
-            <div className="col-lg-3 col-md-6 col-sm-6">
+            {contact.tiles.map((contactItem, index) => (
+              <div className="col-lg-3 col-md-6 col-sm-6" key={index}>
               <div className="iconbox_block text-center">
                 <div className="iconbox_icon">
-                  <img src="/assets/images/icons/icon_map_mark_2.svg" alt="Map Mark SVG Icon" />
+                  <img src={contactItem.icon} alt={`${contactItem.title} SVG Icon`} />
                 </div>
                 <div className="iconbox_content">
-                  <h3 className="iconbox_title">Location</h3>
+                  <h3 className="iconbox_title">{contactItem.title}</h3>
                   <p className="mb-0">
-                    105 AVE, SURREY, CANADA
+                    {contactItem.description}
                   </p>
                 </div>
               </div>
             </div>
-            <div className="col-lg-3 col-md-6 col-sm-6">
-              <div className="iconbox_block text-center">
-                <div className="iconbox_icon">
-                  <img src="/assets/images/icons/icon_calling_2.svg" alt="Calling SVG Icon" />
-                </div>
-                <div className="iconbox_content">
-                  <h3 className="iconbox_title">Contact</h3>
-                  <p className="mb-0">+88(0) 555-0108</p>
-                  <div className="mb-0">+88(0) 555-01117</div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6 col-sm-6">
-              <div className="iconbox_block text-center">
-                <div className="iconbox_icon">
-                  <img src="/assets/images/icons/icon_mail_3.svg" alt="User Check SVG Icon" />
-                </div>
-                <div className="iconbox_content">
-                  <h3 className="iconbox_title">Email</h3>
-                  <p className="mb-0">info@bytewisetechnologies.com</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6 col-sm-6">
-              <div className="iconbox_block text-center">
-                <div className="iconbox_icon">
-                  <img src="/assets/images/icons/icon_calendar_2.svg" alt="Calendar SVG Icon" />
-                </div>
-                <div className="iconbox_content">
-                  <h3 className="iconbox_title">Visit Between</h3>
-                  <p className="mb-0">Mon - Fri: 8.00-5.00</p>
-                  <p className="mb-0">Saturday - Sunday: Closed</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
 
           <div className="section_space pb-0">

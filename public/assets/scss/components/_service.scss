@@ -99,7 +99,7 @@
 		width: calc(100% - 265px);
 	}
 	.shape_image_4 {
-		right: 0;
+		right: -5px;
 		bottom: 0;
 		max-width: 265px;
 	}
@@ -110,6 +110,7 @@
 	}
 }
 .service_block_2 {
+	height: 100%;
 	padding: 40px;
 	transition: var(--bs-transition);
 	background-color: var(--bs-white);

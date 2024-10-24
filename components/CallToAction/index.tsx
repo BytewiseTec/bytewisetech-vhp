@@ -2,10 +2,9 @@ export default function CallToAction() {
   return (
     <section
       className="calltoaction_section parallaxie"
-      style={{ backgroundImage: 'url(\'assets/images/shapes/bg_pattern_1.svg\')' }}
     >
       <div className="container text-center">
-        <div className="heading_block text-white">
+        <div className="heading_block text-dark">
           <h2 className="heading_text">
             Ready to Work, Let&apos;s Chat
           </h2>

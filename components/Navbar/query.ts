@@ -26,31 +26,31 @@ export interface NavLink {
 export interface HeaderLinksQuery {
   links: {
     header: HeaderLinks;
-  }
+  };
 }
 
 export interface TeamMemberQuery {
   teamCollection: {
     items: TeamMember[];
-  }
+  };
 }
 export const GET_TEAM = gql`
   query TeamCollection {
     teamCollection {
-        items {
-            fullName
-            title
-            portrait {
-                url
-                width
-                height
-            }
-            bio
-            slug
-            social
+      items {
+        fullName
+        title
+        portrait {
+          url
+          width
+          height
         }
+        bio
+        slug
+        social
+      }
     }
-}
+  }
 `
 export interface CaseStudiesQuery {
   projectCollection: {
@@ -58,17 +58,17 @@ export interface CaseStudiesQuery {
   };
 }
 export const GET_CASE_STUDIES = gql`
-query ProjectCollection {
-  projectCollection {
-    items {
-      name
-      slug
-      banner {
-        url
+  query ProjectCollection {
+    projectCollection {
+      items {
+        name
+        slug
+        banner {
+          url
+        }
       }
     }
   }
-}
 `
 
 export const GET_LINKS = gql`
@@ -82,7 +82,7 @@ export const GET_LINKS = gql`
 export interface ServicesLinksQuery {
   serviceCollection: {
     items: NavLink[];
-  }
+  };
 }
 
 export const GET_SERVICES = gql`
@@ -100,7 +100,7 @@ export const GET_SERVICES = gql`
 export interface FieldsLinksQuery {
   fieldCollection: {
     items: NavLink[];
-  }
+  };
 }
 
 export const GET_FIELDS = gql`
@@ -110,6 +110,24 @@ export const GET_FIELDS = gql`
         _id
         name
         slug
+      }
+    }
+  }
+`
+
+export interface FooterSocialsQuery {
+  footerCollection: {
+    items: {
+      socials: string[];
+    }[];
+  };
+}
+
+export const GET_FOOTER_SOCIALS = gql`
+  query FooterSocialsCollection {
+    footerCollection {
+      items {
+        socials
       }
     }
   }

@@ -5,12 +5,8 @@ import { useSuspenseQuery } from '@apollo/client'
 import { GET_FEATURED, FooterQuery, FieldsLinksQuery, GET_FIELDS, GET_LINKS, GET_SERVICES, HeaderLinksQuery, ServicesLinksQuery } from './query'
 import Image from 'next/image'
 import Link from 'next/link'
-const getSocialMediaIcon = (url: string) => {
-  if (url.includes('https://www.facebook.com/people/Bytewise-Technologies/61566440639702/')) return 'fa-facebook-f'
-  if (url.includes('https://github.com/BytewiseTec')) return 'fa-github'
-  if (url.includes('https://www.linkedin.com/company/bytewise-tech')) return 'fa-linkedin-in'
-  return null
-}
+import { getSocialMediaIcon } from '@/utils/helpers'
+
 export default function Footer() {
   const { data: linksCollection } = useSuspenseQuery<HeaderLinksQuery>(GET_LINKS)
   const { services, fields } = linksCollection?.links.header || {}
@@ -21,6 +17,7 @@ export default function Footer() {
   const { data: Collection } = useSuspenseQuery<FooterQuery>(GET_FEATURED)
   const { items: fieldLinks } = fieldsCollection?.fieldCollection || {}
   const footer = Collection?.footerCollection.items[0] || {}
+
   return (
     <footer
       className="site_footer footer_layout_2 section_decoration"
@@ -41,10 +38,10 @@ export default function Footer() {
           <div className="swiper-wrapper">
             {footer.heading.map((item, index) => (
               <div key={index} className="swiper-slide">
-                <a className="service_pill_block" href="service_details.html">
+                <span className="service_pill_block">
                   <i className="fa-solid fa-check"></i>
                   <span>{item}</span>
-                </a>
+                </span>
               </div>
             ))}
           </div>
@@ -62,18 +59,6 @@ export default function Footer() {
                       </a>
                     </li>
                   ))}
-                </ul>
-                <ul className="social_icons_block unordered_list mt-5">
-                  {footer.socials?.map((socialLink, index) => {
-                    const Icon = getSocialMediaIcon(socialLink)
-                    return (
-                      <li key={index}>
-                        <Link href={socialLink} target="_blank" rel="noopener noreferrer">
-                          <i className={`fa-brands ${Icon}`}></i>
-                        </Link>
-                      </li>
-                    )
-                  })}
                 </ul>
               </div>
             </div>
@@ -128,13 +113,25 @@ export default function Footer() {
                     </a>
                   </li>
                   <li>
-                    <a href="javascript:void(0);">
+                    <a href="#!" onClick={(e) => e.preventDefault()}>
                       <span className="icon">
                         <i className="fa-solid fa-location-dot"></i>
                       </span>
                       <span className="icon-list-text">Surrey, Canada</span>
                     </a>
                   </li>
+                </ul>
+                <ul className="social_icons_block unordered_list mt-5">
+                  {footer.socials?.map((socialLink, index) => {
+                    const Icon = getSocialMediaIcon(socialLink)
+                    return (
+                      <li key={index}>
+                        <Link href={socialLink} target="_blank" rel="noopener noreferrer">
+                          <i className={`fa-brands ${Icon}`}></i>
+                        </Link>
+                      </li>
+                    )
+                  })}
                 </ul>
               </div>
             </div>

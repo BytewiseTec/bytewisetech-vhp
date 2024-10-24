@@ -154,9 +154,6 @@
 }
 
 // About Page 
-body:has(.page_banner_section + .intro_about_section) .page_banner_section {
-	padding-bottom: 394px;
-}
 .intro_about_section {
 	.intro_about_content {
 		z-index: 1;

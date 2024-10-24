@@ -1,14 +1,14 @@
 import { Media, ListItem } from '../content.types'
 import { gql } from '@apollo/client'
 export interface Featured {
-    _id: string;
-    company: string;
-    logo: Media
+  _id: string;
+  company: string;
+  logo: Media;
 }
 export interface FeatureQuery {
-    partnerCollection: {
-        items: Featured[];
-    }
+  partnerCollection: {
+    items: Featured[];
+  };
 }
 
 export interface TeamMember {
@@ -23,19 +23,19 @@ export interface TeamMember {
   bio: string;
   education: string;
   portrait: Media;
-  slug: string; 
+  slug: string;
 }
 
 export interface AboutData {
   _id: string;
-  title:string;
-  tiles:ListItem[];
-  headingsections:string
-  sections:string;
-  banner:Media
-  highlightImage:Media
-  whyUs:ListItem[]
-  highlight:ListItem[]
+  title: string;
+  tiles: ListItem[];
+  headingsections: string;
+  sections: string;
+  banner: Media;
+  highlightImage: Media;
+  whyUs: ListItem[];
+  highlight: ListItem[];
 }
 export interface TeamCollectionQuery {
   teamCollection: {
@@ -70,49 +70,44 @@ export const GET_TEAM_COLLECTION = gql`
 export const GET_FEATURED = gql`
   query PartnerCollection {
     partnerCollection {
-        items {
-            _id
-            company
-            logo {
-                url
-                width
-                height
-            }
+      items {
+        _id
+        company
+        logo {
+          url
+          width
+          height
         }
+      }
     }
-}
+  }
 `
 export interface AboutQuery {
-  pageCollection: {
-    items: AboutData[];
-  };
+  page: AboutData;
 }
 
 export const GET_ABOUT = gql`
-query PageCollection {
-    pageCollection {
-        items {
-            _id
-            title
-            headingsections
-            sections
-            tiles
-            highlight
-            whyUs
-            banner {
-                size
-                url
-                width
-                height
-            }
-            highlightImage {
-                size
-                url
-                width
-                height
-            }
-        }
+  query Page {
+    page(id: "gLLkTfvk4oIQMkYn5H4ed") {
+      _id
+      title
+      headingsections
+      sections
+      tiles
+      highlight
+      whyUs
+      banner {
+        size
+        url
+        width
+        height
+      }
+      highlightImage {
+        size
+        url
+        width
+        height
+      }
     }
-}
-
+  }
 `

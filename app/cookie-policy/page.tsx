@@ -16,7 +16,6 @@ export default async function CookiePolicyPage() {
     <>
       <section
         className="page_banner_section text-center"
-        style={{ backgroundImage: 'url(\'assets/images/shapes/bg_pattern_4.svg\')' }}
       >
         <div className="container">
           <h1 className="page_title mb-0 text-white">COOKIE POLICY</h1>

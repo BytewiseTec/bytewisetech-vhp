@@ -6,7 +6,7 @@
 	background-repeat: no-repeat;
 	background-blend-mode: overlay;
 	background-position: center center;
-	background-color: rgba(2, 8, 66, 0.8);
+	background-color: var(--bs-light);
 
 	.heading_block .heading_text {
 		font-size: 54px;

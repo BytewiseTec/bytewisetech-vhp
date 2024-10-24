@@ -266,7 +266,12 @@
 }
 
 .megamenu_case {
+	height: 100%;
 	padding: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
 	h3 {
 		line-height: 1;
 		font-size: 14px;
