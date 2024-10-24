@@ -6,17 +6,24 @@ import { GET_FEATURED, FooterQuery, FieldsLinksQuery, GET_FIELDS, GET_LINKS, GET
 import Image from 'next/image'
 import Link from 'next/link'
 import { getSocialMediaIcon } from '@/utils/helpers'
+import { ContactQuery, GET_CONTACT } from '@/app/contact/query'
 
 export default function Footer() {
   const { data: linksCollection } = useSuspenseQuery<HeaderLinksQuery>(GET_LINKS)
   const { services, fields } = linksCollection?.links.header || {}
   const { data: fieldsCollection } = useSuspenseQuery<FieldsLinksQuery>(GET_FIELDS)
+  const { data: contactData } = useSuspenseQuery<ContactQuery>(GET_CONTACT)
 
   const { data: servicesCollection } = useSuspenseQuery<ServicesLinksQuery>(GET_SERVICES)
   const { items: serviceLinks } = servicesCollection?.serviceCollection || {}
   const { data: Collection } = useSuspenseQuery<FooterQuery>(GET_FEATURED)
   const { items: fieldLinks } = fieldsCollection?.fieldCollection || {}
   const footer = Collection?.footerCollection.items[0] || {}
+  const contact = contactData?.page || {}
+
+  const phone = contact?.tiles.find(tile => tile.id === 'phone')
+  const email = contact?.tiles.find(tile => tile.id === 'email')
+  const address = contact?.tiles.find(tile => tile.id === 'address')
 
   return (
     <footer
@@ -97,19 +104,19 @@ export default function Footer() {
                 <h3 className="footer_info_title">Contact</h3>
                 <ul className="icon_list unordered_list_block">
                   <li>
-                    <a href="tel:+8801680636189">
+                    <a href={phone?.href}>
                       <span className="icon">
                         <i className="fa-solid fa-phone-volume"></i>
                       </span>
-                      <span className="icon-list-text">+880-1680-6361-89</span>
+                      <span className="icon-list-text">{phone?.description}</span>
                     </a>
                   </li>
                   <li>
-                    <a href="mailto:info@bytewisetechnologies.com">
+                    <a href={email?.href}>
                       <span className="icon">
                         <i className="fa-solid fa-envelope"></i>
                       </span>
-                      <span className="icon-list-text">info@bytewisetechnologies.com</span>
+                      <span className="icon-list-text">{email?.description}</span>
                     </a>
                   </li>
                   <li>
@@ -117,7 +124,7 @@ export default function Footer() {
                       <span className="icon">
                         <i className="fa-solid fa-location-dot"></i>
                       </span>
-                      <span className="icon-list-text">Surrey, Canada</span>
+                      <span className="icon-list-text">{address?.description}</span>
                     </a>
                   </li>
                 </ul>

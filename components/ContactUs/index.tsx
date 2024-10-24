@@ -1,10 +1,19 @@
 'use client'
 
+import { useSuspenseQuery } from '@apollo/client'
 import { sendMail } from '../../utils/send-mail'
 import { useForm } from 'react-hook-form'
 import { Toaster, toast } from 'sonner'
+import { ContactQuery, GET_CONTACT } from '@/app/contact/query'
 
 export default function ContactUs() {
+  const { data } = useSuspenseQuery<ContactQuery>(GET_CONTACT)
+  const contact = data?.page || {}
+
+  const phone = contact?.tiles.find(tile => tile.id === 'phone')
+  const email = contact?.tiles.find(tile => tile.id === 'email')
+  const address = contact?.tiles.find(tile => tile.id === 'address')
+
   const { register, handleSubmit, formState } = useForm({
     defaultValues: {
       name: '',
@@ -59,27 +68,27 @@ export default function ContactUs() {
               </div>
               <ul className="contact_method_list unordered_list_block">
                 <li>
-                  <a href="tel:+8801680636189">
+                  <a href={phone?.href}>
                     <span className="icon">
                       <i className="fa-solid fa-phone-volume"></i>
                     </span>
-                    <span className="text">+880-1680-6361-89</span>
+                    <span className="text">{phone?.description}</span>
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:info@bytewisetechnologies.com">
+                  <a href={email?.href}>
                     <span className="icon">
                       <i className="fa-solid fa-envelope"></i>
                     </span>
-                    <span className="text">info@bytewisetechnologies.com</span>
+                    <span className="text">{email?.description}</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#!">
+                  <a href="#!" onClick={(e) => e.preventDefault()}>
                     <span className="icon">
                       <i className="fa-solid fa-location-dot"></i>
                     </span>
-                    <span className="text">Surrey, Canada</span>
+                    <span className="text">{address?.description}</span>
                   </a>
                 </li>
               </ul>
