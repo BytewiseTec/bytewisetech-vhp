@@ -39,7 +39,7 @@ export default function Services() {
             <div className="col-lg-4" key={service._id}>
               <div className="service_block_2">
                 <div className="service_icon">
-                <img src={service.icon?.url ||'/assets/images/default_icon.svg'} alt="Tech Service icon"/>
+                <Image width={62} height={62} src={service.icon?.url ||'/assets/images/default_icon.svg'} alt="Tech Service icon"/>
                 </div>
                 <h3 className="service_title">
                   <Link href={`${services.href}/${service?.slug}`}>

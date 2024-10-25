@@ -11,8 +11,9 @@ export default function AboutCaseStudies() {
   const { data, error } = useSuspenseQuery<CaseStudiesQuery>(GET_CASE_STUDIES)
   const { data: linksCollection } = useSuspenseQuery<HeaderLinksQuery>(GET_LINKS)
   const { portfolio } = linksCollection?.links.header || {}
-  const aboutData = data?.projectCollection.items[0]
+
   if (error) return <div>Error loading case studies</div>
+
   return (
     <section
       className="about_and_case_section section_space section_decoration bg-dark"
@@ -142,15 +143,13 @@ export default function AboutCaseStudies() {
                       </li>
                     </ul>
                     <ul className="case_technologies unordered_list" data-text="Core Technologies:">
-                      <li>
-                        <img src="/assets/images/case/icon_angular.svg" alt="Angular" />
-                      </li>
-                      <li>
-                        <img src="/assets/images/case/icon_elephent.svg" alt="Elephent" />
-                      </li>
+                      {caseStudy.technologies.map((tech, index) => (
+                        <li key={index}>
+                          <Image title={tech.title} width={64} height={64} src={tech.icon || ''} alt={tech.title || ''} />
+                        </li> 
+                      ))}
                     </ul>
                     <Link className="btn btn-primary" href={`${portfolio.href}/${caseStudy.slug}`}>
-
                       <span className="btn_label" data-text="Read Case">Read Case</span>
                       <span className="btn_icon">
                         <i className="fa-solid fa-arrow-up-right"></i>

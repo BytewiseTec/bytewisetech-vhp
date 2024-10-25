@@ -8,7 +8,7 @@ export interface CaseStudy {
   short: string;
   industry: string;
   address: string;
-  technologies: string[];
+  technologies: ListItem[];
   thumbnail: Media;
   banner: Media;
   abouttext:string

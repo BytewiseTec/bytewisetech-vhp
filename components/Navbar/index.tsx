@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import Badge from '../Badge'
 import { getSocialMediaIcon } from '@/utils/helpers'
+import { GET_PROJECT, ProjectQuery } from '@/app/portfolio/[slug]/query'
 
 export default function Navbar() {
   const pathName = usePathname()
@@ -13,7 +14,11 @@ export default function Navbar() {
 
   const { data: linksCollection } = useSuspenseQuery<HeaderLinksQuery>(GET_LINKS)
   const { data: servicesCollection } = useSuspenseQuery<ServicesLinksQuery>(GET_SERVICES)
-  const { data: projectData } = useSuspenseQuery<CaseStudiesQuery>(GET_CASE_STUDIES)
+  const { data: projectData } = useSuspenseQuery<ProjectQuery>(GET_PROJECT, {
+    variables: {
+      id: '3FgclxT3Luzj9bBmvTK8qG', // Investify project id
+    }
+  })
   const { data: fieldsCollection } = useSuspenseQuery<FieldsLinksQuery>(GET_FIELDS)
   const { data: footerSocialsCollection } = useSuspenseQuery<FooterSocialsQuery>(GET_FOOTER_SOCIALS)
 
@@ -21,10 +26,7 @@ export default function Navbar() {
   const { items: serviceLinks } = servicesCollection?.serviceCollection || {}
   const { items: fieldLinks } = fieldsCollection?.fieldCollection || {}
   const { socials } = footerSocialsCollection?.footerCollection.items[0] || {}
-
-  const getRandomIndex = (max: number) => Math.floor(Math.random() * max)
-
-  const project = projectData?.projectCollection?.items[getRandomIndex(projectData?.projectCollection?.items.length)]
+  const { project } = projectData || {}
 
   const isRouteActive = (isActive: boolean) => isActive ? 'active' : ''
 
@@ -168,11 +170,11 @@ export default function Navbar() {
                             <div className="col-lg-3">
                               <div className="megamenu_case bg-primary">
                                 <div>
-                                  <h3>Computer Software</h3>
-                                  <h4>{project.name}</h4>
+                                  <h3>{project?.industry}</h3>
+                                  <h4>{project?.name}</h4>
                                 </div>
-                                <Image width={200} height={200} src={project.banner.url} alt="Case Image" />
-                                <Link className="btn" href={project.slug}>
+                                <Image width={project?.thumbnail.width} height={project?.thumbnail.height} src={project?.thumbnail?.url} alt="Case Image" />
+                                <Link className="btn" href={`/portfolio/${project?.slug}`}>
                                   <span className="btn_label" data-text="Read Case">Read Case</span>
                                   <span className="btn_icon">
                                     <i className="fa-solid fa-arrow-up-right"></i>
