@@ -34,6 +34,8 @@
 		max-width: 360px;
 		line-height: 40px;
 		margin-bottom: 40px;
+		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+
 		a {
 			display: inline;
 			color: var(--bs-white);
@@ -82,6 +84,14 @@
 
 // Service Block 2
 .service_section {
+	.columns_container {
+		columns: 400px auto;
+		gap: 10px;
+		
+		.columns_item {
+			margin-bottom: 10px;
+		}
+	}
 	.shape_image_1 {
 		left: 0;
 		top: 50%;

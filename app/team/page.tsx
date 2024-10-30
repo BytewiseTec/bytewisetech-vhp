@@ -3,6 +3,7 @@ import { GET_TEAM_COLLECTION, TeamCollectionQuery } from './query'
 import Link from 'next/link'
 import { GET_ROUTES, RouteLinksQuery } from '../global.query'
 import { query } from '../ApolloClient'
+import PageBanner from '@/components/PageBanner'
 const getSocialMediaIcon = (url: string) => {
   if (url.includes('https://www.facebook.com/people/Bytewise-Technologies/61566440639702/')) return  'fa-facebook-f'
   if (url.includes('https://github.com/BytewiseTec')) return 'fa-github'
@@ -29,15 +30,7 @@ export default async function TeamPage() {
 
   return (
     <>
-      <section
-        className="page_banner_section text-center"
-      >
-        <div className="container">
-          <div className="heading_focus_text text-white">
-            <span className="badge bg-secondary">Team 😍</span>
-          </div>
-        </div>
-      </section>
+      <PageBanner title="Team" />
 
       <section className="about_section section_space bg-light">
         <div className="container">

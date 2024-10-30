@@ -40,7 +40,7 @@ export default async function PortfolioPage() {
                   <div className="portfolio_content">
                     <h3 className="portfolio_title">
                       <Link href={`/portfolio/${project.slug}`}>
-                        {project.title}
+                        {project.name}
                       </Link>
                     </h3>
                     <ul className="category_list unordered_list">

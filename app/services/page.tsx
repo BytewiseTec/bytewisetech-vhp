@@ -73,19 +73,10 @@ const { data, loading, error } = await query<ServicesQuery>({
             </h2>
           </div>
 
-          <div className="row">
-            {data.serviceCollection.items.map((service, index) => {
-              let colClass
-              if (index < 2) {
-                colClass = 'col-lg-6'
-              } else if (index < 5) {
-                colClass = 'col-lg-4'
-              } else {
-                colClass = 'col-lg-6'
-              }
-
+          <div className="columns_container">
+            {data.serviceCollection.items.map((service) => {
               return (
-                <div className={colClass} key={service._id}>
+                <div className="columns_item" key={service._id}>
                   <div className="service_block">
                     <div className="service_image">
                       {service.banner && (

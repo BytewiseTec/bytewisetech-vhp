@@ -6,6 +6,10 @@
 	background-color: var(--bs-white);
 	border-radius: var(--bs-border-radius-sm);
 	box-shadow: 0 1px 2px 0 rgba(174, 191, 210, 0.30);
+	display: grid;
+	grid-template-rows: 500px 1.2fr;
+	height: 100%;
+
 	.portfolio_image_wrap {
 		display: block;
 		overflow: hidden;
@@ -51,6 +55,11 @@
 	padding: 20px;
 	.portfolio_image_wrap {
 		border-radius: var(--bs-border-radius-sm);
+		height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 		img {
 			transition: var(--bs-transition);
 		}
