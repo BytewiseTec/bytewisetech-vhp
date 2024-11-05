@@ -2,11 +2,18 @@
 import { useSuspenseQuery } from '@apollo/client'
 import {GET_HERO,HeroQuery,GET_LINKS, HeaderLinksQuery } from './query'
 import Image from 'next/image'
+import { ContactQuery, GET_CONTACT } from '@/app/contact/query'
 
 export default function Hero() {
   const { data: linksCollection } = useSuspenseQuery<HeaderLinksQuery>(GET_LINKS)
   const { data: heroData } = useSuspenseQuery<HeroQuery>(GET_HERO)
-  const {  contact } = linksCollection?.links.header || {}
+  const { data: contactData } = useSuspenseQuery<ContactQuery>(GET_CONTACT)
+
+  const contact = contactData?.page || {}
+
+  const phone = contact?.tiles.find(tile => tile.id === 'phone')
+
+  const {  contact: contactLink } = linksCollection?.links.header || {}
   const Herodata=heroData?.heroCollection.items[0]
   return (
     <section className="software_company_hero_section xb-hidden">
@@ -35,7 +42,7 @@ export default function Hero() {
               </ul>
               <ul className="btns_group unordered_list p-0 justify-content-start">
                 <li>
-                  <a className="btn" href={contact.href}>
+                  <a className="btn" href={contactLink.href}>
                     <span className="btn_label" data-text="Contact Us Today!">Contact Us Today!</span>
                     <span className="btn_icon">
                       <i className="fa-solid fa-arrow-up-right"></i>
@@ -43,13 +50,13 @@ export default function Hero() {
                   </a>
                 </li>
                 <li>
-                  <a className="hotline_block" href={Herodata.phone}>
+                  <a className="hotline_block" href={phone?.href}>
                     <span className="hotline_icon">
                       <i className="fa-solid fa-phone-volume"></i>
                     </span>
                     <span className="hotline_content">
                       <small>CONTACT US DAILY</small>
-                      <strong className="text-white">{Herodata.phone}</strong>
+                      <strong className="text-white">{phone?.description}</strong>
                     </span>
                   </a>
                 </li>

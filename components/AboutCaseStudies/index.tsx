@@ -24,48 +24,58 @@ export default function AboutCaseStudies() {
         <div className="row align-items-center justify-content-lg-between">
           <div className="col-lg-7 order-lg-last">
             <div className="about_image_2">
-              {/* <div className="image_wrap">
-                <img src="/assets/images/about/about_image_6.webp" alt="Bytewise Tech - About Image" />
-              </div> */}
-              <div className="about_funfact_info">
-                {/* <div className="customer_count">
+              <div className="image_wrap">
+                <img src="assets/images/about/customer-satisfaction.avif" alt="Bytewise - About Image" />
+              </div>
+              <div className="about_funfact_info" style={{ backgroundImage: 'url("assets/images/shapes/shape_bg_1.webp")' }}>
+                <div className="customer_count">
                   <ul className="unordered_list">
-                    {aboutData.aboutimage.map((item,index)=>
-                    <li key={index}>
-                    <img src={item} alt="Customer Avatar" />
-                  </li>
-                    )}
                     <li>
-                      <span>6k+</span>
+                      <img src="assets/images/about/person1-avatar.webp" alt="Customer Avatar" />
+                    </li>
+                    <li>
+                      <img src="assets/images/about/person2-avatar.png" alt="Customer Avatar" />
+                    </li>
+                    <li>
+                      <img src="assets/images/about/person3-avatar.png" alt="Customer Avatar" />
+                    </li>
+                    <li>
+                      <span>100+</span>
                     </li>
                   </ul>
                   <p className="mb-0">
-                    Happy Customer
+                    Happy Clients
                   </p>
-                </div> */}
-                {/* <div className="about_funfact_counter">
-                  {aboutData.aboutdata.map((item, index) =>
-                    <div key={index} className="funfact_item">
-                      <div className="counter_value">
-                        <span className="odometer" >{item.icon}</span>
-                      </div>
-                      <h3 className="funfact_title mb-0">{item.title}</h3>
+                </div>
+                <div className="about_funfact_counter">
+                  <div className="funfact_item">
+                    <div className="counter_value">
+                      <span className="odometer" data-count="3">3</span>
+                      <span>00+</span>
                     </div>
-                  )}
-                </div> */}
-                <a className="btn btn-primary" href={'/about'}>
+                    <h3 className="funfact_title mb-0">Projects Done</h3>
+                  </div>
+                  <div className="funfact_item">
+                    <div className="counter_value">
+                      <span className="odometer" data-count="100">100</span>
+                      <span>%</span>
+                    </div>
+                    <h3 className="funfact_title mb-0">Results Guaranteed</h3>
+                  </div>
+                </div>
+                <a className="btn btn-primary" href="about.html">
                   <span className="btn_label" data-text="Learn More">Learn More</span>
                   <span className="btn_icon">
                     <i className="fa-solid fa-arrow-up-right"></i>
                   </span>
                 </a>
                 <div className="icon_globe">
-                  <img src="/assets/images/icons/icon_global.svg" alt="Icon Globe" />
+                  <img src="assets/images/icons/icon_global.svg" alt="Icon Globe" />
                 </div>
               </div>
-              {/* <div className="space_line">
-                <img src="/assets/images/shapes/shape_line.webp" alt="Shape Line" />
-              </div> */}
+              <div className="space_line">
+                <img src="assets/images/shapes/shape_line.webp" alt="Shape Line" />
+              </div>
             </div>
           </div>
           <div className="col-lg-5">
@@ -146,7 +156,7 @@ export default function AboutCaseStudies() {
                       {caseStudy.technologies.map((tech, index) => (
                         <li key={index}>
                           <Image title={tech.title} width={64} height={64} src={tech.icon || ''} alt={tech.title || ''} />
-                        </li> 
+                        </li>
                       ))}
                     </ul>
                     <Link className="btn btn-primary" href={`${portfolio.href}/${caseStudy.slug}`}>
