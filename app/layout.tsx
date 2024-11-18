@@ -22,10 +22,51 @@ export const metadata: Metadata = {
   description: 'Where push comes to shove, you can count on us.',
   keywords: '',
   authors: { name: 'Bytewise Tech', url: 'https://bytewisetechnologies.com' },
+  manifest: '/site.webmanifest',
+  applicationName: 'Bytewise',
+  appleWebApp: {
+    title: 'Bytewise',
+  },
   icons: {
-    shortcut: [{
-      url: '/assets/images/site_logo/favourite_icon_2.svg',
-      rel: 'shortcut icon',
+    shortcut: [
+      {
+        url: '/assets/images/site_logo/favicon.ico',
+        rel: 'shortcut icon',
+      },
+      {
+        url: '/assets/images/site_logo/favicon-16x16.png',
+        rel: 'icon',
+        sizes: '16x16',
+        type: 'image/png',
+      },
+      {
+        url: '/assets/images/site_logo/favicon-32x32.png',
+        rel: 'icon',
+        sizes: '32x32',
+        type: 'image/png',
+      },
+      {
+        url: '/assets/images/site_logo/favicon-96x96.png',
+        rel: 'icon',
+        sizes: '96x96',
+        type: 'image/png',
+      },
+      {
+        url: '/assets/images/site_logo/favicon.svg',
+        rel: 'icon',
+        type: 'image/svg+xml',
+      },
+      {
+        url: '/assets/images/site_logo/favicon-512x512.png',
+        rel: 'icon',
+        sizes: '512x512',
+        type: 'image/png',
+      },
+    ],
+    apple: [{
+      url: '/assets/images/site_logo/apple-touch-icon.png',
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
     }],
   },
 }
