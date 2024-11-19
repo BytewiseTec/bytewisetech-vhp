@@ -1,5 +1,5 @@
 import AboutCaseStudies from '../components/AboutCaseStudies'
-import BlogPosts from '../components/BlogPosts'
+// import BlogPosts from '../components/BlogPosts'
 import ContactUs from '../components/ContactUs'
 import Featured from '../components/Featured'
 import Hero from '../components/Hero'

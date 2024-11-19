@@ -49,7 +49,7 @@ const { data, loading, error } = await query<ServicesQuery>({
                     we understand that every business is unique, with its own set of challenges, goals, and aspirations. That&apos;s why we offer tailored IT solutions designed.
                   </p>
                 </div>
-                <a className="btn" href="contact.html">
+                <a className="btn" href="/contact">
                   <span className="btn_label" data-text="Talk to an Expert">Talk to an Expert</span>
                   <span className="btn_icon">
                     <i className="fa-solid fa-arrow-up-right"></i>
@@ -128,7 +128,7 @@ const { data, loading, error } = await query<ServicesQuery>({
                 </div>
                 <ul className="service_facilities_group unordered_list">
                   <li>
-                    <a className="iconbox_block layout_icon_left" href="service_details.html">
+                    <a className="iconbox_block layout_icon_left" href="#">
                       <span className="iconbox_icon">
                         <img src="/assets/images/icons/icon_check_2.svg" alt="Check SVG Icon" />
                       </span>
@@ -138,7 +138,7 @@ const { data, loading, error } = await query<ServicesQuery>({
                     </a>
                   </li>
                   <li>
-                    <a className="iconbox_block layout_icon_left" href="service_details.html">
+                    <a className="iconbox_block layout_icon_left" href="#">
                       <span className="iconbox_icon">
                         <img src="/assets/images/icons/icon_leaf.svg" alt="Leaf SVG Icon" />
                       </span>
@@ -148,7 +148,7 @@ const { data, loading, error } = await query<ServicesQuery>({
                     </a>
                   </li>
                   <li>
-                    <a className="iconbox_block layout_icon_left" href="service_details.html">
+                    <a className="iconbox_block layout_icon_left" href="#">
                       <span className="iconbox_icon">
                         <img src="/assets/images/icons/icon_box.svg" alt="Box SVG Icon" />
                       </span>
@@ -158,7 +158,7 @@ const { data, loading, error } = await query<ServicesQuery>({
                     </a>
                   </li>
                   <li>
-                    <a className="iconbox_block layout_icon_left" href="service_details.html">
+                    <a className="iconbox_block layout_icon_left" href="#">
                       <span className="iconbox_icon">
                         <img src="/assets/images/icons/icon_receipt_add.svg" alt="Receipt Add SVG Icon" />
                       </span>
@@ -168,7 +168,7 @@ const { data, loading, error } = await query<ServicesQuery>({
                     </a>
                   </li>
                   <li>
-                    <a className="iconbox_block layout_icon_left" href="service_details.html">
+                    <a className="iconbox_block layout_icon_left" href="#">
                       <span className="iconbox_icon">
                         <img src="/assets/images/icons/icon_monitor.svg" alt="Monitor SVG Icon" />
                       </span>
@@ -178,7 +178,7 @@ const { data, loading, error } = await query<ServicesQuery>({
                     </a>
                   </li>
                   <li>
-                    <a className="iconbox_block layout_icon_left" href="service_details.html">
+                    <a className="iconbox_block layout_icon_left" href="#">
                       <span className="iconbox_icon">
                         <img src="/assets/images/icons/icon_microscope.svg" alt="Microscope SVG Icon" />
                       </span>

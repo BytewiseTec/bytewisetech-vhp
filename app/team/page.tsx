@@ -1,15 +1,9 @@
 import React from 'react'
 import { GET_TEAM_COLLECTION, TeamCollectionQuery } from './query'
-import Link from 'next/link'
 import { GET_ROUTES, RouteLinksQuery } from '../global.query'
 import { query } from '../ApolloClient'
 import PageBanner from '@/components/PageBanner'
-const getSocialMediaIcon = (url: string) => {
-  if (url.includes('https://www.facebook.com/people/Bytewise-Technologies/61566440639702/')) return  'fa-facebook-f'
-  if (url.includes('https://github.com/BytewiseTec')) return 'fa-github'
-  if (url.includes('https://www.linkedin.com/company/bytewise-tech')) return 'fa-linkedin-in'
-  return null
-}
+
 export default async function TeamPage() {
   const { data, error } = await query<TeamCollectionQuery>({
     query: GET_TEAM_COLLECTION
@@ -17,7 +11,7 @@ export default async function TeamPage() {
 
   const { data: routesData } = await query<RouteLinksQuery>({
     query: GET_ROUTES,
-    variables:{
+    variables: {
       id: '5wSNq34HGEvBudALxOO3ZD'
     }
   })
@@ -51,10 +45,10 @@ export default async function TeamPage() {
                     Get to Know Our Bytewise Team
                   </h2>
                   <p className="heading_description mb-0">
-                  Bytewise Technologies is inviting you to meet their exceptional team of IT professionals who are revolutionizing the industry with their innovative ideas and groundbreaking work.
+                    Bytewise Technologies is inviting you to meet their exceptional team of IT professionals who are revolutionizing the industry with their innovative ideas and groundbreaking work.
                   </p>
                 </div>
-                <a className="btn" href="contact.html">
+                <a className="btn" href="/contact">
                   <span className="btn_label" data-text="Talk to an Expert">Talk to an Expert</span>
                   <span className="btn_icon">
                     <i className="fa-solid fa-arrow-up-right"></i>
@@ -120,12 +114,12 @@ export default async function TeamPage() {
         </div>
       </section>
 
+    */}
       <section className="team_map_section section_space pb-0 bg-light">
         <div className="container">
           <div className="heading_block text-center">
             <div className="heading_focus_text">
-              <span className="badge bg-secondary text-white">Bytewise Tech </span>
-              Company 😍
+              <span className="badge bg-secondary text-white">Bytewise Technologies</span>
             </div>
             <h2 className="heading_text mb-0">
               Our Global Team is Growing
@@ -140,7 +134,7 @@ export default async function TeamPage() {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
     </>
   )
 }
