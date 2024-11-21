@@ -129,6 +129,11 @@
 	clip-path: polygon(80% 0, 100% 20%, 100% 100%, 0 100%, 0 0);
 	.service_icon {
 		margin-bottom: 40px;
+		height: 70px;
+
+		img {
+			height: 100%;
+		}
 	}
 	.service_title {
 		font-size: 26px;

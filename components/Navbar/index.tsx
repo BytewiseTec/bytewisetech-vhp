@@ -38,7 +38,8 @@ export default function Navbar() {
             <div className="col-lg-3 col-5">
               <div className="site_logo">
                 <Link className="site_link" href={home.href}>
-                  <Image width={9380} height={2330} src="/assets/images/site_logo/logo-white.svg" alt="Site Logo – Bytewise Technologies – IT Solutions & Technology, Business Consulting, Software Company" />
+                  <Image width={2251} height={559} src="/assets/images/site_logo/logo-white.svg" alt="Site Logo – Bytewise Technologies – IT Solutions & Technology, Business Consulting, Software Company" />
+                  <Image width={600} height={559} src="/assets/images/site_logo/favicon.svg" alt="Site Logo – Bytewise Technologies – IT Solutions & Technology, Business Consulting, Software Company" />
                 </Link>
               </div>
             </div>

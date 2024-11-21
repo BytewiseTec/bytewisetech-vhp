@@ -436,7 +436,13 @@
 
 	.site_logo {
 		.site_link {
+			display: flex;
+			flex-direction: row;
+
 			img {
+				&:nth-child(1) {
+					display: block;
+				}
 				&:nth-child(2) {
 					display: none;
 				}
@@ -446,11 +452,14 @@
 	.stricked-menu {
 		.site_logo {
 			.site_link {
+				max-width: 57px;
+
 				img {
 					&:nth-child(1) {
 						display: none;
 					}
 					&:nth-child(2) {
+						height: 57px;
 						display: block;
 					}
 				}
