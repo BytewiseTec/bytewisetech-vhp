@@ -109,10 +109,9 @@ export default async function TeamMemberDetailsPage({ params }: TeamMemberProbsP
               <div className="col-lg-3 col-md-6 col-sm-6" key={index}>
                 <div className="funfact_block text-center">
                   <div className="counter_value">
-                    <span className="odometer" data-count={skill.description}>
+                    <span>
                       {skill.description}
                     </span>
-                    
                   </div>
                   <h3 className="funfact_title mb-0">{skill.label}</h3>
                   <div className={`bottom_line ${skill.color}`}></div>

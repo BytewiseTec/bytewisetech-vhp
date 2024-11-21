@@ -1,6 +1,25 @@
 import { AboutQuery, GET_ABOUT } from './query'
 import { query } from '../ApolloClient'
 import PageBanner from '@/components/PageBanner'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'About - Bytewise Technologies',
+  description: 'We are a team of professionals who are passionate about what we do. We are here to help you grow your business.',
+  keywords: 'about, bytewise, technologies, team, professionals, passionate, business, grow',
+  authors: { name: 'Bytewise Technologies', url: 'https://bytewisetechnologies.com' },
+  openGraph: {
+    locale: 'en_US',
+    type: 'website',
+    title: 'About - Bytewise Technologies',
+    description: 'We are a team of professionals who are passionate about what we do. We are here to help you grow your business.',
+    url: 'https://bytewisetechnologies.com/about',
+    siteName: 'Bytewise Technologies',
+  },
+  alternates: {
+    canonical: 'https://www.bytewisetechnologies.com/about',
+  }
+}
 
 export default async function AboutPage() {
   const { data: aboutData } = await query<AboutQuery>({

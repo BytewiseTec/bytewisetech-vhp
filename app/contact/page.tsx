@@ -5,6 +5,25 @@ import { useForm } from 'react-hook-form'
 import { toast, Toaster } from 'sonner'
 import { ContactQuery, GET_CONTACT } from './query'
 import { useSuspenseQuery } from '@apollo/client'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Contact - Bytewise Technologies',
+  description: 'Get in touch with us. We are here to help you grow your business.',
+  keywords: 'contact, bytewise, technologies, business, grow, help',
+  authors: { name: 'Bytewise Technologies', url: 'https://bytewisetechnologies.com' },
+  openGraph: {
+    locale: 'en_US',
+    type: 'website',
+    title: 'Contact - Bytewise Technologies',
+    description: 'Get in touch with us. We are here to help you grow your business.',
+    url: 'https://bytewisetechnologies.com/contact',
+    siteName: 'Bytewise Technologies',
+  },
+  alternates: {
+    canonical: 'https://www.bytewisetechnologies.com/contact',
+  }
+}
 
 export default function ContactPage() {
   const { data } = useSuspenseQuery<ContactQuery>(GET_CONTACT)

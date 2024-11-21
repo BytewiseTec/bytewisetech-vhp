@@ -1,12 +1,30 @@
 import { GET_SERVICES, ServicesQuery } from './query'
 import { query } from '../ApolloClient'
 import Link from 'next/link'
+import { Metadata } from 'next'
 
+export const metadata: Metadata = {
+  title: 'Services - Bytewise Technologies',
+  description: 'We offer a wide range of services to help you grow your business. Our services are tailored to your needs and designed to help you succeed.',
+  keywords: 'services, range, help, grow, business, tailored, needs, succeed',
+  authors: { name: 'Bytewise Technologies', url: 'https://bytewisetechnologies.com' },
+  openGraph: {
+    locale: 'en_US',
+    type: 'website',
+    title: 'Services - Bytewise Technologies',
+    description: 'We offer a wide range of services to help you grow your business. Our services are tailored to your needs and designed to help you succeed.',
+    url: 'https://bytewisetechnologies.com/services',
+    siteName: 'Bytewise Technologies',
+  },
+  alternates: {
+    canonical: 'https://www.bytewisetechnologies.com/services',
+  }
+}
 
 export default async function ServicesPage() {
-const { data, loading, error } = await query<ServicesQuery>({
-  query:GET_SERVICES
-})
+  const { data, loading, error } = await query<ServicesQuery>({
+    query:GET_SERVICES
+  })
 
   if (loading) return <div>Loading...</div>
   if (error) return <div>Error loading services: {error.message}</div>

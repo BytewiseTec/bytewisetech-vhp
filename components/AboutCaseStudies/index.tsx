@@ -50,14 +50,14 @@ export default function AboutCaseStudies() {
                 <div className="about_funfact_counter">
                   <div className="funfact_item">
                     <div className="counter_value">
-                      <span className="odometer" data-count="3">3</span>
+                      <span>3</span>
                       <span>00+</span>
                     </div>
                     <h3 className="funfact_title mb-0">Projects Done</h3>
                   </div>
                   <div className="funfact_item">
                     <div className="counter_value">
-                      <span className="odometer" data-count="100">100</span>
+                      <span>100</span>
                       <span>%</span>
                     </div>
                     <h3 className="funfact_title mb-0">Results Guaranteed</h3>

@@ -3,6 +3,25 @@ import { GET_TEAM_COLLECTION, TeamCollectionQuery } from './query'
 import { GET_ROUTES, RouteLinksQuery } from '../global.query'
 import { query } from '../ApolloClient'
 import PageBanner from '@/components/PageBanner'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Team - Bytewise Technologies',
+  description: 'Get to know our team members. We are a team of professionals who are passionate about what we do. We are here to help you grow your business.',
+  keywords: 'team, bytewise, technologies, professionals, passionate, business, grow',
+  authors: { name: 'Bytewise Technologies', url: 'https://bytewisetechnologies.com' },
+  openGraph: {
+    locale: 'en_US',
+    type: 'website',
+    title: 'Team - Bytewise Technologies',
+    description: 'Get to know our team members. We are a team of professionals who are passionate about what we do. We are here to help you grow your business.',
+    url: 'https://bytewisetechnologies.com/team',
+    siteName: 'Bytewise Technologies',
+  },
+  alternates: {
+    canonical: 'https://www.bytewisetechnologies.com/team',
+  }
+}
 
 export default async function TeamPage() {
   const { data, error } = await query<TeamCollectionQuery>({

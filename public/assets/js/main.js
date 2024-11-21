@@ -1,11 +1,3 @@
-// ==================================================
-// * Project Name   :  Techco – IT Solutions & Technology, Business Consulting, Software Company Site Template
-// * File           :  JS Base
-// * Version        :  1.0.0
-// * Author         :  XpressBuddy (https://themeforest.net/user/xpressbuddy/portfolio)
-// * Developer      :  webrok (https://www.fiverr.com/webrok?up_rollout=true)
-// ==================================================
-
 (function($) {
   "use strict";
 
@@ -79,18 +71,6 @@
     $(this).addClass("active").siblings().removeClass("active");
   });
   // Filter Elements - End
-  // --------------------------------------------------
-
-  // Odometer Counter - Start
-  // --------------------------------------------------
-  jQuery('.odometer').appear(function (e) {
-    var odo = jQuery(".odometer");
-    odo.each(function () {
-      var countNumber = jQuery(this).attr("data-count");
-      jQuery(this).html(countNumber);
-    });
-  });
-  // Odometer Counter - End
   // --------------------------------------------------
 
   // Pricing Toggle Button - Start

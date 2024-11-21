@@ -63,54 +63,54 @@
 ================================================== */
 
 // Template Global Settings
-@import 'variable';
-@import 'fonts';
-@import 'reset';
+@use 'variable';
+@use 'fonts';
+@use 'reset';
 
 // Template Elements
-@import 'elements/animation';
-@import 'elements/backtotop';
-@import 'elements/space';
-@import 'elements/button';
-@import 'elements/typography';
-@import 'elements/list';
-@import 'elements/form';
-@import 'elements/carousel';
-@import 'elements/iconblock';
-@import 'elements/iconbox';
-@import 'elements/tab';
-@import 'elements/funfact';
-@import 'elements/authorbox';
-@import 'elements/video';
-@import 'elements/social';
-@import 'elements/rating';
-@import 'elements/accordion';
-@import 'elements/pagination';
+@use 'elements/animation';
+@use 'elements/backtotop';
+@use 'elements/space';
+@use 'elements/button';
+@use 'elements/typography';
+@use 'elements/list';
+@use 'elements/form';
+@use 'elements/carousel';
+@use 'elements/iconblock';
+@use 'elements/iconbox';
+@use 'elements/tab';
+@use 'elements/funfact';
+@use 'elements/authorbox';
+@use 'elements/video';
+@use 'elements/social';
+@use 'elements/rating';
+@use 'elements/accordion';
+@use 'elements/pagination';
 
 // Template Parts
-@import 'template-parts/header';
-@import 'template-parts/footer';
-@import 'template-parts/pagebanner';
-@import 'template-parts/sidebar';
+@use 'template-parts/header';
+@use 'template-parts/footer';
+@use 'template-parts/pagebanner';
+@use 'template-parts/sidebar';
 
 // Template Components
-@import 'components/blog';
-@import 'components/calltoaction';
-@import 'components/case';
-@import 'components/clientlogo';
-@import 'components/hero';
-@import 'components/policy';
-@import 'components/portfolio';
-@import 'components/review';
-@import 'components/service';
-@import 'components/team';
+@use 'components/blog';
+@use 'components/calltoaction';
+@use 'components/case';
+@use 'components/clientlogo';
+@use 'components/hero';
+@use 'components/policy';
+@use 'components/portfolio';
+@use 'components/review';
+@use 'components/service';
+@use 'components/team';
 
 // Template Pages
-@import 'templates/about';
-@import 'templates/contact';
-@import 'templates/details';
-@import 'templates/pricing';
-@import 'templates/home';
+@use 'templates/about';
+@use 'templates/contact';
+@use 'templates/details';
+@use 'templates/pricing';
+@use 'templates/home';
 
 // Template Responsive For Small Devices
-@import 'responsive';
+@use 'responsive';
