@@ -99,7 +99,7 @@ export default function Footer() {
                 </ul>
               </div>
             </div>
-            <div className="col-lg-3 col-md-6">
+            <div className="col-lg-4 col-md-6">
               <div className="footer_widget">
                 <h3 className="footer_info_title">Contact</h3>
                 <ul className="icon_list unordered_list_block">

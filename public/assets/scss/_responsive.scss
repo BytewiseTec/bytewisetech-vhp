@@ -654,7 +654,7 @@ Responsive For Mobile & Tablet Devices
 	.site_header_2:not(.sticky) .main_menu_list > li > a {
 		color: var(--bs-dark);
 	}
-	.site_header_2 .mobile_menu_btn {
+	.site_header_2 .header_bottom:not(.stricky-fixed) .mobile_menu_btn {
 		color: var(--bs-white);
 		border: 1px solid var(--bs-white);
 		&:hover {
