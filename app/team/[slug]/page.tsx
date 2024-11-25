@@ -17,15 +17,14 @@ const getSocialMediaIcon = (url: string) => {
 }
 
 interface TeamMemberProbsPage {
-  params: {
-    slug: string;
-  }
+  params: Promise<{ slug: string }>
 }
 export default async function TeamMemberDetailsPage({ params }: TeamMemberProbsPage) {
+  const { slug } = await params
   const { data: TeamsData } = await query<TeamMemberIdQuery>({
     query: GET_TEAMMEMBER_ID,
     variables: {
-      slug: params.slug
+      slug,
     }
   })
   const { items } = TeamsData.teamCollection || {}
@@ -38,7 +37,7 @@ export default async function TeamMemberDetailsPage({ params }: TeamMemberProbsP
   const { team } = teamData || {}
   return (
     <>
-      <PageBanner title={`Team Details ${params.slug}`}>
+      <PageBanner title={team.fullName}>
         Details 😍
         <Badge>Team</Badge>
       </PageBanner>

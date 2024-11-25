@@ -10,13 +10,12 @@ import { query } from '../../ApolloClient'
 import Image from 'next/image'
 
 type FieldsPageProps = {
-  params: {
-    slug: string
-  }
+  params: Promise<{slug: string}>,
 }
 
 export default async function FieldsPage({ params }: FieldsPageProps) {
-  const { data: fieldsData } = await query<FieldIdQuery>({ query: GET_FIELD_ID, variables: { slug: params.slug } })
+  const { slug } = await params
+  const { data: fieldsData } = await query<FieldIdQuery>({ query: GET_FIELD_ID, variables: { slug } })
 
   const { items } = fieldsData.fieldCollection || {}
 

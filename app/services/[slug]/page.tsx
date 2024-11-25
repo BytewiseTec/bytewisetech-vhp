@@ -8,16 +8,15 @@ import ProcessesAccordion from '../../../components/ProcessesAccordion'
 import ItemIndicator from '../../../components/ProcessesAccordion/ItemIndicator'
 
 type ServiceDetailsPageProps = {
-  params: {
-    slug: string
-  }
+  params: Promise<{ slug: string }>
 }
 
 export default async function ServiceDetailsPage({ params }: ServiceDetailsPageProps) {
+  const { slug } = await params
   const { data: servicesData } = await query<ServiceIdQuery>({
     query: GET_SERVICE_ID,
     variables: {
-      slug: params.slug
+      slug,
     }
   })
 

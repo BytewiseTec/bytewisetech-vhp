@@ -6,16 +6,15 @@ import Image from 'next/image'
 import { renderHtml } from '../../../utils/renderers'
 
 interface PortfolioDetailsPageProps {
-  params: {
-    slug: string;
-  }
+  params: Promise<{slug: string;}>
 }
 
 export default async function PortfolioDetailsPage({ params }: PortfolioDetailsPageProps) {
+  const { slug } = await params
   const { data: projectsData } = await query<ProjectIdQuery>({
     query: GET_PROJECT_ID,
     variables:{
-      slug: params.slug
+      slug,
     }
   })
 
