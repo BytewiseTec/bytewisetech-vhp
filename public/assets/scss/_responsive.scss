@@ -872,6 +872,10 @@ Responsive For Mobile & Tablet Devices
 		font-size: 36px;
 		margin-bottom: 2px;
 	}
+	.about_funfact_info {
+		width: 100%;
+		padding: 20px;
+	}
 	.service_facilities_group {
 		margin: -4px;
 	}
@@ -1051,6 +1055,10 @@ Responsive For Mobile & Tablet Devices
 /* Media Screen 425px - Start
 ================================================== */
 @media screen and (max-width: 425px) {
+	.contact_method_box,
+	.instant_contact_form {
+		padding: 40px;
+	}
 	.review_short_info_2 {
 		gap: 20px;
 		width: 100%;
