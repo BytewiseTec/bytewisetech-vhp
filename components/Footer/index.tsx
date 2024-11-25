@@ -61,9 +61,9 @@ export default function Footer() {
                 <ul className="icon_list unordered_list_block">
                   {footer.company.map((item, index) => (
                     <li key={index}>
-                      <a href={item.href}>
+                      <Link href={item.href}>
                         <span className="icon_list_text">{item.title}</span>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

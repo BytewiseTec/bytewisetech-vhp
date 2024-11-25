@@ -4,6 +4,7 @@ import { GET_ROUTES, RouteLinksQuery } from '../global.query'
 import { query } from '../ApolloClient'
 import PageBanner from '@/components/PageBanner'
 import { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Team - Bytewise Technologies',
@@ -67,12 +68,12 @@ export default async function TeamPage() {
                     Bytewise Technologies is inviting you to meet their exceptional team of IT professionals who are revolutionizing the industry with their innovative ideas and groundbreaking work.
                   </p>
                 </div>
-                <a className="btn" href="/contact">
+                <Link className="btn" href="/contact">
                   <span className="btn_label" data-text="Talk to an Expert">Talk to an Expert</span>
                   <span className="btn_icon">
                     <i className="fa-solid fa-arrow-up-right"></i>
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

@@ -3,6 +3,7 @@ import { useSuspenseQuery } from '@apollo/client'
 import {GET_HERO,HeroQuery,GET_LINKS, HeaderLinksQuery } from './query'
 import Image from 'next/image'
 import { ContactQuery, GET_CONTACT } from '@/app/contact/query'
+import Link from 'next/link'
 
 export default function Hero() {
   const { data: linksCollection } = useSuspenseQuery<HeaderLinksQuery>(GET_LINKS)
@@ -42,12 +43,12 @@ export default function Hero() {
               </ul>
               <ul className="btns_group unordered_list p-0 justify-content-start">
                 <li>
-                  <a className="btn" href={contactLink.href}>
+                  <Link className="btn" href={contactLink.href}>
                     <span className="btn_label" data-text="Contact Us Today!">Contact Us Today!</span>
                     <span className="btn_icon">
                       <i className="fa-solid fa-arrow-up-right"></i>
                     </span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a className="hotline_block" href={phone?.href}>

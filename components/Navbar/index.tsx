@@ -202,7 +202,7 @@ export default function Navbar() {
                         ))}
                       </ul>
                     </li>
-                    <li><a href={contact.href}>Contact</a></li>
+                    <li><Link href={contact.href}>Contact</Link></li>
                   </ul>
                 </div>
               </nav>
@@ -215,12 +215,12 @@ export default function Navbar() {
                   </button>
                 </li>
                 <li>
-                  <a className="btn btn-primary" href={contact.href}>
+                  <Link className="btn btn-primary" href={contact.href}>
                     <span className="btn_label" data-text="Get Started">Get Started</span>
                     <span className="btn_icon">
                       <i className="fa-solid fa-arrow-up-right"></i>
                     </span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

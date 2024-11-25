@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function CallToAction() {
   return (
     <section
@@ -12,12 +14,12 @@ export default function CallToAction() {
             Our team of experts is ready to collaborate with you every step of the way, from initial consultation to implementation.
           </p>
         </div>
-        <a className="btn btn-primary" href="/contact">
+        <Link className="btn btn-primary" href="/contact">
           <span className="btn_label" data-text="Contact Us Today!">Contact Us Today!</span>
           <span className="btn_icon">
             <i className="fa-solid fa-arrow-up-right"></i>
           </span>
-        </a>
+        </Link>
       </div>
     </section>
   )

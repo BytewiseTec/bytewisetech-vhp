@@ -4,6 +4,7 @@ export interface Technology {
     _id: string;
     name: string;
     stack: string;
+    url: string;
     logo: Media
 }
 
@@ -50,6 +51,7 @@ export const GET_TECHNOLOGY = gql`
             _id
             name
             stack
+            url
             logo {
                 size
                 url

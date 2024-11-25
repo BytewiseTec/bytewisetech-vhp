@@ -157,19 +157,21 @@ export default function TechnologyReview() {
                   <div className="web_development_technologies row justify-content-center">
                     {stack === activeTab && groupedTechnologies[stack].map((item) => (
                       <div key={item._id} className="col-lg-2 col-md-3 col-sm-4 col-6">
-                        <div className="iconbox_block text-center p-0 shadow-none bg-transparent">
-                          <div className="iconbox_icon">
-                            <img
-                              src={item.logo.url}
-                              alt={`${item.name} SVG Icon`}
-                              width={item.logo.width}
-                              height={item.logo.height}
-                            />
+                        <a href={item.url} target="_blank" rel="nofollow noopener">
+                          <div className="iconbox_block text-center p-0 shadow-none bg-transparent">
+                            <div className="iconbox_icon">
+                              <img
+                                src={item.logo.url}
+                                alt={`${item.name} SVG Icon`}
+                                width={item.logo.width}
+                                height={item.logo.height}
+                              />
+                            </div>
+                            <div className="iconbox_content">
+                              <h3 className="iconbox_title mb-0">{item.name}</h3>
+                            </div>
                           </div>
-                          <div className="iconbox_content">
-                            <h3 className="iconbox_title mb-0">{item.name}</h3>
-                          </div>
-                        </div>
+                        </a>
                       </div>
                     ))}
                   </div>

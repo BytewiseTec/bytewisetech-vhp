@@ -67,12 +67,12 @@ export default async function ServicesPage() {
                     we understand that every business is unique, with its own set of challenges, goals, and aspirations. That&apos;s why we offer tailored IT solutions designed.
                   </p>
                 </div>
-                <a className="btn" href="/contact">
+                <Link className="btn" href="/contact">
                   <span className="btn_label" data-text="Talk to an Expert">Talk to an Expert</span>
                   <span className="btn_icon">
                     <i className="fa-solid fa-arrow-up-right"></i>
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -112,9 +112,9 @@ export default async function ServicesPage() {
                           <li><a href="#!">{service.heading}</a></li>
                           <li><a href="#!">{service.heading2}</a></li>
                         </ul>
-                        <a className="icon_block" href={`/services/${service.slug}`}>
+                        <Link className="icon_block" href={`/services/${service.slug}`}>
                           <i className="fa-regular fa-arrow-up-right"></i>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
