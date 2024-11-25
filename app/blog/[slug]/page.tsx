@@ -1,16 +1,10 @@
 import Badge from '../../../components/Badge'
 import PageBanner from '../../../components/PageBanner'
 
-interface BlogDetailsPageProps {
-  params: {
-    slug: string;
-  }
-}
-
-export default function BlogDetailsPage({ params }: BlogDetailsPageProps) {
+export default function BlogDetailsPage() {
   return (
     <>
-      <PageBanner title={`Blog Details ${params.slug}`}>
+      <PageBanner title="Blog SPP">
         Blog
         <Badge>Details 😍</Badge>
       </PageBanner>
