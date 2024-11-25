@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function BlogPosts() {
   return (
     <section className="blog_section blog_section_space section_decoration">
@@ -18,16 +20,16 @@ export default function BlogPosts() {
           <div className="col-lg-4">
             <div className="blog_post_block layout_2">
               <div className="blog_post_image">
-                <a className="image_wrap" href="/blog">
+                <Link className="image_wrap" href="/blog">
                   <img src="/assets/images/blog/blog_post_image_12.webp" alt="Blog Post Image 1" />
                   <i className="fa-solid fa-arrow-up-right"></i>
-                </a>
+                </Link>
               </div>
               <div className="blog_post_content p-0">
                 <h3 className="blog_post_title mb-0">
-                  <a href="/blog">
+                  <Link href="/blog">
                     How Our Software Solutions Drive Insights.
-                  </a>
+                  </Link>
                 </h3>
                 <ul className="post_meta unordered_list">
                   <li>
@@ -50,16 +52,16 @@ export default function BlogPosts() {
           <div className="col-lg-4">
             <div className="blog_post_block layout_2">
               <div className="blog_post_image">
-                <a className="image_wrap" href="/blog">
+                <Link className="image_wrap" href="/blog">
                   <img src="/assets/images/blog/blog_post_image_13.webp" alt="Blog Post Image 1" />
                   <i className="fa-solid fa-arrow-up-right"></i>
-                </a>
+                </Link>
               </div>
               <div className="blog_post_content p-0">
                 <h3 className="blog_post_title mb-0">
-                  <a href="/blog">
+                  <Link href="/blog">
                     Exploring Emerging Trends in Software Development.
-                  </a>
+                  </Link>
                 </h3>
                 <ul className="post_meta unordered_list">
                   <li>
@@ -82,16 +84,16 @@ export default function BlogPosts() {
           <div className="col-lg-4">
             <div className="blog_post_block layout_2">
               <div className="blog_post_image">
-                <a className="image_wrap" href="/blog">
+                <Link className="image_wrap" href="/blog">
                   <img src="/assets/images/blog/blog_post_image_14.webp" alt="Blog Post Image 1" />
                   <i className="fa-solid fa-arrow-up-right"></i>
-                </a>
+                </Link>
               </div>
               <div className="blog_post_content p-0">
                 <h3 className="blog_post_title mb-0">
-                  <a href="/blog">
+                  <Link href="/blog">
                     How Software Integration Can Improve Workflow.
-                  </a>
+                  </Link>
                 </h3>
                 <ul className="post_meta unordered_list">
                   <li>
