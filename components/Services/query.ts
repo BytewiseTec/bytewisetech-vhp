@@ -13,8 +13,8 @@ export interface ServicesQuery {
   }
 }
 export const GET_SERVICES = gql`
-  query ServiceCollection {
-    serviceCollection {
+  query ServiceCollection($limit: Int) {
+    serviceCollection(limit: $limit) {
       items {
         _id       
         name

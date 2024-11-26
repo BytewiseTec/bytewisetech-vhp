@@ -1,22 +1,23 @@
-'use client'
-import { useSuspenseQuery } from '@apollo/client'
 import { GET_SERVICES, ServicesQuery } from './query'
 import Link from 'next/link'
 import { GET_LINKS, HeaderLinksQuery } from '../Navbar/query'
 import Image from 'next/image'
+import { query } from '@/app/ApolloClient'
 
-export default function Services() {
-  const { data, error } = useSuspenseQuery<ServicesQuery>(GET_SERVICES)
-  const { data: linksCollection } = useSuspenseQuery<HeaderLinksQuery>(GET_LINKS)
-  const { services } = linksCollection?.links.header || {}
+export default async function Services() {
+  const { data: servicesData, error } = await query<ServicesQuery>({ query: GET_SERVICES, variables: { limit: 6 } })
+  const { data: linksCollection } = await query<HeaderLinksQuery>({ query: GET_LINKS })
+  const { services: servicesLink } = linksCollection?.links.header || {}
 
   
   if (error) return <div>Error loading services</div>
 
-  if (!data || !data.serviceCollection.items.length) {
+  if (!servicesData || !servicesData.serviceCollection.items.length) {
     return <div>No services available</div>
   }
-  const displayedServices = data.serviceCollection.items.slice(0, 6)
+
+  const services = servicesData.serviceCollection.items
+
   return (
     <section className="service_section pt-175 pb-80 bg-light section_decoration xb-hidden">
       <div className="container">
@@ -35,14 +36,14 @@ export default function Services() {
         </div>
 
         <div className="row">
-          {displayedServices.map((service) => (
+          {services.map((service) => (
             <div className="col-lg-4" key={service._id}>
               <div className="service_block_2">
                 <div className="service_icon">
                 <Image width={62} height={62} src={service.icon?.url ||'/assets/images/default_icon.svg'} alt="Tech Service icon"/>
                 </div>
                 <h3 className="service_title">
-                  <Link href={`${services.href}/${service?.slug}`}>
+                  <Link href={`${servicesLink.href}/${service?.slug}`}>
                     {service.name}
                   </Link>
                 </h3>

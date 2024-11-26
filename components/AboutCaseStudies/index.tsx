@@ -1,15 +1,13 @@
-'use client'
 import { useSuspenseQuery } from '@apollo/client'
 import { GET_CASE_STUDIES, CaseStudiesQuery } from './query'
 import { GET_LINKS, HeaderLinksQuery } from '../Navbar/query'
 import Link from 'next/link'
 import Image from 'next/image'
+import { query } from '@/app/ApolloClient'
 
-
-export default function AboutCaseStudies() {
-
-  const { data, error } = useSuspenseQuery<CaseStudiesQuery>(GET_CASE_STUDIES)
-  const { data: linksCollection } = useSuspenseQuery<HeaderLinksQuery>(GET_LINKS)
+export default async function AboutCaseStudies() {
+  const { data, error } = await query<CaseStudiesQuery>({ query: GET_CASE_STUDIES })
+  const { data: linksCollection } = await query<HeaderLinksQuery>({ query: GET_LINKS })
   const { portfolio } = linksCollection?.links.header || {}
 
   if (error) return <div>Error loading case studies</div>

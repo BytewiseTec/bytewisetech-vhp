@@ -1,21 +1,21 @@
-'use client'
-import { useSuspenseQuery } from '@apollo/client'
-import {GET_HERO,HeroQuery,GET_LINKS, HeaderLinksQuery } from './query'
+import { GET_HERO, HeroQuery, GET_LINKS, HeaderLinksQuery } from './query'
 import Image from 'next/image'
 import { ContactQuery, GET_CONTACT } from '@/app/contact/query'
 import Link from 'next/link'
+import { query } from '@/app/ApolloClient'
 
-export default function Hero() {
-  const { data: linksCollection } = useSuspenseQuery<HeaderLinksQuery>(GET_LINKS)
-  const { data: heroData } = useSuspenseQuery<HeroQuery>(GET_HERO)
-  const { data: contactData } = useSuspenseQuery<ContactQuery>(GET_CONTACT)
+export default async function Hero() {
+  const { data: linksCollection } = await query<HeaderLinksQuery>({ query: GET_LINKS })
+  const { data: heroData } = await query<HeroQuery>({ query: GET_HERO })
+  const { data: contactData } = await query<ContactQuery>({ query: GET_CONTACT })
 
   const contact = contactData?.page || {}
 
   const phone = contact?.tiles.find(tile => tile.id === 'phone')
 
   const {  contact: contactLink } = linksCollection?.links.header || {}
-  const Herodata=heroData?.heroCollection.items[0]
+  const Herodata = heroData?.heroCollection.items[0]
+
   return (
     <section className="software_company_hero_section xb-hidden">
       <div className="container">

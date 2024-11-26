@@ -1,29 +1,28 @@
-'use client'
-import React from 'react'
-
-import { useSuspenseQuery } from '@apollo/client'
 import { GET_FEATURED, FooterQuery, FieldsLinksQuery, GET_FIELDS, GET_LINKS, GET_SERVICES, HeaderLinksQuery, ServicesLinksQuery } from './query'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getSocialMediaIcon } from '@/utils/helpers'
 import { ContactQuery, GET_CONTACT } from '@/app/contact/query'
+import { query } from '@/app/ApolloClient'
 
-export default function Footer() {
-  const { data: linksCollection } = useSuspenseQuery<HeaderLinksQuery>(GET_LINKS)
+export default async function Footer() {
+  const { data: linksCollection } = await query<HeaderLinksQuery>({ query: GET_LINKS })
   const { services, fields } = linksCollection?.links.header || {}
-  const { data: fieldsCollection } = useSuspenseQuery<FieldsLinksQuery>(GET_FIELDS)
-  const { data: contactData } = useSuspenseQuery<ContactQuery>(GET_CONTACT)
 
-  const { data: servicesCollection } = useSuspenseQuery<ServicesLinksQuery>(GET_SERVICES)
-  const { items: serviceLinks } = servicesCollection?.serviceCollection || {}
-  const { data: Collection } = useSuspenseQuery<FooterQuery>(GET_FEATURED)
+  const { data: fieldsCollection } = await query<FieldsLinksQuery>({ query: GET_FIELDS })
   const { items: fieldLinks } = fieldsCollection?.fieldCollection || {}
-  const footer = Collection?.footerCollection.items[0] || {}
-  const contact = contactData?.page || {}
 
+  const { data: contactData } = await query<ContactQuery>({ query: GET_CONTACT })
+  const contact = contactData?.page || {}
   const phone = contact?.tiles.find(tile => tile.id === 'phone')
   const email = contact?.tiles.find(tile => tile.id === 'email')
   const address = contact?.tiles.find(tile => tile.id === 'address')
+
+  const { data: servicesCollection } = await query<ServicesLinksQuery>({ query: GET_SERVICES })
+  const { items: serviceLinks } = servicesCollection?.serviceCollection || {}
+
+  const { data: Collection } = await query<FooterQuery>({ query: GET_FEATURED })
+  const footer = Collection?.footerCollection.items[0] || {}
 
   return (
     <footer
@@ -120,7 +119,7 @@ export default function Footer() {
                     </a>
                   </li>
                   <li>
-                    <a href="#!" onClick={(e) => e.preventDefault()}>
+                    <a rel="noopener nofollow" href="#!">
                       <span className="icon">
                         <i className="fa-solid fa-location-dot"></i>
                       </span>
