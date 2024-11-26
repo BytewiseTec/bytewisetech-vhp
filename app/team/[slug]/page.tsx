@@ -9,6 +9,7 @@ import { renderHtml } from '../../../utils/renderers'
 import FacebookIcon from '/public/assets/images/icons/icon_facebook.svg'
 import LinkedInIcon from '/public/assets/images/icons/icon_linkedin.svg'
 import GitHubIcon from '/public/assets/images/icons/icon_git.svg'
+import { GET_TEAM_COLLECTION, TeamCollectionQuery } from '../query'
 const getSocialMediaIcon = (url: string) => {
   if (url.includes('https://www.facebook.com/people/Bytewise-Technologies/61566440639702/')) return FacebookIcon
   if (url.includes('https://github.com/BytewiseTec')) return GitHubIcon
@@ -28,6 +29,11 @@ export default async function TeamMemberDetailsPage({ params }: TeamMemberProbsP
     }
   })
   const { items } = TeamsData.teamCollection || {}
+
+  if (!items?.length) {
+    return null
+  }
+
   const { data: teamData } = await query<TeamMemberQuery>({
     query: GET_TEAM_MEMBER,
     variables: {
@@ -142,4 +148,14 @@ export default async function TeamMemberDetailsPage({ params }: TeamMemberProbsP
       </section>
     </>
   )
+}
+
+export async function generateStaticParams() {
+  const { data } = await query<TeamCollectionQuery>({
+    query: GET_TEAM_COLLECTION,
+  })
+
+  const { items } = data.teamCollection || {}
+
+  return items.map(({ slug }) => ({ slug }))
 }

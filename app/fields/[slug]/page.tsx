@@ -8,9 +8,10 @@ import ItemIndicator from '../../../components/ProcessesAccordion/ItemIndicator'
 import ExpandedIndexProvider from '../../../components/ProcessesAccordion/ExpandedIndexProvider'
 import { query } from '../../ApolloClient'
 import Image from 'next/image'
+import { FieldsLinksQuery, GET_FIELDS } from '@/components/Navbar/query'
 
 type FieldsPageProps = {
-  params: Promise<{slug: string}>,
+  params: Promise<{ slug: string }>,
 }
 
 export default async function FieldsPage({ params }: FieldsPageProps) {
@@ -18,6 +19,10 @@ export default async function FieldsPage({ params }: FieldsPageProps) {
   const { data: fieldsData } = await query<FieldIdQuery>({ query: GET_FIELD_ID, variables: { slug } })
 
   const { items } = fieldsData.fieldCollection || {}
+
+  if (!items?.length) {
+    return null
+  }
 
   const { data: fieldData } = await query<FieldQuery>({
     query: GET_FIELD,
@@ -137,4 +142,12 @@ export default async function FieldsPage({ params }: FieldsPageProps) {
       </section>
     </>
   )
+}
+
+export async function generateStaticParams() {
+  const { data: fieldsCollection } = await query<FieldsLinksQuery>({ query: GET_FIELDS })
+
+  const { items: fields } = fieldsCollection.fieldCollection || {}
+
+  return fields.map(({ slug }) => ({ slug }))
 }

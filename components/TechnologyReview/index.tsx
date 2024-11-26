@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { GET_BANNER, BannerQuery, Technology, TechnologyQuery, GET_TECHNOLOGY } from './query'
 import { useSuspenseQuery } from '@apollo/client'
+import Image from 'next/image'
 function groupByStack(items: Technology[]): { [key: string]: Technology[] } {
   return items.reduce((acc, item) => {
     if (!acc[item.stack]) {
@@ -160,11 +161,12 @@ export default function TechnologyReview() {
                         <a href={item.url} target="_blank" rel="nofollow noopener">
                           <div className="iconbox_block text-center p-0 shadow-none bg-transparent">
                             <div className="iconbox_icon">
-                              <img
+                              <Image
                                 src={item.logo.url}
-                                alt={`${item.name} SVG Icon`}
+                                alt={item.name}
                                 width={item.logo.width}
                                 height={item.logo.height}
+                                title={item.name}
                               />
                             </div>
                             <div className="iconbox_content">

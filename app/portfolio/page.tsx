@@ -23,8 +23,7 @@ export const metadata: Metadata = {
 }
 
 export default async function PortfolioPage() {
-  const { data: projectsData } = await query<ProjectsQuery>({query: GET_PROJECTS}
-  )
+  const { data: projectsData } = await query<ProjectsQuery>({query: GET_PROJECTS})
 
   const { items: projects } = projectsData.projectCollection || {}
 

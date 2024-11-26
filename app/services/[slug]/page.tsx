@@ -6,6 +6,7 @@ import { BLOCKS } from '@contentful/rich-text-types'
 import { query } from '../../ApolloClient'
 import ProcessesAccordion from '../../../components/ProcessesAccordion'
 import ItemIndicator from '../../../components/ProcessesAccordion/ItemIndicator'
+import { GET_SERVICES, ServicesLinksQuery } from '@/components/Navbar/query'
 
 type ServiceDetailsPageProps = {
   params: Promise<{ slug: string }>
@@ -21,6 +22,10 @@ export default async function ServiceDetailsPage({ params }: ServiceDetailsPageP
   })
 
   const { items } = servicesData.serviceCollection || {}
+
+  if (!items?.length) {
+    return null
+  }
 
   const { data: serviceData } = await query<ServiceQuery>({
     query: GET_SERVICE,
@@ -121,4 +126,14 @@ export default async function ServiceDetailsPage({ params }: ServiceDetailsPageP
         </section>
     </>
   )
+}
+
+export async function generateStaticParams() {
+  const { data: servicesData } = await query<ServicesLinksQuery>({
+    query: GET_SERVICES
+  })
+
+  const { items } = servicesData.serviceCollection || {}
+
+  return items.map(({ slug }) => ({ slug }))
 }

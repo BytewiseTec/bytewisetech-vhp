@@ -4,6 +4,7 @@ import PageBanner from '../../../components/PageBanner'
 import { GET_PROJECT, GET_PROJECT_ID, ProjectIdQuery, ProjectQuery } from './query'
 import Image from 'next/image'
 import { renderHtml } from '../../../utils/renderers'
+import { GET_PROJECTS, ProjectsQuery } from '../query'
 
 interface PortfolioDetailsPageProps {
   params: Promise<{slug: string;}>
@@ -19,6 +20,10 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
   })
 
   const { items } = projectsData.projectCollection || {}
+
+  if (!items?.length) {
+    return null
+  }
 
   const { data: projectData } = await query<ProjectQuery>({
     query: GET_PROJECT,
@@ -108,4 +113,14 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
       </section>
     </>
   )
+}
+
+export async function generateStaticParams() {
+  const { data: projectsData } = await query<ProjectsQuery>({query: GET_PROJECTS})
+
+  const { items: projects } = projectsData.projectCollection || {}
+
+  return projects?.map((project) => ({
+    slug: project.slug,
+  }))
 }
