@@ -1,34 +1,30 @@
-'use client'
 import Image from 'next/image'
-import { GET_CASE_STUDIES, CaseStudiesQuery, GET_TEAM, TeamMemberQuery, FieldsLinksQuery, GET_FIELDS, GET_LINKS, GET_SERVICES, HeaderLinksQuery, ServicesLinksQuery, GET_FOOTER_SOCIALS, FooterSocialsQuery } from './query'
-import { useSuspenseQuery } from '@apollo/client'
+import { FieldsLinksQuery, GET_FIELDS, GET_LINKS, GET_SERVICES, HeaderLinksQuery, ServicesLinksQuery, GET_FOOTER_SOCIALS, FooterSocialsQuery } from './query'
 import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
 import Badge from '../Badge'
 import { getSocialMediaIcon } from '@/utils/helpers'
 import { GET_PROJECT, ProjectQuery } from '@/app/portfolio/[slug]/query'
+import ActiveListItem from './ActiveListItem'
+import { query } from '@/app/ApolloClient'
+import { INVESTIFY_PROJECT_ID } from '@/utils/constants'
 
-export default function Navbar() {
-  const pathName = usePathname()
-  const router = useRouter()
-
-  const { data: linksCollection } = useSuspenseQuery<HeaderLinksQuery>(GET_LINKS)
-  const { data: servicesCollection } = useSuspenseQuery<ServicesLinksQuery>(GET_SERVICES)
-  const { data: projectData } = useSuspenseQuery<ProjectQuery>(GET_PROJECT, {
+export default async function Navbar() {
+  const { data: linksCollection } = await query<HeaderLinksQuery>({ query: GET_LINKS })
+  const { data: servicesCollection } = await query<ServicesLinksQuery>({ query: GET_SERVICES })
+  const { data: projectData } = await query<ProjectQuery>({
+    query: GET_PROJECT,
     variables: {
-      id: '3FgclxT3Luzj9bBmvTK8qG', // Investify project id
+      id: INVESTIFY_PROJECT_ID,
     }
   })
-  const { data: fieldsCollection } = useSuspenseQuery<FieldsLinksQuery>(GET_FIELDS)
-  const { data: footerSocialsCollection } = useSuspenseQuery<FooterSocialsQuery>(GET_FOOTER_SOCIALS)
+  const { data: fieldsCollection } = await query<FieldsLinksQuery>({ query: GET_FIELDS })
+  const { data: footerSocialsCollection } = await query<FooterSocialsQuery>({ query: GET_FOOTER_SOCIALS })
 
   const { home, company, portfolio, services, fields, product, contact, pages } = linksCollection?.links.header || {}
   const { items: serviceLinks } = servicesCollection?.serviceCollection || {}
   const { items: fieldLinks } = fieldsCollection?.fieldCollection || {}
   const { socials } = footerSocialsCollection?.footerCollection.items[0] || {}
   const { project } = projectData || {}
-
-  const isRouteActive = (isActive: boolean) => isActive ? 'active' : ''
 
   return (
     <header className="site_header site_header_2">
@@ -89,13 +85,13 @@ export default function Navbar() {
                         </div>
                       </div>
                     </li>
-                    <li className={isRouteActive(pathName.startsWith('/portfolio'))}>
+                    <ActiveListItem path={portfolio.href}>
                       <Link className="nav-link" href={portfolio.href} role="button">
                         {portfolio.label}
                       </Link>
-                    </li>
-                    <li className={`dropdown ${isRouteActive(pathName.startsWith('/services'))}`}>
-                      <Link className="nav-link" href={services.href} onClick={() => router.push(services.href)} id="services_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    </ActiveListItem>
+                    <ActiveListItem clickable className="dropdown" path={services.href}>
+                      <Link className="nav-link" href={services.href} id="services_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {services.label}
                       </Link>
                       <div className="dropdown-menu mega_menu_wrapper p-0" aria-labelledby="services_submenu">
@@ -186,7 +182,7 @@ export default function Navbar() {
                           </div>
                         </div>
                       </div>
-                    </li>
+                    </ActiveListItem>
                     <li className="dropdown">
                       <a className="nav-link" href="#" id="pages_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {pages.label}
