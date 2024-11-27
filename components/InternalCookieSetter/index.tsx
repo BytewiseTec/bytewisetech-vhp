@@ -4,7 +4,17 @@ import { INTERNAL_EMAIL_PARAM, INTERNAL_TRAFFIC_COOKIE_NAME } from '@/utils/cons
 import { hasCookie, triggerInternalTrafficPrompt } from '@/utils/helpers'
 import { GoogleTagManager } from '@next/third-parties/google'
 import { useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
+import { ComponentType, PropsWithChildren, Suspense, useEffect } from 'react'
+
+const withSuspense = <P extends {}>(Component: ComponentType<P>) => {
+  const WithSuspense = (props: PropsWithChildren<P>) => (
+    <Suspense>
+      <Component {...props} />
+    </Suspense>
+  )
+
+  return WithSuspense
+}
 
 const InternalCookieSetter = () => {
   const searchParams = useSearchParams()
@@ -27,4 +37,4 @@ const InternalCookieSetter = () => {
   )
 }
 
-export default InternalCookieSetter
+export default withSuspense(InternalCookieSetter)
