@@ -15,6 +15,7 @@ import '../public/assets/scss/style.scss'
 import CallToAction from '../components/CallToAction'
 import { ApolloWrapper } from './ApolloWrapper'
 import { GoogleTagManager } from '@next/third-parties/google'
+import InternalCookieSetter from '@/components/InternalCookieSetter'
 
 export const metadata: Metadata = {
   title: 'Home - Bytewise Technologies',
@@ -89,7 +90,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <GoogleTagManager gtmId="GTM-K4SHD7J6" />
+      <InternalCookieSetter />
       <body>
         <ApolloWrapper>
           <div className="page_wrapper">

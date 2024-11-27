@@ -155,9 +155,9 @@ export default function TechnologyReview() {
                   id={`tab_${stack}`}
                   role="tabpanel"
                 >
-                  <div className="web_development_technologies row justify-content-center">
+                  <div className="web_development_technologies row">
                     {stack === activeTab && groupedTechnologies[stack].map((item) => (
-                      <div key={item._id} className="col-lg-2 col-md-3 col-sm-4 col-6">
+                      <div key={item._id} className="col-lg-2 col-md-3 col-sm-4 col-6 justify-content-center d-flex mx-auto">
                         <a href={item.url} target="_blank" rel="nofollow noopener">
                           <div className="iconbox_block text-center p-0 shadow-none bg-transparent">
                             <div className="iconbox_icon">
