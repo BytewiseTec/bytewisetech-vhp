@@ -23,7 +23,7 @@ export const getSocialMediaIcon = (url: string) => {
 }
 
 export const triggerInternalTrafficPrompt = async () => {
-  if (typeof window === 'undefined') {
+  if (isSSR()) {
     throw new Error('This function should only be called in the browser')
   }
 
@@ -51,7 +51,7 @@ export const triggerInternalTrafficPrompt = async () => {
 }
 
 export const encryptStringBrowser = async (string: string, salt: string) => {
-  if (typeof window === 'undefined') {
+  if (isSSR()) {
     throw new Error('This function should only be called in the browser')
   }
 
@@ -78,6 +78,10 @@ export const createCookie = (
 }
 
 export const getCookie = (name: string) => {
+  if (isSSR()) {
+    throw new Error('This function should only be called in the browser')
+  }
+
   const cookieName = `${encodeURIComponent(name)}=`
   const cookies = document.cookie.split(';')
 
@@ -91,3 +95,5 @@ export const getCookie = (name: string) => {
 }
 
 export const hasCookie = (name: string) => !!getCookie(name)?.length
+
+export const isSSR = () => typeof window === 'undefined'

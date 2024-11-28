@@ -1,10 +1,10 @@
 'use client'
 
 import { INTERNAL_EMAIL_PARAM, INTERNAL_TRAFFIC_COOKIE_NAME } from '@/utils/constants'
-import { hasCookie, triggerInternalTrafficPrompt } from '@/utils/helpers'
+import { hasCookie, isSSR, triggerInternalTrafficPrompt } from '@/utils/helpers'
 import { GoogleTagManager } from '@next/third-parties/google'
 import { useSearchParams } from 'next/navigation'
-import { ComponentType, PropsWithChildren, Suspense, useEffect } from 'react'
+import { ComponentType, PropsWithChildren, Suspense, useEffect, useState } from 'react'
 
 const withSuspense = <P extends {}>(Component: ComponentType<P>) => {
   const WithSuspense = (props: PropsWithChildren<P>) => (
@@ -17,21 +17,26 @@ const withSuspense = <P extends {}>(Component: ComponentType<P>) => {
 }
 
 const InternalCookieSetter = () => {
+  const [dataLayer, setDataLayer] = useState<Record<string, any>>({})
   const searchParams = useSearchParams()
  
   const email = searchParams.get(INTERNAL_EMAIL_PARAM)
 
   useEffect(() => {
-    if (email && !hasCookie(INTERNAL_TRAFFIC_COOKIE_NAME)) {
+    if (!isSSR() && email && !hasCookie(INTERNAL_TRAFFIC_COOKIE_NAME)) {
       triggerInternalTrafficPrompt()
     }
   }, [email])
 
+  useEffect(() => {
+    if (!isSSR() && hasCookie(INTERNAL_TRAFFIC_COOKIE_NAME)) {
+      setDataLayer({ traffic_type: 'internal' })
+    }
+  }, [])
+
   return (
     <GoogleTagManager
-      dataLayer={{
-        ...(hasCookie(INTERNAL_TRAFFIC_COOKIE_NAME) && { traffic_type: 'internal' }),
-      }}
+      dataLayer={dataLayer}
       gtmId="GTM-K4SHD7J6"
     />
   )

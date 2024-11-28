@@ -14,13 +14,12 @@ import '../public/assets/scss/style.scss'
 
 import CallToAction from '../components/CallToAction'
 import { ApolloWrapper } from './ApolloWrapper'
-import { GoogleTagManager } from '@next/third-parties/google'
 import InternalCookieSetter from '@/components/InternalCookieSetter'
 
 export const metadata: Metadata = {
-  title: 'Home - Bytewise Technologies',
-  description: 'Where push comes to shove, you can count on us. Solutions tailored to your business needs, not just tech.',
-  keywords: '',
+  title: 'Bytewise Technologies - Tailored Business Solutions',
+  description: 'Bytewise Technologies offers tailored tech solutions to drive your business success. Explore our services and expertise to achieve business growth.',
+  keywords: 'Bytewise Technologies, business solutions, tech services, tailored solutions, business growth',
   authors: { name: 'Bytewise Technologies', url: 'https://bytewisetechnologies.com' },
   manifest: '/site.webmanifest',
   applicationName: 'Bytewise',
@@ -28,8 +27,8 @@ export const metadata: Metadata = {
   openGraph: {
     locale: 'en_US',
     type: 'website',
-    title: 'Home - Bytewise Technologies',
-    description: 'Where push comes to shove, you can count on us. Solutions tailored to your business needs, not just tech.',
+    title: 'Bytewise Technologies - Tailored Business Solutions',
+    description: 'Bytewise Technologies offers tailored tech solutions to drive your business success. Explore our services and expertise to achieve business growth.',
     url: 'https://bytewisetechnologies.com',
     siteName: 'Bytewise Technologies',
   },
