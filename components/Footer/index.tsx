@@ -40,18 +40,6 @@ export default async function Footer() {
         />
       </div>
       <div className="container">
-        <div className="service_pill_carousel swiper">
-          <div className="swiper-wrapper">
-            {footer.heading.map((item, index) => (
-              <div key={index} className="swiper-slide">
-                <span className="service_pill_block">
-                  <i className="fa-solid fa-check"></i>
-                  <span>{item}</span>
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
         <div className="footer_main_content">
           <div className="row justify-content-lg-between">
             <div className="col-lg-2 col-md-6">

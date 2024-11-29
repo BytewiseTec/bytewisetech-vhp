@@ -6,9 +6,6 @@ import Footer from '../components/Footer'
 
 import '../public/assets/css/bootstrap.min.css'
 import '../public/assets/css/fontawesome.css'
-import '../public/assets/css/animate.min.css'
-import '../public/assets/css/swiper-bundle.min.css'
-import '../public/assets/css/magnific-popup.min.css'
 
 import '../public/assets/scss/style.scss'
 
@@ -111,14 +108,6 @@ export default function RootLayout({
       <Script src="/assets/js/popper.min.js" />
       <Script src="/assets/js/bootstrap.min.js" />
       <Script src="/assets/js/bootstrap-dropdown-ml-hack.min.js" />
-      <Script src="/assets/js/swiper-bundle.min.js" />
-      <Script src="/assets/js/parallaxie.js" />
-      <Script src="/assets/js/parallax-scroll.js" />
-      <Script src="/assets/js/wow.min.js" />
-      <Script src="/assets/js/countdown.js" />
-      <Script src="/assets/js/magnific-popup.min.js" />
-      <Script src="/assets/js/appear.min.js" />
-      <Script src="/assets/js/circularProgressBar.min.js" />
       <Script src="/assets/js/main.js" />
     </html>
   )

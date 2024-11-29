@@ -184,38 +184,5 @@
 }
 // Tags List - End
 
-// Filter Elements Nav - Start
-.filter_elements_nav {
-  display: flex;
-  margin-bottom: 70px;
-  justify-content: center;
-  >ul {
-    gap: 3px;
-    padding: 7px;
-    background-color: var(--bs-white);
-    border-radius: var(--bs-border-radius);
-    >li {
-      line-height: 1;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--bs-dark);
-      padding: 16px 30px 13px;
-      text-transform: uppercase;
-      transition: var(--bs-transition);
-      font-family: 'Axiforma SemiBold';
-      border-radius: var(--bs-border-radius);
-      &:not(.active):hover {
-        background-color: var(--bs-light);
-      }
-      &.active {
-        color: var(--bs-white);
-        background-color: var(--bs-primary);
-      }
-    }
-  }
-}
-// Filter Elements Nav - End
-
 /* 2.04 - Order & Unorder List - End
 ================================================== */

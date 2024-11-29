@@ -105,7 +105,7 @@ export default async function Navbar() {
                                     <ul className="icon_list unordered_list_block">
                                       {serviceLinks.map((service) => (
                                         <li key={service._id}>
-                                          <Link shallow={false} href={`${services.href}/${service.slug}`}>
+                                          <Link href={`${services.href}/${service.slug}`}>
                                             <span className="icon_list_text">
                                               {service.name}
                                             </span>

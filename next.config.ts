@@ -1,6 +1,11 @@
 import { NextConfig } from 'next'
+import nextBundleAnalyzer from '@next/bundle-analyzer'
 
-const nextConfig: NextConfig = {
+const withBundleAnalyzer = nextBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})
+
+const nextConfig: NextConfig = withBundleAnalyzer({
   images: {
     remotePatterns: [
       {
@@ -12,6 +17,6 @@ const nextConfig: NextConfig = {
   sassOptions: {
     silenceDeprecations: ['legacy-js-api'],
   }
-}
+})
 
 export default nextConfig
