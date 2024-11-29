@@ -75,7 +75,9 @@ export default async function ServiceDetailsPage({ params }: ServiceDetailsPageP
                   {service.outcomes.slice(0, service.outcomes.length / 2).map((outcome, idx) => (
                     <li key={idx}>
                       <span className="icon_list_icon">
-                        <Image src={IconCheck} alt={outcome.title} />
+                        {outcome.title && (
+                          <Image src={IconCheck} alt={outcome.title} />
+                        )}
                       </span>
                       <span className="icon_list_text">
                         {outcome.title}
