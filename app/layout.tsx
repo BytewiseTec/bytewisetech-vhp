@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: 'Bytewise Technologies',
   },
   alternates: {
-    canonical: 'https://www.bytewisetechnologies.com',
+    canonical: 'https://bytewisetechnologies.com',
   },
   appleWebApp: {
     title: 'Bytewise',
