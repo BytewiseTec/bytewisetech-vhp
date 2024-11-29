@@ -6,6 +6,8 @@ import Image from 'next/image'
 import { renderHtml } from '../../../utils/renderers'
 import { GET_PROJECTS, ProjectsQuery } from '../query'
 
+import IconCheck from '../../../public/assets/images/icons/icon_check_3.svg'
+
 interface PortfolioDetailsPageProps {
   params: Promise<{slug: string;}>
 }
@@ -82,7 +84,7 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
                 {project.requirements.slice(0, project.requirements.length / 2).map((requirement, index) => (
                   <li key={index}>
                     <span className="icon_list_icon">
-                      <img src="/assets/images/icons/icon_check_3.svg" alt="Check SVG Icon" />
+                      <Image src={IconCheck} alt="Check SVG Icon" />
                     </span>
                     <span className="icon_list_text">
                       {requirement}
@@ -96,7 +98,7 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
                 {project.requirements.slice(project.requirements.length / 2).map((requirement, index) => (
                   <li key={index}>
                     <span className="icon_list_icon">
-                      <img src="/assets/images/icons/icon_check_3.svg" alt="Check SVG Icon" />
+                      <Image src={IconCheck} alt="Check SVG Icon" />
                     </span>
                     <span className="icon_list_text">
                       {requirement}

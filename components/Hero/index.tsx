@@ -4,6 +4,15 @@ import { ContactQuery, GET_CONTACT } from '@/app/contact/query'
 import Link from 'next/link'
 import { query } from '@/app/ApolloClient'
 
+import CircleEngine1 from '../../public/assets/images/hero/circle_engine_1.webp'
+import CircleEngine2 from '../../public/assets/images/hero/circle_engine_2.webp'
+import CircleEngine3 from '../../public/assets/images/hero/circle_engine_3.webp'
+import CircleEngine4 from '../../public/assets/images/hero/circle_engine_4.png'
+import Shape1 from '../../public/assets/images/hero/shape_image_1.webp'
+import Shape2 from '../../public/assets/images/hero/shape_image_2.webp'
+import Shape3 from '../../public/assets/images/hero/shape_image_3.webp'
+import Shape4 from '../../public/assets/images/hero/shape_image_4.webp'
+
 export default async function Hero() {
   const { data: linksCollection } = await query<HeaderLinksQuery>({ query: GET_LINKS })
   const { data: heroData } = await query<HeroQuery>({ query: GET_HERO })
@@ -67,16 +76,16 @@ export default async function Hero() {
           <div className="col-lg-6">
             <div className="engine_image">
               <div className="image_wrap_1">
-                <Image src="/assets/images/hero/circle_engine_1.webp" width={612} height={612} alt="Engine Image" />
+                <Image src={CircleEngine1} width={153} height={153} alt="Engine Image" />
               </div>
               <div className="image_wrap_2">
-                <Image src="/assets/images/hero/circle_engine_2.webp" width={1792} height={1792} alt="Engine Image" />
+                <Image src={CircleEngine2} width={448} height={448} alt="Engine Image" />
               </div>
               <div className="image_wrap_3">
-                <Image src="/assets/images/hero/circle_engine_3.webp" width={2273} height={2273} alt="Engine Image" />
+                <Image src={CircleEngine3} width={566} height={566} alt="Engine Image" />
               </div>
               <div className="image_wrap_4">
-                <Image src="/assets/images/hero/circle_engine_4.png" width={716} height={676} alt="Engine Image" />
+                <Image src={CircleEngine4} width={695} height={656} alt="Engine Image" />
               </div>
             </div>
           </div>
@@ -84,16 +93,16 @@ export default async function Hero() {
       </div>
 
       <div className="shape_image_1">
-        <Image src="/assets/images/hero/shape_image_1.webp" width={4526} height={288} alt="Engine Image" />
+        <Image src={Shape1} width={4526} height={288} alt="Engine Image" />
       </div>
       <div className="shape_image_2">
-        <Image src="/assets/images/hero/shape_image_2.webp" width={4744} height={488} alt="Engine Image" />
+        <Image src={Shape2} width={4744} height={488} alt="Engine Image" />
       </div>
       <div className="shape_image_3">
-        <Image src="/assets/images/hero/shape_image_3.webp" width={1366} height={756} alt="Engine Image" />
+        <Image src={Shape3} width={1366} height={756} alt="Engine Image" />
       </div>
       <div className="shape_image_4">
-        <Image src="/assets/images/hero/shape_image_4.webp" width={1386} height={755} alt="Engine Image" />
+        <Image src={Shape4} width={1386} height={755} alt="Engine Image" />
       </div>
     </section>
   )

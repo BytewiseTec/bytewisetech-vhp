@@ -8,6 +8,9 @@ import ProcessesAccordion from '../../../components/ProcessesAccordion'
 import ItemIndicator from '../../../components/ProcessesAccordion/ItemIndicator'
 import { GET_SERVICES, ServicesLinksQuery } from '@/components/Navbar/query'
 
+import IconCheck from '../../../public/assets/images/icons/icon_check_3.svg'
+import Image from 'next/image'
+
 type ServiceDetailsPageProps = {
   params: Promise<{ slug: string }>
 }
@@ -72,7 +75,7 @@ export default async function ServiceDetailsPage({ params }: ServiceDetailsPageP
                   {service.outcomes.slice(0, service.outcomes.length / 2).map((outcome, idx) => (
                     <li key={idx}>
                       <span className="icon_list_icon">
-                        <img src="/assets/images/icons/icon_check_3.svg" alt={outcome.title} />
+                        <Image src={IconCheck} alt={outcome.title} />
                       </span>
                       <span className="icon_list_text">
                         {outcome.title}
@@ -86,7 +89,9 @@ export default async function ServiceDetailsPage({ params }: ServiceDetailsPageP
                   {service.outcomes.slice(service.outcomes.length / 2, service.outcomes.length).map((outcome, idx) => (
                     <li key={idx}>
                       <span className="icon_list_icon">
-                        <img src="/assets/images/icons/icon_check_3.svg" alt={outcome.title} />
+                        {outcome.title && (
+                          <Image src={IconCheck} alt={outcome.title} />
+                        )}
                       </span>
                       <span className="icon_list_text">
                         {outcome.title}

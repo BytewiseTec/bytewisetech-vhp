@@ -15,27 +15,25 @@ export default async function AboutCaseStudies() {
   return (
     <section
       className="about_and_case_section section_space section_decoration bg-dark"
-      style={{
-        backgroundImage: 'url(\'assets/images/backgrounds/bg_image_2.webp\')'
-      }}>
+    >
       <div className="container">
         <div className="row align-items-center justify-content-lg-between">
           <div className="col-lg-7 order-lg-last">
             <div className="about_image_2">
               <div className="image_wrap">
-                <img src="assets/images/about/customer-satisfaction.avif" alt="Bytewise - About Image" />
+                <Image width={200} height={200} src="/assets/images/about/customer-satisfaction.avif" alt="Bytewise - About Image" />
               </div>
               <div className="about_funfact_info" style={{ backgroundImage: 'url("assets/images/shapes/shape_bg_1.webp")' }}>
                 <div className="customer_count">
                   <ul className="unordered_list">
                     <li>
-                      <img src="assets/images/about/person1-avatar.webp" alt="Customer Avatar" />
+                      <Image width={50} height={50} src="/assets/images/about/person1-avatar.webp" alt="Customer Avatar" />
                     </li>
                     <li>
-                      <img src="assets/images/about/person2-avatar.png" alt="Customer Avatar" />
+                      <Image width={50} height={50} src="/assets/images/about/person2-avatar.png" alt="Customer Avatar" />
                     </li>
                     <li>
-                      <img src="assets/images/about/person3-avatar.png" alt="Customer Avatar" />
+                      <Image width={50} height={50} src="/assets/images/about/person3-avatar.png" alt="Customer Avatar" />
                     </li>
                     <li>
                       <span>100+</span>

@@ -3,6 +3,16 @@ import { query } from '../ApolloClient'
 import Link from 'next/link'
 import { Metadata } from 'next'
 
+import ServiceImage from '../../public/assets/images/services/service_image_8.webp'
+import AboutImage from '../../public/assets/images/about/about_image_5.webp'
+import IconCheck2 from '../../public/assets/images/icons/icon_check_2.svg'
+import IconLeaf from '../../public/assets/images/icons/icon_leaf.svg'
+import IconBox from '../../public/assets/images/icons/icon_box.svg'
+import IconReceiptAdd from '../../public/assets/images/icons/icon_receipt_add.svg'
+import IconMonitor from '../../public/assets/images/icons/icon_monitor.svg'
+import IconMicroscope from '../../public/assets/images/icons/icon_microscope.svg'
+import Image from 'next/image'
+
 export const metadata: Metadata = {
   title: 'Services - Bytewise Technologies',
   description: 'We offer a wide range of services to help you grow your business. Our services are tailored to your needs and designed to help you succeed.',
@@ -50,7 +60,7 @@ export default async function ServicesPage() {
           <div className="row align-items-center justify-content-lg-between">
             <div className="col-lg-5 order-lg-last">
               <div className="team_cartoon_image">
-                <img src="/assets/images/services/service_image_8.webp" alt="Service Cartoon Image - Bytewise Tech - About Image" />
+                <Image src={ServiceImage} alt="Service Cartoon Image - Bytewise Tech - About Image" />
               </div>
             </div>
             <div className="col-lg-5">
@@ -98,7 +108,7 @@ export default async function ServicesPage() {
                   <div className="service_block">
                     <div className="service_image">
                       {service.banner && (
-                        <img src={service.banner.url} alt={service.banner.title} />
+                        <Image width={service.banner.width} height={service.banner.height} src={service.banner.url} alt={service.banner.title} />
                       )}
                     </div>
                     <div className="service_content">
@@ -130,7 +140,7 @@ export default async function ServicesPage() {
           <div className="row align-items-center justify-content-lg-between">
             <div className="col-lg-6">
               <div className="image_wrap">
-                <img src="/assets/images/about/about_image_5.webp" alt="Bytewise Tech - About Image" />
+                <Image src={AboutImage} alt="Bytewise Tech - About Image" />
               </div>
             </div>
             <div className="col-lg-6">
@@ -146,9 +156,9 @@ export default async function ServicesPage() {
                 </div>
                 <ul className="service_facilities_group unordered_list">
                   <li>
-                    <a className="iconbox_block layout_icon_left" href="#">
+                    <a className="iconbox_block layout_icon_left" href="#!">
                       <span className="iconbox_icon">
-                        <img src="/assets/images/icons/icon_check_2.svg" alt="Check SVG Icon" />
+                        <Image src={IconCheck2} alt="Check SVG Icon" />
                       </span>
                       <span className="iconbox_content">
                         <strong className="iconbox_title mb-0">Quality Comes First</strong>
@@ -158,7 +168,7 @@ export default async function ServicesPage() {
                   <li>
                     <a className="iconbox_block layout_icon_left" href="#">
                       <span className="iconbox_icon">
-                        <img src="/assets/images/icons/icon_leaf.svg" alt="Leaf SVG Icon" />
+                        <Image src={IconLeaf} alt="Leaf SVG Icon" />
                       </span>
                       <span className="iconbox_content">
                         <strong className="iconbox_title mb-0">Flexible Cooperation</strong>
@@ -168,7 +178,7 @@ export default async function ServicesPage() {
                   <li>
                     <a className="iconbox_block layout_icon_left" href="#">
                       <span className="iconbox_icon">
-                        <img src="/assets/images/icons/icon_box.svg" alt="Box SVG Icon" />
+                        <Image src={IconBox} alt="Box SVG Icon" />
                       </span>
                       <span className="iconbox_content">
                         <strong className="iconbox_title mb-0">On-time Delivery</strong>
@@ -178,7 +188,7 @@ export default async function ServicesPage() {
                   <li>
                     <a className="iconbox_block layout_icon_left" href="#">
                       <span className="iconbox_icon">
-                        <img src="/assets/images/icons/icon_receipt_add.svg" alt="Receipt Add SVG Icon" />
+                        <Image src={IconReceiptAdd} alt="Receipt Add SVG Icon" />
                       </span>
                       <span className="iconbox_content">
                         <strong className="iconbox_title mb-0">Transparent Costs</strong>
@@ -188,7 +198,7 @@ export default async function ServicesPage() {
                   <li>
                     <a className="iconbox_block layout_icon_left" href="#">
                       <span className="iconbox_icon">
-                        <img src="/assets/images/icons/icon_monitor.svg" alt="Monitor SVG Icon" />
+                        <Image src={IconMonitor} alt="Monitor SVG Icon" />
                       </span>
                       <span className="iconbox_content">
                         <strong className="iconbox_title mb-0">Qualified Developers</strong>
@@ -198,7 +208,7 @@ export default async function ServicesPage() {
                   <li>
                     <a className="iconbox_block layout_icon_left" href="#">
                       <span className="iconbox_icon">
-                        <img src="/assets/images/icons/icon_microscope.svg" alt="Microscope SVG Icon" />
+                        <Image src={IconMicroscope} alt="Microscope SVG Icon" />
                       </span>
                       <span className="iconbox_content">
                         <strong className="iconbox_title mb-0">Quick Scale-up</strong>

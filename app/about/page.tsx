@@ -3,6 +3,9 @@ import { query } from '../ApolloClient'
 import PageBanner from '@/components/PageBanner'
 import { Metadata } from 'next'
 
+import BetterServices from '../../public/assets/images/about/better-services.jpg'
+import Image from 'next/image'
+
 export const metadata: Metadata = {
   title: 'About - Bytewise Technologies',
   description: 'We are a team of professionals who are passionate about what we do. We are here to help you grow your business.',
@@ -58,7 +61,9 @@ export default async function AboutPage() {
                 <div className="col-lg-4 mb-4" key={index}>
                   <div className="iconbox_block">
                     <div className="iconbox_icon">
-                      <img src={item.icon} width={40} height={40} alt="Icon" />
+                      {item.icon && (
+                        <Image src={item.icon} width={40} height={40} alt="Icon" />
+                      )}
                     </div>
                     <div className="iconbox_content">
                       <h3 className="iconbox_title">{item.title}</h3>
@@ -77,7 +82,7 @@ export default async function AboutPage() {
           <div className="row align-items-center justify-content-lg-between">
             <div className="col-lg-6">
               <div className="image_wrap">
-                <img src="/assets/images/about/better-services.jpg" alt="Bytewise Tech - About Image" />
+                <Image src={BetterServices} alt="Bytewise Tech - About Image" />
               </div>
             </div>
             <div className="col-lg-6">
