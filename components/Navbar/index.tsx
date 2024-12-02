@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { FieldsLinksQuery, GET_FIELDS, GET_LINKS, GET_SERVICES, HeaderLinksQuery, ServicesLinksQuery, GET_FOOTER_SOCIALS, FooterSocialsQuery } from './query'
 import Link from 'next/link'
 import Badge from '../Badge'
@@ -7,6 +7,19 @@ import { GET_PROJECT, ProjectQuery } from '@/app/portfolio/[slug]/query'
 import ActiveListItem from './ActiveListItem'
 import { query } from '@/app/ApolloClient'
 import { INVESTIFY_PROJECT_ID } from '@/utils/constants'
+import LogoWhite from '../../public/assets/images/site_logo/logo-white.svg'
+import Favicon from '../../public/assets/images/site_logo/favicon.svg'
+import WifiIcon from '../../public/assets/images/icons/icon_wifi.svg'
+import ChartIcon from '../../public/assets/images/icons/icon_chart.svg'
+import UserIcon from '../../public/assets/images/icons/icon_user_2.svg'
+import PenIcon from '../../public/assets/images/icons/icon_pen.svg'
+
+const companyLinkIcons: Record<string, StaticImageData> = {
+  'icon_wifi.svg': WifiIcon,
+  'icon_chart.svg': ChartIcon,
+  'icon_user_2.svg': UserIcon,
+  'icon_pen.svg': PenIcon,
+}
 
 export default async function Navbar() {
   const { data: linksCollection } = await query<HeaderLinksQuery>({ query: GET_LINKS })
@@ -34,8 +47,8 @@ export default async function Navbar() {
             <div className="col-lg-3 col-5">
               <div className="site_logo">
                 <Link className="site_link" href={home.href}>
-                  <Image width={2251} height={559} src="/assets/images/site_logo/logo-white.svg" alt="Site Logo – Bytewise Technologies – IT Solutions & Technology, Business Consulting, Software Company" />
-                  <Image width={600} height={559} src="/assets/images/site_logo/favicon.svg" alt="Site Logo – Bytewise Technologies – IT Solutions & Technology, Business Consulting, Software Company" />
+                  <Image width={2251} height={559} src={LogoWhite} alt="Site Logo – Bytewise Technologies – IT Solutions & Technology, Business Consulting, Software Company" />
+                  <Image width={600} height={559} src={Favicon} alt="Site Logo – Bytewise Technologies – IT Solutions & Technology, Business Consulting, Software Company" />
                 </Link>
               </div>
             </div>
@@ -58,7 +71,7 @@ export default async function Navbar() {
                                       <Link className="iconbox_block_2" href={link.href}>
                                         <span className="icon_title_wrap">
                                           <small className="iconbox_icon">
-                                            <Image width={200} height={200} src={`/assets/images/icons/${link.icon}`} alt={link.label} />
+                                            {link.icon && <Image width={200} height={200} src={companyLinkIcons[link.icon]} alt={link.label} />}
                                           </small>
                                           <small className="iconbox_title">{link.label}</small>
                                         </span>

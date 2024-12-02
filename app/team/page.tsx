@@ -6,6 +6,10 @@ import PageBanner from '@/components/PageBanner'
 import { Metadata } from 'next'
 import Link from 'next/link'
 
+import TeamCartoon from '../../public/assets/images/team/team.png'
+import TeamMap from '../../public/assets/images/team/team_map.webp'
+import Image from 'next/image'
+
 export const metadata: Metadata = {
   title: 'Team - Bytewise Technologies',
   description: 'Get to know our team members. We are a team of professionals who are passionate about what we do. We are here to help you grow your business.',
@@ -51,7 +55,7 @@ export default async function TeamPage() {
           <div className="row align-items-center justify-content-lg-between">
             <div className="col-lg-6 order-lg-last">
               <div className="team_cartoon_image">
-                <img src="/assets/images/team/team.png" alt="Team Cartoon Image - Bytewise Tech - About Image" />
+                <Image src={TeamCartoon} alt="Team Cartoon Image - Bytewise Tech - About Image" />
               </div>
             </div>
             <div className="col-lg-5">
@@ -149,7 +153,7 @@ export default async function TeamPage() {
           <div className="row justify-content-center">
             <div className="col-lg-10">
               <div className="team_map_image text-center">
-                <img src="/assets/images/team/team_map.webp" alt="Bytewise Tech - Team Map Image" />
+                <Image src={TeamMap} alt="Bytewise Tech - Team Map Image" />
               </div>
             </div>
           </div>

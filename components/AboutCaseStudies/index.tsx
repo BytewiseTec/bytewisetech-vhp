@@ -1,9 +1,16 @@
-import { useSuspenseQuery } from '@apollo/client'
 import { GET_CASE_STUDIES, CaseStudiesQuery } from './query'
 import { GET_LINKS, HeaderLinksQuery } from '../Navbar/query'
 import Link from 'next/link'
 import Image from 'next/image'
 import { query } from '@/app/ApolloClient'
+
+import CustomerSatisfaction from '../../public/assets/images/about/customer-satisfaction.avif'
+import Person1Avatar from '../../public/assets/images/about/person1-avatar.webp'
+import Person2Avatar from '../../public/assets/images/about/person2-avatar.png'
+import Person3Avatar from '../../public/assets/images/about/person3-avatar.png'
+import ShapeSpace2 from '../../public/assets/images/shapes/shape_space_2.svg'
+import ShapeLine from '../../public/assets/images/shapes/shape_line.webp'
+import IconGlobal from '../../public/assets/images/icons/icon_global.svg'
 
 export default async function AboutCaseStudies() {
   const { data, error } = await query<CaseStudiesQuery>({ query: GET_CASE_STUDIES })
@@ -21,19 +28,19 @@ export default async function AboutCaseStudies() {
           <div className="col-lg-7 order-lg-last">
             <div className="about_image_2">
               <div className="image_wrap">
-                <Image width={200} height={200} src="/assets/images/about/customer-satisfaction.avif" alt="Bytewise - About Image" />
+                <Image width={200} height={200} src={CustomerSatisfaction} alt="Bytewise - About Image" />
               </div>
               <div className="about_funfact_info" style={{ backgroundImage: 'url("assets/images/shapes/shape_bg_1.webp")' }}>
                 <div className="customer_count">
                   <ul className="unordered_list">
                     <li>
-                      <Image width={50} height={50} src="/assets/images/about/person1-avatar.webp" alt="Customer Avatar" />
+                      <Image width={50} height={50} src={Person1Avatar} alt="Customer Avatar" />
                     </li>
                     <li>
-                      <Image width={50} height={50} src="/assets/images/about/person2-avatar.png" alt="Customer Avatar" />
+                      <Image width={50} height={50} src={Person2Avatar} alt="Customer Avatar" />
                     </li>
                     <li>
-                      <Image width={50} height={50} src="/assets/images/about/person3-avatar.png" alt="Customer Avatar" />
+                      <Image width={50} height={50} src={Person3Avatar} alt="Customer Avatar" />
                     </li>
                     <li>
                       <span>100+</span>
@@ -66,11 +73,11 @@ export default async function AboutCaseStudies() {
                   </span>
                 </Link>
                 <div className="icon_globe">
-                  <img src="assets/images/icons/icon_global.svg" alt="Icon Globe" />
+                  <Image src={IconGlobal} alt="Icon Globe" />
                 </div>
               </div>
               <div className="space_line">
-                <img src="assets/images/shapes/shape_line.webp" alt="Shape Line" />
+                <Image src={ShapeLine} alt="Shape Line" />
               </div>
             </div>
           </div>
@@ -118,7 +125,7 @@ export default async function AboutCaseStudies() {
                     }}
                   >
                     <Image
-                      src={caseStudy.thumbnail.url || '/assets/images/default_case_study_image.svg'}
+                      src={caseStudy.thumbnail.url}
                       alt={caseStudy.name}
                       width={caseStudy.thumbnail.width || 200}
                       height={caseStudy.thumbnail.height || 200}
@@ -180,7 +187,7 @@ export default async function AboutCaseStudies() {
         </div>
       </div>
       <div className="decoration_item shape_image_1">
-        <img src="/assets/images/shapes/shape_space_2.svg" alt="Bytewise Tech Shape" />
+        <Image src={ShapeSpace2} alt="Bytewise Tech Shape" />
       </div>
     </section>
   )

@@ -1,3 +1,7 @@
+import Image from 'next/image'
+import shapeLine5 from '/assets/images/shapes/shape_line_5.svg'
+import shapeLine6 from '/assets/images/shapes/shape_line_6.svg'
+
 export default function FAQs() {
   return (
     <section className="faq_section section_decoration">
@@ -453,10 +457,10 @@ export default function FAQs() {
         </div>
       </div>
       <div className="decoration_item shape_image_1">
-        <img src="/assets/images/shapes/shape_space_4.svg" alt="Bytewise Tech Shape" />
+        <Image src={shapeLine5} alt="Bytewise Tech Shape" />
       </div>
       <div className="decoration_item shape_image_2">
-        <img src="/assets/images/shapes/shape_angle_3.webp" alt="Bytewise Tech Shape Angle" />
+        <Image src={shapeLine6} alt="Bytewise Tech Shape" />
       </div>
     </section>
   )

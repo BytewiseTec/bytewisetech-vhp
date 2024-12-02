@@ -4,6 +4,12 @@ import { GET_LINKS, HeaderLinksQuery } from '../Navbar/query'
 import Image from 'next/image'
 import { query } from '@/app/ApolloClient'
 
+import ShapeLine5 from '../../public/assets/images/shapes/shape_line_5.svg'
+import ShapeLine6 from '../../public/assets/images/shapes/shape_line_6.svg'
+import ShapeSpace1 from '../../public/assets/images/shapes/shape_space_1.svg'
+import ShapeAngle1 from '../../public/assets/images/shapes/shape_angle_1.webp'
+import ShapeAngle2 from '../../public/assets/images/shapes/shape_angle_2.webp'
+
 export default async function Services() {
   const { data: servicesData, error } = await query<ServicesQuery>({ query: GET_SERVICES, variables: { limit: 6 } })
   const { data: linksCollection } = await query<HeaderLinksQuery>({ query: GET_LINKS })
@@ -40,7 +46,9 @@ export default async function Services() {
             <div className="col-lg-4" key={service._id}>
               <div className="service_block_2">
                 <div className="service_icon">
-                <Image width={62} height={62} src={service.icon?.url ||'/assets/images/default_icon.svg'} alt="Tech Service icon"/>
+                  {service.icon?.url && (
+                    <Image width={62} height={62} src={service.icon?.url} alt="Tech Service icon"/>
+                  )}
                 </div>
                 <h3 className="service_title">
                   <Link href={`${servicesLink.href}/${service?.slug}`}>
@@ -64,19 +72,19 @@ export default async function Services() {
       </div>
 
       <div className="decoration_item shape_image_1">
-        <img src="/assets/images/shapes/shape_line_5.svg" alt="Bytewise Tech Shape" />
+        <Image src={ShapeLine5} alt="Bytewise Tech Shape" />
       </div>
       <div className="decoration_item shape_image_2">
-        <img src="/assets/images/shapes/shape_line_6.svg" alt="Bytewise Tech Shape" />
+        <Image src={ShapeLine6} alt="Bytewise Tech Shape" />
       </div>
       <div className="decoration_item shape_image_3">
-        <img src="/assets/images/shapes/shape_space_1.svg" alt="Bytewise Tech Shape" />
+        <Image src={ShapeSpace1} alt="Bytewise Tech Shape" />
       </div>
       <div className="decoration_item shape_image_4">
-        <Image src="/assets/images/shapes/shape_angle_1.webp" width={1061} height={1456} alt="Bytewise Tech Shape Angle" />
+        <Image src={ShapeAngle1} width={1061} height={1456} alt="Bytewise Tech Shape Angle" />
       </div>
       <div className="decoration_item shape_image_5">
-        <Image src="/assets/images/shapes/shape_angle_2.webp" width={1062} height={1080} alt="Bytewise Tech Shape Angle" />
+        <Image src={ShapeAngle2} width={1062} height={1080} alt="Bytewise Tech Shape Angle" />
       </div>
     </section>
   )

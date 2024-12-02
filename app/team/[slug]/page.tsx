@@ -6,16 +6,8 @@ import { GET_TEAM_MEMBER, GET_TEAMMEMBER_ID, TeamMemberIdQuery, TeamMemberQuery 
 import Image from 'next/image'
 import Link from 'next/link'
 import { renderHtml } from '../../../utils/renderers'
-import FacebookIcon from '/public/assets/images/icons/icon_facebook.svg'
-import LinkedInIcon from '/public/assets/images/icons/icon_linkedin.svg'
-import GitHubIcon from '/public/assets/images/icons/icon_git.svg'
 import { GET_TEAM_COLLECTION, TeamCollectionQuery } from '../query'
-const getSocialMediaIcon = (url: string) => {
-  if (url.includes('https://www.facebook.com/people/Bytewise-Technologies/61566440639702/')) return FacebookIcon
-  if (url.includes('https://github.com/BytewiseTec')) return GitHubIcon
-  if (url.includes('https://www.linkedin.com/company/bytewise-tech')) return LinkedInIcon
-  return null
-}
+import { getSocialMediaIcon } from '../../../utils/helpers'
 
 interface TeamMemberProbsPage {
   params: Promise<{ slug: string }>
@@ -52,7 +44,7 @@ export default async function TeamMemberDetailsPage({ params }: TeamMemberProbsP
         <div className="container">
           <div className="team_member_details_card">
             <div className="team_member_image">
-              <img src={team.portrait.url} alt="Team Member Image" />
+              <Image width={team.portrait.width} height={team.portrait.height} src={team.portrait.url} alt="Team Member Image" />
             </div>
             <div className="team_member_content">
               <h2 className="team_member_name">{team.fullName}</h2>
@@ -88,6 +80,10 @@ export default async function TeamMemberDetailsPage({ params }: TeamMemberProbsP
                 {team.social?.map((socialLink, index) => {
                  
                     const Icon = getSocialMediaIcon(socialLink)
+
+                    if (!Icon) {
+                      return null
+                    }
                     
                     return (
                       <li key={index}>

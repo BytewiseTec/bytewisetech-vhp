@@ -1,6 +1,9 @@
 import { query } from '@/app/ApolloClient'
 import { ContactQuery, GET_CONTACT } from '@/app/contact/query'
 import InstantContactForm from '../InstantContactForm'
+import shapeLine5 from '../../public/assets/images/shapes/shape_line_5.svg'
+import shapeLine6 from '../../public/assets/images/shapes/shape_line_6.svg'
+import Image from 'next/image'
 
 export default async function ContactUs() {
   const { data } = await query<ContactQuery>({ query: GET_CONTACT })
@@ -80,10 +83,10 @@ export default async function ContactUs() {
         </div>
       </div>
       <div className="decoration_item shape_image_1">
-        <img src="/assets/images/shapes/shape_line_5.svg" alt="Bytewise Tech Shape" />
+        <Image src={shapeLine5} alt="Bytewise Tech Shape" />
       </div>
       <div className="decoration_item shape_image_2">
-        <img src="/assets/images/shapes/shape_line_6.svg" alt="Bytewise Tech Shape" />
+        <Image src={shapeLine6} alt="Bytewise Tech Shape" />
       </div>
     </section>
   )

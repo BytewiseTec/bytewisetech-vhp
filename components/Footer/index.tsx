@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { getSocialMediaIcon } from '@/utils/helpers'
 import { ContactQuery, GET_CONTACT } from '@/app/contact/query'
 import { query } from '@/app/ApolloClient'
+import ShapeSpace2 from '../../public/assets/images/shapes/shape_space_2.svg'
 
 export default async function Footer() {
   const { data: linksCollection } = await query<HeaderLinksQuery>({ query: GET_LINKS })
@@ -33,7 +34,7 @@ export default async function Footer() {
     >
       <div className="decoration_item shape_image_1">
         <Image
-          src="/assets/images/shapes/shape_space_2.svg"
+          src={ShapeSpace2}
           alt="Bytewise Tech Shape"
           width={100}
           height={100}
