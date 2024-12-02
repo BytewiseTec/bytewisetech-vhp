@@ -76,16 +76,16 @@ export default async function Hero() {
           <div className="col-lg-6">
             <div className="engine_image">
               <div className="image_wrap_1">
-                <Image src={Favicon} width={96} height={96} alt="Engine Image" />
+                <Image src={Favicon} alt="Engine Image" />
               </div>
               <div className="image_wrap_2">
-                <Image src={CircleEngine2} width={448} height={448} alt="Engine Image" />
+                <Image src={CircleEngine2} alt="Engine Image" />
               </div>
               <div className="image_wrap_3">
-                <Image src={CircleEngine3} width={566} height={566} alt="Engine Image" />
+                <Image src={CircleEngine3} alt="Engine Image" />
               </div>
               <div className="image_wrap_4">
-                <Image src={CircleEngine4} width={695} height={656} alt="Engine Image" />
+                <Image src={CircleEngine4} alt="Engine Image" />
               </div>
             </div>
           </div>
@@ -93,16 +93,16 @@ export default async function Hero() {
       </div>
 
       <div className="shape_image_1">
-        <Image src={Shape1} width={4526} height={288} alt="Engine Image" />
+        <Image src={Shape1} alt="Engine Image" />
       </div>
       <div className="shape_image_2">
-        <Image src={Shape2} width={4744} height={488} alt="Engine Image" />
+        <Image src={Shape2} alt="Engine Image" />
       </div>
       <div className="shape_image_3">
-        <Image src={Shape3} width={1366} height={756} alt="Engine Image" />
+        <Image src={Shape3} alt="Engine Image" />
       </div>
       <div className="shape_image_4">
-        <Image src={Shape4} width={1386} height={755} alt="Engine Image" />
+        <Image src={Shape4} alt="Engine Image" />
       </div>
     </section>
   )
