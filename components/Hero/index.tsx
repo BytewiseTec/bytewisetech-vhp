@@ -4,7 +4,7 @@ import { ContactQuery, GET_CONTACT } from '@/app/contact/query'
 import Link from 'next/link'
 import { query } from '@/app/ApolloClient'
 
-import CircleEngine1 from '../../public/assets/images/hero/circle_engine_1.webp'
+import Favicon from '../../public/assets/images/site_logo/favicon-96x96.png'
 import CircleEngine2 from '../../public/assets/images/hero/circle_engine_2.webp'
 import CircleEngine3 from '../../public/assets/images/hero/circle_engine_3.webp'
 import CircleEngine4 from '../../public/assets/images/hero/circle_engine_4.png'
@@ -76,7 +76,7 @@ export default async function Hero() {
           <div className="col-lg-6">
             <div className="engine_image">
               <div className="image_wrap_1">
-                <Image src={CircleEngine1} width={153} height={153} alt="Engine Image" />
+                <Image src={Favicon} width={96} height={96} alt="Engine Image" />
               </div>
               <div className="image_wrap_2">
                 <Image src={CircleEngine2} width={448} height={448} alt="Engine Image" />
