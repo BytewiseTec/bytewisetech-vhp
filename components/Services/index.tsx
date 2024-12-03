@@ -81,10 +81,10 @@ export default async function Services() {
         <Image src={ShapeSpace1} alt="Bytewise Tech Shape" />
       </div>
       <div className="decoration_item shape_image_4">
-        <Image src={ShapeAngle1} width={1061} height={1456} alt="Bytewise Tech Shape Angle" />
+        <Image src={ShapeAngle1} alt="Bytewise Tech Shape Angle" />
       </div>
       <div className="decoration_item shape_image_5">
-        <Image src={ShapeAngle2} width={1062} height={1080} alt="Bytewise Tech Shape Angle" />
+        <Image src={ShapeAngle2} alt="Bytewise Tech Shape Angle" />
       </div>
     </section>
   )
