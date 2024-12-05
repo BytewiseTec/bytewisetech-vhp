@@ -318,15 +318,13 @@
 		&:last-child {
 			margin-bottom: -5px;
 		}
-		&:before {
-			top: 0;
+		svg {
+			top: 3px;
 			left: -38px;
 			font-size: 20px;
 			font-weight: 400;
-			content: '\f192';
 			position: absolute;
 			color: var(--bs-primary);
-			font-family: 'Font Awesome 5 Pro';
 		}
 	}
 }

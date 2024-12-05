@@ -1,7 +1,8 @@
 import { ContactQuery, GET_CONTACT } from './query'
 import { Metadata } from 'next'
 import { query } from '../ApolloClient'
-import ContactForm from '@/components/ContactForm'
+import ContactForm from '../../components/ContactForm'
+import PageBanner from '../../components/PageBanner'
 
 export const metadata: Metadata = {
   title: 'Contact - Bytewise Technologies',
@@ -30,17 +31,7 @@ export default async function ContactPage() {
 
   return (
     <>
-      <section
-        className="page_banner_section text-center"
-      >
-        <div className="container">
-          <div className="heading_focus_text text-white">
-            <span className="badge bg-secondary">Contact</span>
-            Us 😍
-          </div>
-          <h1 className="page_title mb-0 text-white">Contact Us</h1>
-        </div>
-      </section>
+      <PageBanner title="Contact us" />
 
       <section className="contact_section section_space bg-light">
         <div className="container">

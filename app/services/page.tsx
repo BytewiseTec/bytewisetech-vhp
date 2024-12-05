@@ -2,6 +2,8 @@ import { GET_SERVICES, ServicesQuery } from './query'
 import { query } from '../ApolloClient'
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { PiArrowUpRightBold } from 'react-icons/pi'
+
 
 import ServiceImage from '../../public/assets/images/services/service_image_8.webp'
 import AboutImage from '../../public/assets/images/about/about_image_5.webp'
@@ -12,6 +14,7 @@ import IconReceiptAdd from '../../public/assets/images/icons/icon_receipt_add.sv
 import IconMonitor from '../../public/assets/images/icons/icon_monitor.svg'
 import IconMicroscope from '../../public/assets/images/icons/icon_microscope.svg'
 import Image from 'next/image'
+import PageBanner from '../../components/PageBanner'
 
 export const metadata: Metadata = {
   title: 'Services - Bytewise Technologies',
@@ -43,17 +46,7 @@ export default async function ServicesPage() {
   }
   return (
     <>
-      <section
-        className="page_banner_section text-center"
-      >
-        <div className="container">
-          <div className="heading_focus_text text-white">
-            Our Main
-            <span className="badge bg-secondary">Services 😍</span>
-          </div>
-          <h1 className="page_title mb-0 text-white">Our Services</h1>
-        </div>
-      </section>
+      <PageBanner title="Services" />
 
       <section className="about_section section_space bg-light">
         <div className="container">
@@ -68,7 +61,7 @@ export default async function ServicesPage() {
                 <div className="heading_block">
                   <div className="heading_focus_text">
                     We Are
-                    <span className="badge bg-secondary text-white">IT Guidance 🙂</span>
+                    <span className="badge bg-secondary text-white">IT Guidance</span>
                   </div>
                   <h2 className="heading_text">
                     Tailored IT Solutions for Your Success
@@ -80,7 +73,7 @@ export default async function ServicesPage() {
                 <Link className="btn" href="/contact">
                   <span className="btn_label" data-text="Talk to an Expert">Talk to an Expert</span>
                   <span className="btn_icon">
-                    <i className="fa-solid fa-arrow-up-right"></i>
+                    <PiArrowUpRightBold size={20} />
                   </span>
                 </Link>
               </div>
@@ -123,7 +116,7 @@ export default async function ServicesPage() {
                           <li><a href="#!">{service.heading2}</a></li>
                         </ul>
                         <Link className="icon_block" href={`/services/${service.slug}`}>
-                          <i className="fa-regular fa-arrow-up-right"></i>
+                          <PiArrowUpRightBold size={20} />
                         </Link>
                       </div>
                     </div>

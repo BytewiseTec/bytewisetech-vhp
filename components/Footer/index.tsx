@@ -1,10 +1,11 @@
 import { GET_FEATURED, FooterQuery, FieldsLinksQuery, GET_FIELDS, GET_LINKS, GET_SERVICES, HeaderLinksQuery, ServicesLinksQuery } from './query'
 import Image from 'next/image'
 import Link from 'next/link'
-import { getSocialMediaIcon } from '@/utils/helpers'
+import { getSocialMediaIcon, getSocialMediaName } from '@/utils/helpers'
 import { ContactQuery, GET_CONTACT } from '@/app/contact/query'
 import { query } from '@/app/ApolloClient'
 import ShapeSpace2 from '../../public/assets/images/shapes/shape_space_2.svg'
+import { FaCircle, FaEnvelope, FaLocationDot, FaPhoneVolume } from 'react-icons/fa6'
 
 export default async function Footer() {
   const { data: linksCollection } = await query<HeaderLinksQuery>({ query: GET_LINKS })
@@ -94,7 +95,7 @@ export default async function Footer() {
                   <li>
                     <a href={phone?.href}>
                       <span className="icon">
-                        <i className="fa-solid fa-phone-volume"></i>
+                        <FaPhoneVolume />
                       </span>
                       <span className="icon-list-text">{phone?.description}</span>
                     </a>
@@ -102,7 +103,7 @@ export default async function Footer() {
                   <li>
                     <a href={email?.href}>
                       <span className="icon">
-                        <i className="fa-solid fa-envelope"></i>
+                        <FaEnvelope />
                       </span>
                       <span className="icon-list-text">{email?.description}</span>
                     </a>
@@ -110,7 +111,7 @@ export default async function Footer() {
                   <li>
                     <a rel="noopener nofollow" href="#!">
                       <span className="icon">
-                        <i className="fa-solid fa-location-dot"></i>
+                        <FaLocationDot />
                       </span>
                       <span className="icon-list-text">{address?.description}</span>
                     </a>
@@ -119,10 +120,12 @@ export default async function Footer() {
                 <ul className="social_icons_block unordered_list mt-5">
                   {footer.socials?.map((socialLink, index) => {
                     const Icon = getSocialMediaIcon(socialLink)
+                    const name = getSocialMediaName(socialLink)
+
                     return (
                       <li key={index}>
                         <Link href={socialLink} target="_blank" rel="noopener noreferrer">
-                          <i className={`fa-brands ${Icon}`}></i>
+                          {Icon && name && <Icon className={name} />}
                         </Link>
                       </li>
                     )
@@ -147,7 +150,7 @@ export default async function Footer() {
             <li>
               <Link href="/terms-of-service">
                 <span className="icon_list_icon">
-                  <i className="fa-solid fa-circle"></i>
+                  <FaCircle color="#0044EB" size={6} />
                 </span>
                 <span className="icon_list_text">Terms of Service</span>
               </Link>
@@ -155,14 +158,14 @@ export default async function Footer() {
             <li>
               <Link href="/cookie-policy">
                 <span className="icon_list_icon">
-                  <i className="fa-solid fa-circle"></i>
+                  <FaCircle color="#0044EB" size={6} />
                 </span>
                 <span className="icon_list_text">Cookie Policy</span>
               </Link>
             </li>
             <li>
               <span className="icon_list_icon">
-                <i className="fa-solid fa-circle"></i>
+                <FaCircle color="#0044EB" size={6} />
               </span>
               <a href="#" className="icon_list_text termly-display-preferences">Consent Preferences</a>
             </li>

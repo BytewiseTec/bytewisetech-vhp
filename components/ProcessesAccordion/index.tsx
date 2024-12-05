@@ -4,6 +4,7 @@ import { ListItem } from '../../app/content.types'
 import { padWithZeros } from '../../utils/helpers'
 import classNames from 'classnames'
 import { useExpandedIndex } from './ExpandedIndexProvider'
+import { FaMinus, FaPlus } from 'react-icons/fa6'
 
 type ProcessesAccordionProps = {
   processes: ListItem[]
@@ -11,6 +12,8 @@ type ProcessesAccordionProps = {
 
 export default function ProcessesAccordion({ processes }: ProcessesAccordionProps) {
   const { expandedIdx, onExpand } = useExpandedIndex()
+
+  const isExpanded = (idx: number) => idx === expandedIdx
 
   return (
     <div className="accordion" id="service_process_faq">
@@ -22,7 +25,7 @@ export default function ProcessesAccordion({ processes }: ProcessesAccordionProp
             role="button"
             data-bs-toggle="collapse"
             data-bs-target={`#process_${idx}`}
-            aria-expanded={idx === expandedIdx}
+            aria-expanded={isExpanded(idx)}
             aria-controls={`process_${idx}`}
           >
             {padWithZeros(idx + 1, 2)}. {process.title}

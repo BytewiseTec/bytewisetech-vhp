@@ -7,7 +7,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { renderHtml } from '../../../utils/renderers'
 import { GET_TEAM_COLLECTION, TeamCollectionQuery } from '../query'
-import { getSocialMediaIcon } from '../../../utils/helpers'
+import { getSocialMediaIcon, getSocialMediaName } from '../../../utils/helpers'
 
 interface TeamMemberProbsPage {
   params: Promise<{ slug: string }>
@@ -80,20 +80,16 @@ export default async function TeamMemberDetailsPage({ params }: TeamMemberProbsP
                 {team.social?.map((socialLink, index) => {
                  
                     const Icon = getSocialMediaIcon(socialLink)
+                    const name = getSocialMediaName(socialLink)
 
-                    if (!Icon) {
+                    if (!Icon || !name) {
                       return null
                     }
                     
                     return (
                       <li key={index}>
                         <Link href={socialLink} target="_blank" rel="noopener noreferrer">
-                          <Image
-                            src={Icon}
-                            alt={`Icon for ${socialLink}`}
-                            width={24}
-                            height={24}
-                          />
+                          <Icon size={24} className={name} />
                         </Link>
                       </li>
                     )

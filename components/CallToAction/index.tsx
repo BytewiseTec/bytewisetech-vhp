@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { PiArrowUpRightBold } from 'react-icons/pi'
 
 export default function CallToAction() {
   return (
@@ -17,7 +18,7 @@ export default function CallToAction() {
         <Link className="btn btn-primary" href="/contact">
           <span className="btn_label" data-text="Contact Us Today!">Contact Us Today!</span>
           <span className="btn_icon">
-            <i className="fa-solid fa-arrow-up-right"></i>
+            <PiArrowUpRightBold size={20} />
           </span>
         </Link>
       </div>

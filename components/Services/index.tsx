@@ -9,6 +9,7 @@ import ShapeLine6 from '../../public/assets/images/shapes/shape_line_6.svg'
 import ShapeSpace1 from '../../public/assets/images/shapes/shape_space_1.svg'
 import ShapeAngle1 from '../../public/assets/images/shapes/shape_angle_1.webp'
 import ShapeAngle2 from '../../public/assets/images/shapes/shape_angle_2.webp'
+import { FaArrowRight, FaRegCircleDot } from 'react-icons/fa6'
 
 export default async function Services() {
   const { data: servicesData, error } = await query<ServicesQuery>({ query: GET_SERVICES, variables: { limit: 6 } })
@@ -53,13 +54,14 @@ export default async function Services() {
                 <h3 className="service_title">
                   <Link href={`${servicesLink.href}/${service?.slug}`}>
                     {service.name}
+                    <FaArrowRight />
                   </Link>
                 </h3>
                 <ul className="icon_list unordered_list_block">
                   {service.areasjson?.map((detail, index) => (
                     <li key={index}>
                       <span className="icon_list_icon">
-                        <i className="fa-regular fa-circle-dot"></i>
+                        <FaRegCircleDot />
                       </span>
                       <span className="icon_list_text">{detail}</span>
                     </li>

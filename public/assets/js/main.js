@@ -17,14 +17,6 @@
   // Back To Top - End
   // --------------------------------------------------
 
-  // Mobile Menu Button Class Chnage - Start
-  // --------------------------------------------------
-  $('.mobile_menu_btn').on('click', function(){
-    $('.mobile_menu_btn > i').toggleClass('far fa-bars fa-solid fa-xmark')
-  })
-  // Mobile Menu Button Class Chnage - End
-  // --------------------------------------------------
-
   // Sticky Header - Start
   // --------------------------------------------------
   if ($('.stricky').length) {

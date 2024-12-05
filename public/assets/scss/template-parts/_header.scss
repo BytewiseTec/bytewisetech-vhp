@@ -88,14 +88,15 @@
 	.dropdown {
 		>a {
 			position: relative;
-			&:after {
+			svg {
 				float: right;
 				font-size: 14px;
-				content: "\f107";
 				font-weight: 900;
 				margin: 1px 0 0 3px;
-				transition: var(--bs-transition);
-				font-family: "Font Awesome 6 Pro";
+			}
+
+			&:hover svg {
+				transform: rotateX(-180deg);
 			}
 		}
 	}
@@ -154,7 +155,7 @@
 	border-radius: 0px;
 	transform: translate(0%, 4px);
 	box-shadow: -2px 24px 52px 0 rgba(0, 0, 0, 0.1);
-	overflow-x: hidden;
+	overflow: hidden;
 
 	.megamenu_pages_wrapper {
 		margin: -15px;
@@ -206,16 +207,16 @@
 			&:hover {
 				color: var(--bs-primary);
 			}
-			[class*="fa-facebook"] {
+			[class*="facebook"] {
 				color: #3D6AD6;
 			}
-			[class*="fa-twitter"] {
+			[class*="twitter"] {
 				color: #000000;
 			}
-			[class*="fa-linkedin"] {
+			[class*="linkedin"] {
 				color: #0073B1;
 			}
-			[class*="fa-dribbble"] {
+			[class*="dribbble"] {
 				color: #D31F61;
 			}
 		}
@@ -488,7 +489,6 @@
 	}
 	.dropdown-menu.mega_menu_wrapper {
 		top: 92px;
-		overflow: hidden;
 	}
 
 	&.sticky {

@@ -9,6 +9,7 @@ import Link from 'next/link'
 import TeamCartoon from '../../public/assets/images/team/team.png'
 import TeamMap from '../../public/assets/images/team/team_map.webp'
 import Image from 'next/image'
+import { PiArrowUpRightBold } from 'react-icons/pi'
 
 export const metadata: Metadata = {
   title: 'Team - Bytewise Technologies',
@@ -63,7 +64,7 @@ export default async function TeamPage() {
                 <div className="heading_block">
                   <div className="heading_focus_text">
                     Our Dedicated
-                    <span className="badge bg-secondary text-white">Team 🙂</span>
+                    <span className="badge bg-secondary text-white">Team</span>
                   </div>
                   <h2 className="heading_text">
                     Get to Know Our Bytewise Team
@@ -75,7 +76,7 @@ export default async function TeamPage() {
                 <Link className="btn" href="/contact">
                   <span className="btn_label" data-text="Talk to an Expert">Talk to an Expert</span>
                   <span className="btn_icon">
-                    <i className="fa-solid fa-arrow-up-right"></i>
+                    <PiArrowUpRightBold size={20} />
                   </span>
                 </Link>
               </div>

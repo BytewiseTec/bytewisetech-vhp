@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { FaArrowUp } from '@react-icons/all-files/fa/FaArrowUp'
 
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
 import '../public/assets/css/bootstrap.min.css'
-import '../public/assets/css/fontawesome.css'
-
 import '../public/assets/scss/style.scss'
 
 import CallToAction from '../components/CallToAction'
@@ -92,7 +91,7 @@ export default function RootLayout({
           <div className="page_wrapper">
             <div className="backtotop">
               <a title="Scroll to top" href="#" className="scroll">
-                <i className="fa-solid fa-arrow-up"></i>
+                <FaArrowUp />
               </a>
             </div>
             <Navbar />

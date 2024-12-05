@@ -2,7 +2,7 @@ import Image, { StaticImageData } from 'next/image'
 import { FieldsLinksQuery, GET_FIELDS, GET_LINKS, GET_SERVICES, HeaderLinksQuery, ServicesLinksQuery, GET_FOOTER_SOCIALS, FooterSocialsQuery } from './query'
 import Link from 'next/link'
 import Badge from '../Badge'
-import { getSocialMediaIcon } from '@/utils/helpers'
+import { getSocialMediaIcon, getSocialMediaName } from '@/utils/helpers'
 import { GET_PROJECT, ProjectQuery } from '@/app/portfolio/[slug]/query'
 import ActiveListItem from './ActiveListItem'
 import { query } from '@/app/ApolloClient'
@@ -13,6 +13,9 @@ import WifiIcon from '../../public/assets/images/icons/icon_wifi.svg'
 import ChartIcon from '../../public/assets/images/icons/icon_chart.svg'
 import UserIcon from '../../public/assets/images/icons/icon_user_2.svg'
 import PenIcon from '../../public/assets/images/icons/icon_pen.svg'
+import { PiArrowUpRightBold } from 'react-icons/pi'
+import { FaAngleDown, FaBars, FaChevronDown } from 'react-icons/fa6'
+import MobileMenuButton from './MobileMenuButton'
 
 const companyLinkIcons: Record<string, StaticImageData> = {
   'icon_wifi.svg': WifiIcon,
@@ -59,6 +62,7 @@ export default async function Navbar() {
                     <li className="dropdown">
                       <a className="nav-link" href="#" id="company_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {company.label}
+                        <FaAngleDown />
                       </a>
                       <div className="dropdown-menu mega_menu_wrapper" aria-labelledby="company_submenu">
                         <div className="container">
@@ -88,7 +92,7 @@ export default async function Navbar() {
                                   <Link className="btn btn-primary" href={contact.href}>
                                     <span className="btn_label" data-text="Free Consultation">Free Consultation</span>
                                     <span className="btn_icon">
-                                      <i className="fa-solid fa-arrow-up-right"></i>
+                                      <PiArrowUpRightBold size={20} />
                                     </span>
                                   </Link>
                                 </li>
@@ -106,6 +110,7 @@ export default async function Navbar() {
                     <ActiveListItem clickable className="dropdown" path={services.href}>
                       <Link className="nav-link" href={services.href} id="services_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {services.label}
+                        <FaAngleDown />
                       </Link>
                       <div className="dropdown-menu mega_menu_wrapper p-0" aria-labelledby="services_submenu">
                         <div className="container">
@@ -164,11 +169,13 @@ export default async function Navbar() {
                               <div className="social_area">
                                 <ul className="social_icons_block unordered_list" data-text="Follow Us:">
                                   {socials?.map((socialLink, index) => {
-                                    const icon = getSocialMediaIcon(socialLink)
+                                    const Icon = getSocialMediaIcon(socialLink)
+                                    const name = getSocialMediaName(socialLink)
+
                                     return (
                                       <li key={index}>
                                         <Link href={socialLink} target="_blank" rel="noopener noreferrer">
-                                          <i className={`fa-brands ${icon}`}></i>
+                                          {Icon && name && <Icon className={name} />}
                                         </Link>
                                       </li>
                                     )
@@ -187,7 +194,7 @@ export default async function Navbar() {
                                 <Link className="btn" href={`/portfolio/${project?.slug}`}>
                                   <span className="btn_label" data-text="Read Case">Read Case</span>
                                   <span className="btn_icon">
-                                    <i className="fa-solid fa-arrow-up-right"></i>
+                                    <PiArrowUpRightBold size={20} />
                                   </span>
                                 </Link>
                               </div>
@@ -199,6 +206,7 @@ export default async function Navbar() {
                     <li className="dropdown">
                       <a className="nav-link" href="#" id="pages_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {pages.label}
+                        <FaAngleDown />
                       </a>
                       <ul className="dropdown-menu" aria-labelledby="pages_submenu">
                         {pages.children?.map((page, idx) => (
@@ -219,15 +227,13 @@ export default async function Navbar() {
             <div className="col-lg-3 col-5">
               <ul className="header_btns_group unordered_list justify-content-end">
                 <li>
-                  <button className="mobile_menu_btn" type="button" data-bs-toggle="collapse" data-bs-target="#main_menu_dropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <i className="far fa-bars"></i>
-                  </button>
+                  <MobileMenuButton />
                 </li>
                 <li>
                   <Link className="btn btn-primary" href={contact.href}>
                     <span className="btn_label" data-text="Get Started">Get Started</span>
                     <span className="btn_icon">
-                      <i className="fa-solid fa-arrow-up-right"></i>
+                      <PiArrowUpRightBold size={20} />
                     </span>
                   </Link>
                 </li>

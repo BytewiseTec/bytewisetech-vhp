@@ -3,6 +3,10 @@
 import { useForm } from 'react-hook-form'
 import { toast, Toaster } from 'sonner'
 import { sendMail } from '../../utils/send-mail'
+import { FaEnvelopeOpenText, FaRegComments, FaRegEnvelope, FaRegUser } from 'react-icons/fa6'
+import { LiaPhoneVolumeSolid } from 'react-icons/lia'
+import { CiGlobe } from 'react-icons/ci'
+import { PiArrowUpRightBold } from 'react-icons/pi'
 
 export default function InstantContactForm() {
   const { register, handleSubmit, formState } = useForm({
@@ -43,7 +47,7 @@ export default function InstantContactForm() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="instant_contact_form">
         <div className="small_title">
-          <i className="fa-solid fa-envelope-open-text"></i>
+          <FaEnvelopeOpenText color="#0044EB" />{' '}
           Let&apos;s Connect!
         </div>
         <h3 className="form_title">
@@ -53,7 +57,7 @@ export default function InstantContactForm() {
           <div className="col-md-6">
             <div className="form-group">
               <label className="input_title" htmlFor="input_name">
-                <i className="fa-regular fa-user"></i>
+                <FaRegUser color="#676767" />
               </label>
               <input id="input_name" className="form-control" type="text" {...register('name')} placeholder="Your Name" required />
             </div>
@@ -61,7 +65,7 @@ export default function InstantContactForm() {
           <div className="col-md-6">
             <div className="form-group">
               <label className="input_title" htmlFor="input_email">
-                <i className="fa-regular fa-envelope"></i>
+                <FaRegEnvelope color="#676767" />
               </label>
               <input id="input_email" className="form-control" type="email" {...register('email')} placeholder="Your Enter" required />
             </div>
@@ -69,7 +73,7 @@ export default function InstantContactForm() {
           <div className="col-md-6">
             <div className="form-group">
               <label className="input_title" htmlFor="input_phone">
-                <i className="fa-regular fa-phone-volume"></i>
+                <LiaPhoneVolumeSolid color="#676767" size={18} />
               </label>
               <input id="input_phone" className="form-control" type="tel" {...register('phone')} placeholder="Your Phone No." required />
             </div>
@@ -77,7 +81,7 @@ export default function InstantContactForm() {
           <div className="col-md-6">
             <div className="form-group">
               <label className="input_title" htmlFor="input_company">
-                <i className="fa-regular fa-globe"></i>
+                <CiGlobe color="#676767" size={18} />
               </label>
               <input id="input_company" className="form-control" type="text" {...register('companyName')} placeholder="Your Company Name" />
             </div>
@@ -85,14 +89,14 @@ export default function InstantContactForm() {
           <div className="col-12">
             <div className="form-group">
               <label className="input_title" htmlFor="input_textarea">
-                <i className="fa-regular fa-comments"></i>
+                <FaRegComments color="#676767" size={18} />
               </label>
               <textarea id="input_textarea" className="form-control" {...register('message')} placeholder="How can we help you?"></textarea>
             </div>
             <button type="submit" className="btn btn-primary" disabled={isLoading}>
               <span className="btn_label" data-text="Send Request">Send Request</span>
               <span className="btn_icon">
-                <i className="fa-solid fa-arrow-up-right"></i>
+                <PiArrowUpRightBold size={20} />
               </span>
             </button>
           </div>

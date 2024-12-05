@@ -1,6 +1,7 @@
 import Image from 'next/image'
-import shapeLine5 from '/assets/images/shapes/shape_line_5.svg'
-import shapeLine6 from '/assets/images/shapes/shape_line_6.svg'
+import shapeLine5 from '../../public/assets/images/shapes/shape_line_5.svg'
+import shapeLine6 from '../../public/assets/images/shapes/shape_line_6.svg'
+import { FaCircle } from 'react-icons/fa6'
 
 export default function FAQs() {
   return (
@@ -34,7 +35,7 @@ export default function FAQs() {
                     <ul className="icon_list unordered_list_block">
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Web and mobile app development
@@ -42,7 +43,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Software architecture
@@ -50,7 +51,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           IT consulting and audit
@@ -58,7 +59,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Legacy system modernization
@@ -70,7 +71,7 @@ export default function FAQs() {
                     <ul className="icon_list unordered_list_block">
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Cloud computing
@@ -78,7 +79,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           QA and testing
@@ -86,7 +87,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Business analysis
@@ -94,7 +95,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           IT staffing services
@@ -121,7 +122,7 @@ export default function FAQs() {
                     <ul className="icon_list unordered_list_block">
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Web and mobile app development
@@ -129,7 +130,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Software architecture
@@ -137,7 +138,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           IT consulting and audit
@@ -145,7 +146,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Legacy system modernization
@@ -157,7 +158,7 @@ export default function FAQs() {
                     <ul className="icon_list unordered_list_block">
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Cloud computing
@@ -165,7 +166,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           QA and testing
@@ -173,7 +174,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Business analysis
@@ -181,7 +182,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           IT staffing services
@@ -208,7 +209,7 @@ export default function FAQs() {
                     <ul className="icon_list unordered_list_block">
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Web and mobile app development
@@ -216,7 +217,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Software architecture
@@ -224,7 +225,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           IT consulting and audit
@@ -232,7 +233,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Legacy system modernization
@@ -244,7 +245,7 @@ export default function FAQs() {
                     <ul className="icon_list unordered_list_block">
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Cloud computing
@@ -252,7 +253,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           QA and testing
@@ -260,7 +261,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Business analysis
@@ -268,7 +269,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           IT staffing services
@@ -295,7 +296,7 @@ export default function FAQs() {
                     <ul className="icon_list unordered_list_block">
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Web and mobile app development
@@ -303,7 +304,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Software architecture
@@ -311,7 +312,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           IT consulting and audit
@@ -319,7 +320,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Legacy system modernization
@@ -331,7 +332,7 @@ export default function FAQs() {
                     <ul className="icon_list unordered_list_block">
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Cloud computing
@@ -339,7 +340,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           QA and testing
@@ -347,7 +348,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Business analysis
@@ -355,7 +356,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           IT staffing services
@@ -382,7 +383,7 @@ export default function FAQs() {
                     <ul className="icon_list unordered_list_block">
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Web and mobile app development
@@ -390,7 +391,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Software architecture
@@ -398,7 +399,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           IT consulting and audit
@@ -406,7 +407,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Legacy system modernization
@@ -418,7 +419,7 @@ export default function FAQs() {
                     <ul className="icon_list unordered_list_block">
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Cloud computing
@@ -426,7 +427,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           QA and testing
@@ -434,7 +435,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           Business analysis
@@ -442,7 +443,7 @@ export default function FAQs() {
                       </li>
                       <li>
                         <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
+                          <FaCircle color="#0044EB" size={6} />
                         </span>
                         <span className="icon_list_text">
                           IT staffing services
@@ -455,9 +456,6 @@ export default function FAQs() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="decoration_item shape_image_1">
-        <Image src={shapeLine5} alt="Bytewise Tech Shape" />
       </div>
       <div className="decoration_item shape_image_2">
         <Image src={shapeLine6} alt="Bytewise Tech Shape" />

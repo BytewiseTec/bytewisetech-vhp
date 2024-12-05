@@ -12,6 +12,9 @@ import Shape1 from '../../public/assets/images/hero/shape_image_1.webp'
 import Shape2 from '../../public/assets/images/hero/shape_image_2.webp'
 import Shape3 from '../../public/assets/images/hero/shape_image_3.webp'
 import Shape4 from '../../public/assets/images/hero/shape_image_4.webp'
+import { PiArrowUpRightBold } from 'react-icons/pi'
+import { FaPhoneVolume } from 'react-icons/fa6'
+import { FaRegDotCircle } from 'react-icons/fa'
 
 export default async function Hero() {
   const { data: linksCollection } = await query<HeaderLinksQuery>({ query: GET_LINKS })
@@ -47,7 +50,10 @@ export default async function Hero() {
               </p>
               <ul className="step_list text-white unordered_list_block">
                 {Herodata.points.map((items,index)=>
-                 <li key={index}>{items}</li>
+                  <li key={index}>
+                    <FaRegDotCircle size={20} />
+                    {items}
+                  </li>
                 )}
               </ul>
               <ul className="btns_group unordered_list p-0 justify-content-start">
@@ -55,14 +61,14 @@ export default async function Hero() {
                   <Link className="btn" href={contactLink.href}>
                     <span className="btn_label" data-text="Contact Us Today!">Contact Us Today!</span>
                     <span className="btn_icon">
-                      <i className="fa-solid fa-arrow-up-right"></i>
+                      <PiArrowUpRightBold size={20} />
                     </span>
                   </Link>
                 </li>
                 <li>
                   <a className="hotline_block" href={phone?.href}>
                     <span className="hotline_icon">
-                      <i className="fa-solid fa-phone-volume"></i>
+                      <FaPhoneVolume />
                     </span>
                     <span className="hotline_content">
                       <small>CONTACT US DAILY</small>

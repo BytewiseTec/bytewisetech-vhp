@@ -141,20 +141,17 @@
 		margin-bottom: 30px;
 		a {
 			color: var(--bs-dark);
-			&:after {
+			svg {
 				opacity: 0;
-				content: '\f061';
 				font-weight: 700;
 				margin-left: 10px;
 				color: var(--bs-dark);
 				display: inline-block;
 				transform: translateX(-5px);
-				transition: var(--bs-transition);
-				font-family: "Font Awesome 5 Pro";
 			}
 			&:hover {
 				color: var(--bs-primary);
-				&:after {
+				svg {
 					color: var(--bs-primary);
 				}
 			}
@@ -178,7 +175,7 @@
 
 	&:hover {
 		.service_title a {
-			&:after {
+			svg {
 				opacity: 1;
 				transform: translateX(0px);
 			}

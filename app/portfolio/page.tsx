@@ -3,6 +3,8 @@ import { query } from '../ApolloClient'
 import { GET_PROJECTS, ProjectsQuery } from './query'
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { FaBuilding, FaTags } from 'react-icons/fa'
+import PageBanner from '../../components/PageBanner'
 
 export const metadata: Metadata = {
   title: 'Portfolio - Bytewise Technologies',
@@ -29,17 +31,7 @@ export default async function PortfolioPage() {
 
   return (
     <>
-      <section
-        className="page_banner_section text-center"
-      >
-        <div className="container">
-          <div className="heading_focus_text text-white">
-            Our
-            <span className="badge bg-secondary">Portfolio 😍</span>
-          </div>
-          <h1 className="page_title mb-0 text-white">Our Portfolio</h1>
-        </div>
-      </section>
+      <PageBanner title="Portfolio" />
 
       <section className="portfolio_section section_space bg-light">
         <div className="container">
@@ -63,8 +55,8 @@ export default async function PortfolioPage() {
                       </Link>
                     </h3>
                     <ul className="category_list unordered_list">
-                      <li><i className="fa-solid fa-tags"></i> {project.industry}</li>
-                      <li><i className="fa-solid fa-building"></i> {project.field}</li>
+                      <li><FaTags color="#0044EB" /> {project.industry}</li>
+                      <li><FaBuilding color="#0044EB" /> {project.field}</li>
                     </ul>
                   </div>
                 </div>

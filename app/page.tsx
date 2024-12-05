@@ -6,6 +6,7 @@ import Featured from '../components/Featured'
 import Hero from '../components/Hero'
 import Services from '../components/Services'
 import TechnologyReview from '../components/TechnologyReview'
+import FAQs from '../components/FAQs'
 
 export default function Home() {
 
@@ -106,6 +107,7 @@ export default function Home() {
       <Services />
       <AboutCaseStudies />
       <TechnologyReview />
+      <FAQs />
       {/* <BlogPosts/> */}
       <ContactUs />
     </>

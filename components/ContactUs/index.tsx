@@ -4,6 +4,7 @@ import InstantContactForm from '../InstantContactForm'
 import shapeLine5 from '../../public/assets/images/shapes/shape_line_5.svg'
 import shapeLine6 from '../../public/assets/images/shapes/shape_line_6.svg'
 import Image from 'next/image'
+import { FaEnvelope, FaLocationDot, FaPhoneVolume } from 'react-icons/fa6'
 
 export default async function ContactUs() {
   const { data } = await query<ContactQuery>({ query: GET_CONTACT })
@@ -35,7 +36,7 @@ export default async function ContactUs() {
                 <li>
                   <a href={phone?.href}>
                     <span className="icon">
-                      <i className="fa-solid fa-phone-volume"></i>
+                      <FaPhoneVolume />
                     </span>
                     <span className="text">{phone?.description}</span>
                   </a>
@@ -43,7 +44,7 @@ export default async function ContactUs() {
                 <li>
                   <a href={email?.href}>
                     <span className="icon">
-                      <i className="fa-solid fa-envelope"></i>
+                      <FaEnvelope />
                     </span>
                     <span className="text">{email?.description}</span>
                   </a>
@@ -51,7 +52,7 @@ export default async function ContactUs() {
                 <li>
                   <a rel="noopener nofollow" href="#!">
                     <span className="icon">
-                      <i className="fa-solid fa-location-dot"></i>
+                      <FaLocationDot />
                     </span>
                     <span className="text">{address?.description}</span>
                   </a>

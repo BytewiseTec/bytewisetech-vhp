@@ -11,6 +11,7 @@ import Person3Avatar from '../../public/assets/images/about/person3-avatar.png'
 import ShapeSpace2 from '../../public/assets/images/shapes/shape_space_2.svg'
 import ShapeLine from '../../public/assets/images/shapes/shape_line.webp'
 import IconGlobal from '../../public/assets/images/icons/icon_global.svg'
+import { PiArrowUpRightBold } from 'react-icons/pi'
 
 export default async function AboutCaseStudies() {
   const { data, error } = await query<CaseStudiesQuery>({ query: GET_CASE_STUDIES })
@@ -69,7 +70,7 @@ export default async function AboutCaseStudies() {
                 <Link className="btn btn-primary" href="/about">
                   <span className="btn_label" data-text="Learn More">Learn More</span>
                   <span className="btn_icon">
-                    <i className="fa-solid fa-arrow-up-right"></i>
+                    <PiArrowUpRightBold size={20} />
                   </span>
                 </Link>
                 <div className="icon_globe">
@@ -165,7 +166,7 @@ export default async function AboutCaseStudies() {
                     <Link className="btn btn-primary" href={`${portfolio.href}/${caseStudy.slug}`}>
                       <span className="btn_label" data-text="Read Case">Read Case</span>
                       <span className="btn_icon">
-                        <i className="fa-solid fa-arrow-up-right"></i>
+                        <PiArrowUpRightBold size={20} />
                       </span>
                     </Link>
                   </div>
@@ -180,7 +181,7 @@ export default async function AboutCaseStudies() {
             <Link className="btn btn-primary" href={`${portfolio.href}`}>
               <span className="btn_label" data-text="View More Cases Study">View More Cases Study</span>
               <span className="btn_icon">
-                <i className="fa-solid fa-arrow-up-right"></i>
+                <PiArrowUpRightBold size={20} />
               </span>
             </Link>
           </div>

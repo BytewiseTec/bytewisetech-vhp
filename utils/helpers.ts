@@ -1,3 +1,4 @@
+import { FaFacebookF, FaGithub, FaInstagram, FaLinkedinIn, FaTwitter, FaYoutube } from 'react-icons/fa6'
 import {
   BYTEWISE_EMAIL_REGEX,
   CLIENT_ENCRYPTION_SALT,
@@ -12,12 +13,23 @@ export const padWithZeros = (num: number, size: number): string => {
 }
 
 export const getSocialMediaIcon = (url: string) => {
-  if (url.includes('facebook.com')) return 'fa-facebook-f'
-  if (url.includes('github.com')) return 'fa-github'
-  if (url.includes('linkedin.com')) return 'fa-linkedin-in'
-  if (url.includes('twitter.com')) return 'fa-twitter'
-  if (url.includes('instagram.com')) return 'fa-instagram'
-  if (url.includes('youtube.com')) return 'fa-youtube'
+  if (url.includes('facebook.com')) return FaFacebookF
+  if (url.includes('github.com')) return FaGithub
+  if (url.includes('linkedin.com')) return FaLinkedinIn
+  if (url.includes('twitter.com')) return FaTwitter
+  if (url.includes('instagram.com')) return FaInstagram
+  if (url.includes('youtube.com')) return FaYoutube
+
+  return null
+}
+
+export const getSocialMediaName = (url: string) => {
+  if (url.includes('facebook.com')) return 'facebook'
+  if (url.includes('github.com')) return 'github'
+  if (url.includes('linkedin.com')) return 'linkedin'
+  if (url.includes('twitter.com')) return 'twitter'
+  if (url.includes('instagram.com')) return 'instagram'
+  if (url.includes('youtube.com')) return 'youtube'
 
   return null
 }

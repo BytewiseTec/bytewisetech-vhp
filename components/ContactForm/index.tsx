@@ -1,6 +1,7 @@
 'use client'
 
 import { useForm } from 'react-hook-form'
+import { PiArrowUpRightBold } from 'react-icons/pi'
 import { toast, Toaster } from 'sonner'
 
 export default function ContactForm() {
@@ -76,7 +77,7 @@ export default function ContactForm() {
             <button type="submit" className="btn btn-primary" disabled={isLoading}>
               <span className="btn_label" data-text="Send Message">Send Message</span>
               <span className="btn_icon">
-                <i className="fa-solid fa-arrow-up-right"></i>
+                <PiArrowUpRightBold size={20} />
               </span>
             </button>
           </div>
