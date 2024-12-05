@@ -23,7 +23,7 @@ export interface CaseStudiesQuery {
 }
 export const GET_CASE_STUDIES = gql`
   query ProjectCollection {
-    projectCollection {
+    projectCollection(order: [order_ASC]) {
       items {
         _id
         name

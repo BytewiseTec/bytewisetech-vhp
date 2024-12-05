@@ -9,7 +9,7 @@ export interface ProjectsQuery {
 
 export const GET_PROJECTS = gql`
   query ProjectCollection {
-    projectCollection {
+    projectCollection(order: [order_ASC]) {
       items {
         _id
         slug
