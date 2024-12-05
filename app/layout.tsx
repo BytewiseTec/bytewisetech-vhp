@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
-import { FaArrowUp } from '@react-icons/all-files/fa/FaArrowUp'
+import { FaArrowUp } from 'react-icons/fa6'
 
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'

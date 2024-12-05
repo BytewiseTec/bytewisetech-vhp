@@ -17,7 +17,6 @@
     "@next/bundle-analyzer": "^15.0.3",
     "@next/env": "15.0.3",
     "@next/third-parties": "15.0.3",
-    "@react-icons/all-files": "^4.1.0",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.16",
     "@types/react": "npm:types-react@19.0.0-rc.1",
