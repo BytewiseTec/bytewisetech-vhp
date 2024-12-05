@@ -17,7 +17,6 @@ const withSuspense = <P extends {}>(Component: ComponentType<P>) => {
 }
 
 const InternalCookieSetter = () => {
-  const [dataLayer, setDataLayer] = useState<Record<string, any>>({})
   const searchParams = useSearchParams()
  
   const email = searchParams.get(INTERNAL_EMAIL_PARAM)
@@ -30,15 +29,12 @@ const InternalCookieSetter = () => {
 
   useEffect(() => {
     if (!isSSR() && hasCookie(INTERNAL_TRAFFIC_COOKIE_NAME)) {
-      setDataLayer({ traffic_type: 'internal' })
+      (window as any).dataLayer.push({ traffic_type: 'internal' })
     }
   }, [])
 
   return (
-    <GoogleTagManager
-      dataLayer={dataLayer}
-      gtmId="GTM-K4SHD7J6"
-    />
+    <GoogleTagManager gtmId="GTM-K4SHD7J6" />
   )
 }
 
