@@ -44,7 +44,7 @@ export default async function AboutCaseStudies() {
                       <Image width={50} height={50} src={Person3Avatar} alt="Customer Avatar" />
                     </li>
                     <li>
-                      <span>100+</span>
+                      <span>50+</span>
                     </li>
                   </ul>
                   <p className="mb-0">
@@ -54,7 +54,7 @@ export default async function AboutCaseStudies() {
                 <div className="about_funfact_counter">
                   <div className="funfact_item">
                     <div className="counter_value">
-                      <span>3</span>
+                      <span>1</span>
                       <span>00+</span>
                     </div>
                     <h3 className="funfact_title mb-0">Projects Done</h3>

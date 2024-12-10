@@ -40,7 +40,7 @@ export interface HeaderLinksQuery {
   
   export const GET_SERVICES = gql`
   query ServiceCollection {
-    serviceCollection {
+    serviceCollection(order: [order_ASC]) {
       items {
         _id
         name

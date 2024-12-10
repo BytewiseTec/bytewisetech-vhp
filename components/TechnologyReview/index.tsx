@@ -36,7 +36,7 @@ export default function TechnologyReview() {
             <div className="heading_block">
               <div
                 className="heading_focus_text has_underline d-inline-flex"
-                style={{ backgroundImage: 'url(\'assets/images/shapes/shape_title_under_line.svg\')' }}
+                style={{ backgroundImage: 'url("/assets/images/shapes/shape_title_under_line.svg")' }}
               >
                 Working Process
               </div>
@@ -52,7 +52,7 @@ export default function TechnologyReview() {
                 <div id="collapse_one" className="accordion-collapse collapse show" data-bs-parent="#service_process_faq">
                   <div className="accordion-body">
                     <p className="m-0">
-                      Data - driven diagnostic and predictive app for improving  outcomes Data driven diagnostic and predictive app for improving.
+                      In this phase, we gather all the necessary information to understand your business needs and objectives. We conduct thorough research and analysis to identify key challenges and opportunities.
                     </p>
                   </div>
                 </div>
@@ -64,19 +64,19 @@ export default function TechnologyReview() {
                 <div id="collapse_two" className="accordion-collapse collapse" data-bs-parent="#service_process_faq">
                   <div className="accordion-body">
                     <p className="m-0">
-                      Data - driven diagnostic and predictive app for improving  outcomes Data driven diagnostic and predictive app for improving.
+                      During this phase, we create detailed designs and develop the solution. Our team ensures that the design is user-friendly and the development is robust and scalable.
                     </p>
                   </div>
                 </div>
               </div>
               <div className="accordion-item">
                 <div className="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapse_three" aria-expanded="false" aria-controls="collapse_three">
-                  03. Maintenance
+                  03. Testing and Quality Assurance
                 </div>
                 <div id="collapse_three" className="accordion-collapse collapse" data-bs-parent="#service_process_faq">
                   <div className="accordion-body">
                     <p className="m-0">
-                      Data - driven diagnostic and predictive app for improving  outcomes Data driven diagnostic and predictive app for improving.
+                      We rigorously test the solution to ensure it meets all requirements and performs optimally. This includes functional testing, performance testing, and security testing.
                     </p>
                   </div>
                 </div>
@@ -88,19 +88,31 @@ export default function TechnologyReview() {
                 <div id="collapse_four" className="accordion-collapse collapse" data-bs-parent="#service_process_faq">
                   <div className="accordion-body">
                     <p className="m-0">
-                      Data - driven diagnostic and predictive app for improving  outcomes Data driven diagnostic and predictive app for improving.
+                      We deploy the solution to the live environment, ensuring a smooth transition and minimal disruption to your business operations.
                     </p>
                   </div>
                 </div>
               </div>
               <div className="accordion-item">
                 <div className="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapse_five" aria-expanded="false" aria-controls="collapse_five">
-                  05. Testing and QA
+                  05. Maintenance
                 </div>
                 <div id="collapse_five" className="accordion-collapse collapse" data-bs-parent="#service_process_faq">
                   <div className="accordion-body">
                     <p className="m-0">
-                      Data - driven diagnostic and predictive app for improving  outcomes Data driven diagnostic and predictive app for improving.
+                      We provide ongoing maintenance and support to ensure the solution remains up-to-date and continues to meet your needs.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="accordion-item">
+                <div className="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapse_six" aria-expanded="false" aria-controls="collapse_six">
+                  06. Feedback and Iteration
+                </div>
+                <div id="collapse_six" className="accordion-collapse collapse" data-bs-parent="#service_process_faq">
+                  <div className="accordion-body">
+                    <p className="m-0">
+                      We gather feedback from users and stakeholders to identify areas for improvement. We then iterate on the solution to enhance its functionality and user experience.
                     </p>
                   </div>
                 </div>
@@ -110,10 +122,11 @@ export default function TechnologyReview() {
           <div className="col-lg-5">
             <ul className="content_layer_group unordered_list_block text-center">
               <li role="button" data-bs-toggle="collapse" data-bs-target="#collapse_one" aria-expanded="true" aria-controls="collapse_one"><span>Discovery Phase</span></li>
-              <li data-bs-toggle="collapse" data-bs-target="#collapse_two" aria-expanded="false" aria-controls="collapse_two"><span>Design and Development</span></li>
-              <li data-bs-toggle="collapse" data-bs-target="#collapse_three" aria-expanded="false" aria-controls="collapse_three"><span>Maintenance</span></li>
-              <li data-bs-toggle="collapse" data-bs-target="#collapse_four" aria-expanded="false" aria-controls="collapse_four"><span>Deployment</span></li>
-              <li role="button" data-bs-toggle="collapse" data-bs-target="#collapse_five" aria-expanded="false" aria-controls="collapse_five"><span>Testing and QA</span></li>
+              <li role="button" data-bs-toggle="collapse" data-bs-target="#collapse_two" aria-expanded="false" aria-controls="collapse_two"><span>Design and Development</span></li>
+              <li role="button" data-bs-toggle="collapse" data-bs-target="#collapse_three" aria-expanded="false" aria-controls="collapse_three"><span>Testing and Quality Assurance</span></li>
+              <li role="button" data-bs-toggle="collapse" data-bs-target="#collapse_four" aria-expanded="false" aria-controls="collapse_four"><span>Deployment</span></li>
+              <li role="button" data-bs-toggle="collapse" data-bs-target="#collapse_five" aria-expanded="false" aria-controls="collapse_five"><span>Maintenance</span></li>
+              <li role="button" data-bs-toggle="collapse" data-bs-target="#collapse_six" aria-expanded="false" aria-controls="collapse_six"><span>Feedback and Iteration</span></li>
             </ul>
           </div>
         </div>

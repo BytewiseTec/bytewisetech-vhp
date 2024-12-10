@@ -14,9 +14,9 @@ export interface ServicesQuery {
 }
 export const GET_SERVICES = gql`
   query ServiceCollection($limit: Int) {
-    serviceCollection(limit: $limit) {
+    serviceCollection(limit: $limit, order: [order_ASC]) {
       items {
-        _id       
+        _id
         name
         icon {
           title
