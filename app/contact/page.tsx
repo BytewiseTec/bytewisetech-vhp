@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 import { query } from '../ApolloClient'
 import ContactForm from '../../components/ContactForm'
 import PageBanner from '../../components/PageBanner'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Contact - Bytewise Technologies',
@@ -32,6 +33,15 @@ export default async function ContactPage() {
   return (
     <>
       <PageBanner title="Contact us" />
+
+      <nav aria-label="breadcrumb" className="bg-light">
+        <div className="container">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item"><Link href="/">Home</Link></li>
+            <li className="breadcrumb-item active" aria-current="page">Contact us</li>
+          </ol>
+        </div>
+      </nav>
 
       <section className="contact_section section_space bg-light">
         <div className="container">

@@ -33,6 +33,15 @@ export default async function PortfolioPage() {
     <>
       <PageBanner title="Portfolio" />
 
+      <nav aria-label="breadcrumb" className="bg-light">
+        <div className="container">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item"><Link href="/">Home</Link></li>
+            <li className="breadcrumb-item active" aria-current="page">Portfolio</li>
+          </ol>
+        </div>
+      </nav>
+
       <section className="portfolio_section section_space bg-light">
         <div className="container">
           <div className="filter_elements_wrapper row">

@@ -48,6 +48,15 @@ export default async function ServicesPage() {
     <>
       <PageBanner title="Services" />
 
+      <nav aria-label="breadcrumb" className="bg-light">
+        <div className="container">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item"><Link href="/">Home</Link></li>
+            <li className="breadcrumb-item active" aria-current="page">Services</li>
+          </ol>
+        </div>
+      </nav>
+
       <section className="about_section section_space bg-light">
         <div className="container">
           <div className="row align-items-center justify-content-lg-between">

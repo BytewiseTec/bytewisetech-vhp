@@ -7,6 +7,7 @@ import { renderHtml } from '../../../utils/renderers'
 import { GET_PROJECTS, ProjectsQuery } from '../query'
 
 import IconCheck from '../../../public/assets/images/icons/icon_check_3.svg'
+import Link from 'next/link'
 
 interface PortfolioDetailsPageProps {
   params: Promise<{slug: string;}>
@@ -38,10 +39,20 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
 
   return (
     <>
-      <PageBanner title={project.name}>
-        {project.name}
-        <Badge>Details 😍</Badge>
-      </PageBanner>
+      <PageBanner title={project.name} />
+
+      <nav aria-label="breadcrumb" className="bg-light">
+        <div className="container">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item"><Link href="/">Home</Link></li>
+            <li className="breadcrumb-item active">
+              <Link href="/portfolio">Portfolio</Link>
+            </li>
+            <li className="breadcrumb-item active" aria-current="page">{project.name}</li>
+          </ol>
+        </div>
+      </nav>
+
       <section className="portfolio_details_section section_space bg-light">
         <div className="container">
           <div className="details_item_image">

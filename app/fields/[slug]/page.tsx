@@ -18,6 +18,7 @@ import IconBox from '../../../public/assets/images/icons/icon_box.svg'
 import IconReceiptAdd from '../../../public/assets/images/icons/icon_receipt_add.svg'
 import IconMonitor from '../../../public/assets/images/icons/icon_monitor.svg'
 import IconMicroscope from '../../../public/assets/images/icons/icon_microscope.svg'
+import Link from 'next/link'
 
 const whyUsImages: Record<string, StaticImageData> = {
   'icon_check_2.svg': IconCheck2,
@@ -53,10 +54,20 @@ export default async function FieldsPage({ params }: FieldsPageProps) {
 
   return (
     <>
-      <PageBanner title={field.name}>
-        Our
-        <Badge>Fields 😍</Badge>
-      </PageBanner>
+      <PageBanner title={field.name} />
+
+      <nav aria-label="breadcrumb" className="bg-light">
+        <div className="container">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item"><Link href="/">Home</Link></li>
+            <li className="breadcrumb-item active">
+              <Link href="/fields">Fields</Link>
+            </li>
+            <li className="breadcrumb-item active" aria-current="page">{field.name}</li>
+          </ol>
+        </div>
+      </nav>
+
       <section className="service_details_section section_space bg-light">
         <div className="container">
           <div className="details_item_image">

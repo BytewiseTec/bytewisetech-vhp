@@ -5,6 +5,7 @@ import { Metadata } from 'next'
 
 import BetterServices from '../../public/assets/images/about/better-services.jpg'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'About - Bytewise Technologies',
@@ -30,10 +31,20 @@ export default async function AboutPage() {
   })
 
   const { page: about } = aboutData
-  
+
   return (
     <>
       <PageBanner title="About us" />
+
+      <nav aria-label="breadcrumb" className="bg-light">
+        <div className="container">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item"><Link href="/">Home</Link></li>
+            <li className="breadcrumb-item active" aria-current="page">About us</li>
+          </ol>
+        </div>
+      </nav>
+
 
       <section className="intro_about_section section_space bg-light">
         <div className="container">
