@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: 'Bytewise Technologies',
   },
   alternates: {
-    canonical: 'https://www.bytewisetechnologies.com/about',
+    canonical: 'https://bytewisetechnologies.com/about',
   }
 }
 

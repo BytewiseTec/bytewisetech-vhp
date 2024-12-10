@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   keywords: 'Bytewise Technologies, business solutions, tech services, tailored solutions, business growth',
   authors: { name: 'Bytewise Technologies', url: 'https://bytewisetechnologies.com' },
   manifest: '/site.webmanifest',
-  applicationName: 'Bytewise',
+  applicationName: 'Bytewise Technologies',
   robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
   openGraph: {
     locale: 'en_US',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     canonical: 'https://bytewisetechnologies.com',
   },
   appleWebApp: {
-    title: 'Bytewise',
+    title: 'Bytewise Technologies',
   },
   icons: {
     shortcut: [
