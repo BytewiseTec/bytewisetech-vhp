@@ -4,6 +4,19 @@ import { query } from '../ApolloClient'
 import ContactForm from '../../components/ContactForm'
 import PageBanner from '../../components/PageBanner'
 import Link from 'next/link'
+import Image, { StaticImageData } from 'next/image'
+
+import IconCalling2 from '../../public/assets/images/icons/icon_calling_2.svg'
+import IconMail3 from '../../public/assets/images/icons/icon_mail_3.svg'
+import IconMapMark2 from '../../public/assets/images/icons/icon_map_mark_2.svg'
+import IconCalendar2 from '../../public/assets/images/icons/icon_calendar_2.svg'
+
+const tileIcons: Record<string, StaticImageData> = {
+  'icon_calling_2.svg': IconCalling2,
+  'icon_mail_3.svg': IconMail3,
+  'icon_map_mark_2.svg': IconMapMark2,
+  'icon_calendar_2.svg': IconCalendar2,
+}
 
 export const metadata: Metadata = {
   title: 'Contact - Bytewise Technologies',
@@ -50,7 +63,9 @@ export default async function ContactPage() {
               <div className="col-lg-3 col-md-6 col-sm-6" key={index}>
               <div className="iconbox_block text-center">
                 <div className="iconbox_icon">
-                  <img src={contactItem.icon} alt={`${contactItem.title} SVG Icon`} />
+                  {contactItem.icon && contactItem.title && (
+                    <Image src={tileIcons[contactItem.icon]} alt={`${contactItem.title} SVG Icon`} />
+                  )}
                 </div>
                 <div className="iconbox_content">
                   <h3 className="iconbox_title">{contactItem.title}</h3>

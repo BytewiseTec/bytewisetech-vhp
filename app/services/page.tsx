@@ -1,20 +1,27 @@
-import { GET_SERVICES, ServicesQuery } from './query'
+import { GET_SERVICES, GET_SERVICES_PAGE, ServicesPageQuery, ServicesQuery } from './query'
 import { query } from '../ApolloClient'
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { PiArrowUpRightBold } from 'react-icons/pi'
 
-
-import ServiceImage from '../../public/assets/images/services/service_image_8.webp'
-import AboutImage from '../../public/assets/images/about/about_image_5.webp'
 import IconCheck2 from '../../public/assets/images/icons/icon_check_2.svg'
 import IconLeaf from '../../public/assets/images/icons/icon_leaf.svg'
 import IconBox from '../../public/assets/images/icons/icon_box.svg'
 import IconReceiptAdd from '../../public/assets/images/icons/icon_receipt_add.svg'
 import IconMonitor from '../../public/assets/images/icons/icon_monitor.svg'
 import IconMicroscope from '../../public/assets/images/icons/icon_microscope.svg'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import PageBanner from '../../components/PageBanner'
+import { Fragment } from 'react'
+
+const whyUsImages: Record<string, StaticImageData> = {
+  'icon_check_2.svg': IconCheck2,
+  'icon_leaf.svg': IconLeaf,
+  'icon_box.svg': IconBox,
+  'icon_receipt_add.svg': IconReceiptAdd,
+  'icon_monitor.svg': IconMonitor,
+  'icon_microscope.svg': IconMicroscope,
+}
 
 export const metadata: Metadata = {
   title: 'Services - Bytewise Technologies',
@@ -35,24 +42,27 @@ export const metadata: Metadata = {
 }
 
 export default async function ServicesPage() {
-  const { data, loading, error } = await query<ServicesQuery>({
-    query:GET_SERVICES
+  const { data: servicesData } = await query<ServicesQuery>({
+    query: GET_SERVICES
   })
 
-  if (loading) return <div>Loading...</div>
-  if (error) return <div>Error loading services: {error.message}</div>
-  if (!data || !data.serviceCollection.items.length) {
-    return <div>No service available</div>
-  }
+  const { data: servicesPageData } = await query<ServicesPageQuery>({
+    query: GET_SERVICES_PAGE
+  })
+
+  const { page: servicesPage } = servicesPageData || {}
+
+  const services = servicesData.serviceCollection.items || {}
+
   return (
     <>
-      <PageBanner title="Services" />
+      <PageBanner title={servicesPage.title} />
 
       <nav aria-label="breadcrumb" className="bg-light">
         <div className="container">
           <ol className="breadcrumb">
             <li className="breadcrumb-item"><Link href="/">Home</Link></li>
-            <li className="breadcrumb-item active" aria-current="page">Services</li>
+            <li className="breadcrumb-item active" aria-current="page">{servicesPage.title}</li>
           </ol>
         </div>
       </nav>
@@ -62,7 +72,9 @@ export default async function ServicesPage() {
           <div className="row align-items-center justify-content-lg-between">
             <div className="col-lg-5 order-lg-last">
               <div className="team_cartoon_image">
-                <Image src={ServiceImage} alt="Service Cartoon Image - Bytewise Tech - About Image" />
+                {servicesPage.highlightImage && (
+                  <Image width={servicesPage.highlightImage.width} height={servicesPage.highlightImage.height} src={servicesPage.highlightImage.url} alt="Service Cartoon Image - Bytewise Tech - About Image" />
+                )}
               </div>
             </div>
             <div className="col-lg-5">
@@ -72,12 +84,16 @@ export default async function ServicesPage() {
                     We Are
                     <span className="badge bg-secondary text-white">IT Guidance</span>
                   </div>
-                  <h2 className="heading_text">
-                    Tailored IT Solutions for Your Success
-                  </h2>
-                  <p className="heading_description mb-0">
-                    we understand that every business is unique, with its own set of challenges, goals, and aspirations. That&apos;s why we offer tailored IT solutions designed.
-                  </p>
+                  {servicesPage.sections.map((section) => (
+                    <Fragment key={section.title}>
+                      <h2 className="heading_text">
+                        {section.title}
+                      </h2>
+                      <p className="heading_description mb-0">
+                        {section.description}
+                      </p>
+                    </Fragment>
+                  ))}
                 </div>
                 <Link className="btn" href="/contact">
                   <span className="btn_label" data-text="Talk to an Expert">Talk to an Expert</span>
@@ -104,7 +120,7 @@ export default async function ServicesPage() {
           </div>
 
           <div className="columns_container">
-            {data.serviceCollection.items.map((service) => {
+            {services.map((service) => {
               return (
                 <div className="columns_item" key={service._id}>
                   <div className="service_block">
@@ -142,7 +158,9 @@ export default async function ServicesPage() {
           <div className="row align-items-center justify-content-lg-between">
             <div className="col-lg-6">
               <div className="image_wrap">
-                <Image src={AboutImage} alt="Bytewise Tech - About Image" />
+                {servicesPage.whyUsImage && (
+                  <Image width={servicesPage.whyUsImage.width} height={servicesPage.whyUsImage.height} src={servicesPage.whyUsImage.url} alt="Bytewise Tech - About Image" />
+                )}
               </div>
             </div>
             <div className="col-lg-6">
@@ -157,66 +175,20 @@ export default async function ServicesPage() {
                   </h2>
                 </div>
                 <ul className="service_facilities_group unordered_list">
-                  <li>
-                    <a className="iconbox_block layout_icon_left" href="#!">
-                      <span className="iconbox_icon">
-                        <Image src={IconCheck2} alt="Check SVG Icon" />
-                      </span>
-                      <span className="iconbox_content">
-                        <strong className="iconbox_title mb-0">Quality Comes First</strong>
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a className="iconbox_block layout_icon_left" href="#">
-                      <span className="iconbox_icon">
-                        <Image src={IconLeaf} alt="Leaf SVG Icon" />
-                      </span>
-                      <span className="iconbox_content">
-                        <strong className="iconbox_title mb-0">Flexible Cooperation</strong>
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a className="iconbox_block layout_icon_left" href="#">
-                      <span className="iconbox_icon">
-                        <Image src={IconBox} alt="Box SVG Icon" />
-                      </span>
-                      <span className="iconbox_content">
-                        <strong className="iconbox_title mb-0">On-time Delivery</strong>
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a className="iconbox_block layout_icon_left" href="#">
-                      <span className="iconbox_icon">
-                        <Image src={IconReceiptAdd} alt="Receipt Add SVG Icon" />
-                      </span>
-                      <span className="iconbox_content">
-                        <strong className="iconbox_title mb-0">Transparent Costs</strong>
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a className="iconbox_block layout_icon_left" href="#">
-                      <span className="iconbox_icon">
-                        <Image src={IconMonitor} alt="Monitor SVG Icon" />
-                      </span>
-                      <span className="iconbox_content">
-                        <strong className="iconbox_title mb-0">Qualified Developers</strong>
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a className="iconbox_block layout_icon_left" href="#">
-                      <span className="iconbox_icon">
-                        <Image src={IconMicroscope} alt="Microscope SVG Icon" />
-                      </span>
-                      <span className="iconbox_content">
-                        <strong className="iconbox_title mb-0">Quick Scale-up</strong>
-                      </span>
-                    </a>
-                  </li>
+                  {servicesPage.whyUs.map((item, index) => (
+                    <li key={index}>
+                      <a className="iconbox_block layout_icon_left" href="#!">
+                        <span className="iconbox_icon">
+                          {item.icon && item.title && (
+                            <Image src={whyUsImages[item.icon]} alt={item.title} />
+                          )}
+                        </span>
+                        <span className="iconbox_content">
+                          <strong className="iconbox_title mb-0">{item.description}</strong>
+                        </span>
+                      </a>
+                    </li> 
+                  ))}
                 </ul>
               </div>
             </div>

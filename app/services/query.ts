@@ -1,5 +1,42 @@
-import { Media } from '../content.types'
+import { ListItem, Media } from '../content.types'
 import { gql } from '@apollo/client'
+
+export interface ServicesPage {
+  _id: string
+  title: string
+  sections: ListItem[]
+  highlightImage: Media
+  whyUs: ListItem[]
+  whyUsImage: Media
+}
+
+export interface ServicesPageQuery {
+  page: ServicesPage
+}
+
+export const GET_SERVICES_PAGE = gql`
+  query Page {
+    page(id: "4wLR2o1AvGwTu33kU9hq3S") {
+      _id
+      title
+      sections
+      highlightImage {
+        title
+        url
+        height
+        width
+      }
+      whyUs
+      whyUsImage {
+        title
+        url
+        height
+        width
+      }
+    }
+  }
+`
+
 export interface Service {
   _id: string;
   name: string;
@@ -9,12 +46,14 @@ export interface Service {
   heading2:string;
   banner:Media
 }
+
 export interface ServicesQuery {
   serviceCollection: {
     items: Service[];
 
   }
 }
+
 export const GET_SERVICES = gql`
   query ServiceCollection {
     serviceCollection(order: [order_ASC]) {

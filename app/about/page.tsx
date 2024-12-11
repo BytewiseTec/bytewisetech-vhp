@@ -3,9 +3,34 @@ import { query } from '../ApolloClient'
 import PageBanner from '@/components/PageBanner'
 import { Metadata } from 'next'
 
+import IconCheck2 from '../../public/assets/images/icons/icon_check_2.svg'
+import IconLeaf from '../../public/assets/images/icons/icon_leaf.svg'
+import IconBox from '../../public/assets/images/icons/icon_box.svg'
+import IconReceiptAdd from '../../public/assets/images/icons/icon_receipt_add.svg'
+import IconMonitor from '../../public/assets/images/icons/icon_monitor.svg'
+import IconMicroscope from '../../public/assets/images/icons/icon_microscope.svg'
 import BetterServices from '../../public/assets/images/about/better-services.jpg'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
+
+import IconClock from '../../public/assets/images/icons/icon_clock.svg'
+import IconDartBoard2 from '../../public/assets/images/icons/icon_dart_board_2.svg'
+import IconTarget from '../../public/assets/images/icons/icon_target.svg'
+
+const tileIcons: Record<string, StaticImageData> = {
+  'icon_clock.svg': IconClock,
+  'icon_dart_board_2.svg': IconDartBoard2,
+  'icon_target.svg': IconTarget,
+}
+
+const whyUsImages: Record<string, StaticImageData> = {
+  'icon_check_2.svg': IconCheck2,
+  'icon_leaf.svg': IconLeaf,
+  'icon_box.svg': IconBox,
+  'icon_receipt_add.svg': IconReceiptAdd,
+  'icon_monitor.svg': IconMonitor,
+  'icon_microscope.svg': IconMicroscope,
+}
 
 export const metadata: Metadata = {
   title: 'About - Bytewise Technologies',
@@ -72,8 +97,8 @@ export default async function AboutPage() {
                 <div className="col-lg-4 mb-4" key={index}>
                   <div className="iconbox_block">
                     <div className="iconbox_icon">
-                      {item.icon && (
-                        <Image src={item.icon} width={40} height={40} alt="Icon" />
+                      {item.icon && item.title && (
+                        <Image src={tileIcons[item.icon]} alt={item.title} />
                       )}
                     </div>
                     <div className="iconbox_content">
@@ -112,7 +137,9 @@ export default async function AboutPage() {
                     <li key={index}>
                       <a className="iconbox_block layout_icon_left" href="#">
                         <span className="iconbox_icon">
-                          <img src={item.icon} alt="Leaf SVG Icon" />
+                          {item.icon && item.title && (
+                            <Image src={whyUsImages[item.icon]} alt={item.title} />
+                          )}
                         </span>
                         <span className="iconbox_content">
                           <strong className="iconbox_title mb-0">{item.description}</strong>
