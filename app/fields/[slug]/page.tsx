@@ -75,7 +75,7 @@ export default async function FieldsPage({ params }: FieldsPageProps) {
               <Image src={field.banner.url} alt={field.banner.title} width={field.banner.width} height={field.banner.height} />
             )}
           </div>
-          {/* {field.p0 && <div dangerouslySetInnerHTML={{ __html: renderHtml(field.p0.json) }} />} */}
+          {field.p0 && <div dangerouslySetInnerHTML={{ __html: renderHtml(field.p0.json) }} />}
 
           {field.p1 && (
             <div dangerouslySetInnerHTML={{
