@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import { FaArrowUp } from 'react-icons/fa6'
+import localFont from 'next/font/local'
 
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -11,6 +12,38 @@ import '../public/assets/scss/style.scss'
 import CallToAction from '../components/CallToAction'
 import { ApolloWrapper } from './ApolloWrapper'
 import InternalCookieSetter from '@/components/InternalCookieSetter'
+
+const axiRegaular = localFont({
+  src: '../public/assets/fonts/Axiforma-Regular.ttf',
+  style: 'normal',
+  weight: '400',
+  display: 'swap',
+  variable: '--axi-regular',
+})
+
+const axiMedium = localFont({
+  src: '../public/assets/fonts/Axiforma-Medium.ttf',
+  style: 'normal',
+  weight: '500',
+  display: 'swap',
+  variable: '--axi-medium',
+})
+
+const axiSemiBold = localFont({
+  src: '../public/assets/fonts/Axiforma-SemiBold.ttf',
+  style: 'normal',
+  weight: '600',
+  display: 'swap',
+  variable: '--axi-semi-bold',
+})
+
+const axiBold = localFont({
+  src: '../public/assets/fonts/Axiforma-Bold.ttf',
+  style: 'normal',
+  weight: '700',
+  display: 'swap',
+  variable: '--axi-bold',
+})
 
 export const metadata: Metadata = {
   title: 'Bytewise Technologies - Tailored Business Solutions',
@@ -86,7 +119,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <InternalCookieSetter />
-      <body>
+      <body className={[axiRegaular.className, axiMedium.className, axiSemiBold.className, axiBold.className].join(' ')}>
         <ApolloWrapper>
           <div className="page_wrapper">
             <div className="backtotop">
