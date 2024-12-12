@@ -48,7 +48,7 @@
 			color: var(--bs-dark);
 			display: inline-block;
 			content: attr(data-text);
-			font-family: 'Axiforma Medium';
+			font-family: var(--axi-medium);
 		}
 		>li {
 			width: 58px;

@@ -42,7 +42,7 @@
 		font-weight: 700;
 		margin-left: 15px;
 		color: var(--bs-primary);
-		font-family: 'Axiforma Bold';
+		font-family: var(--axi-bold);
 	}
 	.review_counter {
 		margin-top: 6px;
@@ -104,7 +104,7 @@
 			font-weight: 700;
 			margin: 0 0 12px;
 			color: var(--bs-white);
-			font-family: 'Axiforma Bold';
+			font-family: var(--axi-bold);
 		}
 		p {
 			font-size: 18px;
@@ -178,7 +178,7 @@
 					font-size: 24px;
 					font-weight: 700;
 					fill: var(--bs-white);
-					font-family: 'Axiforma Bold';
+					font-family: var(--axi-bold);
 					transform: translateY(-10px);
 				}
 			}
@@ -311,7 +311,7 @@
 		font-weight: 500;
 		line-height: 28px;
 		position: relative;
-		font-family: 'Axiforma Medium';
+		font-family: var(--axi-medium);
 		&:first-child {
 			margin-top: -4px;
 		}
@@ -353,12 +353,12 @@
 		color: #B6B8CA;
 		font-size: 14px;
 		font-weight: 500;
-		font-family: 'Axiforma Medium';
+		font-family: var(--axi-medium);
 	}
 	strong {
 		font-size: 18px;
 		font-weight: 500;
-		font-family: 'Axiforma SemiBold';
+		font-family: var(--axi-semibold);
 	}
 }
 // Software Company - End

@@ -26,13 +26,13 @@
 			line-height: 17px;
 			margin-bottom: 8px;
 			color: var(--bs-body-color);
-			font-family: 'Axiforma Medium';
+			font-family: var(--axi-medium);
 		}
 		p {
 			font-size: 20px;
 			font-weight: 700;
 			color: var(--bs-dark);
-			font-family: 'Axiforma Bold';
+			font-family: var(--axi-bold);
 		}
 	}
 }
@@ -69,7 +69,7 @@
 			font-weight: 600;
 			line-height: 28px;
 			letter-spacing: 1px;
-			font-family: 'Axiforma SemiBold';
+			font-family: var(--axi-semibold);
 			>a {
 				&:hover {
 					text-decoration: underline;
@@ -83,7 +83,7 @@
 			>li {
 				font-size: 16px;
 				font-weight: 500;
-				font-family: 'Axiforma Medium';
+				font-family: var(--axi-medium);
 				&:first-child {
 					.icon_list_icon {
 						display: none;
@@ -100,7 +100,7 @@
 		font-size: 16px;
 		font-weight: 500;
 		line-height: 26px;
-		font-family: 'Axiforma Medium';
+		font-family: var(--axi-medium);
 		a {
 			color: currentColor;
 			&:hover {
@@ -181,7 +181,7 @@
 		color: var(--bs-white);
 		padding: 14px 30px 12px;
 		text-transform: uppercase;
-		font-family: 'Axiforma SemiBold';
+		font-family: var(--axi-semibold);
 		background-color: var(--bs-primary);
 	}
 }
@@ -361,13 +361,13 @@
 		font-weight: 500;
 		margin-bottom: 20px;
 		color: rgba(255, 255, 255, 0.5);
-		font-family: 'Axiforma Medium';
+		font-family: var(--axi-medium);
 	}
 	.icon_list {
 		>li {
 			font-weight: 500;
 			line-height: 32px;
-			font-family: 'Axiforma Medium';
+			font-family: var(--axi-medium);
 			>a {
 				color: var(--bs-white);
 				&:hover {

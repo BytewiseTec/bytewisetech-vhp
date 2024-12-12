@@ -110,7 +110,7 @@
 		line-height: 32px;
 		margin: 24px 0 30px;
 		letter-spacing: -0.3px;
-		font-family: 'Axiforma SemiBold';
+		font-family: var(--axi-semibold);
 		a {
 			color: var(--bs-dark);
 			&:hover {
@@ -295,7 +295,7 @@
 		> li {
 			font-size: 14px;
 			font-weight: 700;
-			font-family: 'Axiforma Bold';
+			font-family: var(--axi-bold);
 			a:not(:hover) {
 				color: var(--bs-dark);
 			}

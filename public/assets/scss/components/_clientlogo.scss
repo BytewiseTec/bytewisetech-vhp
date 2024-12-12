@@ -74,7 +74,7 @@
 		display: inline-flex;
 		justify-content: center;
 		background-color: #0132B8;
-		font-family: 'Axiforma SemiBold';
+		font-family: var(--axi-semibold);
 	}
 	.client_logo_carousel .swiper-wrapper .swiper-slide {
 		padding: 30px 8px;

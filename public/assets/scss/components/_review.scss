@@ -98,7 +98,7 @@
 		font-weight: 600;
 		line-height: 32px;
 		margin-bottom: 2px;
-		font-family: 'Axiforma SemiBold';
+		font-family: var(--axi-semibold);
 	}
 	.review_admin_designation {
 		font-size: 12px;
@@ -171,7 +171,7 @@
 		font-weight: 500;
 		margin-bottom: 59px;
 		color: var(--bs-dark);
-		font-family: 'Axiforma Medium';
+		font-family: var(--axi-medium);
 	}
 	.review_admin {
 		gap: 30px;
@@ -194,14 +194,14 @@
 		font-size: 20px;
 		font-weight: 600;
 		margin-bottom: 8px;
-		font-family: 'Axiforma SemiBold';
+		font-family: var(--axi-semibold);
 	}
 	.review_admin_designation {
 		display: block;
 		font-size: 14px;
 		font-weight: 500;
 		margin-bottom: 24px;
-		font-family: 'Axiforma Medium';
+		font-family: var(--axi-medium);
 	}
 	.review_admin_country {
 		gap: 6px;
@@ -221,7 +221,7 @@
 		font-size: 12px;
 		font-weight: 500;
 		color: var(--bs-dark);
-		font-family: 'Axiforma Medium';
+		font-family: var(--axi-medium);
 	}
 	.review_admin_logo {
 		max-width: 152px;
@@ -240,7 +240,7 @@
 		line-height: 26px;
 		margin: 25px 0 32px;
 		color: var(--bs-dark);
-		font-family: 'Axiforma SemiBold';
+		font-family: var(--axi-semibold);
 	}
 	.review_admin {
 		gap: 20px;
@@ -259,14 +259,14 @@
 			font-size: 17px;
 			font-weight: 700;
 			margin-bottom: 8px;
-			font-family: "Axiforma Bold";
+			font-family: var(--axi-bold);
 		}
 		.review_admin_designation {
 			display: block;
 			line-height: 1;
 			font-size: 14px;
 			font-weight: 500;
-			font-family: "Axiforma Medium";
+			font-family: var(--axi-medium);
 		}
 	}
 }

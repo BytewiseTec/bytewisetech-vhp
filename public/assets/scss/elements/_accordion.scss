@@ -16,7 +16,7 @@
 		color: var(--bs-dark);
 		border-radius: 0 !important;
 		background-color: transparent;
-		font-family: 'Axiforma Medium';
+		font-family: var(--axi-medium);
 		&:hover {
 			color: var(--bs-primary);
 		}
@@ -79,7 +79,7 @@
 		font-size: 45px;
 		position: absolute;
 		color: var(--bs-dark);
-		font-family: 'Axiforma SemiBold';
+		font-family: var(--axi-semibold);
 	}
 	.accordion-item,
 	.accordion-body {

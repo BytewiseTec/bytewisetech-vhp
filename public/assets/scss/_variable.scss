@@ -1,6 +1,6 @@
 :root, [data-bs-theme=light] {
 	--bs-body-font-family: var(--axi-regular), sans-serif;
-	--bs-heading-font-family: 'Axiforma Bold', sans-serif;
+	--bs-heading-font-family: var(--axi-bold), sans-serif;
 	--bs-body-font-size: 16px;
 	--bs-body-font-weight: 400;
 	--bs-body-line-height: 1.5;

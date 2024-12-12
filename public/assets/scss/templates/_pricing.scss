@@ -55,13 +55,13 @@
 		justify-content: center;
 		background-color: #CCE3FF;
 		text-transform: uppercase;
-		font-family: 'Axiforma Bold';
+		font-family: var(--axi-bold);
 		small {
 			font-size: 12px;
 			font-weight: 500;
 			border-radius: 29px;
 			padding: 4px 7px 2px;
-			font-family: 'Axiforma Medium';
+			font-family: var(--axi-medium);
 			background-color: var(--bs-light);
 		}
 		span {
@@ -111,7 +111,7 @@
 		text-align: center;
 		border-radius: 20px;
 		padding: 34px 15px 30px;
-		font-family: 'Axiforma Bold';
+		font-family: var(--axi-bold);
 		del {
 			font-size: 20px;
 			font-weight: 400;
@@ -121,7 +121,7 @@
 		small {
 			font-size: 30px;
 			font-weight: 600;
-			font-family: 'Axiforma SemiBold';
+			font-family: var(--axi-semibold);
 		}
 		sub {
 			display: block;
@@ -132,7 +132,7 @@
 			font-family: var(--axi-regular);
 			u {
 				font-weight: 600;
-				font-family: 'Axiforma SemiBold';
+				font-family: var(--axi-semibold);
 			}
 		}
 	}
@@ -146,7 +146,7 @@
 		font-size: 15px;
 		font-weight: 500;
 		line-height: 23px;
-		font-family: 'Axiforma Medium';
+		font-family: var(--axi-medium);
 	}
 
 	.icon_list {

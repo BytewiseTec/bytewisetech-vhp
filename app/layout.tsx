@@ -34,7 +34,7 @@ const axiSemiBold = localFont({
   style: 'normal',
   weight: '600',
   display: 'swap',
-  variable: '--axi-semi-bold',
+  variable: '--axi-semibold',
 })
 
 const axiBold = localFont({

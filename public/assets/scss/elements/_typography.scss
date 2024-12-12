@@ -12,7 +12,7 @@
 		font-size: 18px;
 		font-weight: 500;
 		line-height: 30px;
-		font-family: 'Axiforma Medium';
+		font-family: var(--axi-medium);
 	}
 }
 
@@ -40,7 +40,7 @@
 	text-transform: uppercase;
 	background-size: auto 18px;
 	background-repeat: no-repeat;
-	font-family: 'Axiforma Medium';
+	font-family: var(--axi-medium);
 	background-position: right bottom;
 }
 

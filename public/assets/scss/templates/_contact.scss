@@ -85,7 +85,7 @@
 	.text {
 		font-size: 17px;
 		font-weight: 500;
-		font-family: 'Axiforma Medium';
+		font-family: var(--axi-medium);
 	}
 }
 
@@ -119,7 +119,7 @@
 		align-items: center;
 		justify-content: center;
 		color: var(--bs-primary);
-		font-family: 'Axiforma Medium';
+		font-family: var(--axi-medium);
 		background-color: var(--bs-white);
 		border: 1px solid var(--bs-primary);
 	}
@@ -127,7 +127,7 @@
 		font-size: 17px;
 		padding-top: 4px;
 		font-weight: 500;
-		font-family: 'Axiforma Medium';
+		font-family: var(--axi-medium);
 	}
 }
 
@@ -143,7 +143,7 @@
 		margin-bottom: 26px;
 		color: var(--bs-dark);
 		text-transform: uppercase;
-		font-family: 'Axiforma Medium';
+		font-family: var(--axi-medium);
 		i {
 			color: var(--bs-primary);
 		}
@@ -154,7 +154,7 @@
 		font-weight: 600;
 		line-height: 36px;
 		margin-bottom: 19px;
-		font-family: 'Axiforma SemiBold';
+		font-family: var(--axi-semibold);
 	}
 
 	.form-group {

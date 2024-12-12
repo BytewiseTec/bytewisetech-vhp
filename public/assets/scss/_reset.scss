@@ -100,7 +100,7 @@ h1, h2, h3, h4, h5, h6 {
 
 b, strong {
 	font-weight: 700;
-	font-family: 'Axiforma Bold';
+	font-family: var(--axi-bold);
 }
 
 hr {
@@ -239,7 +239,7 @@ mark {
 	padding: 5px 10px;
 	border-radius: 3px;
 	letter-spacing: 0.5px;
-	font-family: 'Axiforma Medium';
+	font-family: var(--axi-medium);
 }
 // Bbadge - End
 

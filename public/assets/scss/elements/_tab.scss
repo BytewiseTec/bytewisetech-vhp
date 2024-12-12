@@ -20,7 +20,7 @@
 			color: var(--bs-dark);
 			padding: 13px 40px 9px;
 			justify-content: center;
-			font-family: 'Axiforma Medium';
+			font-family: var(--axi-medium);
 			&.active {
 				background-color: var(--bs-white);
 				box-shadow: 0 4px 4px 0 rgba(174, 191, 210, 0.3);

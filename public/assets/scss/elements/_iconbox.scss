@@ -31,7 +31,7 @@
 		font-weight: 600;
 		line-height: 36px;
 		margin-bottom: 20px;
-		font-family: 'Axiforma SemiBold';
+		font-family: var(--axi-semibold);
 	}
 	p {
 		font-size: 16px;
@@ -91,7 +91,7 @@
 		margin: 6px 0 0;
 		font-size: 20px;
 		font-weight: 600;
-		font-family: 'Axiforma SemiBold';
+		font-family: var(--axi-semibold);
 	}
 	.badge {
 		margin-top: 5px;

@@ -21,7 +21,7 @@
 		margin-bottom: 10px;
 		display: inline-flex;
 		color: var(--bs-dark);
-		font-family: 'Axiforma Bold';
+		font-family: var(--axi-bold);
 	}
 	.funfact_title {
 		font-size: 16px;
@@ -52,7 +52,7 @@
 	.funfact_title {
 		font-size: 18px;
 		font-weight: 600;
-		font-family: 'Axiforma SemiBold';
+		font-family: var(--axi-semibold);
 	}
 }
 
@@ -73,7 +73,7 @@
 		font-size: 30px;
 		font-weight: 600;
 		margin-bottom: 0px;
-		font-family: "Axiforma SemiBold";
+		font-family: var(--axi-semibold);
 	}
 	.funfact_title {
 		line-height: 1;
@@ -123,7 +123,7 @@
 		line-height: 48px;
 		letter-spacing: -1px;
 		color: var(--bs-white);
-		font-family: 'Axiforma Bold';
+		font-family: var(--axi-bold);
 	}
 }
 /* 2.12 - Counter or Funfact - End
