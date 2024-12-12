@@ -117,9 +117,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={[axiRegaular.variable, axiMedium.variable, axiSemiBold.variable, axiBold.variable].join(' ')}>
       <InternalCookieSetter />
-      <body className={[axiRegaular.className, axiMedium.className, axiSemiBold.className, axiBold.className].join(' ')}>
+      <body>
         <ApolloWrapper>
           <div className="page_wrapper">
             <div className="backtotop">
