@@ -39,19 +39,14 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
 
   return (
     <>
-      <PageBanner title={project.name} />
-
-      <nav aria-label="breadcrumb" className="bg-light">
-        <div className="container">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item"><Link href="/">Home</Link></li>
-            <li className="breadcrumb-item active">
-              <Link href="/portfolio">Portfolio</Link>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">{project.name}</li>
-          </ol>
-        </div>
-      </nav>
+      <PageBanner
+        title={project.name}
+        breadcrumb={[
+          { name: 'Home', url: '/' },
+          { name: 'Portfolio', url: '/portfolio' },
+          { name: project.name },
+        ]}
+      />
 
       <section className="portfolio_details_section section_space bg-light">
         <div className="container">

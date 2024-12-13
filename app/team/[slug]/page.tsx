@@ -35,22 +35,14 @@ export default async function TeamMemberDetailsPage({ params }: TeamMemberProbsP
   const { team } = teamData || {}
   return (
     <>
-      <PageBanner title={team.fullName}>
-        Details 😍
-        <Badge>Team</Badge>
-      </PageBanner>
-
-      <nav aria-label="breadcrumb" className="bg-light">
-        <div className="container">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item"><Link href="/">Home</Link></li>
-            <li className="breadcrumb-item active">
-              <Link href="/team">Team</Link>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">{team.fullName}</li>
-          </ol>
-        </div>
-      </nav>
+      <PageBanner
+        title={team.fullName}
+        breadcrumb={[
+          { name: 'Home', url: '/' },
+          { name: 'Team' },
+          { name: team.fullName },
+        ]}
+      />
 
       <section className="team_details_section section_space bg-light">
         <div className="container">

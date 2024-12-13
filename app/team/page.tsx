@@ -49,16 +49,13 @@ export default async function TeamPage() {
 
   return (
     <>
-      <PageBanner title="Team" />
-
-      <nav aria-label="breadcrumb" className="bg-light">
-        <div className="container">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item"><Link href="/">Home</Link></li>
-            <li className="breadcrumb-item active" aria-current="page">Team</li>
-          </ol>
-        </div>
-      </nav>
+      <PageBanner
+        title="Team"
+        breadcrumb={[
+          { name: 'Home', url: '/' },
+          { name: 'Team' },
+        ]}
+      />
 
       <section className="about_section section_space bg-light">
         <div className="container">

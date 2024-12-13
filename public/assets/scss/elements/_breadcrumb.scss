@@ -1,5 +1,18 @@
 .breadcrumb {
+  --bs-breadcrumb-divider: "/";
   --bs-breadcrumb-margin-bottom: 0;
+  --bs-breadcrumb-divider-color: var(--bs-white);
 
+  position: absolute;
+  bottom: 20px;
   padding-top: 30px;
+
+  a {
+    color: var(--bs-white);
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }

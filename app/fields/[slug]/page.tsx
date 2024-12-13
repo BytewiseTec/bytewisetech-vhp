@@ -19,6 +19,7 @@ import IconReceiptAdd from '../../../public/assets/images/icons/icon_receipt_add
 import IconMonitor from '../../../public/assets/images/icons/icon_monitor.svg'
 import IconMicroscope from '../../../public/assets/images/icons/icon_microscope.svg'
 import Link from 'next/link'
+import ParallaxImage from '@/components/Shared/ParallaxImage'
 
 const whyUsImages: Record<string, StaticImageData> = {
   'icon_check_2.svg': IconCheck2,
@@ -54,25 +55,20 @@ export default async function FieldsPage({ params }: FieldsPageProps) {
 
   return (
     <>
-      <PageBanner title={field.name} />
-
-      <nav aria-label="breadcrumb" className="bg-light">
-        <div className="container">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item"><Link href="/">Home</Link></li>
-            <li className="breadcrumb-item active">
-              <Link href="/fields">Fields</Link>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">{field.name}</li>
-          </ol>
-        </div>
-      </nav>
+      <PageBanner
+        title={field.name}
+        breadcrumb={[
+          { name: 'Home', url: '/' },
+          { name: 'Fields', url: '/fields' },
+          { name: field.name },
+        ]}
+      />
 
       <section className="service_details_section section_space bg-light">
         <div className="container">
           <div className="details_item_image">
             {field.banner && (
-              <Image src={field.banner.url} alt={field.banner.title} width={field.banner.width} height={field.banner.height} />
+              <ParallaxImage src={field.banner.url} alt={field.banner.title} width={field.banner.width} height={field.banner.height} />
             )}
           </div>
           {field.p0 && <div dangerouslySetInnerHTML={{ __html: renderHtml(field.p0.json) }} />}

@@ -59,17 +59,13 @@ export default async function AboutPage() {
 
   return (
     <>
-      <PageBanner title="About us" />
-
-      <nav aria-label="breadcrumb" className="bg-light">
-        <div className="container">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item"><Link href="/">Home</Link></li>
-            <li className="breadcrumb-item active" aria-current="page">About us</li>
-          </ol>
-        </div>
-      </nav>
-
+      <PageBanner
+        title="About us"
+        breadcrumb={[
+          { name: 'Home', url: '/' },
+          { name: 'About us' },
+        ]}
+      />
 
       <section className="intro_about_section section_space bg-light">
         <div className="container">

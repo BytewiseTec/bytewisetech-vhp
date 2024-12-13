@@ -42,22 +42,14 @@ export default async function ServiceDetailsPage({ params }: ServiceDetailsPageP
 
   return (
     <>
-      <PageBanner title={service.name}>
-        Services
-        <Badge>Details 😍</Badge>
-      </PageBanner>
-
-      <nav aria-label="breadcrumb" className="bg-light">
-        <div className="container">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item"><Link href="/">Home</Link></li>
-            <li className="breadcrumb-item active">
-              <Link href="/services">Services</Link>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">{service.name}</li>
-          </ol>
-        </div>
-      </nav>
+      <PageBanner
+        title={service.name}
+        breadcrumb={[
+          { name: 'Home', url: '/' },
+          { name: 'Services', url: '/services' },
+          { name: service.name },
+        ]}
+      />
 
       <section className="service_details_section section_space bg-light">
         <div className="container">

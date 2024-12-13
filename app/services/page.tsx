@@ -56,16 +56,13 @@ export default async function ServicesPage() {
 
   return (
     <>
-      <PageBanner title={servicesPage.title} />
-
-      <nav aria-label="breadcrumb" className="bg-light">
-        <div className="container">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item"><Link href="/">Home</Link></li>
-            <li className="breadcrumb-item active" aria-current="page">{servicesPage.title}</li>
-          </ol>
-        </div>
-      </nav>
+      <PageBanner
+        title={servicesPage.title}
+        breadcrumb={[
+          { name: 'Home', url: '/' },
+          { name: servicesPage.title },
+        ]}
+      />
 
       <section className="about_section section_space bg-light">
         <div className="container">
