@@ -1,4 +1,4 @@
-import { renderHtml } from '@/utils/renderers'
+import { renderDomToReact } from '@/utils/renderers'
 import { query } from '../ApolloClient'
 import { BlogPostQuery, GET_BLOG_POST } from '../global.query'
 
@@ -23,7 +23,7 @@ export default async function CookiePolicyPage() {
       </section>
       <section className="policy_section my-5">
         <div className="container">
-          <div dangerouslySetInnerHTML={{ __html: renderHtml(data.blog.body.json) }} />
+          {renderDomToReact(data.blog.body.json)}
         </div>
       </section>
     </>

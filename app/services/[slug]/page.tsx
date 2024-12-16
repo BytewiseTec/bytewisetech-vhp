@@ -1,7 +1,6 @@
-import Badge from '../../../components/Badge'
 import PageBanner from '../../../components/PageBanner'
 import { GET_SERVICE, GET_SERVICE_ID, ServiceIdQuery, ServiceQuery } from './query'
-import { renderHtml } from '../../../utils/renderers'
+import { renderDomToReact } from '../../../utils/renderers'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { query } from '../../ApolloClient'
 import ProcessesAccordion from '../../../components/ProcessesAccordion'
@@ -10,10 +9,56 @@ import { GET_SERVICES, ServicesLinksQuery } from '@/components/Navbar/query'
 
 import IconCheck from '../../../public/assets/images/icons/icon_check_3.svg'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Metadata } from 'next'
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 
 type ServiceDetailsPageProps = {
   params: Promise<{ slug: string }>
+}
+
+export async function generateMetadata(
+  { params }: ServiceDetailsPageProps,
+): Promise<Metadata> {
+  const { slug } = await params
+  const { data: servicesData } = await query<ServiceIdQuery>({ query: GET_SERVICE_ID, variables: { slug } })
+
+  const { items } = servicesData.serviceCollection || {}
+
+  if (!items?.length) {
+    return {}
+  }
+
+  const { data: serviceData } = await query<ServiceQuery>({
+    query: GET_SERVICE,
+    variables: {
+      id: items?.[0]?.sys.id
+    },
+  })
+
+  const { service } = serviceData || {}
+
+  if (!service) {
+    return {}
+  }
+
+  const description = documentToPlainTextString(service.p0.json)
+
+  return {
+    title: `${service.name} - Bytewise Technologies`,
+    description,
+    keywords: service.areasjson,
+    openGraph: {
+      locale: 'en_US',
+      type: 'website',
+      title: `${service.name} - Bytewise Technologies`,
+      description,
+      url: `https://bytewisetechnologies.com/services/${slug}`,
+      siteName: 'Bytewise Technologies',
+    },
+    alternates: {
+      canonical: `https://bytewisetechnologies.com/services/${slug}`,
+    }
+  }
 }
 
 export default async function ServiceDetailsPage({ params }: ServiceDetailsPageProps) {
@@ -53,7 +98,7 @@ export default async function ServiceDetailsPage({ params }: ServiceDetailsPageP
 
       <section className="service_details_section section_space bg-light">
         <div className="container">
-          {service.p0 && <div dangerouslySetInnerHTML={{ __html: renderHtml(service.p0.json) }} />}
+          {service.p0 && renderDomToReact(service.p0.json)}
 
           <h3 className="details_item_info_title">Service Process</h3>
           <div className="row mb-5 align-items-center justify-content-lg-between">
@@ -65,16 +110,12 @@ export default async function ServiceDetailsPage({ params }: ServiceDetailsPageP
             </div>
           </div>
 
-          {service.p1 && (
-            <div dangerouslySetInnerHTML={{
-              __html: renderHtml(service.p1.json, {
-                renderNode: {
-                  [BLOCKS.HEADING_3]: (node, next) => `<h3 class="details_item_info_title">${next(node.content)}</h3>`,
-                  [BLOCKS.PARAGRAPH]: (node, next) => `<p class="mb-4">${next(node.content)}</p>`
-                }
-              })
-            }} />
-          )}
+          {service.p1 && renderDomToReact(service.p1.json, {
+            renderNode: {
+              [BLOCKS.HEADING_3]: (_, children) => <h3 className="details_item_info_title">{children}</h3>,
+              [BLOCKS.PARAGRAPH]: (_, children) => <p className="mb-4">{children}</p>
+            }
+          })}
 
           <div className="row mb-4">
             <div className="col-lg-6">

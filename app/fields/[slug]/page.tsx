@@ -1,7 +1,7 @@
-import Badge from '../../../components/Badge'
 import PageBanner from '../../../components/PageBanner'
 import { FieldIdQuery, FieldQuery, GET_FIELD, GET_FIELD_ID } from './query'
-import { renderHtml } from '../../../utils/renderers'
+import { renderDomToReact } from '../../../utils/renderers'
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import { BLOCKS } from '@contentful/rich-text-types'
 import ProcessesAccordion from '../../../components/ProcessesAccordion'
 import ItemIndicator from '../../../components/ProcessesAccordion/ItemIndicator'
@@ -18,8 +18,8 @@ import IconBox from '../../../public/assets/images/icons/icon_box.svg'
 import IconReceiptAdd from '../../../public/assets/images/icons/icon_receipt_add.svg'
 import IconMonitor from '../../../public/assets/images/icons/icon_monitor.svg'
 import IconMicroscope from '../../../public/assets/images/icons/icon_microscope.svg'
-import Link from 'next/link'
 import ParallaxImage from '@/components/Shared/ParallaxImage'
+import { Metadata } from 'next'
 
 const whyUsImages: Record<string, StaticImageData> = {
   'icon_check_2.svg': IconCheck2,
@@ -32,6 +32,51 @@ const whyUsImages: Record<string, StaticImageData> = {
 
 type FieldsPageProps = {
   params: Promise<{ slug: string }>,
+}
+
+export async function generateMetadata(
+  { params }: FieldsPageProps,
+): Promise<Metadata> {
+  const { slug } = await params
+  const { data: fieldsData } = await query<FieldIdQuery>({ query: GET_FIELD_ID, variables: { slug } })
+
+  const { items } = fieldsData.fieldCollection || {}
+
+  if (!items?.length) {
+    return {}
+  }
+
+  const { data: fieldData } = await query<FieldQuery>({
+    query: GET_FIELD,
+    variables: {
+      id: items?.[0]?.sys.id
+    },
+  })
+
+  const { field } = fieldData || {}
+
+  if (!field) {
+    return {}
+  }
+
+  const description = documentToPlainTextString(field.p0.json)
+
+  return {
+    title: `${field.name} - Bytewise Technologies`,
+    description,
+    keywords: field.benefits,
+    openGraph: {
+      locale: 'en_US',
+      type: 'website',
+      title: `${field.name} - Bytewise Technologies`,
+      description,
+      url: `https://bytewisetechnologies.com/fields/${slug}`,
+      siteName: 'Bytewise Technologies',
+    },
+    alternates: {
+      canonical: `https://bytewisetechnologies.com/fields/${slug}`,
+    }
+  }
 }
 
 export default async function FieldsPage({ params }: FieldsPageProps) {
@@ -71,18 +116,14 @@ export default async function FieldsPage({ params }: FieldsPageProps) {
               <ParallaxImage src={field.banner.url} alt={field.banner.title} width={field.banner.width} height={field.banner.height} />
             )}
           </div>
-          {field.p0 && <div dangerouslySetInnerHTML={{ __html: renderHtml(field.p0.json) }} />}
+          {field.p0 && renderDomToReact(field.p0.json)}
 
-          {field.p1 && (
-            <div dangerouslySetInnerHTML={{
-              __html: renderHtml(field.p1.json, {
-                renderNode: {
-                  [BLOCKS.HEADING_3]: (node, next) => `<h3 class="details_item_info_title">${next(node.content)}</h3>`,
-                  [BLOCKS.PARAGRAPH]: (node, next) => `<p class="mb-4">${next(node.content)}</p>`
-                }
-              })
-            }} />
-          )}
+          {field.p1 && renderDomToReact(field.p1.json, {
+            renderNode: {
+              [BLOCKS.HEADING_3]: (_, children) => <h3 className="details_item_info_title">{children}</h3>,
+              [BLOCKS.PARAGRAPH]: (_, children) => <p className="mb-4">{children}</p>
+            }
+          })}
 
           <div className="row mb-5">
             <div className="col-lg-6">

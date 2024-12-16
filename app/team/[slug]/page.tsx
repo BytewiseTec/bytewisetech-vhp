@@ -5,7 +5,7 @@ import PageBanner from '../../../components/PageBanner'
 import { GET_TEAM_MEMBER, GET_TEAMMEMBER_ID, TeamMemberIdQuery, TeamMemberQuery } from './query'
 import Image from 'next/image'
 import Link from 'next/link'
-import { renderHtml } from '../../../utils/renderers'
+import { renderDomToReact } from '../../../utils/renderers'
 import { GET_TEAM_COLLECTION, TeamCollectionQuery } from '../query'
 import { getSocialMediaIcon, getSocialMediaName } from '../../../utils/helpers'
 
@@ -125,7 +125,7 @@ export default async function TeamMemberDetailsPage({ params }: TeamMemberProbsP
           <p>
           {team.p0 && (
             <div>
-              {team.p0 && <div dangerouslySetInnerHTML={{ __html: renderHtml(team.p0.json) }} />}
+              {team.p0 && renderDomToReact(team.p0.json)}
             </div>
           )}
           </p>

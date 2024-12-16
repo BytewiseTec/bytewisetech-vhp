@@ -1,16 +1,63 @@
 import { query } from '../../ApolloClient'
-import Badge from '../../../components/Badge'
 import PageBanner from '../../../components/PageBanner'
 import { GET_PROJECT, GET_PROJECT_ID, ProjectIdQuery, ProjectQuery } from './query'
 import Image from 'next/image'
-import { renderHtml } from '../../../utils/renderers'
+import { renderDomToReact } from '../../../utils/renderers'
 import { GET_PROJECTS, ProjectsQuery } from '../query'
 
 import IconCheck from '../../../public/assets/images/icons/icon_check_3.svg'
-import Link from 'next/link'
+import { Metadata } from 'next'
 
 interface PortfolioDetailsPageProps {
   params: Promise<{slug: string;}>
+}
+
+export async function generateMetadata(
+  { params }: PortfolioDetailsPageProps,
+): Promise<Metadata> {
+  const { slug } = await params
+  const { data: projectsData } = await query<ProjectIdQuery>({
+    query: GET_PROJECT_ID,
+    variables:{
+      slug,
+    }
+  })
+
+  const { items } = projectsData.projectCollection || {}
+
+  if (!items?.length) {
+    return {}
+  }
+
+  const { data: projectData } = await query<ProjectQuery>({
+    query: GET_PROJECT,
+    variables: {
+      id: items?.[0]?.sys.id
+    },
+  })
+
+  const { project } = projectData || {}
+
+  if (!project) {
+    return {}
+  }
+
+  return {
+    title: `${project.name} - Bytewise Technologies`,
+    description: project.short,
+    keywords: project.requirements,
+    openGraph: {
+      locale: 'en_US',
+      type: 'website',
+      title: `${project.name} - Bytewise Technologies`,
+      description: project.short,
+      url: `https://bytewisetechnologies.com/portfolio/${slug}`,
+      siteName: 'Bytewise Technologies',
+    },
+    alternates: {
+      canonical: `https://bytewisetechnologies.com/portfolio/${slug}`,
+    }
+  }
 }
 
 export default async function PortfolioDetailsPage({ params }: PortfolioDetailsPageProps) {
@@ -53,7 +100,7 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
           <div className="details_item_image">
             <Image src={project.banner.url} width={project.banner.width} height={project.banner.height} alt={project.banner.title} />
           </div>
-          {project.p0 && <div dangerouslySetInnerHTML={{ __html: renderHtml(project.p0.json) }} />}
+          {project.p0 && renderDomToReact(project.p0.json)}
           <hr />
           <ul className="portfolio_details_info_list icon_list unordered_list justify-content-lg-between mb-5">
             <li>
@@ -82,7 +129,7 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
             </li>
           </ul>
 
-          {project.p1 && <div dangerouslySetInnerHTML={{ __html: renderHtml(project.p1.json) }} />}
+          {project.p1 && renderDomToReact(project.p1.json)}
 
           <div className="row mb-4">
             <div className="col-lg-5">
@@ -115,7 +162,7 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
             </div>
           </div>
 
-          {project.p2 && <div dangerouslySetInnerHTML={{ __html: renderHtml(project.p2.json) }} />}
+          {project.p2 && renderDomToReact(project.p2.json)}
 
         </div>
       </section>

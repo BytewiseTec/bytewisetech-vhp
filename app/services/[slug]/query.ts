@@ -26,6 +26,7 @@ export interface Service {
   name: string
   outcomes: ListItem[]
   processes: ListItem[]
+  areasjson: string[]
   p0: {
     json: Document
   }
@@ -46,6 +47,7 @@ export const GET_SERVICE = gql`
       name
       outcomes
       processes
+      areasjson
       p0 {
         json
       }
