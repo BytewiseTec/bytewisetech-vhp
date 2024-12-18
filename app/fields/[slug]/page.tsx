@@ -9,6 +9,7 @@ import ExpandedIndexProvider from '../../../components/ProcessesAccordion/Expand
 import { query } from '../../ApolloClient'
 import Image, { StaticImageData } from 'next/image'
 import { FieldsLinksQuery, GET_FIELDS } from '@/components/Navbar/query'
+import generateStructuredData from '@/utils/structured-data'
 
 import IconCheck from '../../../public/assets/images/icons/icon_check_3.svg'
 import BetterServices from '../../../public/assets/images/about/better-services.jpg'
@@ -98,8 +99,25 @@ export default async function FieldsPage({ params }: FieldsPageProps) {
 
   const { field } = fieldData || {}
 
+  const jsonLd = generateStructuredData([
+    {
+      '@type': 'BreadcrumbList',
+      '@id': 'https://bytewisetechnologies.com/#breadcrumb',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', url: '/' },
+        { '@type': 'ListItem', position: 2, name: 'Fields', url: '/fields' },
+        { '@type': 'ListItem', position: 3, name: field.name },
+      ],
+    }
+  ])
+
   return (
     <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <PageBanner
         title={field.name}
         breadcrumb={[

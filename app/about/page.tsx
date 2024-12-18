@@ -2,6 +2,7 @@ import { AboutQuery, GET_ABOUT } from './query'
 import { query } from '../ApolloClient'
 import PageBanner from '@/components/PageBanner'
 import { Metadata } from 'next'
+import generateStructuredData from '@/utils/structured-data'
 
 import IconCheck2 from '../../public/assets/images/icons/icon_check_2.svg'
 import IconLeaf from '../../public/assets/images/icons/icon_leaf.svg'
@@ -11,7 +12,6 @@ import IconMonitor from '../../public/assets/images/icons/icon_monitor.svg'
 import IconMicroscope from '../../public/assets/images/icons/icon_microscope.svg'
 import BetterServices from '../../public/assets/images/about/better-services.jpg'
 import Image, { StaticImageData } from 'next/image'
-import Link from 'next/link'
 
 import IconClock from '../../public/assets/images/icons/icon_clock.svg'
 import IconDartBoard2 from '../../public/assets/images/icons/icon_dart_board_2.svg'
@@ -57,8 +57,38 @@ export default async function AboutPage() {
 
   const { page: about } = aboutData
 
+  const jsonLd = generateStructuredData([
+    {
+      '@type': 'BreadcrumbList',
+      '@id': 'https://bytewisetechnologies.com/#breadcrumb',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', url: '/' },
+        { '@type': 'ListItem', position: 2, name: 'About us' },
+      ],
+    },
+    {
+      '@type': 'AboutPage',
+      '@id': 'https://bytewisetechnologies.com/#about',
+      name: 'About us',
+      description: 'We are a team of professionals who are passionate about what we do. We are here to help you grow your business.',
+      breadcrumb: 'https://bytewisetechnologies.com/#breadcrumb',
+      inLanguage: 'en-US',
+      potentialAction: [
+        {
+          '@type': 'ReadAction',
+          target: ['https://bytewisetechnologies.com/about'],
+        },
+      ],
+    }
+  ])
+
   return (
     <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <PageBanner
         title="About us"
         breadcrumb={[

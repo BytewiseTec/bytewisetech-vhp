@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Metadata } from 'next'
 import { FaBuilding, FaTags } from 'react-icons/fa'
 import PageBanner from '../../components/PageBanner'
+import generateStructuredData from '@/utils/structured-data'
 
 export const metadata: Metadata = {
   title: 'Portfolio - Bytewise Technologies',
@@ -29,8 +30,24 @@ export default async function PortfolioPage() {
 
   const { items: projects } = projectsData.projectCollection || {}
 
+  const jsonLd = generateStructuredData([
+    {
+      '@type': 'BreadcrumbList',
+      '@id': 'https://bytewisetechnologies.com/#breadcrumb',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', url: '/' },
+        { '@type': 'ListItem', position: 2, name: 'Portfolio' },
+      ],
+    }
+  ])
+
   return (
     <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <PageBanner
         title="Portfolio"
         breadcrumb={[

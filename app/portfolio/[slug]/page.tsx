@@ -4,6 +4,7 @@ import { GET_PROJECT, GET_PROJECT_ID, ProjectIdQuery, ProjectQuery } from './que
 import Image from 'next/image'
 import { renderDomToReact } from '../../../utils/renderers'
 import { GET_PROJECTS, ProjectsQuery } from '../query'
+import generateStructuredData from '@/utils/structured-data'
 
 import IconCheck from '../../../public/assets/images/icons/icon_check_3.svg'
 import { Metadata } from 'next'
@@ -84,8 +85,25 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
 
   const { project } = projectData || {}
 
+  const jsonLd = generateStructuredData([
+    {
+      '@type': 'BreadcrumbList',
+      '@id': 'https://bytewisetechnologies.com/#breadcrumb',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', url: '/' },
+        { '@type': 'ListItem', position: 2, name: 'Portfolio', url: '/portfolio' },
+        { '@type': 'ListItem', position: 3, name: project.name },
+      ],
+    }
+  ])
+
   return (
     <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <PageBanner
         title={project.name}
         breadcrumb={[

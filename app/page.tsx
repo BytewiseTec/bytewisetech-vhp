@@ -1,4 +1,3 @@
-import { Graph } from 'schema-dts'
 import AboutCaseStudies from '../components/AboutCaseStudies'
 // import BlogPosts from '../components/BlogPosts'
 import ContactUs from '../components/ContactUs'
@@ -7,94 +6,30 @@ import Hero from '../components/Hero'
 import Services from '../components/Services'
 import TechnologyReview from '../components/TechnologyReview'
 import FAQs from '../components/FAQs'
+import getStructuredData from '@/utils/structured-data'
+import { query } from './ApolloClient'
+import { FAQsQuery, GET_FAQS } from '@/components/FAQs/query'
 
-export default function Home() {
+export default async function Home() {
+  const { data } = await query<FAQsQuery>({
+    query: GET_FAQS
+  })
 
-  const jsonLd: Graph = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'WebPage',
-        '@id': 'https://www.bytewisetechnologies.com/',
-        'url': 'https://www.bytewisetechnologies.com/',
-        'name': 'Home - Bytewise Technologies',
-        'isPartOf': {
-          '@id': 'https://www.bytewisetechnologies.com/#website'
+  const faqs = data.faqsCollection.items || []
+
+  const jsonLd = getStructuredData([
+    {
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
         },
-        'about': {
-          '@id': 'https://www.bytewisetechnologies.com/#organization'
-        },
-        'primaryImageOfPage': {
-          '@id': 'https://www.bytewisetechnologies.com/#primaryimage'
-        },
-        'image': {
-          '@id': ' https://www.bytewisetechnologies.com/#primaryimage'
-        },
-        'thumbnailUrl': 'https://www.bytewisetechnologies.com/assets/images/site_logo/logo-white.svg',
-        'datePublished': '2024-11-04T07:05:45+00:00',
-        'dateModified': '2024-11-14T15:08:18+00:00',
-        'description': 'Where push comes to shove, you can count on us. Solutions tailored to your business needs, not just tech.',
-        'breadcrumb': {
-          '@id': 'https://www.bytewisetechnologies.com/#breadcrumb'
-        },
-        'inLanguage': 'en-US',
-        'potentialAction': [
-          {
-            '@type': 'ReadAction',
-            'target': [
-              'https://www.bytewisetechnologies.com/'
-            ]
-          }
-        ]
-      },
-      {
-        '@type': 'ImageObject',
-        'inLanguage': 'en-US',
-        '@id': 'https://www.bytewisetechnologies.com/#primaryimage',
-        'url': 'https://images.ctfassets.net/g9e5ilkl8pzh/6rDjNuReNL44A4IPdq5TJR/d346a07cfa9153cc24216a868a878c03/icon_programming_tree.svg',
-        'contentUrl': 'https://images.ctfassets.net/g9e5ilkl8pzh/6rDjNuReNL44A4IPdq5TJR/d346a07cfa9153cc24216a868a878c03/icon_programming_tree.svg'
-      },
-      {
-        '@type': 'BreadcrumbList',
-        '@id': 'https://www.bytewisetechnologies.com/#breadcrumb',
-        'itemListElement': [
-          {
-            '@type': 'ListItem',
-            'position': 1,
-            'name': 'Home'
-          }
-        ]
-      },
-      {
-        '@type': 'WebSite',
-        '@id': 'https://www.bytewisetechnologies.com/#website',
-        'url': 'https://www.bytewisetechnologies.com/',
-        'name': 'Bytewise Technologies',
-        'description': '',
-        'publisher': {
-          '@id': 'https://www.bytewisetechnologies.com/#organization'
-        },
-        'inLanguage': 'en-US'
-      },
-      {
-        '@type': 'Organization',
-        '@id': 'https://www.bytewisetechnologies.com/#organization',
-        'name': 'Bytewise Technologies',
-        'url': 'https://www.bytewisetechnologies.com/',
-        'logo': {
-          '@type': 'ImageObject',
-          'inLanguage': 'en-US',
-          '@id': 'https://www.bytewisetechnologies.com/#/schema/logo/image/',
-          'url': 'https://www.bytewisetechnologies.com/assets/images/site_logo/logo-white.svg',
-          'contentUrl': 'https://www.bytewisetechnologies.com/assets/images/site_logo/logo-white.svg',
-          'caption': 'Bytewise Technologies'
-        },
-        'image': {
-          '@id': 'https://www.bytewisetechnologies.com/#/schema/logo/image/'
-        }
-      }
-    ]
-  }
+      })),
+    }
+  ])
 
   return (
     <>
@@ -107,7 +42,7 @@ export default function Home() {
       <Services />
       <AboutCaseStudies />
       <TechnologyReview />
-      <FAQs />
+      <FAQs faqs={faqs} />
       {/* <BlogPosts/> */}
       <ContactUs />
     </>

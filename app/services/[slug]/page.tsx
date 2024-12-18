@@ -6,6 +6,7 @@ import { query } from '../../ApolloClient'
 import ProcessesAccordion from '../../../components/ProcessesAccordion'
 import ItemIndicator from '../../../components/ProcessesAccordion/ItemIndicator'
 import { GET_SERVICES, ServicesLinksQuery } from '@/components/Navbar/query'
+import generateStructuredData from '@/utils/structured-data'
 
 import IconCheck from '../../../public/assets/images/icons/icon_check_3.svg'
 import Image from 'next/image'
@@ -85,8 +86,25 @@ export default async function ServiceDetailsPage({ params }: ServiceDetailsPageP
 
   const { service } = serviceData || {}
 
+  const jsonLd = generateStructuredData([
+    {
+      '@type': 'BreadcrumbList',
+      '@id': 'https://bytewisetechnologies.com/#breadcrumb',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', url: '/' },
+        { '@type': 'ListItem', position: 2, name: 'Services' },
+        { '@type': 'ListItem', position: 3, name: service.name },
+      ],
+    }
+  ])
+
   return (
     <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <PageBanner
         title={service.name}
         breadcrumb={[

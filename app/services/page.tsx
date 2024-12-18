@@ -3,6 +3,7 @@ import { query } from '../ApolloClient'
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { PiArrowUpRightBold } from 'react-icons/pi'
+import generateStructuredData from '@/utils/structured-data'
 
 import IconCheck2 from '../../public/assets/images/icons/icon_check_2.svg'
 import IconLeaf from '../../public/assets/images/icons/icon_leaf.svg'
@@ -54,8 +55,24 @@ export default async function ServicesPage() {
 
   const services = servicesData.serviceCollection.items || {}
 
+  const jsonLd = generateStructuredData([
+    {
+      '@type': 'BreadcrumbList',
+      '@id': 'https://bytewisetechnologies.com/#breadcrumb',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', url: '/' },
+        { '@type': 'ListItem', position: 2, name: 'Services' },
+      ],
+    }
+  ])
+
   return (
     <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <PageBanner
         title={servicesPage.title}
         breadcrumb={[

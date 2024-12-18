@@ -1,19 +1,16 @@
 import Image from 'next/image'
 import shapeLine6 from '../../public/assets/images/shapes/shape_line_6.svg'
 import { FaCircle } from 'react-icons/fa6'
-import { query } from '@/app/ApolloClient'
-import { FAQsQuery, GET_FAQS } from './query'
+import { FAQ } from './query'
 import { ListItem } from '@/app/content.types'
 
 const COL_SIZE = 4
 
-export default async function FAQs() {
-  const { data } = await query<FAQsQuery>({
-    query: GET_FAQS
-  })
+interface FAQsProps {
+  faqs: FAQ[]
+}
 
-  const faqs = data.faqsCollection.items || []
-
+export default function FAQs({ faqs }: FAQsProps) {
   const chunkedFaqAttributes = (attributes: ListItem[]) => {
     const chunked = []
     for (let i = 0; i < attributes.length; i += COL_SIZE) {
