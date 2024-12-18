@@ -6,6 +6,7 @@ import { Metadata } from 'next'
 import { FaBuilding, FaTags } from 'react-icons/fa'
 import PageBanner from '../../components/PageBanner'
 import generateStructuredData from '@/utils/structured-data'
+import Carousel from '@/components/Shared/Carousel'
 
 export const metadata: Metadata = {
   title: 'Portfolio - Bytewise Technologies',
@@ -64,11 +65,16 @@ export default async function PortfolioPage() {
                 <div className="portfolio_block portfolio_layout_2">
                   <div className="portfolio_image">
                     <Link className="portfolio_image_wrap bg-light" href={`/portfolio/${project.slug}`}>
-                      <Image
-                        src={project.thumbnail.url}
-                        width={project.thumbnail.width}
-                        height={project.thumbnail.height}
-                        alt={project.thumbnail.title} />
+                      <Carousel
+                        slides={[{
+                          image: {
+                            src: project.thumbnail.url,
+                            width: project.thumbnail.width,
+                            height: project.thumbnail.height
+                          },
+                          alt: project.thumbnail.title
+                        }]}
+                      />
                     </Link>
                   </div>
                   <div className="portfolio_content">

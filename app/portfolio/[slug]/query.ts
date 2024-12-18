@@ -34,6 +34,9 @@ export interface Project {
   title: string
   info: Record<string, string>
   requirements: string[]
+  highlightImagesCollection: {
+    items: Media[]
+  }
   p0: {
     json: Document
   }
