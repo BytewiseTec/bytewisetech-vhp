@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 }
 
 export default async function PortfolioPage() {
-  const { data: projectsData } = await query<ProjectsQuery>({query: GET_PROJECTS})
+  const { data: projectsData } = await query<ProjectsQuery>({ query: GET_PROJECTS })
 
   const { items: projects } = projectsData.projectCollection || {}
 
@@ -60,21 +60,23 @@ export default async function PortfolioPage() {
       <section className="portfolio_section section_space bg-light">
         <div className="container">
           <div className="filter_elements_wrapper row">
-            {projects?.map((project) => (
+            {projects?.map((project, index) => (
               <div className="col-lg-6 technology" key={project._id}>
                 <div className="portfolio_block portfolio_layout_2">
                   <div className="portfolio_image">
                     <Link className="portfolio_image_wrap bg-light" href={`/portfolio/${project.slug}`}>
                       <Carousel
-                        slides={[{
-                          image: {
-                            src: project.thumbnail.url,
-                            width: project.thumbnail.width,
-                            height: project.thumbnail.height
-                          },
-                          alt: project.thumbnail.title
-                        }]}
-                      />
+                        id={`portfolioCarousel${index}`}
+                        slides={
+                          project.highlightImagesCollection.items.map((image) => ({
+                            image: {
+                              src: image.url,
+                              width: image.width,
+                              height: image.height
+                            },
+                            alt: image.title
+                          }))}
+                        />
                     </Link>
                   </div>
                   <div className="portfolio_content">

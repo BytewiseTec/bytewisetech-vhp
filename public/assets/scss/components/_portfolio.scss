@@ -7,8 +7,9 @@
 	border-radius: var(--bs-border-radius-sm);
 	box-shadow: 0 1px 2px 0 rgba(174, 191, 210, 0.30);
 	display: grid;
-	grid-template-rows: 500px 1.2fr;
+	grid-template-rows: auto 1.2fr;
 	height: 100%;
+	aspect-ratio: 5/5;
 
 	.portfolio_image_wrap {
 		display: block;

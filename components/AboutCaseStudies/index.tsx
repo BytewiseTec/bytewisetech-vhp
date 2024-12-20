@@ -121,7 +121,7 @@ export default async function AboutCaseStudies() {
                   <div
                     className="case_study_image"
                     style={{
-                      backgroundColor: '#49515B',
+                      backgroundColor: caseStudy.config.thumbnailBgColor || '#f5f5f5',
                       padding: '20px 20px'
                     }}
                   >

@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client'
-import { Media, ListItem } from '../../app/content.types'
+import { Media, ListItem, Config } from '../../app/content.types'
 export interface CaseStudy {
   _id: string;
   name: string;
@@ -8,6 +8,7 @@ export interface CaseStudy {
   short: string;
   industry: string;
   address: string;
+  config: Config;
   technologies: ListItem[];
   thumbnail: Media;
   banner: Media;
@@ -36,6 +37,7 @@ export const GET_CASE_STUDIES = gql`
         industry
         address
         technologies
+        config
         thumbnail {
           url
         }

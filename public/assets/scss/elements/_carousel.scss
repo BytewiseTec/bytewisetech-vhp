@@ -1,6 +1,21 @@
 /* 2.08 - Carousel or Slider - Start
 ================================================== */
 
+.carousel {
+	.carousel-item {
+		aspect-ratio: 5/4;
+		img {
+			aspect-ratio: 5/4;
+		}
+	}
+	.carousel-indicators {
+		margin-bottom: 0;
+		margin-left: 0;
+		margin-right: 0;
+		background-color: rgb(0 0 0 / 0.6);
+	}
+}
+
 // Pagination - Start
 .swiper-pagination-bullets {
 	display: flex;

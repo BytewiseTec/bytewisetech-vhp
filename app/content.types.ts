@@ -21,3 +21,7 @@ export type Media = {
   title: string;
   description: string;
 }
+
+export type Config = {
+  thumbnailBgColor?: string;
+}

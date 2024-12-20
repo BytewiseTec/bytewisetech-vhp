@@ -6,17 +6,18 @@ interface Slide {
 }
 
 interface CarouselProps {
+  id: string
   slides: Slide[]
 }
 
-const Carousel: React.FC<CarouselProps> = ({ slides }) => {
+const Carousel: React.FC<CarouselProps> = ({ id, slides }) => {
   return (
-    <div id="carouselIndicators" className="d-flex carousel slide w-100 h-100 align-items-center justify-content-center" data-bs-ride="carousel">
+    <div id={id} className="carousel slide" data-bs-ride="carousel">
       <div className="carousel-indicators">
         {slides.map((_, index) => (
           <button
             type="button"
-            data-bs-target="#carouselIndicators"
+            data-bs-target={`#${id}`}
             data-bs-slide-to={index.toString()}
             className={index === 0 ? 'active' : ''}
             aria-label={`Slide ${index + 1}`}
@@ -28,7 +29,7 @@ const Carousel: React.FC<CarouselProps> = ({ slides }) => {
       <div className="carousel-inner">
         {slides.map((slide, index) => (
           <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={index}>
-            <Image src={slide.image} className="d-block w-100" alt={slide.alt} />
+            <Image src={slide.image} className="d-block" alt={slide.alt} />
           </div>
         ))}
       </div>

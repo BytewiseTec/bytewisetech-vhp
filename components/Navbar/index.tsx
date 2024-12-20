@@ -191,6 +191,7 @@ export default async function Navbar() {
                                   <h4>{project?.name}</h4>
                                 </div>
                                 <Image width={project?.thumbnail.width} height={project?.thumbnail.height} src={project?.thumbnail?.url} alt="Case Image" />
+                                <p className="text-light">{project?.short.substring(0, 300)}</p>
                                 <Link className="btn" href={`/portfolio/${project?.slug}`}>
                                   <span className="btn_label" data-text="Read Case">Read Case</span>
                                   <span className="btn_icon">

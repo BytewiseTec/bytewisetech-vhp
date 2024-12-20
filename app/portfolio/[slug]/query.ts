@@ -1,4 +1,4 @@
-import { EntryId, Media } from '../../content.types'
+import { Config, EntryId, Media } from '../../content.types'
 import { Document } from '@contentful/rich-text-types'
 import gql from 'graphql-tag'
 
@@ -29,6 +29,7 @@ export interface Project {
   industry: string
   address: string
   technologies: string[]
+  config: Config
   thumbnail: Media
   banner: Media
   title: string
@@ -63,6 +64,7 @@ export const GET_PROJECT = gql`
       industry
       address
       technologies
+      config
       thumbnail {
         url
         width
