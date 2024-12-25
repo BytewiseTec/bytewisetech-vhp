@@ -16,6 +16,7 @@ import Image, { StaticImageData } from 'next/image'
 import IconClock from '../../public/assets/images/icons/icon_clock.svg'
 import IconDartBoard2 from '../../public/assets/images/icons/icon_dart_board_2.svg'
 import IconTarget from '../../public/assets/images/icons/icon_target.svg'
+import AboutFunFacts from '@/components/AboutFunFacts'
 
 const tileIcons: Record<string, StaticImageData> = {
   'icon_clock.svg': IconClock,
@@ -136,6 +137,8 @@ export default async function AboutPage() {
               )
             })}
           </div>
+
+          <AboutFunFacts />
         </div>
       </section>
 

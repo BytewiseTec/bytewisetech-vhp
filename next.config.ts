@@ -14,8 +14,30 @@ const nextConfig: NextConfig = withBundleAnalyzer({
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/blog',
+        destination: '/not-found',
+        permanent: true,
+      },
+      {
+        source: '/blog/:slug',
+        destination: '/not-found',
+        permanent: true,
+      },
+      {
+        source: '/team/:slug',
+        destination: '/not-found',
+        permanent: true,
+      },
+    ]
+  },
   sassOptions: {
     silenceDeprecations: ['legacy-js-api'],
+  },
+  experimental: {
+    turbo: {},
   }
 })
 

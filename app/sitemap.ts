@@ -37,12 +37,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.5,
     })) || [],
-    ...teamMemberData?.teamCollection.items.map((team) => ({
-      url: `${appUrl}/team/${team.slug}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    })) || [],
+    // ...teamMemberData?.teamCollection.items.map((team) => ({
+    //   url: `${appUrl}/team/${team.slug}`,
+    //   lastModified: new Date(),
+    //   changeFrequency: 'monthly',
+    //   priority: 0.5,
+    // })) || [],
     ...projectData?.projectCollection.items.map((project) => ({
       url: `${appUrl}/portfolio/${project.slug}`,
       lastModified: new Date(),
