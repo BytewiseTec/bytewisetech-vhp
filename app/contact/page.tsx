@@ -99,7 +99,7 @@ export default async function ContactPage() {
               </div>
               <div className="col-lg-5">
                 <GoogleMapsEmbed
-                  apiKey="AIzaSyAOEenIpStSCsLK1vWzzIrq_idwuSuaQss"
+                  apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string}
                   style="height: 100%; width: 100%;"
                   width="100%;"
                   height="100%;"
