@@ -91,8 +91,8 @@ export default async function ServiceDetailsPage({ params }: ServiceDetailsPageP
       '@type': 'BreadcrumbList',
       '@id': 'https://bytewisetechnologies.com/#breadcrumb',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', url: '/' },
-        { '@type': 'ListItem', position: 2, name: 'Services' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bytewisetechnologies.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://bytewisetechnologies.com/services' },
         { '@type': 'ListItem', position: 3, name: service.name },
       ],
     }

@@ -60,7 +60,7 @@ export default async function ServicesPage() {
       '@type': 'BreadcrumbList',
       '@id': 'https://bytewisetechnologies.com/#breadcrumb',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', url: '/' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bytewisetechnologies.com/' },
         { '@type': 'ListItem', position: 2, name: 'Services' },
       ],
     }
