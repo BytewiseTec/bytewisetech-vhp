@@ -14,7 +14,7 @@ import ChartIcon from '../../public/assets/images/icons/icon_chart.svg'
 import UserIcon from '../../public/assets/images/icons/icon_user_2.svg'
 import PenIcon from '../../public/assets/images/icons/icon_pen.svg'
 import { PiArrowUpRightBold } from 'react-icons/pi'
-import { FaAngleDown, FaBars, FaChevronDown } from 'react-icons/fa6'
+import { FaAngleDown } from 'react-icons/fa6'
 import MobileMenuButton from './MobileMenuButton'
 
 const companyLinkIcons: Record<string, StaticImageData> = {
@@ -50,7 +50,7 @@ export default async function Navbar() {
             <div className="col-lg-3 col-5">
               <div className="site_logo">
                 <Link className="site_link" href={home.href}>
-                  <Image width={2251} height={559} src={LogoWhite} alt="Site Logo – Bytewise Technologies – IT Solutions & Technology, Business Consulting, Software Company" />
+                  <Image loading="eager" width={2251} height={559} src={LogoWhite} alt="Site Logo – Bytewise Technologies – IT Solutions & Technology, Business Consulting, Software Company" />
                   <Image width={600} height={559} src={Favicon} alt="Site Logo – Bytewise Technologies – IT Solutions & Technology, Business Consulting, Software Company" />
                 </Link>
               </div>

@@ -1,5 +1,6 @@
 import { ContactQuery, GET_CONTACT } from './query'
 import { Metadata } from 'next'
+import { GoogleMapsEmbed } from '@next/third-parties/google'
 import { query } from '../ApolloClient'
 import ContactForm from '../../components/ContactForm'
 import PageBanner from '../../components/PageBanner'
@@ -74,20 +75,20 @@ export default async function ContactPage() {
           <div className="contact_info_box row">
             {contact.tiles.map((contactItem, index) => (
               <div className="col-lg-3 col-md-6 col-sm-6" key={index}>
-              <div className="iconbox_block text-center">
-                <div className="iconbox_icon">
-                  {contactItem.icon && contactItem.title && (
-                    <Image src={tileIcons[contactItem.icon]} alt={`${contactItem.title} SVG Icon`} />
-                  )}
-                </div>
-                <div className="iconbox_content">
-                  <h3 className="iconbox_title">{contactItem.title}</h3>
-                  <p className="mb-0">
-                    {contactItem.description}
-                  </p>
+                <div className="iconbox_block text-center">
+                  <div className="iconbox_icon">
+                    {contactItem.icon && contactItem.title && (
+                      <Image src={tileIcons[contactItem.icon]} alt={`${contactItem.title} SVG Icon`} />
+                    )}
+                  </div>
+                  <div className="iconbox_content">
+                    <h3 className="iconbox_title">{contactItem.title}</h3>
+                    <p className="mb-0">
+                      {contactItem.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
             ))}
           </div>
 
@@ -95,6 +96,16 @@ export default async function ContactPage() {
             <div className="row justify-content-lg-between">
               <div className="col-lg-7">
                 <ContactForm />
+              </div>
+              <div className="col-lg-5">
+                <GoogleMapsEmbed
+                  apiKey="AIzaSyAOEenIpStSCsLK1vWzzIrq_idwuSuaQss"
+                  style="height: 100%; width: 100%;"
+                  width="100%;"
+                  height="100%;"
+                  mode="place"
+                  q="13428 105 Ave #2306, Surrey, BC V3T 0A3, Canada"
+                />
               </div>
             </div>
           </div>
