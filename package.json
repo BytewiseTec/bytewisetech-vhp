@@ -15,7 +15,7 @@
     "@contentful/rich-text-plain-text-renderer": "^17.0.0",
     "@contentful/rich-text-react-renderer": "^16.0.1",
     "@contentful/rich-text-types": "^16.7.0",
-    "@netlify/plugin-nextjs": "^5.9.2",
+    "@netlify/plugin-nextjs": "^5.9.4",
     "@next/bundle-analyzer": "^15.0.3",
     "@next/env": "15.0.3",
     "@next/third-parties": "15.0.3",
