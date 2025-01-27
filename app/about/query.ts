@@ -37,11 +37,13 @@ export interface AboutData {
   whyUs: ListItem[];
   highlight: ListItem[];
 }
+
 export interface TeamCollectionQuery {
   teamCollection: {
     items: TeamMember[];
   };
 }
+
 export const GET_TEAM_COLLECTION = gql`
   query TeamCollection {
     teamCollection {

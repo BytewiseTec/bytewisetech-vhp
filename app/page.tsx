@@ -1,5 +1,4 @@
 import AboutCaseStudies from '../components/AboutCaseStudies'
-// import BlogPosts from '../components/BlogPosts'
 import ContactUs from '../components/ContactUs'
 import Featured from '../components/Featured'
 import Hero from '../components/Hero'
@@ -9,13 +8,21 @@ import FAQs from '../components/FAQs'
 import getStructuredData from '@/utils/structured-data'
 import { query } from './ApolloClient'
 import { FAQsQuery, GET_FAQS } from '@/components/FAQs/query'
+import BlogPosts from '@/components/BlogPosts'
+import { GET_LATEST_BLOG_POSTS, GetLatestBlogPostsQuery } from '@/components/BlogPosts/query'
 
 export default async function Home() {
-  const { data } = await query<FAQsQuery>({
-    query: GET_FAQS
-  })
+  const [ faqsResponse, latestBlogPostsResponse ] = await Promise.all([
+    query<FAQsQuery>({
+      query: GET_FAQS
+    }),
+    query<GetLatestBlogPostsQuery>({
+      query: GET_LATEST_BLOG_POSTS
+    })
+  ])
 
-  const faqs = data.faqsCollection.items || []
+  const faqs = faqsResponse.data?.faqsCollection?.items || []
+  const latestBlogPosts = latestBlogPostsResponse.data?.blogCollection?.items || []
 
   const jsonLd = getStructuredData([
     {
@@ -43,7 +50,7 @@ export default async function Home() {
       <AboutCaseStudies />
       <TechnologyReview />
       <FAQs faqs={faqs} />
-      {/* <BlogPosts/> */}
+      <BlogPosts posts={latestBlogPosts} />
       <ContactUs />
     </>
   )

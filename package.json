@@ -25,6 +25,7 @@
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "classnames": "^2.5.1",
     "contentful": "^10.12.10",
+    "dayjs": "^1.11.13",
     "eslint": "^8",
     "eslint-config-next": "15.0.3",
     "graphql": "^16.9.0",

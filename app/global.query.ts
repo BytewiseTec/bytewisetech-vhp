@@ -15,19 +15,19 @@ export const GET_ROUTES = gql`
   }
 `
 
-export interface BlogPostQuery {
+export interface GetBlogPostByIdQuery {
   blog: {
-    name: string;
+    title: string;
     body: {
       json: Document;
     };
   }
 }
 
-export const GET_BLOG_POST = gql`
+export const GET_BLOG_POST_BY_ID = gql`
   query Blog($id: String!) {
     blog(id: $id) {
-      name
+      title
       body {
         json
       }

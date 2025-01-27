@@ -1,13 +1,23 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import { PiArrowUpRightBold } from 'react-icons/pi'
+import { FaRegCircleUser } from 'react-icons/fa6'
+import dayjs from 'dayjs'
 
-export default function BlogPosts() {
+import IconCalendar from '../../public/assets/images/icons/icon_calendar.svg'
+import { BlogPost } from './query'
+
+interface BlogPostsProps {
+  posts: BlogPost[]
+}
+
+export default function BlogPosts({ posts }: BlogPostsProps) {
   return (
     <section className="blog_section blog_section_space section_decoration">
       <div className="container">
         <div className="heading_block text-center">
           <div
             className="heading_focus_text has_underline d-inline-flex"
-            style={{ backgroundImage: 'url(\'assets/images/shapes/shape_title_under_line.svg\')' }}
           >
             Our Articles
           </div>
@@ -17,109 +27,47 @@ export default function BlogPosts() {
         </div>
 
         <div className="row justify-content-center">
-          <div className="col-lg-4">
-            <div className="blog_post_block layout_2">
-              <div className="blog_post_image">
-                <Link className="image_wrap" href="/blog">
-                  <img src="/assets/images/blog/blog_post_image_12.webp" alt="Blog Post Image 1" />
-                  <i className="fa-solid fa-arrow-up-right"></i>
-                </Link>
-              </div>
-              <div className="blog_post_content p-0">
-                <h3 className="blog_post_title mb-0">
-                  <Link href="/blog">
-                    How Our Software Solutions Drive Insights.
+          {posts.map((post) => (
+            <div className="col-lg-4" key={post.slug}>
+              <div className="blog_post_block layout_2">
+                <div className="blog_post_image">
+                  <Link className="image_wrap" href={`/blog/${post.slug}`}>
+                    {post.thumbnail?.url && (
+                      <Image
+                        src={post.thumbnail.url}
+                        alt={post.thumbnail.title}
+                        width={post.thumbnail.width}
+                        height={post.thumbnail.height}
+                      />
+                    )}
+                    <i>
+                      <PiArrowUpRightBold size={50} />
+                    </i>
                   </Link>
-                </h3>
-                <ul className="post_meta unordered_list">
-                  <li>
-                    <a href="#!">
-                      <i className="fa-regular fa-circle-user"></i> By <b>Alex</b>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#!">
-                      <img src="/assets/images/icons/icon_calendar.svg" alt="Icon Calendar" /> 11/12/2024
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#!"><i className="fa-regular fa-comment-lines"></i> 24</a>
-                  </li>
-                </ul>
+                </div>
+                <div className="blog_post_content p-0">
+                  <h3 className="blog_post_title mb-0">
+                    <Link href={`/blog/${post.slug}`}>
+                      {post.title}
+                    </Link>
+                  </h3>
+                  <ul className="post_meta unordered_list">
+                    <li>
+                      <a href="#!">
+                        <FaRegCircleUser /> By <b>{post.author.fullName}</b>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#!">
+                        <Image src={IconCalendar} alt="Calendar icon" /> {dayjs(post.publishedDate).format('MMM DD, YYYY')}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-lg-4">
-            <div className="blog_post_block layout_2">
-              <div className="blog_post_image">
-                <Link className="image_wrap" href="/blog">
-                  <img src="/assets/images/blog/blog_post_image_13.webp" alt="Blog Post Image 1" />
-                  <i className="fa-solid fa-arrow-up-right"></i>
-                </Link>
-              </div>
-              <div className="blog_post_content p-0">
-                <h3 className="blog_post_title mb-0">
-                  <Link href="/blog">
-                    Exploring Emerging Trends in Software Development.
-                  </Link>
-                </h3>
-                <ul className="post_meta unordered_list">
-                  <li>
-                    <a href="#!">
-                      <i className="fa-regular fa-circle-user"></i> By <b>Alex</b>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#!">
-                      <img src="/assets/images/icons/icon_calendar.svg" alt="Icon Calendar" /> 11/12/2024
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#!"><i className="fa-regular fa-comment-lines"></i> 24</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-4">
-            <div className="blog_post_block layout_2">
-              <div className="blog_post_image">
-                <Link className="image_wrap" href="/blog">
-                  <img src="/assets/images/blog/blog_post_image_14.webp" alt="Blog Post Image 1" />
-                  <i className="fa-solid fa-arrow-up-right"></i>
-                </Link>
-              </div>
-              <div className="blog_post_content p-0">
-                <h3 className="blog_post_title mb-0">
-                  <Link href="/blog">
-                    How Software Integration Can Improve Workflow.
-                  </Link>
-                </h3>
-                <ul className="post_meta unordered_list">
-                  <li>
-                    <a href="#!">
-                      <i className="fa-regular fa-circle-user"></i> By <b>Alex</b>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#!">
-                      <img src="/assets/images/icons/icon_calendar.svg" alt="Icon Calendar" /> 11/12/2024
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#!"><i className="fa-regular fa-comment-lines"></i> 24</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
-      </div>
-      <div className="decoration_item shape_image_1">
-        <img src="/assets/images/shapes/shape_line_7.svg" alt="Bytewise Tech Shape" />
-      </div>
-      <div className="decoration_item shape_image_2">
-        <img src="/assets/images/shapes/shape_angle_4.webp" alt="Bytewise Tech Shape Angle" />
       </div>
     </section>
   )

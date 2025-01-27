@@ -169,23 +169,6 @@ export default async function ServiceDetailsPage({ params }: ServiceDetailsPageP
               </ul>
             </div>
           </div>
-          {/* <div className="row">
-              <div className="col-lg-4 col-md-6 col-sm-6">
-                <div className="details_item_image m-0">
-                  <img src="/assets/images/services/service_details_image_2.webp" alt="Service Details Image" />
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-6 col-sm-6">
-                <div className="details_item_image m-0">
-                  <img src="/assets/images/services/service_details_image_3.webp" alt="Service Details Image" />
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-6 col-sm-6">
-                <div className="details_item_image m-0">
-                  <img src="/assets/images/services/service_details_image_4.webp" alt="Service Details Image" />
-                </div>
-              </div>
-            </div> */}
         </div>
       </section>
     </>

@@ -50,8 +50,8 @@ export default async function Navbar() {
             <div className="col-lg-3 col-5">
               <div className="site_logo">
                 <Link className="site_link" href={home.href}>
-                  <Image loading="eager" width={2251} height={559} src={LogoWhite} alt="Site Logo – Bytewise Technologies – IT Solutions & Technology, Business Consulting, Software Company" />
-                  <Image width={600} height={559} src={Favicon} alt="Site Logo – Bytewise Technologies – IT Solutions & Technology, Business Consulting, Software Company" />
+                  <Image loading="eager" width={2251} height={559} src={LogoWhite} alt="Bytewise Technologies Logo" />
+                  <Image width={600} height={559} src={Favicon} alt="Bytewise Technologies Favicon" />
                 </Link>
               </div>
             </div>
