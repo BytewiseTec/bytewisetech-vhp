@@ -36,7 +36,7 @@ export interface TeamMemberQuery {
 }
 export const GET_TEAM = gql`
   query TeamCollection {
-    teamCollection {
+    teamCollection(where: { private: false }) {
       items {
         fullName
         title

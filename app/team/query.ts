@@ -29,7 +29,7 @@ export interface TeamCollectionQuery {
 }
 export const GET_TEAM_COLLECTION = gql`
   query TeamCollection {
-    teamCollection {
+    teamCollection(where: { private: false }) {
       items {
         _id
         fullName
