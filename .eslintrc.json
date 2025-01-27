@@ -4,6 +4,11 @@
     // disable semi colons
     "semi": ["error", "never"],
     // use single quotes
-    "quotes": ["error", "single"]
+    "quotes": ["error", "single"],
+    // import groups
+    "import/order": ["warn", {
+      "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+      "newlines-between": "always"
+    }]
   }
 }

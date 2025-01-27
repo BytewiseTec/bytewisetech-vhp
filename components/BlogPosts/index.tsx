@@ -5,6 +5,7 @@ import { FaRegCircleUser } from 'react-icons/fa6'
 import dayjs from 'dayjs'
 
 import IconCalendar from '../../public/assets/images/icons/icon_calendar.svg'
+
 import { BlogPost } from './query'
 
 interface BlogPostsProps {

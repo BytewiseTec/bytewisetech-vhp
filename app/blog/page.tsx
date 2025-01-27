@@ -1,401 +1,100 @@
+import Image from 'next/image'
+import dayjs from 'dayjs'
+import Link from 'next/link'
+import { PiArrowUpRightBold } from 'react-icons/pi'
+import { FaAnglesLeft, FaAnglesRight } from 'react-icons/fa6'
+
 import Badge from '../../components/Badge'
 import PageBanner from '../../components/PageBanner'
+import { query } from '../ApolloClient'
+import IconCalendar from '../../public/assets/images/icons/icon_calendar.svg'
 
-export default function BlogPage() {
+import PostSwiper from './PostSwiper'
+import { GET_BLOG_POST_SLIDES, GET_BLOG_POSTS_LIST, GetBlogPostSlidesQuery, GetBlogPostsListQuery } from './query'
+
+
+import 'swiper/scss'
+import 'swiper/scss/pagination'
+
+export default async function BlogPage() {
+  const [getBlogPostSlidesQuery, getBlogPostsListQuery] = await Promise.all([
+    query<GetBlogPostSlidesQuery>({
+      query: GET_BLOG_POST_SLIDES
+    }),
+    query<GetBlogPostsListQuery>({
+      query: GET_BLOG_POSTS_LIST
+    })
+  ])
+
+  const blogPostSlides = getBlogPostSlidesQuery.data?.blogCollection.items || []
+
+  const blogPosts = getBlogPostsListQuery.data?.blogCollection.items || []
+
   return (
     <>
       <PageBanner title="Our Latest Blog">
         Our
-        <Badge>Blogs 😍</Badge>
+        <Badge>Blog</Badge>
       </PageBanner>
 
       <section className="blog_section section_space bg-light">
         <div className="container">
-          <div className="blog_onecol_carousel overflow-hidden">
-            <div className="swiper-wrapper">
-              <div className="swiper-slide">
-                <div className="blog_post_block content_over_layout">
-                  <div className="blog_post_image">
-                    <a className="image_wrap" href="blog_details.html">
-                      <img src="assets/images/blog/blog_post_image_4.webp" alt="Blog Post Image 1" />
-                    </a>
-                  </div>
-                  <div className="blog_post_content">
-                    <div className="post_meta_wrap">
-                      <ul className="category_btns_group unordered_list">
-                        <li><a href="#!">Branding</a></li>
-                        <li><a href="#!">UI/UX</a></li>
-                      </ul>
-                      <ul className="post_meta unordered_list">
-                        <li>
-                          <a href="#!">
-                            <i className="fa-regular fa-calendar-days"></i> 11/12/2024
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#!"><i className="fa-regular fa-comment-lines"></i> 24</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <h3 className="blog_post_title">
-                      <a href="blog_details.html">
-                        Exploring IT Solutions - Unravel the Latest Technological Advancements.
-                      </a>
-                    </h3>
-                    <p className="mb-0">
-                      Embark on an enlightening journey through the realm of IT solutions as we delve into the latest technological advancements shaping the digital landscape.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="swiper-slide">
-                <div className="blog_post_block content_over_layout">
-                  <div className="blog_post_image">
-                    <a className="image_wrap" href="blog_details.html">
-                      <img src="assets/images/blog/blog_post_image_4.webp" alt="Blog Post Image 1" />
-                    </a>
-                  </div>
-                  <div className="blog_post_content">
-                    <div className="post_meta_wrap">
-                      <ul className="category_btns_group unordered_list">
-                        <li><a href="#!">Branding</a></li>
-                        <li><a href="#!">UI/UX</a></li>
-                      </ul>
-                      <ul className="post_meta unordered_list">
-                        <li>
-                          <a href="#!">
-                            <i className="fa-regular fa-calendar-days"></i> 11/12/2024
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#!"><i className="fa-regular fa-comment-lines"></i> 24</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <h3 className="blog_post_title">
-                      <a href="blog_details.html">
-                        Exploring IT Solutions - Unravel the Latest Technological Advancements.
-                      </a>
-                    </h3>
-                    <p className="mb-0">
-                      Embark on an enlightening journey through the realm of IT solutions as we delve into the latest technological advancements shaping the digital landscape.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="swiper-slide">
-                <div className="blog_post_block content_over_layout">
-                  <div className="blog_post_image">
-                    <a className="image_wrap" href="blog_details.html">
-                      <img src="assets/images/blog/blog_post_image_4.webp" alt="Blog Post Image 1" />
-                    </a>
-                  </div>
-                  <div className="blog_post_content">
-                    <div className="post_meta_wrap">
-                      <ul className="category_btns_group unordered_list">
-                        <li><a href="#!">Branding</a></li>
-                        <li><a href="#!">UI/UX</a></li>
-                      </ul>
-                      <ul className="post_meta unordered_list">
-                        <li>
-                          <a href="#!">
-                            <i className="fa-regular fa-calendar-days"></i> 11/12/2024
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#!"><i className="fa-regular fa-comment-lines"></i> 24</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <h3 className="blog_post_title">
-                      <a href="blog_details.html">
-                        Exploring IT Solutions - Unravel the Latest Technological Advancements.
-                      </a>
-                    </h3>
-                    <p className="mb-0">
-                      Embark on an enlightening journey through the realm of IT solutions as we delve into the latest technological advancements shaping the digital landscape.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="swiper-slide">
-                <div className="blog_post_block content_over_layout">
-                  <div className="blog_post_image">
-                    <a className="image_wrap" href="blog_details.html">
-                      <img src="assets/images/blog/blog_post_image_4.webp" alt="Blog Post Image 1" />
-                    </a>
-                  </div>
-                  <div className="blog_post_content">
-                    <div className="post_meta_wrap">
-                      <ul className="category_btns_group unordered_list">
-                        <li><a href="#!">Branding</a></li>
-                        <li><a href="#!">UI/UX</a></li>
-                      </ul>
-                      <ul className="post_meta unordered_list">
-                        <li>
-                          <a href="#!">
-                            <i className="fa-regular fa-calendar-days"></i> 11/12/2024
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#!"><i className="fa-regular fa-comment-lines"></i> 24</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <h3 className="blog_post_title">
-                      <a href="blog_details.html">
-                        Exploring IT Solutions - Unravel the Latest Technological Advancements.
-                      </a>
-                    </h3>
-                    <p className="mb-0">
-                      Embark on an enlightening journey through the realm of IT solutions as we delve into the latest technological advancements shaping the digital landscape.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button
-              className="b1cc-swiper-button-prev"
-              type="button"
-              style={{ backgroundImage: 'url(\'assets/images/shapes/shape_arrow_right.svg\')' }}
-            >
-              <i className="fa-solid fa-angles-left"></i>
-            </button>
-            <button
-              className="b1cc-swiper-button-next"
-              type="button"
-              style={{ backgroundImage: 'url(\'assets/images/shapes/shape_arrow_left.svg\')' }}
-            >
-              <i className="fa-solid fa-angles-right"></i>
-            </button>
-            <div className="b1cc-swiper-pagination p-0"></div>
-          </div>
+          <PostSwiper posts={blogPostSlides} />
 
           <div className="section_space pb-0">
             <div className="row">
               <div className="col-lg-8">
-                <div className="blog_post_block image_left_layout">
-                  <div className="blog_post_image">
-                    <a className="image_wrap" href="blog_details.html">
-                      <img src="assets/images/blog/blog_post_image_5.webp" alt="Blog Post Image 1" />
-                    </a>
-                  </div>
-                  <div className="blog_post_content">
-                    <div className="post_meta_wrap">
-                      <ul className="category_btns_group unordered_list">
-                        <li><a href="#!">Technology</a></li>
-                      </ul>
-                      <ul className="post_meta unordered_list">
-                        <li>
-                          <a href="#!">
-                            <img src="assets/images/icons/icon_calendar.svg" alt="Icon Calendar" /> 11/12/2024
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#!"><i className="fa-regular fa-comment-lines"></i> 24</a>
-                        </li>
-                      </ul>
+                {blogPosts.map((post) => (
+                  <div className="blog_post_block image_left_layout" key={post._id}>
+                    <div className="blog_post_image">
+                      <Link className="image_wrap" href={`/blog/${post.slug}`}>
+                        <Image
+                          src={post.thumbnail.url}
+                          alt={post.thumbnail.title}
+                          width={post.thumbnail.width}
+                          height={post.thumbnail.height}
+                        />
+                      </Link>
                     </div>
-                    <h3 className="blog_post_title">
-                      <a href="blog_details.html">
-                        Charting the Course of IT Solutions with Bytewise Tech Visionaries.
-                      </a>
-                    </h3>
-                    <p>
-                      Embark on a journey into the dynamic  of IT solutions.
-                    </p>
-                    <a className="btn btn-dark" href="blog_details.html">
-                      <span className="btn_label" data-text="Read More">Read More</span>
-                      <span className="btn_icon">
-                        <i className="fa-solid fa-arrow-up-right"></i>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-                <div className="blog_post_block image_left_layout">
-                  <div className="blog_post_content">
-                    <div className="post_meta_wrap">
-                      <ul className="category_btns_group unordered_list">
-                        <li><a href="#!">Tips & Tricks</a></li>
-                      </ul>
-                      <ul className="post_meta unordered_list">
-                        <li>
-                          <a href="#!">
-                            <img src="assets/images/icons/icon_calendar.svg" alt="Icon Calendar" /> 11/12/2024
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#!"><i className="fa-regular fa-comment-lines"></i> 24</a>
-                        </li>
-                      </ul>
+                    <div className="blog_post_content">
+                      <div className="post_meta_wrap">
+                        <ul className="category_btns_group unordered_list">
+                          <li><a href="#!">{post.category}</a></li>
+                        </ul>
+                        <ul className="post_meta unordered_list">
+                          <li>
+                            <a href="#!">
+                              <Image src={IconCalendar} alt="Icon Calendar" /> {dayjs(post.publishedDate).format('MMMM DD, YYYY')}
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <h3 className="blog_post_title">
+                        <Link href={`/blog/${post.slug}`}>
+                          {post.title}
+                        </Link>
+                      </h3>
+                      <p>
+                        {post.excerpt}
+                      </p>
+                      <Link className="btn btn-dark" href={`/blog/${post.slug}`}>
+                        <span className="btn_label" data-text="Read More">Read More</span>
+                        <span className="btn_icon">
+                          <PiArrowUpRightBold size={20} />
+                        </span>
+                      </Link>
                     </div>
-                    <h3 className="blog_post_title">
-                      <a href="blog_details.html">
-                        Insider Perspectives on IT Solutions with Bytewise Tech Thought Leaders.
-                      </a>
-                    </h3>
-                    <p>
-                      Dive deep into the world of IT solutions with Bytewise Tech&apos;s esteemed thought leaders. With unrivaled expertise and a passion for innovation,.
-                    </p>
-                    <a className="btn btn-dark" href="blog_details.html">
-                      <span className="btn_label" data-text="Read More">Read More</span>
-                      <span className="btn_icon">
-                        <i className="fa-solid fa-arrow-up-right"></i>
-                      </span>
-                    </a>
                   </div>
-                </div>
-                <div className="blog_post_block image_left_layout">
-                  <div className="blog_post_image">
-                    <a className="image_wrap" href="blog_details.html">
-                      <img src="assets/images/blog/blog_post_image_6.webp" alt="Blog Post Image 1" />
-                    </a>
-                  </div>
-                  <div className="blog_post_content">
-                    <div className="post_meta_wrap">
-                      <ul className="category_btns_group unordered_list">
-                        <li><a href="#!">Technology</a></li>
-                      </ul>
-                      <ul className="post_meta unordered_list">
-                        <li>
-                          <a href="#!">
-                            <img src="assets/images/icons/icon_calendar.svg" alt="Icon Calendar" /> 11/12/2024
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#!"><i className="fa-regular fa-comment-lines"></i> 24</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <h3 className="blog_post_title">
-                      <a href="blog_details.html">
-                        The Journey of IT Solutions with Bytewise Tech Innovators.
-                      </a>
-                    </h3>
-                    <p>
-                      Embark on an enlightening journey through evolution.
-                    </p>
-                    <a className="btn btn-dark" href="blog_details.html">
-                      <span className="btn_label" data-text="Read More">Read More</span>
-                      <span className="btn_icon">
-                        <i className="fa-solid fa-arrow-up-right"></i>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-                <div className="blog_post_block image_left_layout">
-                  <div className="blog_post_content">
-                    <div className="post_meta_wrap">
-                      <ul className="category_btns_group unordered_list">
-                        <li><a href="#!">Tips & Tricks</a></li>
-                      </ul>
-                      <ul className="post_meta unordered_list">
-                        <li>
-                          <a href="#!">
-                            <img src="assets/images/icons/icon_calendar.svg" alt="Icon Calendar" /> 11/12/2024
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#!"><i className="fa-regular fa-comment-lines"></i> 24</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <h3 className="blog_post_title">
-                      <a href="blog_details.html">
-                        Inspiring Stories of IT Solutions from Bytewise Tech Thought Leaders.
-                      </a>
-                    </h3>
-                    <p>
-                      Through their visionary leadership and innovative strategies, our thought leaders have paved the way for transformative..
-                    </p>
-                    <a className="btn btn-dark" href="blog_details.html">
-                      <span className="btn_label" data-text="Read More">Read More</span>
-                      <span className="btn_icon">
-                        <i className="fa-solid fa-arrow-up-right"></i>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-                <div className="blog_post_block image_left_layout">
-                  <div className="blog_post_image">
-                    <a className="image_wrap" href="blog_details.html">
-                      <img src="assets/images/blog/blog_post_image_7.webp" alt="Blog Post Image 1" />
-                    </a>
-                  </div>
-                  <div className="blog_post_content">
-                    <div className="post_meta_wrap">
-                      <ul className="category_btns_group unordered_list">
-                        <li><a href="#!">Technology</a></li>
-                      </ul>
-                      <ul className="post_meta unordered_list">
-                        <li>
-                          <a href="#!">
-                            <img src="assets/images/icons/icon_calendar.svg" alt="Icon Calendar" /> 11/12/2024
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#!"><i className="fa-regular fa-comment-lines"></i> 24</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <h3 className="blog_post_title">
-                      <a href="blog_details.html">
-                        The Journey of IT Solutions with Bytewise Tech Innovators.
-                      </a>
-                    </h3>
-                    <p>
-                      our innovators navigate the ever-evolving landscape..
-                    </p>
-                    <a className="btn btn-dark" href="blog_details.html">
-                      <span className="btn_label" data-text="Read More">Read More</span>
-                      <span className="btn_icon">
-                        <i className="fa-solid fa-arrow-up-right"></i>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-                <div className="blog_post_block image_left_layout">
-                  <div className="blog_post_content">
-                    <div className="post_meta_wrap">
-                      <ul className="category_btns_group unordered_list">
-                        <li><a href="#!">Technology</a></li>
-                      </ul>
-                      <ul className="post_meta unordered_list">
-                        <li>
-                          <a href="#!">
-                            <img src="assets/images/icons/icon_calendar.svg" alt="Icon Calendar" /> 11/12/2024
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#!"><i className="fa-regular fa-comment-lines"></i> 24</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <h3 className="blog_post_title">
-                      <a href="blog_details.html">
-                        Exploring the Evolution of IT Solutions with Bytewise Tech Visionaries.
-                      </a>
-                    </h3>
-                    <p>
-                      the evolution of IT solutions from inception to implementation. Discover the insights, strategies, and breakthroughs that have propelled us forward, and gain..
-                    </p>
-                    <a className="btn btn-dark" href="blog_details.html">
-                      <span className="btn_label" data-text="Read More">Read More</span>
-                      <span className="btn_icon">
-                        <i className="fa-solid fa-arrow-up-right"></i>
-                      </span>
-                    </a>
-                  </div>
-                </div>
+                ))}
                 <div className="pagination_wrap pb-0">
                   <ul className="pagination_nav unordered_list justify-content-center">
-                    <li><a href="#!"><i className="fa-solid fa-angles-left"></i></a></li>
+                    <li><a href="#!"><FaAnglesLeft /></a></li>
                     <li className="active"><a href="#!">1</a></li>
                     <li><a href="#!">2</a></li>
                     <li><a href="#!">3</a></li>
                     <li><a href="#!">...</a></li>
                     <li><a href="#!">10</a></li>
-                    <li><a href="#!"><i className="fa-solid fa-angles-right"></i></a></li>
+                    <li><a href="#!"><FaAnglesRight /></a></li>
                   </ul>
                 </div>
               </div>
