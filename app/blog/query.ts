@@ -29,7 +29,15 @@ export const GET_BLOG_POST_SLIDES = gql`
         tags
         banner {
           title
-          url
+          url(transform: {
+            width: 2580,
+            height: 1200,
+            resizeStrategy: FILL,
+            resizeFocus: BOTTOM,
+            backgroundColor: "rgb:321032",
+            format: JPG,
+            quality: 90
+          })
           height
           width
         }
@@ -49,15 +57,31 @@ export type BlogPost = {
   publishedDate: string;
 }
 
+export type GetBlogPostsListQueryVariables = {
+  limit: number;
+  skip: number;
+}
+
 export type GetBlogPostsListQuery = {
   blogCollection: {
+    total: number;
+    limit: number;
+    skip: number;
     items: BlogPost[];
   }
 }
 
 export const GET_BLOG_POSTS_LIST = gql`
-  query GetBlogPostsList {
-    blogCollection(order: [publishedDate_DESC], where: { private: false }) {
+  query GetBlogPostsList($limit: Int!, $skip: Int!) {
+    blogCollection(
+      order: [publishedDate_DESC],
+      where: { private: false },
+      limit: $limit,
+      skip: $skip
+    ) {
+      total
+      limit
+      skip
       items {
         _id
         title
@@ -65,13 +89,36 @@ export const GET_BLOG_POSTS_LIST = gql`
         excerpt
         thumbnail {
           title
-          url
+          url(transform: {
+            width: 624,
+            height: 672,
+            resizeStrategy: FILL,
+            resizeFocus: BOTTOM,
+            backgroundColor: "rgb:321032",
+            cornerRadius: 100,
+            format: JPG,
+            quality: 90
+          })
           height
           width
         }
         category
         publishedDate
       }
+    }
+  }
+`
+
+export type GetCategoryCountQuery = {
+  blogCollection: {
+    total: number;
+  }
+}
+
+export const GET_CATEGORY_COUNT = gql`
+  query GetCategoryCount {
+    blogCollection(where: { private: false }) {
+      total
     }
   }
 `

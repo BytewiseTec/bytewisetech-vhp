@@ -32,6 +32,18 @@
         background-color: var(--bs-dark);
       }
     }
+    &.disabled {
+      >a {
+        color: var(--bs-dark);
+        background-color: var(--bs-white);
+        cursor: not-allowed;
+
+        &:hover {
+          color: var(--bs-dark);
+          background-color: var(--bs-white);
+        }
+      }
+    }
   }
 }
 /* 2.15 - Pagination Nav - End

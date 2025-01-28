@@ -1,6 +1,7 @@
-import { Config, EntryId, Media } from '../../content.types'
 import { Document } from '@contentful/rich-text-types'
 import gql from 'graphql-tag'
+
+import { Config, EntryId, Media } from '../../content.types'
 
 export interface ProjectIdQuery {
   projectCollection: {

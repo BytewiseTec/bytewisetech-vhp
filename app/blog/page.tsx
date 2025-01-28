@@ -10,25 +10,45 @@ import { query } from '../ApolloClient'
 import IconCalendar from '../../public/assets/images/icons/icon_calendar.svg'
 
 import PostSwiper from './PostSwiper'
-import { GET_BLOG_POST_SLIDES, GET_BLOG_POSTS_LIST, GetBlogPostSlidesQuery, GetBlogPostsListQuery } from './query'
+import { GET_BLOG_POST_SLIDES, GET_BLOG_POSTS_LIST, GetBlogPostSlidesQuery, GetBlogPostsListQuery, GetBlogPostsListQueryVariables } from './query'
 
 
 import 'swiper/scss'
 import 'swiper/scss/pagination'
 
-export default async function BlogPage() {
+const getPageNumbers = (current: number, total: number) => {
+  if (total <= 5) return Array.from({ length: total }, (_, i) => i + 1)
+  if (current <= 3) return [1, 2, 3, 4, '...', total]
+  if (current >= total - 2) return [1, '...', total - 2, total - 1, total]
+  return [1, '...', current - 1, current, current + 1, '...', total]
+}
+
+interface BlogPageProps {
+  searchParams: Promise<Record<'page', string | number | undefined>>
+}
+
+export default async function BlogPage({ searchParams }: BlogPageProps) {
+  const limit = 10
+  const currentPage = Number((await searchParams).page) || 1
+
   const [getBlogPostSlidesQuery, getBlogPostsListQuery] = await Promise.all([
     query<GetBlogPostSlidesQuery>({
       query: GET_BLOG_POST_SLIDES
     }),
-    query<GetBlogPostsListQuery>({
-      query: GET_BLOG_POSTS_LIST
+    query<GetBlogPostsListQuery, GetBlogPostsListQueryVariables>({
+      query: GET_BLOG_POSTS_LIST,
+      variables: {
+        limit,
+        skip: (currentPage - 1) * limit
+      }
     })
   ])
 
   const blogPostSlides = getBlogPostSlidesQuery.data?.blogCollection.items || []
 
   const blogPosts = getBlogPostsListQuery.data?.blogCollection.items || []
+
+  const totalPages = Math.ceil(getBlogPostsListQuery.data?.blogCollection.total / limit)
 
   return (
     <>
@@ -88,13 +108,27 @@ export default async function BlogPage() {
                 ))}
                 <div className="pagination_wrap pb-0">
                   <ul className="pagination_nav unordered_list justify-content-center">
-                    <li><a href="#!"><FaAnglesLeft /></a></li>
-                    <li className="active"><a href="#!">1</a></li>
-                    <li><a href="#!">2</a></li>
-                    <li><a href="#!">3</a></li>
-                    <li><a href="#!">...</a></li>
-                    <li><a href="#!">10</a></li>
-                    <li><a href="#!"><FaAnglesRight /></a></li>
+                    <li className={currentPage === 1 ? 'disabled' : ''}>
+                      <Link href={currentPage === 1 ? '#!' : `?page=${currentPage - 1}`}>
+                        <FaAnglesLeft />
+                      </Link>
+                    </li>
+                    {getPageNumbers(currentPage, totalPages).map((page, index) => (
+                      <li key={index} className={page === currentPage ? 'active' : ''}>
+                        {page === '...'
+                          ? <span>...</span>
+                          : (
+                            <Link href={`?page=${page}`}>
+                              {page}
+                            </Link>
+                          )}
+                      </li>
+                    ))}
+                    <li className={currentPage === totalPages ? 'disabled' : ''}>
+                      <Link href={currentPage === totalPages ? '#!' : `?page=${currentPage + 1}`}>
+                        <FaAnglesRight />
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -108,62 +142,6 @@ export default async function BlogPage() {
                         <img src="assets/images/icons/icon_search.svg" alt="Search Icon" />
                       </button>
                     </div>
-                  </div>
-                  <div className="post_list_block">
-                    <h3 className="sidebar_widget_title">Related Posts</h3>
-                    <ul className="unordered_list_block">
-                      <li>
-                        <h3 className="post_title">
-                          <a href="blog_details.html">
-                            Discovering IT Solutions with Experts - Gain Exclusive..
-                          </a>
-                        </h3>
-                        <ul className="post_meta unordered_list">
-                          <li>
-                            <a href="#!">
-                              <img src="assets/images/icons/icon_calendar.svg" alt="Icon Calendar" /> 11/12/2024
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#!"><i className="fa-regular fa-comment-lines"></i> 24</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <h3 className="post_title">
-                          <a href="blog_details.html">
-                            Insights from Empowering Your Business through..
-                          </a>
-                        </h3>
-                        <ul className="post_meta unordered_list">
-                          <li>
-                            <a href="#!">
-                              <img src="assets/images/icons/icon_calendar.svg" alt="Icon Calendar" /> 11/12/2024
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#!"><i className="fa-regular fa-comment-lines"></i> 24</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <h3 className="post_title">
-                          <a href="blog_details.html">
-                            Insights into IT Solutions with Transform Your Operations..
-                          </a>
-                        </h3>
-                        <ul className="post_meta unordered_list">
-                          <li>
-                            <a href="#!">
-                              <img src="assets/images/icons/icon_calendar.svg" alt="Icon Calendar" /> 11/12/2024
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#!"><i className="fa-regular fa-comment-lines"></i> 24</a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
                   </div>
                   <div className="post_category_wrap">
                     <h3 className="sidebar_widget_title">Categories</h3>

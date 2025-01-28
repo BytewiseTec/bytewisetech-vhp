@@ -1,13 +1,16 @@
-import { query } from '../../ApolloClient'
-import PageBanner from '../../../components/PageBanner'
-import { GET_PROJECT, GET_PROJECT_ID, ProjectIdQuery, ProjectQuery } from './query'
 import Image from 'next/image'
-import { renderDomToReact } from '../../../utils/renderers'
-import { GET_PROJECTS, ProjectsQuery } from '../query'
+import { Metadata } from 'next'
+
 import generateStructuredData from '@/utils/structured-data'
 
+import { query } from '../../ApolloClient'
+import PageBanner from '../../../components/PageBanner'
+import { renderDomToReact } from '../../../utils/renderers'
+import { GET_PROJECTS, ProjectsQuery } from '../query'
 import IconCheck from '../../../public/assets/images/icons/icon_check_3.svg'
-import { Metadata } from 'next'
+
+import { GET_PROJECT, GET_PROJECT_ID, ProjectIdQuery, ProjectQuery } from './query'
+
 
 interface PortfolioDetailsPageProps {
   params: Promise<{slug: string;}>
