@@ -11,6 +11,7 @@ import IconLink from '../../../public/assets/images/icons/icon_link.svg'
 import IconBookmark from '../../../public/assets/images/icons/icon_bookmark.svg'
 
 import { GET_BLOG_POST, GET_BLOG_POST_ID, GetBlogPostIdQuery, GetBlogPostQuery } from './query'
+import { renderDomToReact } from '@/utils/renderers'
 
 interface BlogDetailsPageProps {
   params: Promise<{ slug: string; }>
@@ -102,119 +103,7 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
           <div className="section_space pb-0">
             <div className="row">
               <div className="col-lg-8">
-                <div className="blog_details_audio">
-                  <button className="audio_play_btn" type="button">
-                    <i className="fa-solid fa-play"></i>
-                    <span>6:24</span>
-                    <span>Listen to this article!</span>
-                  </button>
-                </div>
-                <h3 className="details_item_info_title mb-5">
-                  Revolutionizing Business Efficiency Navigating Growth with Optimal IT Infrastructure Enhancement
-                </h3>
-                <div className="row mb-4">
-                  <div className="col-md-6 col-sm-6">
-                    <div className="details_item_image m-0">
-                      <img src="/assets/images/blog/blog_post_image_9.webp" alt="Bytewise Tech - Blog Image" />
-                    </div>
-                  </div>
-                  <div className="col-md-6 col-sm-6">
-                    <div className="details_item_image m-0">
-                      <img src="/assets/images/blog/blog_post_image_10.webp" alt="Bytewise Tech - Blog Image" />
-                    </div>
-                  </div>
-                </div>
-                <p>
-                  Gain exclusive insights into the world of IT solutions with Bytewise Tech&apos;s distinguished thought leaders. With years of experience and a deep understanding of industry trends, our thought leaders offer invaluable perspectives that illuminate the path to technological excellence. From emerging technologies to innovative strategies, they provide unique insights that inform and inspire. Join us as we delve into the inner workings of IT solutions, exploring the challenges.
-                </p>
-                <p>
-                  Embark on an illuminating journey into the world of IT solutions with Bytewise Tech&apos;s esteemed thought leaders. Delve deep into the inner workings of technology as our seasoned experts share their wealth of knowledge and experience. With a finger on the pulse of industry trends and a keen eye for innovation, our thought leaders offer unparalleled insights that illuminate the path
-                </p>
-
-                <h3 className="details_item_info_title">Sample Heading</h3>
-                <p>
-                  they provide a comprehensive and in-depth analysis that goes beyond surface-level . Join us as we uncover the secrets of IT solutions, guided by the wisdom and expertise of Bytewise Tech&apos;s thought leaders. Prepare to be inspired, informed, and empowered to navigate the ever- landscape of technology with confidence and clarity. you&apos;ll gain access to unparalleled expertise and discover new possibilities for success in the ever-evolving world of technology.
-                </p>
-                <div className="row align-items-center mb-5">
-                  <div className="col-md-6">
-                    <div className="details_item_image m-0">
-                      <img src="/assets/images/blog/blog_post_image_11.webp" alt="Bytewise Tech - Blog Image" />
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <ul className="icon_list unordered_list_block">
-                      <li>
-                        <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
-                        </span>
-                        <span className="icon_list_text">
-                          Unveiling Emerging Technologies
-                        </span>
-                      </li>
-                      <li>
-                        <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
-                        </span>
-                        <span className="icon_list_text">
-                          Navigating Complex Challenges
-                        </span>
-                      </li>
-                      <li>
-                        <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
-                        </span>
-                        <span className="icon_list_text">
-                          Forecasting Future Trends
-                        </span>
-                      </li>
-                      <li>
-                        <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
-                        </span>
-                        <span className="icon_list_text">
-                          Driving Innovation Strategies
-                        </span>
-                      </li>
-                      <li>
-                        <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
-                        </span>
-                        <span className="icon_list_text">
-                          Exploring Industry Practices
-                        </span>
-                      </li>
-                      <li>
-                        <span className="icon_list_icon">
-                          <i className="fa-solid fa-circle fa-fw"></i>
-                        </span>
-                        <span className="icon_list_text">
-                          Empowering Transformation
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <h3 className="details_item_info_title">3 Reasons to investing at this moment</h3>
-                <p className="mb-2">
-                  Here are three key reasons emphasizing the importance of optimizing IT infrastructure for efficiency and growth:
-                </p>
-                <ul className="icon_list unordered_list_block mb-5">
-                  <li>
-                    <span className="icon_list_text">
-                      1. Enhanced Operational Agility
-                    </span>
-                  </li>
-                  <li>
-                    <span className="icon_list_text">
-                      2. Resource Optimization & Cost Efficiency
-                    </span>
-                  </li>
-                  <li>
-                    <span className="icon_list_text">
-                      3. Scalability and Innovation
-                    </span>
-                  </li>
-                </ul>
+                {renderDomToReact(post.body.json)}
                 <hr className="mt-0 mb-5" />
                 <div className="row">
                   <div className="col-md-6">
