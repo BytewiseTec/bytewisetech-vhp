@@ -1,4 +1,5 @@
 import { FaFacebookF, FaGithub, FaInstagram, FaLinkedinIn, FaTwitter, FaYoutube } from 'react-icons/fa6'
+
 import {
   BYTEWISE_EMAIL_REGEX,
   CLIENT_ENCRYPTION_SALT,

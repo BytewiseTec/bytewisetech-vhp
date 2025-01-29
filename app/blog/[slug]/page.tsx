@@ -2,16 +2,15 @@ import Image from 'next/image'
 import dayjs from 'dayjs'
 
 import { query } from '@/app/ApolloClient'
+import { renderDomToReact } from '@/utils/renderers'
+import { CopyToClipboardLink } from '@/components/Shared/CopyToClipboardLink'
+import { AddToBookmarks } from '@/components/Shared/AddToBookmarks'
 
 import PageBanner from '../../../components/PageBanner'
-
 import IconCalendar from '../../../public/assets/images/icons/icon_calendar.svg'
 import IconUser from '../../../public/assets/images/icons/icon_user.svg'
-import IconLink from '../../../public/assets/images/icons/icon_link.svg'
-import IconBookmark from '../../../public/assets/images/icons/icon_bookmark.svg'
 
 import { GET_BLOG_POST, GET_BLOG_POST_ID, GetBlogPostIdQuery, GetBlogPostQuery } from './query'
-import { renderDomToReact } from '@/utils/renderers'
 
 interface BlogDetailsPageProps {
   params: Promise<{ slug: string; }>
@@ -87,14 +86,10 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
             <div className="col-md-6">
               <ul className="post_meta unordered_list justify-content-md-end">
                 <li>
-                  <a href="#!">
-                    <Image src={IconLink} alt="Icon Link" /> Copy Link
-                  </a>
+                  <CopyToClipboardLink />
                 </li>
                 <li>
-                  <a href="#!">
-                    <Image src={IconBookmark} alt="Bookmark Chat" /> Bookmark
-                  </a>
+                  <AddToBookmarks />
                 </li>
               </ul>
             </div>
