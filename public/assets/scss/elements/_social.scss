@@ -16,7 +16,7 @@
 			color: var(--bs-white);
 			border-color: var(--bs-primary);
 			background-color: var(--bs-primary);
-			img {
+			svg,img {
 				filter: invert(1);
 			}
 		}

@@ -8,10 +8,17 @@ import Badge from '../../components/Badge'
 import PageBanner from '../../components/PageBanner'
 import { query } from '../ApolloClient'
 import IconCalendar from '../../public/assets/images/icons/icon_calendar.svg'
+import SearchIcon from '../../public/assets/images/icons/icon_search.svg'
 
+import {
+  GET_BLOG_POST_SLIDES,
+  GET_BLOG_POSTS_LIST,
+  GetBlogPostSlidesQuery,
+  GetBlogPostsListQuery,
+  GetBlogPostsListQueryVariables
+} from './query'
+import { GET_BLOG_POST_CATEGORIES, GetBlogPostCategoriesQuery } from './[slug]/query'
 import PostSwiper from './PostSwiper'
-import { GET_BLOG_POST_SLIDES, GET_BLOG_POSTS_LIST, GetBlogPostSlidesQuery, GetBlogPostsListQuery, GetBlogPostsListQueryVariables } from './query'
-
 
 import 'swiper/scss'
 import 'swiper/scss/pagination'
@@ -31,7 +38,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   const limit = 10
   const currentPage = Number((await searchParams).page) || 1
 
-  const [getBlogPostSlidesQuery, getBlogPostsListQuery] = await Promise.all([
+  const [getBlogPostSlidesQuery, getBlogPostsListQuery, blogPostCategoriesResponse] = await Promise.all([
     query<GetBlogPostSlidesQuery>({
       query: GET_BLOG_POST_SLIDES
     }),
@@ -41,8 +48,25 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         limit,
         skip: (currentPage - 1) * limit
       }
-    })
+    }),
+    query<GetBlogPostCategoriesQuery>({
+      query: GET_BLOG_POST_CATEGORIES,
+    }),
   ])
+
+  const { items: categories = [] } = blogPostCategoriesResponse.data?.blogCollection || {}
+
+  const categoryCounts = categories.reduce((acc, { category }) => {
+    acc[category] = (acc[category] || 0) + 1
+    return acc
+  }, {} as Record<string, number>)
+
+  const allTags = Array.from(categories.reduce((acc, { tags }) => {
+    tags.forEach((tag) => {
+      acc.add(tag)
+    })
+    return acc
+  }, new Set<string>()) || [])
 
   const blogPostSlides = getBlogPostSlidesQuery.data?.blogCollection.items || []
 
@@ -138,71 +162,33 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                     <h3 className="sidebar_widget_title">Search</h3>
                     <div className="form-group">
                       <input className="form-control" type="search" name="search" placeholder="Search your keyword" />
-                      <button type="submit">
-                        <img src="assets/images/icons/icon_search.svg" alt="Search Icon" />
+                      <button type="submit" title="Search">
+                        <Image src={SearchIcon} alt="Search Icon" />
                       </button>
                     </div>
                   </div>
                   <div className="post_category_wrap">
                     <h3 className="sidebar_widget_title">Categories</h3>
                     <ul className="post_category_list unordered_list_block">
-                      <li>
-                        <a href="#!">
-                          <i className="fa-solid fa-arrow-up-right"></i>
-                          <span>Cybersecurity</span>
-                          <span>(05)</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#!">
-                          <i className="fa-solid fa-arrow-up-right"></i>
-                          <span>Tech Trends</span>
-                          <span>(02)</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#!">
-                          <i className="fa-solid fa-arrow-up-right"></i>
-                          <span>Digital Transformation</span>
-                          <span>(02)</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#!">
-                          <i className="fa-solid fa-arrow-up-right"></i>
-                          <span>IT Infrastructure</span>
-                          <span>(04)</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#!">
-                          <i className="fa-solid fa-arrow-up-right"></i>
-                          <span>Mobile App</span>
-                          <span>(03)</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#!">
-                          <i className="fa-solid fa-arrow-up-right"></i>
-                          <span>Cloud Computing</span>
-                          <span>(07)</span>
-                        </a>
-                      </li>
+                      {Object.entries(categoryCounts).map(([category, count]) => (
+                        <li key={category}>
+                          <a href="#!">
+                            <PiArrowUpRightBold size={20} />
+                            <span>{category}</span>
+                            <span>({count})</span>
+                          </a>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                   <div className="popular_tags">
                     <h3 className="sidebar_widget_title">Popular Tags</h3>
                     <ul className="tags_list unordered_list">
-                      <li><a href="#!">Cybersecurity</a></li>
-                      <li><a href="#!">TechSolutions</a></li>
-                      <li><a href="#!">UX Design</a></li>
-                      <li><a href="#!">App Dev</a></li>
-                      <li><a href="#!">Data</a></li>
-                      <li><a href="#!">Solution</a></li>
-                      <li><a href="#!">Consultants</a></li>
-                      <li><a href="#!">IT</a></li>
-                      <li><a href="#!">Optimization</a></li>
-                      <li><a href="#!">Startup</a></li>
+                      {allTags.map((tag) => (
+                        <li key={tag}>
+                          <a href="#!">{tag}</a>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 </aside>

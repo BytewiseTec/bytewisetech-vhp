@@ -77,3 +77,25 @@ export const GET_BLOG_POST = gql`
     }
   }
 `
+
+export interface BlogPostCategory {
+  category: string;
+  tags: string[];
+}
+
+export interface GetBlogPostCategoriesQuery {
+  blogCollection: {
+    items: BlogPostCategory[];
+  };
+}
+
+export const GET_BLOG_POST_CATEGORIES = gql`
+  query GetBlogPostCategories {
+    blogCollection(where: { private: false }) {
+      items {
+        category
+        tags
+      }
+    }
+  }
+`
