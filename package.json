@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@apollo/client": "^3.11.10",
-    "@apollo/experimental-nextjs-app-support": "^0.11.5",
+    "@apollo/client": "^3.12.8",
+    "@apollo/experimental-nextjs-app-support": "^0.11.8",
     "@contentful/rich-text-html-renderer": "^16.6.4",
     "@contentful/rich-text-plain-text-renderer": "^17.0.0",
     "@contentful/rich-text-react-renderer": "^16.0.1",
@@ -40,7 +40,7 @@
     "react-router-dom": "^6.26.1",
     "sass": "^1.80.4",
     "schema-dts": "^1.1.2",
-    "sonner": "^1.5.0",
+    "sonner": "^1.7.3",
     "swiper": "^11.2.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
