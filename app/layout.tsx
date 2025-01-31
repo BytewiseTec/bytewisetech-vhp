@@ -63,25 +63,26 @@ export const metadata: Metadata = {
     siteName: 'Bytewise Technologies',
     images: [
       {
-        url: '/assets/images/site_logo/logo-og-image.png',
+        name: 'image',
+        url: 'https://bytewisetechnologies.com/assets/images/site_logo/logo-og-image.png',
         alt: 'Bytewise Technologies',
         width: 1200,
         height: 630,
       },
       {
-        url: '/assets/images/site_logo/web-app-manifest-512x512.png',
+        url: 'https://bytewisetechnologies.com/assets/images/site_logo/web-app-manifest-512x512.png',
         alt: 'Bytewise Technologies',
         width: 512,
         height: 512,
       },
       {
-        url: '/assets/images/site_logo/apple-touch-icon.png',
+        url: 'https://bytewisetechnologies.com/assets/images/site_logo/apple-touch-icon.png',
         alt: 'Bytewise Technologies',
         width: 180,
         height: 180,
       },
       {
-        url: '/assets/images/site_logo/favicon-32x32.png',
+        url: 'https://bytewisetechnologies.com/assets/images/site_logo/favicon-32x32.png',
         alt: 'Bytewise Technologies',
         width: 32,
         height: 32,
