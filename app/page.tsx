@@ -1,3 +1,8 @@
+import getStructuredData from '@/utils/structured-data'
+import { FAQsQuery, GET_FAQS } from '@/components/FAQs/query'
+import BlogPosts from '@/components/BlogPosts'
+import { GET_LATEST_BLOG_POSTS, GetLatestBlogPostsQuery } from '@/components/BlogPosts/query'
+
 import AboutCaseStudies from '../components/AboutCaseStudies'
 import ContactUs from '../components/ContactUs'
 import Featured from '../components/Featured'
@@ -5,11 +10,9 @@ import Hero from '../components/Hero'
 import Services from '../components/Services'
 import TechnologyReview from '../components/TechnologyReview'
 import FAQs from '../components/FAQs'
-import getStructuredData from '@/utils/structured-data'
+
 import { query } from './ApolloClient'
-import { FAQsQuery, GET_FAQS } from '@/components/FAQs/query'
-import BlogPosts from '@/components/BlogPosts'
-import { GET_LATEST_BLOG_POSTS, GetLatestBlogPostsQuery } from '@/components/BlogPosts/query'
+
 
 export default async function Home() {
   const [ faqsResponse, latestBlogPostsResponse ] = await Promise.all([

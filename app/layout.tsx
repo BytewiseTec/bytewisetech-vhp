@@ -3,15 +3,16 @@ import Script from 'next/script'
 import { FaArrowUp } from 'react-icons/fa6'
 import localFont from 'next/font/local'
 
+import InternalCookieSetter from '@/components/InternalCookieSetter'
+
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import CallToAction from '../components/CallToAction'
+
+import { ApolloWrapper } from './ApolloWrapper'
 
 import '../public/assets/css/bootstrap.min.css'
 import '../public/assets/scss/style.scss'
-
-import CallToAction from '../components/CallToAction'
-import { ApolloWrapper } from './ApolloWrapper'
-import InternalCookieSetter from '@/components/InternalCookieSetter'
 
 const axiRegaular = localFont({
   src: '../public/assets/fonts/Axiforma-Regular.ttf',
@@ -60,6 +61,32 @@ export const metadata: Metadata = {
     description: 'Bytewise Technologies offers tailored tech solutions to drive your business success. Explore our services and expertise to achieve business growth.',
     url: 'https://bytewisetechnologies.com',
     siteName: 'Bytewise Technologies',
+    images: [
+      {
+        url: '/assets/images/site_logo/logo-og-image.png',
+        alt: 'Bytewise Technologies',
+        width: 1200,
+        height: 630,
+      },
+      {
+        url: '/assets/images/site_logo/web-app-manifest-512x512.png',
+        alt: 'Bytewise Technologies',
+        width: 512,
+        height: 512,
+      },
+      {
+        url: '/assets/images/site_logo/apple-touch-icon.png',
+        alt: 'Bytewise Technologies',
+        width: 180,
+        height: 180,
+      },
+      {
+        url: '/assets/images/site_logo/favicon-32x32.png',
+        alt: 'Bytewise Technologies',
+        width: 32,
+        height: 32,
+      },
+    ],
   },
   alternates: {
     canonical: 'https://bytewisetechnologies.com',

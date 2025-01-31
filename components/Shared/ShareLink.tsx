@@ -8,6 +8,10 @@ interface ShareLinkProps {
 }
 
 export const ShareLink: React.FC<ShareLinkProps> = ({ to }) => {
+  if (typeof window === 'undefined') {
+    return null
+  }
+
   if (to === 'facebook') {
     return (
       <a className="rounded-circle facebook" href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`} target="_blank" rel="noreferrer" title="Share on Facebook">
