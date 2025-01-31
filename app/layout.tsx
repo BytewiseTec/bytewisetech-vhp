@@ -63,7 +63,6 @@ export const metadata: Metadata = {
     siteName: 'Bytewise Technologies',
     images: [
       {
-        name: 'image',
         url: 'https://bytewisetechnologies.com/assets/images/site_logo/logo-og-image.png',
         alt: 'Bytewise Technologies',
         width: 1200,
