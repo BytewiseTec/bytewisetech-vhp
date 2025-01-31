@@ -36,7 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...blogCollection?.blogCollection.items.map((blog) => ({
       url: `${appUrl}/blog/${blog.slug}`,
       lastModified: new Date(),
-      changeFrequency: 'daily',
+      changeFrequency: 'monthly',
       priority: 0.5,
     })) || [],
     ...servicesCollection?.serviceCollection.items.map((service) => ({
