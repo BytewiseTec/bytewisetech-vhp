@@ -19,6 +19,47 @@ interface BlogDetailsPageProps {
   params: Promise<{ slug: string; }>
 }
 
+export async function generateMetadata(
+  { params }: BlogDetailsPageProps,
+) {
+  const { slug } = await params
+  const { data: blogPostIdResponse } = await query<GetBlogPostIdQuery>({
+    query: GET_BLOG_POST_ID,
+    variables: {
+      slug,
+    }
+  })
+
+  const { items } = blogPostIdResponse.blogCollection || {}
+
+  if (!items?.length) {
+    return {}
+  }
+
+  const { data: blogPostData } = await query<GetBlogPostQuery>({
+    query: GET_BLOG_POST,
+    variables: {
+      id: items?.[0]?.sys.id
+    },
+  })
+
+  const { blog: post } = blogPostData || {}
+
+  return {
+    title: `${post.title} - Bytewise Technologies`,
+    description: post.excerpt,
+    keywords: post.tags.join(', '),
+    openGraph: {
+      locale: 'en_US',
+      type: 'website',
+      title: `${post.title} - Bytewise Technologies`,
+      description: post.excerpt,
+      url: `https://bytewisetechnologies.com/blog/${slug}`,
+      siteName: 'Bytewise Technologies',
+    },
+  }
+}
+
 export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) {
   const { slug } = await params
   const [blogPostIdResponse, blogPostCategoriesResponse] = await Promise.all([
@@ -63,7 +104,14 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
   const { blog: post } = blogPostData || {}
   return (
     <>
-      <PageBanner title={post.title} />
+      <PageBanner
+        title={post.title}
+        breadcrumb={[
+          { name: 'Home', url: '/' },
+          { name: 'Blog', url: '/blog' },
+          { name: post.title },
+        ]}
+      />
 
       <section className="blog_details_section section_space bg-light">
         <div className="container">
@@ -193,4 +241,18 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
       </section>
     </>
   )
+}
+
+export async function generateStaticParams() {
+  const { data } = await query<GetBlogPostCategoriesQuery>({
+    query: GET_BLOG_POST_CATEGORIES,
+  })
+
+  const { items } = data?.blogCollection || {}
+
+  const paths = items?.map(({ slug }) => ({
+    slug,
+  }))
+
+  return paths
 }

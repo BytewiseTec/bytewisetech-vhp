@@ -81,6 +81,7 @@ export const GET_BLOG_POST = gql`
 export interface BlogPostCategory {
   category: string;
   tags: string[];
+  slug: string;
 }
 
 export interface GetBlogPostCategoriesQuery {
@@ -95,6 +96,7 @@ export const GET_BLOG_POST_CATEGORIES = gql`
       items {
         category
         tags
+        slug
       }
     }
   }

@@ -1,12 +1,14 @@
-import Image from 'next/image'
-import { query } from '../ApolloClient'
-import { GET_PROJECTS, ProjectsQuery } from './query'
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { FaBuilding, FaTags } from 'react-icons/fa'
-import PageBanner from '../../components/PageBanner'
+
 import generateStructuredData from '@/utils/structured-data'
 import Carousel from '@/components/Shared/Carousel'
+
+import PageBanner from '../../components/PageBanner'
+import { query } from '../ApolloClient'
+
+import { GET_PROJECTS, ProjectsQuery } from './query'
 
 export const metadata: Metadata = {
   title: 'Portfolio - Bytewise Technologies',

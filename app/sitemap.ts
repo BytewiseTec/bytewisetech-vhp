@@ -1,9 +1,11 @@
 import { MetadataRoute } from 'next'
-import { query } from './ApolloClient'
+
 import { FieldsLinksQuery, GET_FIELDS, GET_LINKS, HeaderLinksQuery, ServicesLinksQuery } from '../components/Navbar/query'
+
+import { query } from './ApolloClient'
 import { GET_SERVICES } from './services/query'
-import { GET_TEAM_COLLECTION, TeamCollectionQuery } from './team/query'
 import { GET_PROJECTS, ProjectsQuery } from './portfolio/query'
+import { GET_BLOG_POST_CATEGORIES, GetBlogPostCategoriesQuery } from './blog/[slug]/query'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://bytewisetechnologies.com'
@@ -13,8 +15,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const { data: servicesCollection } = await query<ServicesLinksQuery>({
     query: GET_SERVICES
   })
-  const { data: teamMemberData } = await query<TeamCollectionQuery>({
-    query: GET_TEAM_COLLECTION
+  const { data: blogCollection } = await query<GetBlogPostCategoriesQuery>({
+    query: GET_BLOG_POST_CATEGORIES
   })
   const { data: projectData } = await query<ProjectsQuery>({
     query: GET_PROJECTS
@@ -31,18 +33,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly',
       priority: 1,
     },
+    ...blogCollection?.blogCollection.items.map((blog) => ({
+      url: `${appUrl}/blog/${blog.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.5,
+    })) || [],
     ...servicesCollection?.serviceCollection.items.map((service) => ({
       url: `${appUrl}/services/${service.slug}`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.5,
     })) || [],
-    // ...teamMemberData?.teamCollection.items.map((team) => ({
-    //   url: `${appUrl}/team/${team.slug}`,
-    //   lastModified: new Date(),
-    //   changeFrequency: 'monthly',
-    //   priority: 0.5,
-    // })) || [],
     ...projectData?.projectCollection.items.map((project) => ({
       url: `${appUrl}/portfolio/${project.slug}`,
       lastModified: new Date(),
@@ -65,6 +67,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${appUrl}${services.href}`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${appUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
       priority: 0.8,
     },
     {

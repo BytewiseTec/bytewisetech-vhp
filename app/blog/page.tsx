@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { PiArrowUpRightBold } from 'react-icons/pi'
 import { FaAnglesLeft, FaAnglesRight } from 'react-icons/fa6'
 
-import Badge from '../../components/Badge'
 import PageBanner from '../../components/PageBanner'
 import { query } from '../ApolloClient'
 import IconCalendar from '../../public/assets/images/icons/icon_calendar.svg'
@@ -32,6 +31,24 @@ const getPageNumbers = (current: number, total: number) => {
 
 interface BlogPageProps {
   searchParams: Promise<Record<'page', string | number | undefined>>
+}
+
+export const metadata = {
+  title: 'Blog - Bytewise Technologies',
+  description: 'Our blog showcases the latest news and updates from Bytewise Technologies. Stay up-to-date with our blog posts.',
+  keywords: 'blog, news, updates, Bytewise Technologies',
+  authors: { name: 'Bytewise Technologies', url: 'https://bytewisetechnologies.com' },
+  openGraph: {
+    locale: 'en_US',
+    type: 'website',
+    title: 'Blog - Bytewise Technologies',
+    description: 'Our blog showcases the latest news and updates from Bytewise Technologies. Stay up-to-date with our blog posts.',
+    url: 'https://bytewisetechnologies.com/blog',
+    siteName: 'Bytewise Technologies',
+  },
+  alternates: {
+    canonical: 'https://bytewisetechnologies.com/blog',
+  }
 }
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
@@ -76,10 +93,13 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
   return (
     <>
-      <PageBanner title="Our Latest Blog">
-        Our
-        <Badge>Blog</Badge>
-      </PageBanner>
+      <PageBanner
+        title="Our Latest Blog"
+        breadcrumb={[
+          { name: 'Home', url: '/' },
+          { name: 'Blog' },
+        ]}
+      />
 
       <section className="blog_section section_space bg-light">
         <div className="container">
@@ -199,4 +219,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       </section>
     </>
   )
+}
+
+export async function generateStaticParams() {
+  return []
 }

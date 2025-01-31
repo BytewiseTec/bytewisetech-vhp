@@ -1,5 +1,6 @@
-import { Link } from '../../app/layout.types'
 import gql from 'graphql-tag'
+
+import { Link } from '../../app/layout.types'
 import { TeamMember } from '../../app/about/query'
 import { Media } from '../../app/content.types'
 export interface HeaderLinks {
