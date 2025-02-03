@@ -3,6 +3,9 @@ import dayjs from 'dayjs'
 import Link from 'next/link'
 import { PiArrowUpRightBold } from 'react-icons/pi'
 import { FaAnglesLeft, FaAnglesRight } from 'react-icons/fa6'
+import Script from 'next/script'
+
+import generateStructuredData from '@/utils/structured-data'
 
 import PageBanner from '../../components/PageBanner'
 import { query } from '../ApolloClient'
@@ -91,8 +94,21 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
   const totalPages = Math.ceil(getBlogPostsListQuery.data?.blogCollection.total / limit)
 
+  const jsonLd = generateStructuredData([
+    {
+      '@type': 'BreadcrumbList',
+      '@id': 'https://bytewisetechnologies.com/#breadcrumb',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bytewisetechnologies.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Blog' },
+      ],
+    }
+  ])
+
   return (
     <>
+      <Script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} id="structured-data" />
+
       <PageBanner
         title="Our Latest Blog"
         breadcrumb={[

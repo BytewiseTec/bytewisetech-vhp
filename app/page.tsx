@@ -1,3 +1,5 @@
+import Script from 'next/script'
+
 import getStructuredData from '@/utils/structured-data'
 import { FAQsQuery, GET_FAQS } from '@/components/FAQs/query'
 import BlogPosts from '@/components/BlogPosts'
@@ -15,7 +17,7 @@ import { query } from './ApolloClient'
 
 
 export default async function Home() {
-  const [ faqsResponse, latestBlogPostsResponse ] = await Promise.all([
+  const [faqsResponse, latestBlogPostsResponse] = await Promise.all([
     query<FAQsQuery>({
       query: GET_FAQS
     }),
@@ -43,9 +45,10 @@ export default async function Home() {
 
   return (
     <>
-      <script
+      <Script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        id="structured-data"
       />
       <Hero />
       <Featured />

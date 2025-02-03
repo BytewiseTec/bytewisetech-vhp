@@ -1,7 +1,10 @@
 import Image from 'next/image'
 import dayjs from 'dayjs'
 import { PiArrowUpRightBold } from 'react-icons/pi'
+import Script from 'next/script'
+import { Metadata } from 'next'
 
+import generateStructuredData from '@/utils/structured-data'
 import { query } from '@/app/ApolloClient'
 import { renderDomToReact } from '@/utils/renderers'
 import { CopyToClipboardLink } from '@/components/Shared/CopyToClipboardLink'
@@ -21,7 +24,7 @@ interface BlogDetailsPageProps {
 
 export async function generateMetadata(
   { params }: BlogDetailsPageProps,
-) {
+): Promise<Metadata> {
   const { slug } = await params
   const { data: blogPostIdResponse } = await query<GetBlogPostIdQuery>({
     query: GET_BLOG_POST_ID,
@@ -56,7 +59,21 @@ export async function generateMetadata(
       description: post.excerpt,
       url: `https://bytewisetechnologies.com/blog/${slug}`,
       siteName: 'Bytewise Technologies',
-    },
+      images: [
+        {
+          url: post.banner?.url,
+          width: post.banner?.width,
+          height: post.banner?.height,
+          alt: post.banner?.title,
+        },
+        {
+          url: post.thumbnail?.url,
+          width: post.thumbnail?.width,
+          height: post.thumbnail?.height,
+          alt: post.thumbnail?.title,
+        }
+      ],
+    } as const,
   }
 }
 
@@ -102,8 +119,37 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
   })
 
   const { blog: post } = blogPostData || {}
+
+  const jsonLd = generateStructuredData([
+    {
+      '@type': 'BreadcrumbList',
+      '@id': 'https://bytewisetechnologies.com/#breadcrumb',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bytewisetechnologies.com/' },
+        { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://bytewisetechnologies.com/blog' },
+        { '@type': 'ListItem', position: 3, name: post.title },
+      ],
+    },
+    {
+      '@type': 'BlogPosting',
+      headline: post.title,
+      image: post.banner?.url,
+      thumbnailUrl: post.thumbnail?.url,
+      description: post.excerpt,
+      datePublished: post.publishedDate,
+      dateModified: post.sys.publishedAt,
+      genre: post.category,
+      url: `https://bytewisetechnologies.com/blog/${slug}`,
+      publisher: {
+        '@id': 'https://bytewisetechnologies.com/#organization',
+      }
+    }
+  ])
+
   return (
     <>
+      <Script type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} id="structured-data" />
+
       <PageBanner
         title={post.title}
         breadcrumb={[

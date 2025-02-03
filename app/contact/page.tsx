@@ -1,16 +1,20 @@
-import { ContactQuery, GET_CONTACT } from './query'
 import { Metadata } from 'next'
 import { GoogleMapsEmbed } from '@next/third-parties/google'
+import Image, { StaticImageData } from 'next/image'
+import Script from 'next/script'
+
+import generateStructuredData from '@/utils/structured-data'
+
 import { query } from '../ApolloClient'
 import ContactForm from '../../components/ContactForm'
 import PageBanner from '../../components/PageBanner'
-import Image, { StaticImageData } from 'next/image'
-import generateStructuredData from '@/utils/structured-data'
-
 import IconCalling2 from '../../public/assets/images/icons/icon_calling_2.svg'
 import IconMail3 from '../../public/assets/images/icons/icon_mail_3.svg'
 import IconMapMark2 from '../../public/assets/images/icons/icon_map_mark_2.svg'
 import IconCalendar2 from '../../public/assets/images/icons/icon_calendar_2.svg'
+
+
+import { ContactQuery, GET_CONTACT } from './query'
 
 const tileIcons: Record<string, StaticImageData> = {
   'icon_calling_2.svg': IconCalling2,
@@ -57,9 +61,10 @@ export default async function ContactPage() {
 
   return (
     <>
-      <script
+      <Script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        id="structured-data"
       />
 
       <PageBanner

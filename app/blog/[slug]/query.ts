@@ -32,10 +32,14 @@ export interface BlogPost {
   tags: string[];
   publishedDate: string;
   private: boolean;
+  thumbnail: Media;
   banner: Media;
   author: Pick<TeamMember, 'fullName'>;
   body: {
     json: Document;
+  };
+  sys: {
+    publishedAt: string;
   };
 }
 
@@ -54,17 +58,36 @@ export const GET_BLOG_POST = gql`
       tags
       publishedDate
       private
+      thumbnail {
+        title
+        url(
+          transform: {
+            width: 624
+            height: 672
+            resizeStrategy: FILL
+            resizeFocus: BOTTOM
+            backgroundColor: "rgb:321032"
+            cornerRadius: 100
+            format: JPG
+            quality: 90
+          }
+        )
+        height
+        width
+      }
       banner {
         title
-        url(transform: {
-          width: 2580,
-          height: 1190,
-          resizeStrategy: FILL,
-          resizeFocus: BOTTOM,
-          backgroundColor: "rgb:321032",
-          format: JPG,
-          quality: 90
-        })
+        url(
+          transform: {
+            width: 2580
+            height: 1190
+            resizeStrategy: FILL
+            resizeFocus: BOTTOM
+            backgroundColor: "rgb:321032"
+            format: JPG
+            quality: 90
+          }
+        )
         width
         height
       }
@@ -73,6 +96,9 @@ export const GET_BLOG_POST = gql`
       }
       body {
         json
+      }
+      sys {
+        publishedAt
       }
     }
   }

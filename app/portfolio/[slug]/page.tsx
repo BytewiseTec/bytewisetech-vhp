@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Metadata } from 'next'
+import Script from 'next/script'
 
 import generateStructuredData from '@/utils/structured-data'
 
@@ -102,9 +103,10 @@ export default async function PortfolioDetailsPage({ params }: PortfolioDetailsP
 
   return (
     <>
-      <script
+      <Script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        id="structured-data"
       />
 
       <PageBanner

@@ -1,16 +1,19 @@
-import PageBanner from '../../../components/PageBanner'
-import { FieldIdQuery, FieldQuery, GET_FIELD, GET_FIELD_ID } from './query'
-import { renderDomToReact } from '../../../utils/renderers'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import { BLOCKS } from '@contentful/rich-text-types'
-import ProcessesAccordion from '../../../components/ProcessesAccordion'
-import ItemIndicator from '../../../components/ProcessesAccordion/ItemIndicator'
-import ExpandedIndexProvider from '../../../components/ProcessesAccordion/ExpandedIndexProvider'
-import { query } from '../../ApolloClient'
 import Image, { StaticImageData } from 'next/image'
+import { Metadata } from 'next'
+import Script from 'next/script'
+
+import ParallaxImage from '@/components/Shared/ParallaxImage'
 import { FieldsLinksQuery, GET_FIELDS } from '@/components/Navbar/query'
 import generateStructuredData from '@/utils/structured-data'
 
+import PageBanner from '../../../components/PageBanner'
+import { query } from '../../ApolloClient'
+import { renderDomToReact } from '../../../utils/renderers'
+import ProcessesAccordion from '../../../components/ProcessesAccordion'
+import ItemIndicator from '../../../components/ProcessesAccordion/ItemIndicator'
+import ExpandedIndexProvider from '../../../components/ProcessesAccordion/ExpandedIndexProvider'
 import IconCheck from '../../../public/assets/images/icons/icon_check_3.svg'
 import BetterServices from '../../../public/assets/images/about/better-services.jpg'
 import IconCheck2 from '../../../public/assets/images/icons/icon_check_2.svg'
@@ -19,8 +22,8 @@ import IconBox from '../../../public/assets/images/icons/icon_box.svg'
 import IconReceiptAdd from '../../../public/assets/images/icons/icon_receipt_add.svg'
 import IconMonitor from '../../../public/assets/images/icons/icon_monitor.svg'
 import IconMicroscope from '../../../public/assets/images/icons/icon_microscope.svg'
-import ParallaxImage from '@/components/Shared/ParallaxImage'
-import { Metadata } from 'next'
+
+import { FieldIdQuery, FieldQuery, GET_FIELD, GET_FIELD_ID } from './query'
 
 const whyUsImages: Record<string, StaticImageData> = {
   'icon_check_2.svg': IconCheck2,
@@ -113,9 +116,10 @@ export default async function FieldsPage({ params }: FieldsPageProps) {
 
   return (
     <>
-      <script
+      <Script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        id="structured-data"
       />
 
       <PageBanner

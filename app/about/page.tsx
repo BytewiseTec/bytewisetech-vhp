@@ -1,9 +1,12 @@
-import { AboutQuery, GET_ABOUT } from './query'
-import { query } from '../ApolloClient'
-import PageBanner from '@/components/PageBanner'
 import { Metadata } from 'next'
-import generateStructuredData from '@/utils/structured-data'
+import Image, { StaticImageData } from 'next/image'
+import Script from 'next/script'
 
+import PageBanner from '@/components/PageBanner'
+import generateStructuredData from '@/utils/structured-data'
+import AboutFunFacts from '@/components/AboutFunFacts'
+
+import { query } from '../ApolloClient'
 import IconCheck2 from '../../public/assets/images/icons/icon_check_2.svg'
 import IconLeaf from '../../public/assets/images/icons/icon_leaf.svg'
 import IconBox from '../../public/assets/images/icons/icon_box.svg'
@@ -11,12 +14,13 @@ import IconReceiptAdd from '../../public/assets/images/icons/icon_receipt_add.sv
 import IconMonitor from '../../public/assets/images/icons/icon_monitor.svg'
 import IconMicroscope from '../../public/assets/images/icons/icon_microscope.svg'
 import BetterServices from '../../public/assets/images/about/better-services.jpg'
-import Image, { StaticImageData } from 'next/image'
-
 import IconClock from '../../public/assets/images/icons/icon_clock.svg'
 import IconDartBoard2 from '../../public/assets/images/icons/icon_dart_board_2.svg'
 import IconTarget from '../../public/assets/images/icons/icon_target.svg'
-import AboutFunFacts from '@/components/AboutFunFacts'
+
+
+
+import { AboutQuery, GET_ABOUT } from './query'
 
 const tileIcons: Record<string, StaticImageData> = {
   'icon_clock.svg': IconClock,
@@ -85,9 +89,10 @@ export default async function AboutPage() {
 
   return (
     <>
-      <script
+      <Script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        id="structured-data"
       />
 
       <PageBanner

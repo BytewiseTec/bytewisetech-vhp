@@ -1,19 +1,23 @@
-import { GET_SERVICES, GET_SERVICES_PAGE, ServicesPageQuery, ServicesQuery } from './query'
-import { query } from '../ApolloClient'
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { PiArrowUpRightBold } from 'react-icons/pi'
+import Image, { StaticImageData } from 'next/image'
+import { Fragment } from 'react'
+import Script from 'next/script'
+
 import generateStructuredData from '@/utils/structured-data'
 
+import { query } from '../ApolloClient'
 import IconCheck2 from '../../public/assets/images/icons/icon_check_2.svg'
 import IconLeaf from '../../public/assets/images/icons/icon_leaf.svg'
 import IconBox from '../../public/assets/images/icons/icon_box.svg'
 import IconReceiptAdd from '../../public/assets/images/icons/icon_receipt_add.svg'
 import IconMonitor from '../../public/assets/images/icons/icon_monitor.svg'
 import IconMicroscope from '../../public/assets/images/icons/icon_microscope.svg'
-import Image, { StaticImageData } from 'next/image'
 import PageBanner from '../../components/PageBanner'
-import { Fragment } from 'react'
+
+
+import { GET_SERVICES, GET_SERVICES_PAGE, ServicesPageQuery, ServicesQuery } from './query'
 
 const whyUsImages: Record<string, StaticImageData> = {
   'icon_check_2.svg': IconCheck2,
@@ -68,9 +72,10 @@ export default async function ServicesPage() {
 
   return (
     <>
-      <script
+      <Script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        id="structured-data"
       />
 
       <PageBanner

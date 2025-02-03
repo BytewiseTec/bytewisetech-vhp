@@ -1,17 +1,20 @@
-import PageBanner from '../../../components/PageBanner'
-import { GET_SERVICE, GET_SERVICE_ID, ServiceIdQuery, ServiceQuery } from './query'
-import { renderDomToReact } from '../../../utils/renderers'
 import { BLOCKS } from '@contentful/rich-text-types'
-import { query } from '../../ApolloClient'
-import ProcessesAccordion from '../../../components/ProcessesAccordion'
-import ItemIndicator from '../../../components/ProcessesAccordion/ItemIndicator'
-import { GET_SERVICES, ServicesLinksQuery } from '@/components/Navbar/query'
-import generateStructuredData from '@/utils/structured-data'
-
-import IconCheck from '../../../public/assets/images/icons/icon_check_3.svg'
 import Image from 'next/image'
 import { Metadata } from 'next'
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
+import Script from 'next/script'
+
+import { GET_SERVICES, ServicesLinksQuery } from '@/components/Navbar/query'
+import generateStructuredData from '@/utils/structured-data'
+
+import { renderDomToReact } from '../../../utils/renderers'
+import { query } from '../../ApolloClient'
+import ProcessesAccordion from '../../../components/ProcessesAccordion'
+import ItemIndicator from '../../../components/ProcessesAccordion/ItemIndicator'
+import IconCheck from '../../../public/assets/images/icons/icon_check_3.svg'
+import PageBanner from '../../../components/PageBanner'
+
+import { GET_SERVICE, GET_SERVICE_ID, ServiceIdQuery, ServiceQuery } from './query'
 
 type ServiceDetailsPageProps = {
   params: Promise<{ slug: string }>
@@ -100,9 +103,10 @@ export default async function ServiceDetailsPage({ params }: ServiceDetailsPageP
 
   return (
     <>
-      <script
+      <Script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        id="structured-data"
       />
 
       <PageBanner

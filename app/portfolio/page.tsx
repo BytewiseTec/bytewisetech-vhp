@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { FaBuilding, FaTags } from 'react-icons/fa'
+import Script from 'next/script'
 
 import generateStructuredData from '@/utils/structured-data'
 import Carousel from '@/components/Shared/Carousel'
@@ -46,9 +47,10 @@ export default async function PortfolioPage() {
 
   return (
     <>
-      <script
+      <Script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        id="structured-data"
       />
 
       <PageBanner
