@@ -114,7 +114,7 @@ export default async function ServicesPage() {
                     </Fragment>
                   ))}
                 </div>
-                <Link className="btn" href="/contact">
+                <Link className="btn" href="/contact" title="Talk to an Expert">
                   <span className="btn_label" data-text="Talk to an Expert">Talk to an Expert</span>
                   <span className="btn_icon">
                     <PiArrowUpRightBold size={20} />
@@ -150,7 +150,7 @@ export default async function ServicesPage() {
                     </div>
                     <div className="service_content">
                       <h3 className="service_title">
-                        <Link href={`/services/${service.slug}`}>
+                        <Link href={`/services/${service.slug}`} title={service.name}>
                           {service.name}
                         </Link>
                       </h3>
@@ -159,7 +159,7 @@ export default async function ServicesPage() {
                           <li><a href="#!">{service.heading}</a></li>
                           <li><a href="#!">{service.heading2}</a></li>
                         </ul>
-                        <Link className="icon_block" href={`/services/${service.slug}`}>
+                        <Link className="icon_block" href={`/services/${service.slug}`} title={service.name}>
                           <PiArrowUpRightBold size={20} />
                         </Link>
                       </div>

@@ -1,9 +1,10 @@
-import { GET_CASE_STUDIES, CaseStudiesQuery } from './query'
-import { GET_LINKS, HeaderLinksQuery } from '../Navbar/query'
 import Link from 'next/link'
 import Image from 'next/image'
+import { PiArrowUpRightBold } from 'react-icons/pi'
+
 import { query } from '@/app/ApolloClient'
 
+import { GET_LINKS, HeaderLinksQuery } from '../Navbar/query'
 import CustomerSatisfaction from '../../public/assets/images/about/customer-satisfaction.avif'
 import Person1Avatar from '../../public/assets/images/about/person1-avatar.webp'
 import Person2Avatar from '../../public/assets/images/about/person2-avatar.png'
@@ -11,7 +12,8 @@ import Person3Avatar from '../../public/assets/images/about/person3-avatar.png'
 import ShapeSpace2 from '../../public/assets/images/shapes/shape_space_2.svg'
 import ShapeLine from '../../public/assets/images/shapes/shape_line.webp'
 import IconGlobal from '../../public/assets/images/icons/icon_global.svg'
-import { PiArrowUpRightBold } from 'react-icons/pi'
+
+import { GET_CASE_STUDIES, CaseStudiesQuery } from './query'
 
 export default async function AboutCaseStudies() {
   const { data, error } = await query<CaseStudiesQuery>({ query: GET_CASE_STUDIES })
@@ -31,7 +33,7 @@ export default async function AboutCaseStudies() {
               <div className="image_wrap">
                 <Image width={200} height={200} src={CustomerSatisfaction} alt="Bytewise - About Image" />
               </div>
-              <div className="about_funfact_info" style={{ backgroundImage: 'url("assets/images/shapes/shape_bg_1.webp")' }}>
+              <div className="about_funfact_info" style={{ backgroundImage: 'url("/assets/images/shapes/shape_bg_1.webp")' }}>
                 <div className="customer_count">
                   <ul className="unordered_list">
                     <li>
@@ -67,7 +69,7 @@ export default async function AboutCaseStudies() {
                     <h3 className="funfact_title mb-0">Results Guaranteed</h3>
                   </div>
                 </div>
-                <Link className="btn btn-primary" href="/about">
+                <Link className="btn btn-primary" href="/about" title="Learn More">
                   <span className="btn_label" data-text="Learn More">Learn More</span>
                   <span className="btn_icon">
                     <PiArrowUpRightBold size={20} />
@@ -87,7 +89,7 @@ export default async function AboutCaseStudies() {
               <div className="heading_block mb-0 text-white">
                 <div
                   className="heading_focus_text has_underline d-inline-flex"
-                  style={{ backgroundImage: 'url(\'assets/images/shapes/shape_title_under_line.svg\')' }}
+                  style={{ backgroundImage: 'url(\'/assets/images/shapes/shape_title_under_line.svg\')' }}
                 >
                   About Us
                 </div>
@@ -139,7 +141,7 @@ export default async function AboutCaseStudies() {
                       </li>
                     </ul>
                     <h3 className="case_title">
-                      <Link href={`${portfolio.href}/${caseStudy.slug}`}>
+                      <Link href={`${portfolio.href}/${caseStudy.slug}`} title={caseStudy.name}>
                         {caseStudy.name}
                       </Link>
                     </h3>
@@ -163,7 +165,7 @@ export default async function AboutCaseStudies() {
                         </li>
                       ))}
                     </ul>
-                    <Link className="btn btn-primary" href={`${portfolio.href}/${caseStudy.slug}`}>
+                    <Link className="btn btn-primary" href={`${portfolio.href}/${caseStudy.slug}`} title={caseStudy.name}>
                       <span className="btn_label" data-text="Read Case">Read Case</span>
                       <span className="btn_icon">
                         <PiArrowUpRightBold size={20} />
@@ -178,7 +180,7 @@ export default async function AboutCaseStudies() {
           </div>
 
           <div className="btns_group pb-0">
-            <Link className="btn btn-primary" href={`${portfolio.href}`}>
+            <Link className="btn btn-primary" href={`${portfolio.href}`} title="View More Cases Study">
               <span className="btn_label" data-text="View More Cases Study">View More Cases Study</span>
               <span className="btn_icon">
                 <PiArrowUpRightBold size={20} />

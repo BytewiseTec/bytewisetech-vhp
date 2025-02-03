@@ -1,15 +1,18 @@
 import React from 'react'
-import { GET_TEAM_COLLECTION, TeamCollectionQuery } from './query'
-import { GET_ROUTES, RouteLinksQuery } from '../global.query'
-import { query } from '../ApolloClient'
-import PageBanner from '@/components/PageBanner'
 import { Metadata } from 'next'
 import Link from 'next/link'
-
-import TeamCartoon from '../../public/assets/images/team/team.png'
-import TeamMap from '../../public/assets/images/team/team_map.webp'
 import Image from 'next/image'
 import { PiArrowUpRightBold } from 'react-icons/pi'
+
+import PageBanner from '@/components/PageBanner'
+
+import { GET_ROUTES, RouteLinksQuery } from '../global.query'
+import { query } from '../ApolloClient'
+import TeamCartoon from '../../public/assets/images/team/team.png'
+import TeamMap from '../../public/assets/images/team/team_map.webp'
+
+
+import { GET_TEAM_COLLECTION, TeamCollectionQuery } from './query'
 
 export const metadata: Metadata = {
   title: 'Team - Bytewise Technologies',
@@ -30,23 +33,6 @@ export const metadata: Metadata = {
 }
 
 export default async function TeamPage() {
-  const { data, error } = await query<TeamCollectionQuery>({
-    query: GET_TEAM_COLLECTION
-  })
-
-  const { data: routesData } = await query<RouteLinksQuery>({
-    query: GET_ROUTES,
-    variables: {
-      id: '5wSNq34HGEvBudALxOO3ZD'
-    }
-  })
-  const teamsPageRoute = routesData.links?.routes?.team
-
-  if (error) return <div>Error loading team members</div>
-  if (!data || !data.teamCollection.items.length) {
-    return <div>No team members available</div>
-  }
-
   return (
     <>
       <PageBanner
@@ -79,7 +65,7 @@ export default async function TeamPage() {
                     Bytewise Technologies is inviting you to meet their exceptional team of IT professionals who are revolutionizing the industry with their innovative ideas and groundbreaking work.
                   </p>
                 </div>
-                <Link className="btn" href="/contact">
+                <Link className="btn" href="/contact" title="Talk to an Expert">
                   <span className="btn_label" data-text="Talk to an Expert">Talk to an Expert</span>
                   <span className="btn_icon">
                     <PiArrowUpRightBold size={20} />

@@ -1,15 +1,18 @@
-import { GET_SERVICES, ServicesQuery } from './query'
 import Link from 'next/link'
-import { GET_LINKS, HeaderLinksQuery } from '../Navbar/query'
 import Image from 'next/image'
+import { FaArrowRight, FaRegCircleDot } from 'react-icons/fa6'
+
 import { query } from '@/app/ApolloClient'
 
+import { GET_LINKS, HeaderLinksQuery } from '../Navbar/query'
 import ShapeLine5 from '../../public/assets/images/shapes/shape_line_5.svg'
 import ShapeLine6 from '../../public/assets/images/shapes/shape_line_6.svg'
 import ShapeSpace1 from '../../public/assets/images/shapes/shape_space_1.svg'
 import ShapeAngle1 from '../../public/assets/images/shapes/shape_angle_1.webp'
 import ShapeAngle2 from '../../public/assets/images/shapes/shape_angle_2.webp'
-import { FaArrowRight, FaRegCircleDot } from 'react-icons/fa6'
+
+
+import { GET_SERVICES, ServicesQuery } from './query'
 
 export default async function Services() {
   const { data: servicesData, error } = await query<ServicesQuery>({ query: GET_SERVICES, variables: { limit: 6 } })
@@ -52,7 +55,7 @@ export default async function Services() {
                   )}
                 </div>
                 <h3 className="service_title">
-                  <Link href={`${servicesLink.href}/${service?.slug}`}>
+                  <Link href={`${servicesLink.href}/${service?.slug}`} title={service.name}>
                     {service.name}
                     <FaArrowRight />
                   </Link>

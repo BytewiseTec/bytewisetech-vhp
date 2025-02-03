@@ -127,7 +127,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 {blogPosts.map((post) => (
                   <div className="blog_post_block image_left_layout" key={post._id}>
                     <div className="blog_post_image">
-                      <Link className="image_wrap" href={`/blog/${post.slug}`}>
+                      <Link className="image_wrap" href={`/blog/${post.slug}`} title={post.title}>
                         <Image
                           src={post.thumbnail.url}
                           alt={post.thumbnail.title}
@@ -150,14 +150,14 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                         </ul>
                       </div>
                       <h3 className="blog_post_title">
-                        <Link href={`/blog/${post.slug}`}>
+                        <Link href={`/blog/${post.slug}`} title={post.title}>
                           {post.title}
                         </Link>
                       </h3>
                       <p>
                         {post.excerpt}
                       </p>
-                      <Link className="btn btn-dark" href={`/blog/${post.slug}`}>
+                      <Link className="btn btn-dark" href={`/blog/${post.slug}`} title={post.title}>
                         <span className="btn_label" data-text="Read More">Read More</span>
                         <span className="btn_icon">
                           <PiArrowUpRightBold size={20} />
@@ -169,7 +169,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 <div className="pagination_wrap pb-0">
                   <ul className="pagination_nav unordered_list justify-content-center">
                     <li className={currentPage === 1 ? 'disabled' : ''}>
-                      <Link href={currentPage === 1 ? '#!' : `?page=${currentPage - 1}`}>
+                      <Link href={currentPage === 1 ? '#!' : `?page=${currentPage - 1}`} title="Previous">
                         <FaAnglesLeft />
                       </Link>
                     </li>
@@ -178,14 +178,14 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                         {page === '...'
                           ? <span>...</span>
                           : (
-                            <Link href={`?page=${page}`}>
+                            <Link href={`?page=${page}`} title={`Page ${page}`}>
                               {page}
                             </Link>
                           )}
                       </li>
                     ))}
                     <li className={currentPage === totalPages ? 'disabled' : ''}>
-                      <Link href={currentPage === totalPages ? '#!' : `?page=${currentPage + 1}`}>
+                      <Link href={currentPage === totalPages ? '#!' : `?page=${currentPage + 1}`} title="Next">
                         <FaAnglesRight />
                       </Link>
                     </li>

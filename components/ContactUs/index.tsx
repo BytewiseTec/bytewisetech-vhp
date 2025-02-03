@@ -1,10 +1,12 @@
+import Image from 'next/image'
+import { FaEnvelope, FaLocationDot, FaPhoneVolume } from 'react-icons/fa6'
+
 import { query } from '@/app/ApolloClient'
 import { ContactQuery, GET_CONTACT } from '@/app/contact/query'
+
 import InstantContactForm from '../InstantContactForm'
 import shapeLine5 from '../../public/assets/images/shapes/shape_line_5.svg'
 import shapeLine6 from '../../public/assets/images/shapes/shape_line_6.svg'
-import Image from 'next/image'
-import { FaEnvelope, FaLocationDot, FaPhoneVolume } from 'react-icons/fa6'
 
 export default async function ContactUs() {
   const { data } = await query<ContactQuery>({ query: GET_CONTACT })
@@ -23,7 +25,7 @@ export default async function ContactUs() {
               <div className="heading_block">
                 <div
                   className="heading_focus_text has_underline d-inline-flex mb-3"
-                  style={{ backgroundImage: 'url(\'assets/images/shapes/shape_title_under_line.svg\')' }}
+                  style={{ backgroundImage: 'url(\'/assets/images/shapes/shape_title_under_line.svg\')' }}
                 >
                   You Are Here
                 </div>

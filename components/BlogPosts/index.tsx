@@ -32,7 +32,7 @@ export default function BlogPosts({ posts }: BlogPostsProps) {
             <div className="col-lg-4" key={post.slug}>
               <div className="blog_post_block layout_2">
                 <div className="blog_post_image">
-                  <Link className="image_wrap" href={`/blog/${post.slug}`}>
+                  <Link className="image_wrap" href={`/blog/${post.slug}`} title={post.title}>
                     {post.thumbnail?.url && (
                       <Image
                         src={post.thumbnail.url}
@@ -48,7 +48,7 @@ export default function BlogPosts({ posts }: BlogPostsProps) {
                 </div>
                 <div className="blog_post_content p-0">
                   <h3 className="blog_post_title mb-0">
-                    <Link href={`/blog/${post.slug}`}>
+                    <Link href={`/blog/${post.slug}`} title={post.title}>
                       {post.title}
                     </Link>
                   </h3>

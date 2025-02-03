@@ -93,9 +93,7 @@ export const GET_BLOG_POSTS_LIST = gql`
             width: 624,
             height: 672,
             resizeStrategy: FILL,
-            resizeFocus: BOTTOM,
-            backgroundColor: "rgb:321032",
-            cornerRadius: 100,
+            resizeFocus: FACES,
             format: JPG,
             quality: 90
           })

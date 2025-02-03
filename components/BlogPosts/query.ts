@@ -25,7 +25,14 @@ export const GET_LATEST_BLOG_POSTS = gql`
         slug
         thumbnail {
           title
-          url
+          url(transform: {
+            width: 1640,
+            height: 1304,
+            resizeStrategy: FILL,
+            resizeFocus: BOTTOM,
+            format: JPG,
+            quality: 90
+          })
           height
           width
         }

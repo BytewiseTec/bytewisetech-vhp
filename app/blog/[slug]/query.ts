@@ -66,8 +66,6 @@ export const GET_BLOG_POST = gql`
             height: 672
             resizeStrategy: FILL
             resizeFocus: BOTTOM
-            backgroundColor: "rgb:321032"
-            cornerRadius: 100
             format: JPG
             quality: 90
           }

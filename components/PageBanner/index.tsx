@@ -32,7 +32,11 @@ export default function PageBanner({ title, breadcrumb = [] }: PageBannerProps) 
                   className={`breadcrumb-item text-white ${isCurrent(index) ? 'active' : ''}`}
                   aria-current={isCurrent(index) ? 'page' : undefined}
                 >
-                  {item.url ? <Link href={item.url}>{item.name}</Link> : item.name}
+                  {item.url ? (
+                    <Link href={item.url} title={item.name}>
+                      {item.name}
+                    </Link>
+                  ) : item.name}
                 </li>
               ))}
             </ol>

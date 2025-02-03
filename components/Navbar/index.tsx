@@ -1,20 +1,23 @@
 import Image, { StaticImageData } from 'next/image'
-import { FieldsLinksQuery, GET_FIELDS, GET_LINKS, GET_SERVICES, HeaderLinksQuery, ServicesLinksQuery, GET_FOOTER_SOCIALS, FooterSocialsQuery } from './query'
 import Link from 'next/link'
-import Badge from '../Badge'
+import { PiArrowUpRightBold } from 'react-icons/pi'
+import { FaAngleDown } from 'react-icons/fa6'
+
 import { getSocialMediaIcon, getSocialMediaName } from '@/utils/helpers'
 import { GET_PROJECT, ProjectQuery } from '@/app/portfolio/[slug]/query'
-import ActiveListItem from './ActiveListItem'
 import { query } from '@/app/ApolloClient'
 import { INVESTIFY_PROJECT_ID } from '@/utils/constants'
+
 import LogoWhite from '../../public/assets/images/site_logo/logo-white.svg'
+import Badge from '../Badge'
 import Favicon from '../../public/assets/images/site_logo/favicon.svg'
 import WifiIcon from '../../public/assets/images/icons/icon_wifi.svg'
 import ChartIcon from '../../public/assets/images/icons/icon_chart.svg'
 import UserIcon from '../../public/assets/images/icons/icon_user_2.svg'
 import PenIcon from '../../public/assets/images/icons/icon_pen.svg'
-import { PiArrowUpRightBold } from 'react-icons/pi'
-import { FaAngleDown } from 'react-icons/fa6'
+
+import ActiveListItem from './ActiveListItem'
+import { FieldsLinksQuery, GET_FIELDS, GET_LINKS, GET_SERVICES, HeaderLinksQuery, ServicesLinksQuery, GET_FOOTER_SOCIALS, FooterSocialsQuery } from './query'
 import MobileMenuButton from './MobileMenuButton'
 
 const companyLinkIcons: Record<string, StaticImageData> = {
@@ -49,7 +52,7 @@ export default async function Navbar() {
           <div className="row align-items-center">
             <div className="col-lg-3 col-5">
               <div className="site_logo">
-                <Link className="site_link" href={home.href}>
+                <Link className="site_link" href={home.href} title={home.label}>
                   <Image loading="eager" width={2251} height={559} src={LogoWhite} alt="Bytewise Technologies Logo" />
                   <Image width={600} height={559} src={Favicon} alt="Bytewise Technologies Favicon" />
                 </Link>
@@ -72,7 +75,7 @@ export default async function Navbar() {
                                 <div className="row">
                                   {company?.children?.map((link, index) => (
                                     <div className="col-lg-3 col-md-6" key={index}>
-                                      <Link className="iconbox_block_2" href={link.href}>
+                                      <Link className="iconbox_block_2" href={link.href} title={link.label}>
                                         <span className="icon_title_wrap">
                                           <small className="iconbox_icon">
                                             {link.icon && <Image width={200} height={200} src={companyLinkIcons[link.icon]} alt={link.label} />}
@@ -89,7 +92,7 @@ export default async function Navbar() {
                               </div>
                               <ul className="btns_group p-0 unordered_list justify-content-start">
                                 <li>
-                                  <Link className="btn btn-primary" href={contact.href}>
+                                  <Link className="btn btn-primary" href={contact.href} title="Free Consultation">
                                     <span className="btn_label" data-text="Free Consultation">Free Consultation</span>
                                     <span className="btn_icon">
                                       <PiArrowUpRightBold size={20} />
@@ -103,12 +106,12 @@ export default async function Navbar() {
                       </div>
                     </li>
                     <ActiveListItem path={portfolio.href}>
-                      <Link className="nav-link" href={portfolio.href} role="button">
+                      <Link className="nav-link" href={portfolio.href} role="button" title={portfolio.label}>
                         {portfolio.label}
                       </Link>
                     </ActiveListItem>
                     <ActiveListItem clickable className="dropdown" path={services.href}>
-                      <Link className="nav-link" href={services.href} id="services_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <Link className="nav-link" href={services.href} id="services_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false" title={services.label}>
                         {services.label}
                         <FaAngleDown />
                       </Link>
@@ -123,7 +126,7 @@ export default async function Navbar() {
                                     <ul className="icon_list unordered_list_block">
                                       {serviceLinks.map((service) => (
                                         <li key={service._id}>
-                                          <Link href={`${services.href}/${service.slug}`}>
+                                          <Link href={`${services.href}/${service.slug}`} title={service.name}>
                                             <span className="icon_list_text">
                                               {service.name}
                                             </span>
@@ -139,7 +142,7 @@ export default async function Navbar() {
                                     <ul className="icon_list unordered_list_block">
                                       {fieldLinks.map((field) => (
                                         <li key={field._id}>
-                                          <Link href={`${fields.href}/${field.slug}`}>
+                                          <Link href={`${fields.href}/${field.slug}`} title={field.name}>
                                             <span className="icon_list_text">
                                               {field.name}
                                             </span>
@@ -155,7 +158,7 @@ export default async function Navbar() {
                                     <ul className="icon_list unordered_list_block">
                                       {product.children?.map((prod, idx) => (
                                         <li key={idx}>
-                                          <Link href={prod.href}>
+                                          <Link href={prod.href} title={prod.label}>
                                             <span className="icon_list_text">
                                               {prod.label}
                                             </span>
@@ -172,16 +175,20 @@ export default async function Navbar() {
                                     const Icon = getSocialMediaIcon(socialLink)
                                     const name = getSocialMediaName(socialLink)
 
+                                    if (!Icon || !name) {
+                                      return null
+                                    }
+
                                     return (
                                       <li key={index}>
-                                        <Link href={socialLink} target="_blank" rel="noopener noreferrer">
-                                          {Icon && name && <Icon className={name} />}
+                                        <Link href={socialLink} target="_blank" rel="noopener noreferrer" aria-label={name} title={name}>
+                                          <Icon className={name} />
                                         </Link>
                                       </li>
                                     )
                                   })}
                                 </ul>
-                                <p className="career_link m-0">Looking for new career? <Link href={contact.href}>We’re Hiring</Link></p>
+                                <p className="career_link m-0">Looking for new career? <Link href={contact.href} title="We're Hiring">We’re Hiring</Link></p>
                               </div>
                             </div>
                             <div className="col-lg-3">
@@ -192,7 +199,7 @@ export default async function Navbar() {
                                 </div>
                                 <Image width={project?.thumbnail.width} height={project?.thumbnail.height} src={project?.thumbnail?.url} alt="Case Image" />
                                 <p className="text-light">{project?.short.substring(0, 300)}</p>
-                                <Link className="btn" href={`/portfolio/${project?.slug}`}>
+                                <Link className="btn" href={`/portfolio/${project?.slug}`} title={project?.name}>
                                   <span className="btn_label" data-text="Read Case">Read Case</span>
                                   <span className="btn_icon">
                                     <PiArrowUpRightBold size={20} />
@@ -212,7 +219,7 @@ export default async function Navbar() {
                       <ul className="dropdown-menu" aria-labelledby="pages_submenu">
                         {pages.children?.map((page, idx) => (
                           <li key={idx}>
-                            <Link href={page.href}>
+                            <Link href={page.href} title={page.label}>
                               {page.label}
                               {page.badge && <Badge type="danger-subtle">{page.badge}</Badge>}
                             </Link>
@@ -220,7 +227,11 @@ export default async function Navbar() {
                         ))}
                       </ul>
                     </li>
-                    <li><Link href={contact.href}>Contact</Link></li>
+                    <li>
+                      <Link href={contact.href} title={contact.label}>
+                        Contact
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               </nav>
@@ -231,7 +242,7 @@ export default async function Navbar() {
                   <MobileMenuButton />
                 </li>
                 <li>
-                  <Link className="btn btn-primary" href={contact.href}>
+                  <Link className="btn btn-primary" href={contact.href} title="Get Started">
                     <span className="btn_label" data-text="Get Started">Get Started</span>
                     <span className="btn_icon">
                       <PiArrowUpRightBold size={20} />

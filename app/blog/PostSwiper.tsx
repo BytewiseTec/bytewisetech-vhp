@@ -34,7 +34,7 @@ const PostSwiper: React.FC<PostSwiperProps> = ({ posts }) => {
         <SwiperSlide key={post._id}>
           <div className="blog_post_block content_over_layout">
             <div className="blog_post_image">
-              <Link className="image_wrap" href={`/blog/${post.slug}`}>
+              <Link className="image_wrap" href={`/blog/${post.slug}`} title={post.title}>
                 {post.banner && (
                   <Image
                     src={post.banner.url}
@@ -77,7 +77,7 @@ const PostSwiper: React.FC<PostSwiperProps> = ({ posts }) => {
           className="b1cc-swiper-button-prev"
           type="button"
           title="Previous"
-          style={{ backgroundImage: 'url(\'assets/images/shapes/shape_arrow_right.svg\')' }}
+          style={{ backgroundImage: 'url(\'/assets/images/shapes/shape_arrow_right.svg\')' }}
           onClick={() => swiper.current?.swiper.slidePrev()}
         >
           <FaAnglesLeft />
@@ -86,7 +86,7 @@ const PostSwiper: React.FC<PostSwiperProps> = ({ posts }) => {
           className="b1cc-swiper-button-next"
           type="button"
           title="Next"
-          style={{ backgroundImage: 'url(\'assets/images/shapes/shape_arrow_left.svg\')' }}
+          style={{ backgroundImage: 'url(\'/assets/images/shapes/shape_arrow_left.svg\')' }}
           onClick={() => swiper.current?.swiper.slideNext()}
         >
           <FaAnglesRight />

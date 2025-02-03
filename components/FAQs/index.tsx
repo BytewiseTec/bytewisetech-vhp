@@ -1,8 +1,12 @@
 import Image from 'next/image'
-import shapeLine6 from '../../public/assets/images/shapes/shape_line_6.svg'
 import { FaCircle } from 'react-icons/fa6'
-import { FAQ } from './query'
+
 import { ListItem } from '@/app/content.types'
+
+import shapeLine6 from '../../public/assets/images/shapes/shape_line_6.svg'
+
+import { FAQ } from './query'
+
 
 const COL_SIZE = 4
 
@@ -25,7 +29,7 @@ export default function FAQs({ faqs }: FAQsProps) {
         <div className="heading_block text-center">
           <div
             className="heading_focus_text has_underline d-inline-flex"
-            style={{ backgroundImage: 'url(\'assets/images/shapes/shape_title_under_line.svg\')' }}
+            style={{ backgroundImage: 'url(\'/assets/images/shapes/shape_title_under_line.svg\')' }}
           >
             F.A.Q.
           </div>

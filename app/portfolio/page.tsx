@@ -68,7 +68,7 @@ export default async function PortfolioPage() {
               <div className="col-lg-6 technology" key={project._id}>
                 <div className="portfolio_block portfolio_layout_2">
                   <div className="portfolio_image">
-                    <Link className="portfolio_image_wrap bg-light" href={`/portfolio/${project.slug}`}>
+                    <Link className="portfolio_image_wrap bg-light" href={`/portfolio/${project.slug}`} aria-label={project.name} title='View project'>
                       <Carousel
                         id={`portfolioCarousel${index}`}
                         slides={
@@ -85,7 +85,7 @@ export default async function PortfolioPage() {
                   </div>
                   <div className="portfolio_content">
                     <h3 className="portfolio_title">
-                      <Link href={`/portfolio/${project.slug}`}>
+                      <Link href={`/portfolio/${project.slug}`} title={project.name}>
                         {project.name}
                       </Link>
                     </h3>

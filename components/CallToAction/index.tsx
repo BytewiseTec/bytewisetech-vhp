@@ -15,7 +15,7 @@ export default function CallToAction() {
             Our team of experts is ready to collaborate with you every step of the way, from initial consultation to implementation.
           </p>
         </div>
-        <Link className="btn btn-primary" href="/contact">
+        <Link className="btn btn-primary" href="/contact" title="Contact Us Today!">
           <span className="btn_label" data-text="Contact Us Today!">Contact Us Today!</span>
           <span className="btn_icon">
             <PiArrowUpRightBold size={20} />

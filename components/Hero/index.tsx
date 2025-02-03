@@ -1,7 +1,10 @@
-import { GET_HERO, HeroQuery, GET_LINKS, HeaderLinksQuery } from './query'
 import Image from 'next/image'
-import { ContactQuery, GET_CONTACT } from '@/app/contact/query'
 import Link from 'next/link'
+import { PiArrowUpRightBold } from 'react-icons/pi'
+import { FaPhoneVolume } from 'react-icons/fa6'
+import { FaRegDotCircle } from 'react-icons/fa'
+
+import { ContactQuery, GET_CONTACT } from '@/app/contact/query'
 import { query } from '@/app/ApolloClient'
 
 import Favicon from '../../public/assets/images/site_logo/favicon-96x96.png'
@@ -12,9 +15,9 @@ import Shape1 from '../../public/assets/images/hero/shape_image_1.webp'
 import Shape2 from '../../public/assets/images/hero/shape_image_2.webp'
 import Shape3 from '../../public/assets/images/hero/shape_image_3.webp'
 import Shape4 from '../../public/assets/images/hero/shape_image_4.webp'
-import { PiArrowUpRightBold } from 'react-icons/pi'
-import { FaPhoneVolume } from 'react-icons/fa6'
-import { FaRegDotCircle } from 'react-icons/fa'
+
+
+import { GET_HERO, HeroQuery, GET_LINKS, HeaderLinksQuery } from './query'
 
 export default async function Hero() {
   const { data: linksCollection } = await query<HeaderLinksQuery>({ query: GET_LINKS })
@@ -37,7 +40,7 @@ export default async function Hero() {
               <div
                 className="heading_focus_text has_underline text-white d-inline-flex"
                 style={{
-                  backgroundImage: 'url(\'assets/images/shapes/shape_title_under_line.svg\')'
+                  backgroundImage: 'url(\'/assets/images/shapes/shape_title_under_line.svg\')'
                 }}
               >
                 {Herodata.title}
@@ -58,7 +61,7 @@ export default async function Hero() {
               </ul>
               <ul className="btns_group unordered_list p-0 justify-content-start">
                 <li>
-                  <Link className="btn" href={contactLink.href}>
+                  <Link className="btn" href={contactLink.href} title="Contact Us Today!">
                     <span className="btn_label" data-text="Contact Us Today!">Contact Us Today!</span>
                     <span className="btn_icon">
                       <PiArrowUpRightBold size={20} />

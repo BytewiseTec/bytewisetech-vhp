@@ -1,11 +1,14 @@
-import { GET_FEATURED, FooterQuery, FieldsLinksQuery, GET_FIELDS, GET_LINKS, GET_SERVICES, HeaderLinksQuery, ServicesLinksQuery } from './query'
 import Image from 'next/image'
 import Link from 'next/link'
+import { FaCircle, FaEnvelope, FaLocationDot, FaPhoneVolume } from 'react-icons/fa6'
+
 import { getSocialMediaIcon, getSocialMediaName } from '@/utils/helpers'
 import { ContactQuery, GET_CONTACT } from '@/app/contact/query'
 import { query } from '@/app/ApolloClient'
+
 import ShapeSpace2 from '../../public/assets/images/shapes/shape_space_2.svg'
-import { FaCircle, FaEnvelope, FaLocationDot, FaPhoneVolume } from 'react-icons/fa6'
+
+import { GET_FEATURED, FooterQuery, FieldsLinksQuery, GET_FIELDS, GET_LINKS, GET_SERVICES, HeaderLinksQuery, ServicesLinksQuery } from './query'
 
 export default async function Footer() {
   const { data: linksCollection } = await query<HeaderLinksQuery>({ query: GET_LINKS })
@@ -50,7 +53,7 @@ export default async function Footer() {
                 <ul className="icon_list unordered_list_block">
                   {footer.company.map((item, index) => (
                     <li key={index}>
-                      <Link href={item.href}>
+                      <Link href={item.href} title={item.title}>
                         <span className="icon_list_text">{item.title}</span>
                       </Link>
                     </li>
@@ -64,7 +67,7 @@ export default async function Footer() {
                 <ul className="icon_list unordered_list_block">
                   {serviceLinks.map((item, index) => (
                     <li key={index}>
-                      <Link href={`${services.href}/${item.slug}`}>
+                      <Link href={`${services.href}/${item.slug}`} title={item.name}>
                         <span className="icon_list_text">{item.name}</span>
                       </Link>
                     </li>
@@ -78,7 +81,7 @@ export default async function Footer() {
                 <ul className="icon_list unordered_list_block">
                   {fieldLinks.map((item, index) => (
                     <li key={index}>
-                      <Link href={`${fields.href}/${item.slug}`}>
+                      <Link href={`${fields.href}/${item.slug}`} title={item.name}>
                         <span className="icon_list_text">
                           {item.name}
                         </span>
@@ -122,10 +125,14 @@ export default async function Footer() {
                     const Icon = getSocialMediaIcon(socialLink)
                     const name = getSocialMediaName(socialLink)
 
+                    if (!Icon || !name) {
+                      return null
+                    }
+
                     return (
                       <li key={index}>
-                        <Link href={socialLink} target="_blank" rel="noopener noreferrer">
-                          {Icon && name && <Icon className={name} />}
+                        <Link href={socialLink} target="_blank" rel="noopener noreferrer" aria-label={name} title={name}>
+                          <Icon className={name} />
                         </Link>
                       </li>
                     )
@@ -139,7 +146,7 @@ export default async function Footer() {
       <div
         className="footer_bottom"
         style={{
-          backgroundImage: 'url(\'assets/images/shapes/shape_space_6.svg\')'
+          backgroundImage: 'url(\'/assets/images/shapes/shape_space_6.svg\')'
         }}
       >
         <div className="container d-md-flex align-items-md-center justify-content-md-between">
@@ -148,7 +155,7 @@ export default async function Footer() {
           </p>
           <ul className="icon_list unordered_list">
             <li>
-              <Link href="/terms-of-service">
+              <Link href="/terms-of-service" title="Terms of Service">
                 <span className="icon_list_icon">
                   <FaCircle color="#0044EB" size={6} />
                 </span>
@@ -156,7 +163,7 @@ export default async function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/cookie-policy">
+              <Link href="/cookie-policy" title="Cookie Policy">
                 <span className="icon_list_icon">
                   <FaCircle color="#0044EB" size={6} />
                 </span>

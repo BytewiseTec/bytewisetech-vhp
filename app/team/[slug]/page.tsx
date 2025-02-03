@@ -1,13 +1,15 @@
 
-import { query } from '../../ApolloClient'
-import Badge from '../../../components/Badge'
-import PageBanner from '../../../components/PageBanner'
-import { GET_TEAM_MEMBER, GET_TEAMMEMBER_ID, TeamMemberIdQuery, TeamMemberQuery } from './query'
 import Image from 'next/image'
 import Link from 'next/link'
+
+import PageBanner from '../../../components/PageBanner'
+import Badge from '../../../components/Badge'
+import { query } from '../../ApolloClient'
 import { renderDomToReact } from '../../../utils/renderers'
 import { GET_TEAM_COLLECTION, TeamCollectionQuery } from '../query'
 import { getSocialMediaIcon, getSocialMediaName } from '../../../utils/helpers'
+
+import { GET_TEAM_MEMBER, GET_TEAMMEMBER_ID, TeamMemberIdQuery, TeamMemberQuery } from './query'
 
 interface TeamMemberProbsPage {
   params: Promise<{ slug: string }>
@@ -92,7 +94,7 @@ export default async function TeamMemberDetailsPage({ params }: TeamMemberProbsP
                     
                     return (
                       <li key={index}>
-                        <Link href={socialLink} target="_blank" rel="noopener noreferrer">
+                        <Link href={socialLink} target="_blank" rel="noopener noreferrer" aria-label={name} title={name}>
                           <Icon size={24} className={name} />
                         </Link>
                       </li>
