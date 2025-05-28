@@ -161,16 +161,6 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
 
       <section className="blog_details_section section_space bg-light">
         <div className="container">
-          <div className="details_item_image">
-            {post.banner && (
-              <Image
-                src={post.banner.url}
-                width={post.banner.width}
-                height={post.banner.height}
-                alt={post.banner.title}
-              />
-            )}
-          </div>
           <div className="post_meta_wrap mb-4">
             <ul className="category_btns_group unordered_list">
               <li><a href="#!">{post.category}</a></li>
@@ -183,12 +173,6 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
               </li>
             </ul>
           </div>
-          <h2 className="details_item_title">
-            {post.title}
-          </h2>
-          <p>
-            {post.excerpt}
-          </p>
           <div className="row align-items-center">
             <div className="col-md-6">
               <ul className="post_meta unordered_list">
@@ -210,8 +194,8 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
               </ul>
             </div>
           </div>
-          <hr className="mb-0" />
-          <div className="section_space pb-0">
+          <hr className="mb-10" />
+          <div className="pb-0">
             <div className="row">
               <div className="col-lg-8">
                 {renderDomToReact(post.body.json)}

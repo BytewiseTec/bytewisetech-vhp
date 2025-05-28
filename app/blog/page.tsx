@@ -13,14 +13,11 @@ import IconCalendar from '../../public/assets/images/icons/icon_calendar.svg'
 import SearchIcon from '../../public/assets/images/icons/icon_search.svg'
 
 import {
-  GET_BLOG_POST_SLIDES,
   GET_BLOG_POSTS_LIST,
-  GetBlogPostSlidesQuery,
   GetBlogPostsListQuery,
   GetBlogPostsListQueryVariables
 } from './query'
 import { GET_BLOG_POST_CATEGORIES, GetBlogPostCategoriesQuery } from './[slug]/query'
-import PostSwiper from './PostSwiper'
 
 import 'swiper/scss'
 import 'swiper/scss/pagination'
@@ -58,10 +55,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   const limit = 10
   const currentPage = Number((await searchParams).page) || 1
 
-  const [getBlogPostSlidesQuery, getBlogPostsListQuery, blogPostCategoriesResponse] = await Promise.all([
-    query<GetBlogPostSlidesQuery>({
-      query: GET_BLOG_POST_SLIDES
-    }),
+  const [getBlogPostsListQuery, blogPostCategoriesResponse] = await Promise.all([
     query<GetBlogPostsListQuery, GetBlogPostsListQueryVariables>({
       query: GET_BLOG_POSTS_LIST,
       variables: {
@@ -87,8 +81,6 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
     })
     return acc
   }, new Set<string>()) || [])
-
-  const blogPostSlides = getBlogPostSlidesQuery.data?.blogCollection.items || []
 
   const blogPosts = getBlogPostsListQuery.data?.blogCollection.items || []
 
@@ -119,9 +111,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
 
       <section className="blog_section section_space bg-light">
         <div className="container">
-          <PostSwiper posts={blogPostSlides} />
-
-          <div className="section_space pb-0">
+          <div className="pb-0">
             <div className="row">
               <div className="col-lg-8">
                 {blogPosts.map((post) => (
