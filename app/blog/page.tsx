@@ -75,12 +75,12 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
     return acc
   }, {} as Record<string, number>)
 
-  const allTags = Array.from(categories.reduce((acc, { tags }) => {
-    tags.forEach((tag) => {
-      acc.add(tag)
-    })
-    return acc
-  }, new Set<string>()) || [])
+  // const allTags = Array.from(categories.reduce((acc, { tags }) => {
+  //   tags?.forEach((tag) => {
+  //     acc.add(tag)
+  //   })
+  //   return acc
+  // }, new Set<string>()) || [])
 
   const blogPosts = getBlogPostsListQuery.data?.blogCollection.items || []
 
@@ -207,7 +207,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                       ))}
                     </ul>
                   </div>
-                  <div className="popular_tags">
+                  {/* <div className="popular_tags">
                     <h3 className="sidebar_widget_title">Popular Tags</h3>
                     <ul className="tags_list unordered_list">
                       {allTags.map((tag) => (
@@ -216,7 +216,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                         </li>
                       ))}
                     </ul>
-                  </div>
+                  </div> */}
                 </aside>
               </div>
             </div>

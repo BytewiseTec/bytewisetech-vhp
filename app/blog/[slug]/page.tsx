@@ -51,7 +51,7 @@ export async function generateMetadata(
   return {
     title: `${post.title} - Bytewise Technologies`,
     description: post.excerpt,
-    keywords: post.tags.join(', '),
+    keywords: post.tags?.join(', '),
     openGraph: {
       locale: 'en_US',
       type: 'website',
@@ -98,12 +98,12 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
     return acc
   }, {} as Record<string, number>)
 
-  const allTags = Array.from(categories.reduce((acc, { tags }) => {
-    tags.forEach((tag) => {
-      acc.add(tag)
-    })
-    return acc
-  }, new Set<string>()) || [])
+  // const allTags = Array.from(categories.reduce((acc, { tags }) => {
+  //   tags?.forEach((tag) => {
+  //     acc.add(tag)
+  //   })
+  //   return acc
+  // }, new Set<string>()) || [])
 
   const { items } = blogPostIdResponse.data?.blogCollection || {}
 
@@ -203,7 +203,7 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
                 <div className="row">
                   <div className="col-md-6">
                     <ul className="tags_list unordered_list">
-                      {post.tags.map((tag) => (
+                      {post.tags?.map((tag) => (
                         <li key={tag}>
                           <a href="#!">{tag}</a>
                         </li>
@@ -253,7 +253,7 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
                       ))}
                     </ul>
                   </div>
-                  <div className="popular_tags">
+                  {/* <div className="popular_tags">
                     <h3 className="sidebar_widget_title">Popular Tags</h3>
                     <ul className="tags_list unordered_list">
                       {allTags.map((tag) => (
@@ -262,7 +262,7 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
                         </li>
                       ))}
                     </ul>
-                  </div>
+                  </div> */}
                 </aside>
               </div>
             </div>
