@@ -77,6 +77,7 @@ export default async function ContactPage() {
 
       <section className="contact_section section_space bg-light">
         <div className="container">
+          {/* Contact Info Cards */}
           <div className="contact_info_box row">
             {contact.tiles.map((contactItem, index) => (
               <div className="col-lg-3 col-md-6 col-sm-6" key={index}>
@@ -97,20 +98,76 @@ export default async function ContactPage() {
             ))}
           </div>
 
+          {/* Main Contact Section */}
           <div className="section_space pb-0">
-            <div className="row justify-content-lg-between">
-              <div className="col-lg-7">
+            {/* Contact Form - Full Width */}
+            <div className="row justify-content-center mb-5">
+              <div className="col-lg-8">
                 <ContactForm />
               </div>
-              <div className="col-lg-5">
-                <GoogleMapsEmbed
-                  apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string}
-                  style="height: 100%; width: 100%;"
-                  width="100%;"
-                  height="100%;"
-                  mode="place"
-                  q="13428 105 Ave #2306, Surrey, BC V3T 0A3, Canada"
-                />
+            </div>
+
+            {/* Business Hours and Quick Response - Landscape Layout */}
+            <div className="row justify-content-center mb-5">
+              <div className="col-lg-10">
+                <div className="info_cards_landscape row">
+                  {/* Office Hours */}
+                  <div className="col-lg-6 mb-4">
+                    <div className="info_card">
+                      <h4 className="info_title">Business Hours</h4>
+                      <div className="info_content">
+                        <div className="hours_item">
+                          <span className="day">Monday - Friday</span>
+                          <span className="time">9:00 AM - 6:00 PM PST</span>
+                        </div>
+                        <div className="hours_item">
+                          <span className="day">Saturday</span>
+                          <span className="time">10:00 AM - 4:00 PM PST</span>
+                        </div>
+                        <div className="hours_item">
+                          <span className="day">Sunday</span>
+                          <span className="time">Closed</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Quick Response */}
+                  <div className="col-lg-6 mb-4">
+                    <div className="info_card">
+                      <h4 className="info_title">Quick Response</h4>
+                      <div className="info_content">
+                        <div className="response_item">
+                          <span className="response_type">Email Response</span>
+                          <span className="response_time">Within 2 hours</span>
+                        </div>
+                        <div className="response_item">
+                          <span className="response_type">Phone Response</span>
+                          <span className="response_time">Within 30 minutes</span>
+                        </div>
+                        <div className="response_item">
+                          <span className="response_type">Project Quote</span>
+                          <span className="response_time">Within 24 hours</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Google Maps - Full Width */}
+            <div className="row justify-content-center">
+              <div className="col-lg-10">
+                <div className="map_container_landscape">
+                  <GoogleMapsEmbed
+                    apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string}
+                    height={400}
+                    width="100%"
+                    mode="place"
+                    q="13428 105 Ave #2306, Surrey, BC V3T 0A3, Canada"
+                  />
+                </div>
               </div>
             </div>
           </div>

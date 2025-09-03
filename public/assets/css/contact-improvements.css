@@ -1,0 +1,496 @@
+/* Professional Contact Page Design Enhancements */
+
+/* Contact Section - Modern Layout */
+.contact_section {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+  padding: 80px 0 !important;
+}
+
+
+
+
+.contact_info_box .iconbox_block {
+  background: white !important;
+  border-radius: 16px !important;
+  padding: 40px 24px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid rgba(226, 232, 240, 0.5) !important;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  height: 100% !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.contact_info_box .iconbox_block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 300ms ease;
+}
+
+.contact_info_box .iconbox_block:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+  border-color: rgba(102, 126, 234, 0.2) !important;
+}
+
+.contact_info_box .iconbox_block:hover::before {
+  transform: scaleX(1);
+}
+
+/* Icon Styling */
+.contact_info_box .iconbox_icon {
+  width: 64px !important;
+  height: 64px !important;
+  margin: 0 auto 24px !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border-radius: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 300ms ease !important;
+}
+
+.contact_info_box .iconbox_icon img {
+  filter: brightness(0) invert(1) !important;
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.contact_info_box .iconbox_block:hover .iconbox_icon {
+  transform: scale(1.1) rotate(5deg) !important;
+  background: linear-gradient(135deg, #5a67d8 0%, #6b5b95 100%) !important;
+}
+
+/* Content Styling */
+.contact_info_box .iconbox_title {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #1e293b !important;
+  margin-bottom: 12px !important;
+  line-height: 1.4 !important;
+}
+
+.contact_info_box .iconbox_content p {
+  color: #64748b !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Contact Form Section - Enhanced */
+.contact_form {
+  background: white !important;
+  border-radius: 20px !important;
+  padding: 48px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+  border: 1px solid rgba(226, 232, 240, 0.5) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+
+
+/* Form Header */
+.contact_form .details_item_info_title {
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  color: #1e293b !important;
+  margin-bottom: 8px !important;
+  line-height: 1.3 !important;
+}
+
+.contact_form > p {
+  color: #64748b !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 32px !important;
+}
+
+/* Form Groups - Modern Styling */
+.contact_form .form-group {
+  margin-bottom: 24px !important;
+  position: relative !important;
+}
+
+.contact_form .input_title {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  color: #374151 !important;
+  margin-bottom: 8px !important;
+  display: block !important;
+  letter-spacing: 0.025em !important;
+}
+
+/* Input Fields - Enhanced */
+.contact_form .form-control {
+  width: 100% !important;
+  padding: 16px 20px !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+  color: #1f2937 !important;
+  background-color: #f9fafb !important;
+  border: 2px solid #e5e7eb !important;
+  border-radius: 12px !important;
+  transition: all 250ms ease !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+.contact_form .form-control:focus {
+  outline: none !important;
+  border-color: #667eea !important;
+  background-color: white !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1), 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+.contact_form .form-control::placeholder {
+  color: #9ca3af !important;
+  font-size: 14px !important;
+}
+
+/* Textarea Specific */
+.contact_form textarea.form-control {
+  min-height: 120px !important;
+  resize: vertical !important;
+}
+
+/* Submit Button - Enhanced */
+.contact_form .btn {
+  margin-top: 16px !important;
+  min-width: 200px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.contact_form .btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+  transition: left 500ms ease;
+}
+
+.contact_form .btn:hover::before {
+  left: 100%;
+}
+
+/* Loading State */
+.contact_form .btn:disabled {
+  opacity: 0.7 !important;
+  cursor: not-allowed !important;
+}
+
+.contact_form .btn:disabled .btn_icon {
+  animation: spin 1s linear infinite !important;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Contact Info Landscape Layout */
+.info_cards_landscape {
+  margin: 0 -12px !important;
+}
+
+.info_cards_landscape .col-lg-6 {
+  padding: 0 12px !important;
+}
+
+.info_cards_landscape .info_card {
+  background: white !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid rgba(226, 232, 240, 0.5) !important;
+  transition: all 300ms ease !important;
+  height: 100% !important;
+}
+
+.info_cards_landscape .info_card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+}
+
+.info_cards_landscape .info_title {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #1e293b !important;
+  margin-bottom: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.info_cards_landscape .info_title::before {
+  content: '';
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+  margin-right: 12px;
+}
+
+/* Map Container Landscape */
+.map_container_landscape {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid rgba(226, 232, 240, 0.5) !important;
+  height: 400px !important;
+  width: 100% !important;
+  position: relative !important;
+  transition: all 300ms ease !important;
+  background: #f8fafc !important;
+}
+
+.map_container_landscape:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Ensure Google Maps iframe takes full space */
+.map_container_landscape iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  border-radius: 16px !important;
+  display: block !important;
+}
+
+/* Loading state for map */
+.map_container_landscape::before {
+  content: 'Loading map...';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #64748b;
+  font-size: 16px;
+  font-weight: 500;
+  z-index: 1;
+}
+
+/* Google Maps Container - Enhanced */
+.contact_section .col-lg-5 {
+  padding-left: 32px !important;
+}
+
+/* Contact Info Sidebar */
+.contact_info_sidebar {
+  height: 100% !important;
+}
+
+.contact_info_sidebar .info_card {
+  background: white !important;
+  border-radius: 16px !important;
+  padding: 24px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid rgba(226, 232, 240, 0.5) !important;
+  transition: all 300ms ease !important;
+}
+
+.contact_info_sidebar .info_card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+}
+
+.contact_info_sidebar .info_title {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #1e293b !important;
+  margin-bottom: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.contact_info_sidebar .info_title::before {
+  content: '';
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+  margin-right: 12px;
+}
+
+/* Business Hours Styling */
+.hours_item,
+.response_item {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 12px 0 !important;
+  border-bottom: 1px solid #f1f5f9 !important;
+}
+
+.hours_item:last-child,
+.response_item:last-child {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+}
+
+.day,
+.response_type {
+  font-weight: 500 !important;
+  color: #374151 !important;
+  font-size: 14px !important;
+}
+
+.time,
+.response_time {
+  font-weight: 600 !important;
+  color: #667eea !important;
+  font-size: 14px !important;
+}
+
+/* Map Container */
+.map_container {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid rgba(226, 232, 240, 0.5) !important;
+  height: 300px !important;
+}
+
+.contact_section .col-lg-5 > div {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+  border: 1px solid rgba(226, 232, 240, 0.5) !important;
+  min-height: 500px !important;
+}
+
+/* Page Banner Enhancements */
+.page_banner {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.page_banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/assets/images/patterns/grid.svg') repeat;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+.page_banner .container {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .contact_section .col-lg-5 {
+    padding-left: 15px !important;
+    margin-top: 40px !important;
+  }
+  
+  .contact_form {
+    padding: 32px 24px !important;
+  }
+  
+  .contact_info_box .iconbox_block {
+    margin-bottom: 24px !important;
+  }
+
+  .info_cards_landscape .col-lg-6 {
+    margin-bottom: 24px !important;
+  }
+
+  .map_container_landscape {
+    height: 300px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact_section {
+    padding: 60px 0 !important;
+  }
+  
+  .contact_form .details_item_info_title {
+    font-size: 24px !important;
+  }
+  
+  .contact_info_box {
+    margin-bottom: 40px !important;
+  }
+  
+  .contact_info_box .iconbox_block {
+    padding: 32px 20px !important;
+  }
+
+  .info_cards_landscape {
+    margin: 0 !important;
+  }
+
+  .info_cards_landscape .col-lg-6 {
+    padding: 0 15px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .info_cards_landscape .info_card {
+    padding: 20px !important;
+  }
+
+  .map_container_landscape {
+    height: 250px !important;
+  }
+}
+
+/* Animation for page load */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact_info_box .iconbox_block {
+  animation: fadeInUp 600ms ease-out backwards !important;
+}
+
+.contact_info_box .iconbox_block:nth-child(1) { animation-delay: 100ms !important; }
+.contact_info_box .iconbox_block:nth-child(2) { animation-delay: 200ms !important; }
+.contact_info_box .iconbox_block:nth-child(3) { animation-delay: 300ms !important; }
+.contact_info_box .iconbox_block:nth-child(4) { animation-delay: 400ms !important; }
+
+.contact_form {
+  animation: fadeInUp 600ms ease-out 500ms backwards !important;
+}
+
+/* Toast Notification Styling */
+.sonner-toast {
+  border-radius: 12px !important;
+  padding: 16px 20px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+
+.sonner-toast[data-type="success"] {
+  background: #10b981 !important;
+  border: 1px solid #059669 !important;
+}
+
+.sonner-toast[data-type="error"] {
+  background: #ef4444 !important;
+  border: 1px solid #dc2626 !important;
+}

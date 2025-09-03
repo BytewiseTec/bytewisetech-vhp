@@ -46,7 +46,7 @@ export default async function Navbar() {
   const { project } = projectData || {}
 
   return (
-    <header className="site_header site_header_2">
+    <header className="site_header site_header_2 ">
       <div className="header_bottom stricky">
         <div className="container">
           <div className="row align-items-center">
@@ -63,11 +63,11 @@ export default async function Navbar() {
                 <div className="main_menu_inner collapse navbar-collapse justify-content-lg-center" id="main_menu_dropdown">
                   <ul className="main_menu_list unordered_list justify-content-center">
                     <li className="dropdown">
-                      <a className="nav-link" href="#" id="company_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      {/* <a className="nav-link" href="#" id="company_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {company.label}
                         <FaAngleDown />
-                      </a>
-                      <div className="dropdown-menu mega_menu_wrapper" aria-labelledby="company_submenu">
+                      </a> */}
+                      <div className="dropdown-menu mega_menu_wrapper rounded-none" aria-labelledby="company_submenu">
                         <div className="container">
                           <div className="row">
                             <div className="col-lg-9">
@@ -115,19 +115,24 @@ export default async function Navbar() {
                         {services.label}
                         <FaAngleDown />
                       </Link>
-                      <div className="dropdown-menu mega_menu_wrapper p-0" aria-labelledby="services_submenu">
-                        <div className="container">
+                      <div className="dropdown-menu mega_menu_wrapper p-0 rounded-none" aria-labelledby="services_submenu">
+                        <div className="container ">
                           <div className="row justify-content-lg-between">
-                            <div className="col-lg-8">
+                            <div className="col-lg-8 m-5 mt-3">
                               <div className="row">
-                                <div className="col-lg-6">
+                                <div className="col-lg-6 ">
                                   <div className="megamenu_widget">
-                                    <h3 className="megamenu_info_title">{services.label}</h3>
+                                    {/* Main Heading */}
+                                    <h3 className="megamenu_info_title fs-4 fw-bold text-dark">
+                                      {services.label}
+                                    </h3>
+
+                                    {/* Sub Headings List */}
                                     <ul className="icon_list unordered_list_block">
                                       {serviceLinks.map((service) => (
                                         <li key={service._id}>
                                           <Link href={`${services.href}/${service.slug}`} title={service.name}>
-                                            <span className="icon_list_text">
+                                            <span className="icon_list_text fs-6 text-secondary fw-normal">
                                               {service.name}
                                             </span>
                                           </Link>
@@ -135,15 +140,21 @@ export default async function Navbar() {
                                       ))}
                                     </ul>
                                   </div>
+
                                 </div>
                                 <div className="col-lg-3">
                                   <div className="megamenu_widget">
-                                    <h3 className="megamenu_info_title">{fields.label}</h3>
+                                    {/* Main Heading */}
+                                    <h3 className="megamenu_info_title fs-4 fw-bold text-dark">
+                                      {fields.label}
+                                    </h3>
+
                                     <ul className="icon_list unordered_list_block">
                                       {fieldLinks.map((field) => (
                                         <li key={field._id}>
                                           <Link href={`${fields.href}/${field.slug}`} title={field.name}>
-                                            <span className="icon_list_text">
+                                            {/* Sub Heading */}
+                                            <span className="icon_list_text fs-6 text-secondary fw-normal">
                                               {field.name}
                                             </span>
                                           </Link>
@@ -151,15 +162,16 @@ export default async function Navbar() {
                                       ))}
                                     </ul>
                                   </div>
+
                                 </div>
                                 <div className="col-lg-3">
                                   <div className="megamenu_widget">
-                                    <h3 className="megamenu_info_title">{product.label}</h3>
-                                    <ul className="icon_list unordered_list_block">
+                                    <h3 className="megamenu_info_title fs-4 fw-bold text-dark ">{product.label}</h3>
+                                    <ul className="icon_list unordered_list_block ">
                                       {product.children?.map((prod, idx) => (
                                         <li key={idx}>
                                           <Link href={prod.href} title={prod.label}>
-                                            <span className="icon_list_text">
+                                            <span className="icon_list_text fs-6 text-secondary fw-normal">
                                               {prod.label}
                                             </span>
                                           </Link>
@@ -211,15 +223,15 @@ export default async function Navbar() {
                         </div>
                       </div>
                     </ActiveListItem>
-                    <li className="dropdown">
-                      <a className="nav-link" href="#" id="pages_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <li className="dropdown ">
+                      <a className="nav-link " href="#" id="pages_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {pages.label}
                         <FaAngleDown />
                       </a>
-                      <ul className="dropdown-menu" aria-labelledby="pages_submenu">
+                      <ul className="dropdown-menu rounded-none" aria-labelledby="pages_submenu">
                         {pages.children?.map((page, idx) => (
                           <li key={idx}>
-                            <Link href={page.href} title={page.label}>
+                            <Link href={page.href} title={page.label} className=' fs-6 text-black fw-normal'>
                               {page.label}
                               {page.badge && <Badge type="danger-subtle">{page.badge}</Badge>}
                             </Link>

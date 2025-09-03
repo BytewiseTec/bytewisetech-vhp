@@ -29,9 +29,9 @@ export default function TechnologyReview() {
   }
 
   return (
-    <section className="process_technology_review_section bg-light section_decoration">
+    <section className="process_technology_review_section bg-light section_decoration mt-0">
       <div className="container">
-        <div className="row align-items-center justify-content-lg-between">
+        {/* <div className="row align-items-center justify-content-lg-between">
           <div className="col-lg-6">
             <div className="heading_block">
               <div
@@ -129,7 +129,7 @@ export default function TechnologyReview() {
               <li role="button" data-bs-toggle="collapse" data-bs-target="#collapse_six" aria-expanded="false" aria-controls="collapse_six"><span>Feedback and Iteration</span></li>
             </ul>
           </div>
-        </div>
+        </div> */}
         <div className="section_space">
           <div className="heading_block text-center">
             <div

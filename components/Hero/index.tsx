@@ -32,7 +32,7 @@ export default async function Hero() {
   const Herodata = heroData?.heroCollection.items[0]
 
   return (
-    <section className="software_company_hero_section xb-hidden">
+    <section className="software_company_hero_section xb-hidden ">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-6">
@@ -45,9 +45,9 @@ export default async function Hero() {
               >
                 {Herodata.title}
               </div>
-              <h1 className="text-white">
-              Solutions tailored to your <mark>business</mark> needs, not just tech.
-              </h1>
+                <h1 className="text-white " >
+                Solutions tailored to your <mark>business</mark> needs, not just tech.
+                </h1>
               <p>
               {Herodata.description}
               </p>
@@ -82,8 +82,8 @@ export default async function Hero() {
               </ul>
             </div>
           </div>
-          <div className="col-lg-6">
-            <div className="engine_image">
+          <div className="col-lg-6" >
+            <div className="engine_image  ">
               <div className="image_wrap_1">
                 <Image priority src={Favicon} alt="Engine Image" />
               </div>

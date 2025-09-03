@@ -50,13 +50,15 @@ export default async function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         id="structured-data"
       />
+      
       <Hero />
+    
       <Featured />
       <Services />
       <AboutCaseStudies />
       <TechnologyReview />
       <FAQs faqs={faqs} />
-      <BlogPosts posts={latestBlogPosts} />
+      {/* <BlogPosts posts={latestBlogPosts} /> */}
       <ContactUs />
     </>
   )
