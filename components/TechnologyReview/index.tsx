@@ -1,8 +1,9 @@
 'use client'
 import { useState } from 'react'
-import { GET_BANNER, BannerQuery, Technology, TechnologyQuery, GET_TECHNOLOGY } from './query'
 import { useSuspenseQuery } from '@apollo/client'
 import Image from 'next/image'
+
+import { GET_BANNER, BannerQuery, Technology, TechnologyQuery, GET_TECHNOLOGY } from './query'
 function groupByStack(items: Technology[]): { [key: string]: Technology[] } {
   return items.reduce((acc, item) => {
     if (!acc[item.stack]) {

@@ -1,7 +1,9 @@
 import React from 'react'
-import { GET_FEATURED, FeatureQuery } from './query'
-import { query } from '../../app/ApolloClient'
 import Image from 'next/image'
+
+import { query } from '../../app/ApolloClient'
+
+import { GET_FEATURED, FeatureQuery } from './query'
 
 export default async function Featured() {
 const { data, loading, error } = await query<FeatureQuery>({

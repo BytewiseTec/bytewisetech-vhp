@@ -108,11 +108,11 @@ export default async function ContactPage() {
             </div>
 
             {/* Business Hours and Quick Response - Landscape Layout */}
-            <div className="row justify-content-center mb-5">
+            {/* <div className="row justify-content-center mb-5">
               <div className="col-lg-10">
-                <div className="info_cards_landscape row">
+                <div className="info_cards_landscape row"> */}
                   {/* Office Hours */}
-                  <div className="col-lg-6 mb-4">
+                  {/* <div className="col-lg-6 mb-4">
                     <div className="info_card">
                       <h4 className="info_title">Business Hours</h4>
                       <div className="info_content">
@@ -130,10 +130,10 @@ export default async function ContactPage() {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
 
                   {/* Quick Response */}
-                  <div className="col-lg-6 mb-4">
+                  {/* <div className="col-lg-6 mb-4">
                     <div className="info_card">
                       <h4 className="info_title">Quick Response</h4>
                       <div className="info_content">
@@ -151,10 +151,10 @@ export default async function ContactPage() {
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
+                  </div> */}
+                {/* </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Google Maps - Full Width */}
             <div className="row justify-content-center">

@@ -1,5 +1,6 @@
-import { ListItem, Media } from '../content.types'
 import { gql } from '@apollo/client'
+
+import { ListItem, Media } from '../content.types'
 
 export interface ServicesPage {
   _id: string

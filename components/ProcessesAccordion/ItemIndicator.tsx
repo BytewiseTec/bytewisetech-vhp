@@ -1,7 +1,9 @@
 'use client'
 
-import { ListItem } from '../../app/content.types'
 import classNames from 'classnames'
+
+import { ListItem } from '../../app/content.types'
+
 import { useExpandedIndex } from './ExpandedIndexProvider'
 
 type ItemIndicatorProps = {

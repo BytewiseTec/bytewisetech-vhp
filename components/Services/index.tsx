@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { FaArrowRight, FaRegCircleDot } from 'react-icons/fa6'
+
 import { query } from '@/app/ApolloClient'
 
 import { GET_LINKS, HeaderLinksQuery } from '../Navbar/query'
@@ -48,18 +49,18 @@ export default async function Services() {
           {services.map((service) => (
             <div className="col-lg-4" key={service._id}>
               <div className="service_block_2">   
-                {/* <div className="service_icon">
+                <div className="service_icon">
                   {service.icon?.url && (
                     <Image width={62} height={62} src={service.icon?.url} alt="Tech Service icon"/>
                   )}
-                </div> */}
+                </div>
                 <h3 className="service_title">
                   <Link href={`${servicesLink.href}/${service?.slug}`} title={service.name}>
                     {service.name}
                     <FaArrowRight />
                   </Link>
                 </h3>
-                <ul className="icon_list unordered_list_block">
+                {/* <ul className="icon_list unordered_list_block">
                   {service.areasjson?.map((detail, index) => (
                     <li key={index}>
                       <span className="icon_list_icon">
@@ -68,7 +69,7 @@ export default async function Services() {
                       <span className="icon_list_text">{detail}</span>
                     </li>
                   ))}
-                </ul>
+                </ul> */}
               </div>
             </div>
           ))}

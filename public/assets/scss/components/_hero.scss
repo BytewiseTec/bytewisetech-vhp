@@ -297,9 +297,33 @@
 		}
 	}
 	.image_wrap_4 {
-		margin: -8px 0 -1px -14px;
+		margin: -8px 0 -1px -10px;
 	}
 }
+@media (max-width: 768px) {  /* Tablet & Mobile screens */
+  .engine_image {
+    width: 100%; /* Full width on mobile */
+    height: auto; /* Let height adjust automatically */
+    margin:  -4px 0 -1px -6px;/* Center the image container */
+    transform: none; /* Remove translateY on mobile if needed */
+  }
+
+  .engine_image .image_wrap_4 {
+   margin:  -4px 0 -1px -6px; /* Adjust margin for mobile */
+    max-width: 100%; /* Optional: make image smaller on mobile */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {  /* Small Mobile screens */
+  .engine_image .image_wrap_4 {
+   margin-bottom: 100px; /* Small margin top & bottom */
+    max-width: 100%;
+  }
+}
+
 
 .step_list {
 	gap: 5px;

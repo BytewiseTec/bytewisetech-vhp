@@ -1,10 +1,13 @@
 'use client'
 
+import classNames from 'classnames'
+import { FaMinus, FaPlus } from 'react-icons/fa6'
+
 import { ListItem } from '../../app/content.types'
 import { padWithZeros } from '../../utils/helpers'
-import classNames from 'classnames'
+
 import { useExpandedIndex } from './ExpandedIndexProvider'
-import { FaMinus, FaPlus } from 'react-icons/fa6'
+
 
 type ProcessesAccordionProps = {
   processes: ListItem[]

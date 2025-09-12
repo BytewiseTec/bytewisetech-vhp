@@ -84,60 +84,58 @@
   margin-bottom: 0 !important;
 }
 
-/* Contact Form Section - Enhanced */
+/* Contact Form Section - Reduced Height */
 .contact_form {
   background: white !important;
   border-radius: 20px !important;
-  padding: 48px !important;
+  padding: 32px !important; /* Reduced from 48px */
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
   border: 1px solid rgba(226, 232, 240, 0.5) !important;
   position: relative !important;
   overflow: hidden !important;
 }
 
-
-
-/* Form Header */
+/* Form Header - Reduced spacing */
 .contact_form .details_item_info_title {
-  font-size: 28px !important;
+  font-size: 24px !important; /* Reduced from 28px */
   font-weight: 700 !important;
   color: #1e293b !important;
-  margin-bottom: 8px !important;
-  line-height: 1.3 !important;
+  margin-bottom: 6px !important; /* Reduced from 8px */
+  line-height: 1.2 !important; /* Tighter line height */
 }
 
 .contact_form > p {
   color: #64748b !important;
-  font-size: 16px !important;
-  line-height: 1.6 !important;
-  margin-bottom: 32px !important;
+  font-size: 15px !important; /* Reduced from 16px */
+  line-height: 1.5 !important; /* Reduced from 1.6 */
+  margin-bottom: 24px !important; /* Reduced from 32px */
 }
 
-/* Form Groups - Modern Styling */
+/* Form Groups - Reduced spacing */
 .contact_form .form-group {
-  margin-bottom: 24px !important;
+/* Reduced from 24px */
   position: relative !important;
 }
 
 .contact_form .input_title {
-  font-size: 14px !important;
+  font-size: 13px !important; /* Reduced from 14px */
   font-weight: 600 !important;
   color: #374151 !important;
-  margin-bottom: 8px !important;
+  margin-bottom: 6px !important; /* Reduced from 8px */
   display: block !important;
   letter-spacing: 0.025em !important;
 }
 
-/* Input Fields - Enhanced */
+/* Input Fields - Reduced padding */
 .contact_form .form-control {
   width: 100% !important;
-  padding: 16px 20px !important;
-  font-size: 15px !important;
-  line-height: 1.5 !important;
+  padding: 12px 16px !important; /* Reduced from 16px 20px */
+  font-size: 14px !important; /* Reduced from 15px */
+  line-height: 1.4 !important; /* Reduced from 1.5 */
   color: #1f2937 !important;
   background-color: #f9fafb !important;
   border: 2px solid #e5e7eb !important;
-  border-radius: 12px !important;
+  border-radius: 10px !important; /* Reduced from 12px */
   transition: all 250ms ease !important;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
 }
@@ -155,33 +153,18 @@
   font-size: 14px !important;
 }
 
-/* Textarea Specific */
+/* Textarea - Reduced height */
 .contact_form textarea.form-control {
-  min-height: 120px !important;
+  min-height: 90px !important; /* Reduced from 120px */
   resize: vertical !important;
 }
 
-/* Submit Button - Enhanced */
+/* Submit Button - Reduced spacing */
 .contact_form .btn {
-  margin-top: 16px !important;
-  min-width: 200px !important;
+  margin-top: 12px !important; /* Reduced from 16px */
+  min-width: 180px !important; /* Reduced from 200px */
   position: relative !important;
   overflow: hidden !important;
-}
-
-.contact_form .btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
-  transition: left 500ms ease;
-}
-
-.contact_form .btn:hover::before {
-  left: 100%;
 }
 
 /* Loading State */
@@ -265,19 +248,6 @@
   border: none !important;
   border-radius: 16px !important;
   display: block !important;
-}
-
-/* Loading state for map */
-.map_container_landscape::before {
-  content: 'Loading map...';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #64748b;
-  font-size: 16px;
-  font-weight: 500;
-  z-index: 1;
 }
 
 /* Google Maps Container - Enhanced */
@@ -401,7 +371,7 @@
   }
   
   .contact_form {
-    padding: 32px 24px !important;
+    padding: 24px 20px !important; /* Reduced from 32px 24px */
   }
   
   .contact_info_box .iconbox_block {
@@ -423,11 +393,11 @@
   }
   
   .contact_form .details_item_info_title {
-    font-size: 24px !important;
+    font-size: 20px !important; /* Reduced from 24px */
   }
   
-  .contact_info_box {
-    margin-bottom: 40px !important;
+  .contact_form {
+    padding: 20px 16px !important; /* Further reduced for mobile */
   }
   
   .contact_info_box .iconbox_block {

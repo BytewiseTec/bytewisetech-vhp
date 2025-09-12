@@ -40,15 +40,15 @@ export default async function ContactUs() {
                     <span className="icon">
                       <FaPhoneVolume />
                     </span>
-                    <span className="text">{phone?.description}</span>
+                    <span className="text" style={{fontSize:'0.90rem'}}>{phone?.description}</span>
                   </a>
                 </li>
-                <li>
+                <li >
                   <a href={email?.href}>
                     <span className="icon">
                       <FaEnvelope />
                     </span>
-                    <span className="text">{email?.description}</span>
+                    <span className="text" style={{fontSize:'0.90rem'}} >{email?.description}</span>
                   </a>
                 </li>
                 <li>
@@ -56,7 +56,7 @@ export default async function ContactUs() {
                     <span className="icon">
                       <FaLocationDot />
                     </span>
-                    <span className="text">{address?.description}</span>
+                    <span className="text" style={{fontSize:'0.90rem'}}>{address?.description}</span>
                   </a>
                 </li>
               </ul>

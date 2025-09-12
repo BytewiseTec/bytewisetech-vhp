@@ -1,4 +1,5 @@
 import { renderDomToReact } from '@/utils/renderers'
+
 import { query } from '../ApolloClient'
 import { GetBlogPostByIdQuery, GET_BLOG_POST_BY_ID } from '../global.query'
 

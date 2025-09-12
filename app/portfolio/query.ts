@@ -1,4 +1,5 @@
 import gql from 'graphql-tag'
+
 import { Project } from './[slug]/query'
 
 export interface ProjectsQuery {

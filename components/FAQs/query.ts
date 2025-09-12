@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client'
+
 import { ListItem } from '../../app/content.types'
 
 export interface FAQ {

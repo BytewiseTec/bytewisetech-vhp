@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client'
+
 import { Media, ListItem, Config } from '../../app/content.types'
 export interface CaseStudy {
   _id: string;

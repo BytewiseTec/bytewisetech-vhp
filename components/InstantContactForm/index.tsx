@@ -2,11 +2,12 @@
 
 import { useForm } from 'react-hook-form'
 import { toast, Toaster } from 'sonner'
-import { sendMail } from '../../utils/send-mail'
 import { FaEnvelopeOpenText, FaRegComments, FaRegEnvelope, FaRegUser } from 'react-icons/fa6'
 import { LiaPhoneVolumeSolid } from 'react-icons/lia'
 import { CiGlobe } from 'react-icons/ci'
 import { PiArrowUpRightBold } from 'react-icons/pi'
+
+import { sendMail } from '../../utils/send-mail'
 
 export default function InstantContactForm() {
   const { register, handleSubmit, formState } = useForm({

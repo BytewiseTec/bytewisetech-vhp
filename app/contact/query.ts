@@ -1,4 +1,5 @@
 import gql from 'graphql-tag'
+
 import { ListItem } from '../content.types'
 
 export interface ContactData {

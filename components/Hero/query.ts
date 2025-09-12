@@ -1,7 +1,8 @@
 
 
-import { Link } from '../../app/layout.types'
 import gql from 'graphql-tag'
+
+import { Link } from '../../app/layout.types'
 
 export interface HeaderLinks {
   home: Link;

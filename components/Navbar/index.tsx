@@ -105,145 +105,37 @@ export default async function Navbar() {
                         </div>
                       </div>
                     </li>
-                    <ActiveListItem path={portfolio.href}>
-                      <Link className="nav-link" href={portfolio.href} role="button" title={portfolio.label}>
-                        {portfolio.label}
-                      </Link>
-                    </ActiveListItem>
-                    <ActiveListItem clickable className="dropdown" path={services.href}>
-                      <Link className="nav-link" href={services.href} id="services_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false" title={services.label}>
-                        {services.label}
-                        <FaAngleDown />
-                      </Link>
-                      <div className="dropdown-menu mega_menu_wrapper p-0 rounded-none" aria-labelledby="services_submenu">
-                        <div className="container ">
-                          <div className="row justify-content-lg-between">
-                            <div className="col-lg-8 m-5 mt-3">
-                              <div className="row">
-                                <div className="col-lg-6 ">
-                                  <div className="megamenu_widget">
-                                    {/* Main Heading */}
-                                    <h3 className="megamenu_info_title fs-4 fw-bold text-dark">
-                                      {services.label}
-                                    </h3>
-
-                                    {/* Sub Headings List */}
-                                    <ul className="icon_list unordered_list_block">
-                                      {serviceLinks.map((service) => (
-                                        <li key={service._id}>
-                                          <Link href={`${services.href}/${service.slug}`} title={service.name}>
-                                            <span className="icon_list_text fs-6 text-secondary fw-normal">
-                                              {service.name}
-                                            </span>
-                                          </Link>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-
-                                </div>
-                                <div className="col-lg-3">
-                                  <div className="megamenu_widget">
-                                    {/* Main Heading */}
-                                    <h3 className="megamenu_info_title fs-4 fw-bold text-dark">
-                                      {fields.label}
-                                    </h3>
-
-                                    <ul className="icon_list unordered_list_block">
-                                      {fieldLinks.map((field) => (
-                                        <li key={field._id}>
-                                          <Link href={`${fields.href}/${field.slug}`} title={field.name}>
-                                            {/* Sub Heading */}
-                                            <span className="icon_list_text fs-6 text-secondary fw-normal">
-                                              {field.name}
-                                            </span>
-                                          </Link>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-
-                                </div>
-                                <div className="col-lg-3">
-                                  <div className="megamenu_widget">
-                                    <h3 className="megamenu_info_title fs-4 fw-bold text-dark ">{product.label}</h3>
-                                    <ul className="icon_list unordered_list_block ">
-                                      {product.children?.map((prod, idx) => (
-                                        <li key={idx}>
-                                          <Link href={prod.href} title={prod.label}>
-                                            <span className="icon_list_text fs-6 text-secondary fw-normal">
-                                              {prod.label}
-                                            </span>
-                                          </Link>
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="social_area">
-                                <ul className="social_icons_block unordered_list" data-text="Follow Us:">
-                                  {socials?.map((socialLink, index) => {
-                                    const Icon = getSocialMediaIcon(socialLink)
-                                    const name = getSocialMediaName(socialLink)
-
-                                    if (!Icon || !name) {
-                                      return null
-                                    }
-
-                                    return (
-                                      <li key={index}>
-                                        <Link href={socialLink} target="_blank" rel="noopener noreferrer" aria-label={name} title={name}>
-                                          <Icon className={name} />
-                                        </Link>
-                                      </li>
-                                    )
-                                  })}
-                                </ul>
-                                <p className="career_link m-0">Looking for new career? <Link href={contact.href} title="We're Hiring">We’re Hiring</Link></p>
-                              </div>
-                            </div>
-                            <div className="col-lg-3">
-                              <div className="megamenu_case bg-primary">
-                                <div>
-                                  <h3>{project?.industry}</h3>
-                                  <h4>{project?.name}</h4>
-                                </div>
-                                <Image width={project?.thumbnail.width} height={project?.thumbnail.height} src={project?.thumbnail?.url} alt="Case Image" />
-                                <p className="text-light">{project?.short.substring(0, 300)}</p>
-                                <Link className="btn" href={`/portfolio/${project?.slug}`} title={project?.name}>
-                                  <span className="btn_label" data-text="Read Case">Read Case</span>
-                                  <span className="btn_icon">
-                                    <PiArrowUpRightBold size={20} />
-                                  </span>
-                                </Link>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </ActiveListItem>
-                    <li className="dropdown ">
-                      <a className="nav-link " href="#" id="pages_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {pages.label}
-                        <FaAngleDown />
-                      </a>
-                      <ul className="dropdown-menu rounded-none" aria-labelledby="pages_submenu">
-                        {pages.children?.map((page, idx) => (
-                          <li key={idx}>
-                            <Link href={page.href} title={page.label} className=' fs-6 text-black fw-normal'>
-                              {page.label}
-                              {page.badge && <Badge type="danger-subtle">{page.badge}</Badge>}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                    <li>
-                      <Link href={contact.href} title={contact.label}>
-                        Contact
-                      </Link>
-                    </li>
+                    
+                      <li>
+                        <Link className="nav-link" href="/about" title="About">
+                          About
+                        </Link>
+                      </li>
+                      <li>
+                        <Link className="nav-link" href={services.href} title={services.label}>
+                          {services.label}
+                        </Link>
+                      </li>
+                      <ActiveListItem path={portfolio.href}>
+                        <Link className="nav-link" href={portfolio.href} role="button" title={portfolio.label}>
+                          {portfolio.label}
+                        </Link>
+                      </ActiveListItem>
+                      <li>
+                        <Link className="nav-link" href="/staff-augmentation" title="Staff Augmentation">
+                          Staff Augmentation
+                        </Link>
+                      </li>
+                      <li>
+                        <Link className="nav-link" href="/blog" title="Blog">
+                          Blog
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href={contact.href} title={contact.label}>
+                          Contact
+                        </Link>
+                      </li>
                   </ul>
                 </div>
               </nav>
@@ -255,7 +147,7 @@ export default async function Navbar() {
                 </li>
                 <li>
                   <Link className="btn btn-primary" href={contact.href} title="Get Started">
-                    <span className="btn_label" data-text="Get Started">Get Started</span>
+                    <span className="btn_label" data-text="Get Started">Let&apos;s Talk</span>
                     <span className="btn_icon">
                       <PiArrowUpRightBold size={20} />
                     </span>

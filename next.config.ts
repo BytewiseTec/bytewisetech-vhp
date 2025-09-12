@@ -32,6 +32,12 @@ const nextConfig: NextConfig = withBundleAnalyzer({
   },
   experimental: {
     turbo: {},
+  },
+  // Add suppressHydrationWarning for specific attributes
+  reactStrictMode: true,
+  compiler: {
+    // Enables the styled-components SWC transform
+    styledComponents: true
   }
 })
 

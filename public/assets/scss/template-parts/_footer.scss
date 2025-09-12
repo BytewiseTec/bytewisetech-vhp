@@ -70,12 +70,6 @@
 			line-height: 28px;
 			letter-spacing: 1px;
 			font-family: var(--axi-semibold);
-			>a {
-				&:hover {
-					text-decoration: underline;
-					text-decoration-thickness: 1px;
-				}
-			}
 		}
 
 		&.unordered_list {
@@ -236,12 +230,7 @@
 
 	.copyright_text {
 		color: var(--bs-white);
-		a {
-			color: currentColor;
-			&:hover {
-				text-decoration: underline;
-			}
-		}
+		
 	}
 
 	.footer_newslatter {
@@ -370,8 +359,7 @@
 			font-family: var(--axi-medium);
 			>a {
 				color: var(--bs-white);
-				&:hover {
-				}
+				
 			}
 		}
 	}

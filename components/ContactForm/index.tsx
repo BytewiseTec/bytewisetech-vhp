@@ -42,9 +42,9 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="contact-form-enhanced">
+    <form onSubmit={handleSubmit(onSubmit)} className="contact-form-enhanced" >
       <div className="contact_form mb-0">
-        <h3 className="details_item_info_title mb-1">Send Us A Message</h3>
+        <h3 className="details_item_info_title mb-1">Send Us A Message</h3> 
         <p className="mb-5">
           Give us a chance to serve and bring magic to your brand.
         </p>
@@ -109,7 +109,7 @@ export default function ContactForm() {
                 aria-describedby="phone-help"
               />
               <small id="phone-help" className="form-text text-muted">
-                Optional - We'll call you back if needed
+                Optional - We&apos;ll call you back if needed
               </small>
             </div>
           </div>
@@ -150,16 +150,14 @@ export default function ContactForm() {
               disabled={isLoading}
               aria-describedby="submit-help"
             >
-              <span className="btn_label" data-text={isLoading ? "Sending..." : "Send Message"}>
-                {isLoading ? "Sending..." : "Send Message"}
+              <span className="btn_label" data-text={isLoading ? 'Sending...' : 'Send Message'}>
+                {isLoading ? 'Sending...' : 'Send Message'}
               </span>
               <span className="btn_icon">
                 <PiArrowUpRightBold size={20} />
               </span>
             </button>
-            <small id="submit-help" className="form-text text-muted d-block mt-2">
-              We'll respond within 24 hours during business days
-            </small>
+           
           </div>
         </div>
       </div>

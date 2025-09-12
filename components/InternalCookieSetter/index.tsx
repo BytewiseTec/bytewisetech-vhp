@@ -1,10 +1,11 @@
 'use client'
 
-import { INTERNAL_EMAIL_PARAM, INTERNAL_TRAFFIC_COOKIE_NAME } from '@/utils/constants'
-import { hasCookie, isSSR, triggerInternalTrafficPrompt } from '@/utils/helpers'
 import { GoogleTagManager } from '@next/third-parties/google'
 import { useSearchParams } from 'next/navigation'
 import { ComponentType, PropsWithChildren, Suspense, useEffect, useState } from 'react'
+
+import { hasCookie, isSSR, triggerInternalTrafficPrompt } from '@/utils/helpers'
+import { INTERNAL_EMAIL_PARAM, INTERNAL_TRAFFIC_COOKIE_NAME } from '@/utils/constants'
 
 const withSuspense = <P extends {}>(Component: ComponentType<P>) => {
   const WithSuspense = (props: PropsWithChildren<P>) => (

@@ -1,6 +1,7 @@
-import { EntryId, ListItem } from '../../content.types'
 import { Document } from '@contentful/rich-text-types'
 import gql from 'graphql-tag'
+
+import { EntryId, ListItem } from '../../content.types'
 
 export interface ServiceIdQuery {
   serviceCollection: {

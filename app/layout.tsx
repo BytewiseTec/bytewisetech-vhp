@@ -16,6 +16,7 @@ import '../public/assets/scss/style.scss'
 import '../public/assets/css/button-improvements.css'
 import '../public/assets/css/contact-improvements.css'
 
+
 const axiRegaular = localFont({
   src: '../public/assets/fonts/Axiforma-Regular.ttf',
   style: 'normal',
@@ -142,13 +143,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en" className={[axiRegaular.variable, axiMedium.variable, axiSemiBold.variable, axiBold.variable].join(' ')}>
+          <html lang="en" className={`${axiRegaular.variable} ${axiMedium.variable} ${axiSemiBold.variable} ${axiBold.variable}`} suppressHydrationWarning={true}>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <InternalCookieSetter />
-      <body>
+              <body suppressHydrationWarning={true}>
         <ApolloWrapper>
           <div className="page_wrapper">
             <div className="backtotop">
@@ -160,7 +164,7 @@ export default function RootLayout({
             <main className="page_content">
               {children}
             </main>
-            <CallToAction />
+            {/* <CallToAction /> */}
             <Footer />
           </div>
         </ApolloWrapper>

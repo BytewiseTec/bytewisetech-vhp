@@ -6,6 +6,7 @@ import { Fragment } from 'react'
 import Script from 'next/script'
 
 import generateStructuredData from '@/utils/structured-data'
+import FieldsSlider from '@/components/FieldsSlider'
 
 import { query } from '../ApolloClient'
 import IconCheck2 from '../../public/assets/images/icons/icon_check_2.svg'
@@ -15,7 +16,7 @@ import IconReceiptAdd from '../../public/assets/images/icons/icon_receipt_add.sv
 import IconMonitor from '../../public/assets/images/icons/icon_monitor.svg'
 import IconMicroscope from '../../public/assets/images/icons/icon_microscope.svg'
 import PageBanner from '../../components/PageBanner'
-
+import { GET_FIELDS, FieldsLinksQuery } from '../../components/Navbar/query'
 
 import { GET_SERVICES, GET_SERVICES_PAGE, ServicesPageQuery, ServicesQuery } from './query'
 
@@ -54,6 +55,9 @@ export default async function ServicesPage() {
   const { data: servicesPageData } = await query<ServicesPageQuery>({
     query: GET_SERVICES_PAGE
   })
+
+  const { data: fieldsCollection } = await query<FieldsLinksQuery>({ query: GET_FIELDS })
+  const fields = fieldsCollection?.fieldCollection?.items || []
 
   const { page: servicesPage } = servicesPageData || {}
 
@@ -156,8 +160,12 @@ export default async function ServicesPage() {
                       </h3>
                       <div className="links_wrapper">
                         <ul className="category_btns_group unordered_list">
-                          <li><a href="#!">{service.heading}</a></li>
-                          <li><a href="#!">{service.heading2}</a></li>
+                          <li>
+                            <a href="#!">{service.heading || 'Growth'}</a>
+                          </li>
+                          <li>
+                            <a href="#!">{service.heading2 || 'Marketing'}</a>
+                          </li>
                         </ul>
                         <Link className="icon_block" href={`/services/${service.slug}`} title={service.name}>
                           <PiArrowUpRightBold size={20} />
@@ -211,6 +219,30 @@ export default async function ServicesPage() {
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="fields_section section_space bg-light py-5">
+        <div className="container">
+          <div className="row justify-content-center mb-5">
+            <div className="col-lg-8 text-center">
+              <h2 className="display-5 fw-bold mb-3">Our Fields of Expertise</h2>
+              <p className="lead text-muted">
+                Explore our specialized domains where we excel in delivering exceptional solutions and services
+              </p>
+            </div>
+          </div>
+
+          <FieldsSlider fields={fields} />
+
+          <div className="text-center mt-5">
+            <Link className="btn btn-primary btn-lg" href="/contact">
+              <span className="btn_label">Discuss Your Project</span>
+              <span className="btn_icon ms-2">
+                <PiArrowUpRightBold size={20} />
+              </span>
+            </Link>
           </div>
         </div>
       </section>

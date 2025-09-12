@@ -1,5 +1,6 @@
-import { Media } from '../../app/content.types'
 import { gql } from '@apollo/client'
+
+import { Media } from '../../app/content.types'
 export interface Service {
   _id: string;
   name: string;

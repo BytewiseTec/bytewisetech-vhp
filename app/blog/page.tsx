@@ -123,6 +123,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                           alt={post.thumbnail.title}
                           width={post.thumbnail.width}
                           height={post.thumbnail.height}
+                          style={{objectFit:'cover', objectPosition:'center'}}
                         />
                       </Link>
                     </div>
