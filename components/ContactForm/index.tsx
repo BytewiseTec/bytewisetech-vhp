@@ -43,7 +43,7 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="contact-form-enhanced" >
-      <div className="contact_form mb-0">
+      <div className="contact_form mb-0 ">
         <h3 className="details_item_info_title mb-1">Send Us A Message</h3> 
         <p className="mb-5">
           Give us a chance to serve and bring magic to your brand.

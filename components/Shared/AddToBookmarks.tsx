@@ -9,7 +9,7 @@ export const AddToBookmarks = () => {
     <a
       href="#!"
     >
-      <Image src={IconBookmark} alt="Bookmark Chat" /> Ctrl/Cmd + d to Bookmark
+      <Image src={IconBookmark} alt="Bookmark Chat" />Bookmark
     </a>
   )
 }

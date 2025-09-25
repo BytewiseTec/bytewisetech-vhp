@@ -75,15 +75,15 @@ export default function FieldsSlider({ fields }: FieldsSliderProps) {
       >
         {fields.map((field) => (
           <SwiperSlide key={field._id} className="h-auto">
-            <div className="card border-0 shadow-sm hover-shadow transition d-flex flex-column h-100">
+            <div className="card border-0 shadow-sm hover-shadow transition d-flex flex-column h-100 bg-dark">
               <div className="card-body p-4 d-flex flex-column">
                 <div className="d-flex justify-content-between align-items-center mb-3">
-                  <h3 className="h5 mb-0  fw-bold" style={{color:'#020842'}}>{field.name}</h3>
-                  <Link href={`/fields/${field.slug}`} className="btn btn-sm btn-outline-primary rounded-circle flex-shrink-0" title={field.name}>
+                  <h3 className="h5 mb-0  fw-bold text-white"  >{field.name}</h3>
+                  <Link href={`/fields/${field.slug}`} className=" text-white rounded-circle flex-shrink-0" title={field.name}>
                     <PiArrowUpRightBold size={18} />
                   </Link>
                 </div>
-                <p className="card-text text-muted mb-0 flex-grow-1">
+                <p className="card-text text-white mb-0 flex-grow-1">
                   Specialized solutions and expertise in {field.name.toLowerCase()} development and implementation.
                 </p>
               </div>

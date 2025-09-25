@@ -33,6 +33,10 @@
   transform-origin: left;
   transition: transform 300ms ease;
 }
+.contact-form-enhanced{
+  border: 2px solid #667EEA;
+  border-radius: 20px;
+}
 
 .contact_info_box .iconbox_block:hover {
   transform: translateY(-8px) !important;

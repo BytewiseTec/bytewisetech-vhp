@@ -15,7 +15,7 @@ import '../public/assets/css/bootstrap.min.css'
 import '../public/assets/scss/style.scss'
 import '../public/assets/css/button-improvements.css'
 import '../public/assets/css/contact-improvements.css'
-
+import '../public/assets/css/services-improvements.css'
 
 const axiRegaular = localFont({
   src: '../public/assets/fonts/Axiforma-Regular.ttf',

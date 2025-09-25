@@ -101,7 +101,7 @@ export default async function ContactPage() {
           {/* Main Contact Section */}
           <div className="section_space pb-0">
             {/* Contact Form - Full Width */}
-            <div className="row justify-content-center mb-5">
+            <div className="row justify-content-center mb-5 ">
               <div className="col-lg-8">
                 <ContactForm />
               </div>

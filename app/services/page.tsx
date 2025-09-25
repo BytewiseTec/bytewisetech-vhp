@@ -19,7 +19,6 @@ import PageBanner from '../../components/PageBanner'
 import { GET_FIELDS, FieldsLinksQuery } from '../../components/Navbar/query'
 
 import { GET_SERVICES, GET_SERVICES_PAGE, ServicesPageQuery, ServicesQuery } from './query'
-
 const whyUsImages: Record<string, StaticImageData> = {
   'icon_check_2.svg': IconCheck2,
   'icon_leaf.svg': IconLeaf,
@@ -28,6 +27,39 @@ const whyUsImages: Record<string, StaticImageData> = {
   'icon_monitor.svg': IconMonitor,
   'icon_microscope.svg': IconMicroscope,
 }
+
+const cardData = [
+  {
+    title: 'Industry-Specific Expertise',
+    description:
+      'Your industry has unique challenges; our solutions have precise answers. We deliver nuanced software informed by deep sector-specific knowledge.',
+  },
+  {
+    title: 'Cutting-Edge Technologies',
+    description:
+      'We harness leading-edge technologies and innovative frameworks to build dynamic, high-performance applications poised for the future.',
+  },
+  {
+    title: 'Security-Focused Development',
+    description:
+      'Security is our cornerstone. We proactively embed enterprise-grade protections throughout the development lifecycle to safeguard your valuable assets.',
+  },
+  {
+    title: 'Scalable Architecture',
+    description:
+      'We engineer for evolution. Our solutions are built on a robust, scalable architecture designed to effortlessly accommodate your expanding ambitions.',
+  },
+  {
+    title: 'Collaborative Process',
+    description:
+      'Your vision, our execution—seamlessly integrated. We foster a transparent, partnership-driven approach, ensuring you are intimately involved in the journey.',
+  },
+  {
+    title: 'Continuous Support',
+    description:
+      'Our commitment extends far beyond deployment. We provide unwavering, expert support to ensure your software continues to perform at its peak.',
+  },
+]
 
 export const metadata: Metadata = {
   title: 'Services - Bytewise Technologies',
@@ -73,7 +105,6 @@ export default async function ServicesPage() {
       ],
     }
   ])
-
   return (
     <>
       <Script
@@ -84,98 +115,135 @@ export default async function ServicesPage() {
 
       <PageBanner
         title={servicesPage.title}
-        breadcrumb={[
-          { name: 'Home', url: '/' },
-          { name: servicesPage.title },
-        ]}
+      // breadcrumb={[
+      //   { name: 'Home', url: '/' },
+      //   { name: servicesPage.title },
+      // ]}
       />
+      <section className="hero-section position-relative custom-gradient text-white d-flex align-items-center" style={{ minHeight: '55vh' }}>
+        <div className="container text-center  position-relative" style={{ zIndex: 3 }}>
+          <h1 className="display-4 text-dark fw-bold pt-5">
+            Tech-Driven Product Engineering Experts Solution Services
+          </h1>
+          <p className="lead mb-4 ms-5 me-5 text-dark" >
+            We Build Powerful Digital Solutions And Experiences for Every Team From early-stage startups to large enterprises, we provide innovative strategies, cutting-edge technologies, and seamless user experiences that help your business grow and succeed in the digital world.
+          </p>
+          <div className="d-flex justify-content-center gap-3 flex-wrap">
+            <Link href="/contact" className="btn btn-primary btn-lg mb-5 d-flex align-items-center">
+              <span className="btn_label">Get a Consultation</span>
+              <span className="btn_icon ">
+                <PiArrowUpRightBold size={20} />
+              </span>
+            </Link>
 
-      <section className="about_section section_space bg-light">
+          </div>
+        </div>
+      </section>
+
+      <section className="service_section main-div ">
         <div className="container">
-          <div className="row align-items-center justify-content-lg-between">
-            <div className="col-lg-5 order-lg-last">
-              <div className="team_cartoon_image">
-                {servicesPage.highlightImage && (
-                  <Image width={servicesPage.highlightImage.width} height={servicesPage.highlightImage.height} src={servicesPage.highlightImage.url} alt="Service Cartoon Image - Bytewise Tech - About Image" />
-                )}
-              </div>
-            </div>
-            <div className="col-lg-5">
-              <div className="about_content">
-                <div className="heading_block">
-                  <div className="heading_focus_text">
-                    We Are
-                    <span className="badge bg-secondary text-white">IT Guidance</span>
+
+          <div className="heading_block text-center">
+            {/* <div className="heading_focus_text">
+              Our <span className="badge bg-secondary text-white">Specialize</span>
+            </div> */}
+            <h2 className="heading_text mb-0">Featured Services</h2>
+          </div>
+          <div className="columns_container">
+            {services.map((service) => (
+              <div className="columns_item" key={service._id}>
+                <div className="service_block">
+                  {/* Image */}
+                  <div className="service_image">
+                    {service.banner && (
+                      <Image
+                        width={service.banner.width}
+                        height={service.banner.height}
+                        src={service.banner.url}
+                        alt={service.banner.title}
+                      />
+                    )}
                   </div>
+                  <div className="service_content ">
+                    <h3 className="service_title">
+                      <Link href={`/services/${service.slug}`} title={service.name}>
+                        {service.name}
+                      </Link>
+                    </h3>
+                    <div className="links_wrapper">
+                      <ul className="category_btns_group unordered_list">
+                        <li>
+                          <a href="#!">{service.heading || 'Growth'}</a>
+                        </li>
+                        <li>
+                          <a href="#!">{service.heading2 || 'Marketing'}</a>
+                        </li>
+                      </ul>
+                      <Link
+                        className="icon_block"
+                        href={`/services/${service.slug}`}
+                        title={service.name}
+                      >
+                        <PiArrowUpRightBold size={20} />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className='about_section py-5 my-3 '>
+        <div className='container'>
+          <div className="row flex-column">
+            <div className="col-12">
+              <div className='about_content text-center'>
+                <div className="heading_block">
                   {servicesPage.sections.map((section) => (
                     <Fragment key={section.title}>
-                      <h2 className="heading_text">
-                        {section.title}
-                      </h2>
-                      <p className="heading_description mb-0">
-                        {section.description}
-                      </p>
+                      <h1 className="heading_text ">{section.title}</h1>
+                      <div className='px-5'>
+                        <p className='text-black des-padding fs-4 '>{section.description}</p>
+                      </div>
                     </Fragment>
                   ))}
                 </div>
-                <Link className="btn" href="/contact" title="Talk to an Expert">
-                  <span className="btn_label" data-text="Talk to an Expert">Talk to an Expert</span>
-                  <span className="btn_icon">
-                    <PiArrowUpRightBold size={20} />
-                  </span>
-                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="service_section section_space">
-        <div className="container">
-          <div className="heading_block text-center">
-            <div className="heading_focus_text">
-              Our
-              <span className="badge bg-secondary text-white">Specialize</span>
+      <section className="container mb-5 ">
+        <div className="row card-padding">
+          {cardData.map((card, index) => (
+            <div className="col-12 col-sm-6 col-lg-4 card-item" key={index}>
+              <div className="p-4 shadow-lg rounded-4 text-light h-100 d-flex flex-column" style={{ backgroundColor: '#020842' }}>
+                <h2 className="fw-bold mb-3 text-light">{card.title}</h2>
+                <p className="text-light flex-grow-1">{card.description}</p>
+                <a href="/about" className="text-white">
+                  Learn More <PiArrowUpRightBold size={20} />
+                </a>
+              </div>
             </div>
-            <h2 className="heading_text mb-0">
-              Featured Services
-            </h2>
-          </div>
+          ))}
+        </div>
+      </section>
 
-          <div className="columns_container">
-            {services.map((service) => {
-              return (
-                <div className="columns_item" key={service._id}>
-                  <div className="service_block">
-                    <div className="service_image">
-                      {service.banner && (
-                        <Image width={service.banner.width} height={service.banner.height} src={service.banner.url} alt={service.banner.title} />
-                      )}
-                    </div>
-                    <div className="service_content">
-                      <h3 className="service_title">
-                        <Link href={`/services/${service.slug}`} title={service.name}>
-                          {service.name}
-                        </Link>
-                      </h3>
-                      <div className="links_wrapper">
-                        <ul className="category_btns_group unordered_list">
-                          <li>
-                            <a href="#!">{service.heading || 'Growth'}</a>
-                          </li>
-                          <li>
-                            <a href="#!">{service.heading2 || 'Marketing'}</a>
-                          </li>
-                        </ul>
-                        <Link className="icon_block" href={`/services/${service.slug}`} title={service.name}>
-                          <PiArrowUpRightBold size={20} />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
+      <section className="fields_section section_space bg-light py-5">
+        <div className="container">
+          <div className="row justify-content-center mb-5">
+            <div className="col-lg-8 text-center">
+              <h2 className="display-5 fw-bold mb-3">Our Fields of Expertise</h2>
+              <p className="lead  text-black">
+                Explore our specialized domains where we excel in delivering exceptional solutions and services
+              </p>
+            </div>
+          </div>
+          <div className='px-5'>
+            <FieldsSlider fields={fields} />
           </div>
         </div>
       </section>
@@ -186,17 +254,17 @@ export default async function ServicesPage() {
             <div className="col-lg-6">
               <div className="image_wrap">
                 {servicesPage.whyUsImage && (
-                  <Image width={servicesPage.whyUsImage.width} height={servicesPage.whyUsImage.height} src={servicesPage.whyUsImage.url} alt="Bytewise Tech - About Image" />
+                  <Image className='rounded' width={servicesPage.whyUsImage.width} height={servicesPage.whyUsImage.height} src={servicesPage.whyUsImage.url} alt="Bytewise Tech - About Image" />
                 )}
               </div>
             </div>
             <div className="col-lg-6">
               <div className="ps-lg-5">
                 <div className="heading_block">
-                  <div className="heading_focus_text">
+                  {/* <div className="heading_focus_text">
                     <span className="badge bg-secondary text-white">Why Us</span>
                     Better
-                  </div>
+                  </div> */}
                   <h2 className="heading_text mb-0">
                     Why Our Services are Better Than Others?
                   </h2>
@@ -214,38 +282,24 @@ export default async function ServicesPage() {
                           <strong className="iconbox_title mb-0">{item.description}</strong>
                         </span>
                       </a>
-                    </li> 
+                    </li>
                   ))}
                 </ul>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="fields_section section_space bg-light py-5">
-        <div className="container">
-          <div className="row justify-content-center mb-5">
-            <div className="col-lg-8 text-center">
-              <h2 className="display-5 fw-bold mb-3">Our Fields of Expertise</h2>
-              <p className="lead text-muted">
-                Explore our specialized domains where we excel in delivering exceptional solutions and services
-              </p>
-            </div>
-          </div>
-
-          <FieldsSlider fields={fields} />
-
-          <div className="text-center mt-5">
+              {/* <div className="text-center mt-5">
             <Link className="btn btn-primary btn-lg" href="/contact">
               <span className="btn_label">Discuss Your Project</span>
               <span className="btn_icon ms-2">
                 <PiArrowUpRightBold size={20} />
               </span>
             </Link>
+          </div> */}
+            </div>
           </div>
         </div>
       </section>
+
+
     </>
   )
 }

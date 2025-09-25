@@ -18,6 +18,8 @@ import SearchIcon from '../../../public/assets/images/icons/icon_search.svg'
 
 import { GET_BLOG_POST, GET_BLOG_POST_CATEGORIES, GET_BLOG_POST_ID, GetBlogPostCategoriesQuery, GetBlogPostIdQuery, GetBlogPostQuery } from './query'
 
+
+
 interface BlogDetailsPageProps {
   params: Promise<{ slug: string; }>
 }
@@ -159,7 +161,7 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
         ]}
       />
 
-      <section className="blog_details_section section_space bg-light">
+      <section className="blog_details_section section_space ">
         <div className="container">
           <div className="post_meta_wrap mb-4">
             <ul className="category_btns_group unordered_list">
@@ -194,13 +196,16 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
               </ul>
             </div>
           </div>
-          <hr className="mb-10" />
-          <div className="pb-0">
+          <hr className="mb-10"/>
+          <div className="pb-0 ">
             <div className="row">
-              <div className="col-lg-8">
+              <div className="col-lg-12">
+                <div className='padding-setting w-90'>
+                <h1>{post.title}</h1>
                 {renderDomToReact(post.body.json)}
+                </div>
                 <hr className="mt-0 mb-5" />
-                <div className="row">
+                <div className="row padding-setting">
                   <div className="col-md-6">
                     <ul className="tags_list unordered_list">
                       {post.tags?.map((tag) => (
@@ -228,7 +233,7 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
                 </div>
               </div>
 
-              <div className="col-lg-4">
+              {/* <div className="col-lg-4">
                 <aside className="sidebar ps-lg-5">
                   <div className="search_form">
                     <h3 className="sidebar_widget_title">Search</h3>
@@ -251,7 +256,7 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
                           </a>
                         </li>
                       ))}
-                    </ul>
+                    </ul> */}
                   </div>
                   {/* <div className="popular_tags">
                     <h3 className="sidebar_widget_title">Popular Tags</h3>
@@ -263,9 +268,9 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
                       ))}
                     </ul>
                   </div> */}
-                </aside>
-              </div>
-            </div>
+                {/* </aside>
+              </div> 
+            {/* </div> */}
           </div>
         </div>
       </section>

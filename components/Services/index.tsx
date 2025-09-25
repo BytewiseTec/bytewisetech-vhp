@@ -48,7 +48,7 @@ export default async function Services() {
         <div className="row">
           {services.map((service) => (
             <div className="col-lg-4" key={service._id}>
-              <div className="service_block_2">   
+              <div className="service_block_2 ">   
                 <div className="service_icon">
                   {service.icon?.url && (
                     <Image width={62} height={62} src={service.icon?.url} alt="Tech Service icon"/>

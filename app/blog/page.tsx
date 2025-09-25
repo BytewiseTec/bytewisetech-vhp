@@ -141,7 +141,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                         </ul>
                       </div>
                       <h3 className="blog_post_title">
-                        <Link href={`/blog/${post.slug}`} title={post.title}>
+                        <Link href={`/blog/${post.slug}`} title={post.title}  >
                           {post.title}
                         </Link>
                       </h3>
@@ -184,7 +184,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 </div>
               </div>
               <div className="col-lg-4">
-                <aside className="sidebar ps-lg-5">
+                <aside className="sidebar sticky-sidebar ps-lg-5" style={{position:'sticky',top:0,height:'100vh',overflow:'auto',paddingTop:'1rem'}}>
                   <div className="search_form">
                     <h3 className="sidebar_widget_title">Search</h3>
                     <div className="form-group">
