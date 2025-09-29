@@ -184,8 +184,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 </div>
               </div>
               <div className="col-lg-4">
-                <aside className="sidebar sticky-sidebar ps-lg-5" style={{position:'sticky',top:0,overflow:'auto',paddingTop:'1rem'}}>
-                  <div className="search_form">
+                <aside className="sidebar sticky-sidebar ps-lg-5" style={{position:'sticky',top:0,overflow:'auto',paddingTop:'5rem'}}>
+                  {/* <div className="search_form">
                     <h3 className="sidebar_widget_title">Search</h3>
                     <div className="form-group">
                       <input className="form-control" type="search" name="search" placeholder="Search your keyword" />
@@ -193,7 +193,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                         <Image src={SearchIcon} alt="Search Icon" />
                       </button>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="post_category_wrap">
                     <h3 className="sidebar_widget_title">Categories</h3>
                     <ul className="post_category_list unordered_list_block">
