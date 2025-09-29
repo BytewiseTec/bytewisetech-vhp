@@ -184,7 +184,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 </div>
               </div>
               <div className="col-lg-4">
-                <aside className="sidebar sticky-sidebar ps-lg-5" style={{position:'sticky',top:0,height:'100vh',overflow:'auto',paddingTop:'1rem'}}>
+                <aside className="sidebar sticky-sidebar ps-lg-5" style={{position:'sticky',top:0,overflow:'auto',paddingTop:'1rem'}}>
                   <div className="search_form">
                     <h3 className="sidebar_widget_title">Search</h3>
                     <div className="form-group">
@@ -208,6 +208,8 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                       ))}
                     </ul>
                   </div>
+                  </aside>
+                  </div>
                   {/* <div className="popular_tags">
                     <h3 className="sidebar_widget_title">Popular Tags</h3>
                     <ul className="tags_list unordered_list">
@@ -218,8 +220,6 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                       ))}
                     </ul>
                   </div> */}
-                </aside>
-              </div>
             </div>
           </div>
         </div>
