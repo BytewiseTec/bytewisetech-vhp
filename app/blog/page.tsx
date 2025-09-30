@@ -34,15 +34,15 @@ interface BlogPageProps {
 }
 
 export const metadata = {
-  title: 'Blog - Bytewise Technologies',
-  description: 'Our blog showcases the latest news and updates from Bytewise Technologies. Stay up-to-date with our blog posts.',
-  keywords: 'blog, news, updates, Bytewise Technologies',
+  title: 'Bytewise Tech Blog',
+  description: 'Your resource for expert AI insights, web development tutorials, and modern software practices. Stay ahead of the tech curve with us.',
+  keywords: 'AI insights, web development tutorials, software practices, Web Development vs Mobile Development, are web development bootcamps worth it, can web development be replaced by ai, how web development works, web development vs mobile development, can python be used for web development, how to choose a web development company, what web development includes',
   authors: { name: 'Bytewise Technologies', url: 'https://bytewisetechnologies.com' },
   openGraph: {
     locale: 'en_US',
     type: 'website',
-    title: 'Blog - Bytewise Technologies',
-    description: 'Our blog showcases the latest news and updates from Bytewise Technologies. Stay up-to-date with our blog posts.',
+    title: 'Bytewise Tech Blog',
+    description: 'Your resource for expert AI insights, web development tutorials, and modern software practices. Stay ahead of the tech curve with us.',
     url: 'https://bytewisetechnologies.com/blog',
     siteName: 'Bytewise Technologies',
   },
@@ -130,13 +130,13 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                     <div className="blog_post_content">
                       <div className="post_meta_wrap">
                         <ul className="category_btns_group unordered_list">
-                          <li><a href="#!">{post.category}</a></li>
+                          <li><a href="">{post.category}</a></li>
                         </ul>
                         <ul className="post_meta unordered_list">
                           <li>
-                            <a href="#!">
+                            
                               <Image src={IconCalendar} alt="Icon Calendar" /> {dayjs(post.publishedDate).format('MMMM DD, YYYY')}
-                            </a>
+                            
                           </li>
                         </ul>
                       </div>
@@ -160,7 +160,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 <div className="pagination_wrap pb-0">
                   <ul className="pagination_nav unordered_list justify-content-center">
                     <li className={currentPage === 1 ? 'disabled' : ''}>
-                      <Link href={currentPage === 1 ? '#!' : `?page=${currentPage - 1}`} title="Previous">
+                      <Link href={currentPage === 1 ? '#' : `?page=${currentPage - 1}`} title="Previous">
                         <FaAnglesLeft />
                       </Link>
                     </li>
@@ -176,7 +176,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                       </li>
                     ))}
                     <li className={currentPage === totalPages ? 'disabled' : ''}>
-                      <Link href={currentPage === totalPages ? '#!' : `?page=${currentPage + 1}`} title="Next">
+                      <Link href={currentPage === totalPages ? '#' : `?page=${currentPage + 1}`} title="Next">
                         <FaAnglesRight />
                       </Link>
                     </li>
@@ -199,7 +199,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                     <ul className="post_category_list unordered_list_block">
                       {Object.entries(categoryCounts).map(([category, count]) => (
                         <li key={category}>
-                          <a href="#!">
+                          <a href="#">
                             <PiArrowUpRightBold size={20} />
                             <span>{category}</span>
                             <span>({count})</span>
@@ -215,7 +215,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                     <ul className="tags_list unordered_list">
                       {allTags.map((tag) => (
                         <li key={tag}>
-                          <a href="#!">{tag}</a>
+                          <a href="">{tag}</a>
                         </li>
                       ))}
                     </ul>

@@ -54,12 +54,12 @@ export default function BlogPosts({ posts }: BlogPostsProps) {
                   </h3>
                   <ul className="post_meta unordered_list">
                     <li>
-                      <a href="#!">
+                      <a href="/blog">
                         <FaRegCircleUser /> By <b>{post.author.fullName}</b>
                       </a>
                     </li>
                     <li>
-                      <a href="#!">
+                      <a href="/blog">
                         <Image src={IconCalendar} alt="Calendar icon" /> {dayjs(post.publishedDate).format('MMM DD, YYYY')}
                       </a>
                     </li>

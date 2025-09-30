@@ -11,26 +11,46 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .padding-setting{
-margin-left: 15%;
- margin-right: 15%;
+margin-left: 5%;
+ margin-right: 5%;
   text-align: justify;
-  border-radius: 10px;
-
-
-}
-
-.padding-setting h1{
-  letter-spacing: -0.2rem;
-}
-.details_item_title{
-  font-size: xx-large ;
+ 
 }
 
 
-.padding-setting h2{
-    letter-spacing: -1px;
-     line-height: 1.1; 
+
+
+
+.dots {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 1.2rem;
 }
+
+.dots::before {
+  content: "•"; 
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+  color: black;
+}
+
+.un_list{
+  padding-bottom: 5vh;
+}
+
+/* [class*="_details_section"] p {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 32px;
+    margin-bottom: 25px;
+    font-family: var(--axi-medium);
+} */
+
+
+
+
 
 .card-item > div:hover {
   transform: translateY(-6px);

@@ -45,24 +45,24 @@ export default async function Hero() {
               >
                 {Herodata.title}
               </div>
-                <h1 className="text-white " >
-                Solutions tailored to your <mark>business</mark> needs, not just tech.
+                <h1 className="text-white" >
+              <mark>Bytewise</mark> built an AI agent that automate <mark>80%</mark> of our manual work 
                 </h1>
               <p>
               {Herodata.description}
               </p>
-              <ul className="step_list text-white unordered_list_block">
+              {/* <ul className="step_list text-white unordered_list_block">
                 {Herodata.points.map((items,index)=>
                   <li key={index}>
                     <FaRegDotCircle size={20} />
                     {items}
                   </li>
                 )}
-              </ul>
+              </ul> */}
               <ul className="btns_group unordered_list p-0 justify-content-start">
                 <li>
                   <Link className="btn" href={contactLink.href} title="Contact Us Today!">
-                    <span className="btn_label" data-text="Contact Us Today!">Contact Us Today!</span>
+                    <span className="btn_label" data-text="Contact Us Today!">Get a Free Consultation</span>
                     <span className="btn_icon">
                       <PiArrowUpRightBold size={20} />
                     </span>

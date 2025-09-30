@@ -186,7 +186,7 @@ export default async function Footer() {
                     </a>
                   </li>
                   <li>
-                    <a rel="noopener nofollow" href="#!">
+                    <a rel="noopener nofollow" href="#">
                       <span className="icon">
                         <FaLocationDot />
                       </span>

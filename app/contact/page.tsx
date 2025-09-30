@@ -24,15 +24,15 @@ const tileIcons: Record<string, StaticImageData> = {
 }
 
 export const metadata: Metadata = {
-  title: 'Contact - Bytewise Technologies',
-  description: 'Get in touch with us. We are here to help you grow your business.',
-  keywords: 'contact, bytewise, technologies, business, grow, help',
+  title: 'Contact',
+  description: 'Ready to build? Contact Bytewise Technologies for a free consultation on your AI, web, or mobile app project.',
+  keywords: 'hire app developers, dallas app development company, best software companies in vancouve, best software development company in vancouver, web development toronto, best software companies in toronto, web development company in toronto, web development firm toronto, best software engineering companies in toronto',
   authors: { name: 'Bytewise Technologies', url: 'https://bytewisetechnologies.com' },
   openGraph: {
     locale: 'en_US',
     type: 'website',
-    title: 'Contact - Bytewise Technologies',
-    description: 'Get in touch with us. We are here to help you grow your business.',
+    title: 'Contact',
+    description: 'Ready to build? Contact Bytewise Technologies for a free consultation on your AI, web, or mobile app project.',
     url: 'https://bytewisetechnologies.com/contact',
     siteName: 'Bytewise Technologies',
   },

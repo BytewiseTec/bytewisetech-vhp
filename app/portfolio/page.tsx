@@ -12,15 +12,15 @@ import { query } from '../ApolloClient'
 import { GET_PROJECTS, ProjectsQuery } from './query'
 
 export const metadata: Metadata = {
-  title: 'Portfolio - Bytewise Technologies',
-  description: 'Our portfolio showcases the projects we have worked on. We have worked with clients from various industries and fields.',
-  keywords: 'portfolio, projects, clients, industries, fields, showcase',
+  title: 'Our Work',
+  description: 'See our software development portfolio. View case studies on our healthcare app development, enterprise web applications, and more. See the proof in our work.',
+  keywords: 'Software Development Portfolio, healthcare app development, enterprise web application development',
   authors: { name: 'Bytewise Technologies', url: 'https://bytewisetechnologies.com' },
   openGraph: {
     locale: 'en_US',
     type: 'website',
-    title: 'Portfolio - Bytewise Technologies',
-    description: 'Our portfolio showcases the projects we have worked on. We have worked with clients from various industries and fields.',
+    title: 'Our Work',
+    description: 'See our software development portfolio. View case studies on our healthcare app development, enterprise web applications, and more. See the proof in our work.',
     url: 'https://bytewisetechnologies.com/portfolio',
     siteName: 'Bytewise Technologies',
   },

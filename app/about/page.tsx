@@ -38,15 +38,15 @@ const whyUsImages: Record<string, StaticImageData> = {
 }
 
 export const metadata: Metadata = {
-  title: 'About - Bytewise Technologies',
-  description: 'We are a team of professionals who are passionate about what we do. We are here to help you grow your business.',
-  keywords: 'about, bytewise, technologies, team, professionals, passionate, business, grow',
+  title: 'Our Story & Mission',
+  description: 'Learn about Bytewise Technologies, a leader in custom software development. Discover our mission, our team, and why we are the trusted choice for AI & web solutions.',
+  keywords: 'Bytewise Technologies About Us, Custom Software Development Company, hire app developers, dallas app development company, best software companies in vancouve, best software development company in vancouver, web development toronto, best software companies in toronto, web development company in toronto, web development firm toronto, best software engineering companies in toronto',
   authors: { name: 'Bytewise Technologies', url: 'https://bytewisetechnologies.com' },
   openGraph: {
     locale: 'en_US',
     type: 'website',
-    title: 'About - Bytewise Technologies',
-    description: 'We are a team of professionals who are passionate about what we do. We are here to help you grow your business.',
+    title: 'Our Story & Mission',
+    description: 'Learn about Bytewise Technologies, a leader in custom software development. Discover our mission, our team, and why we are the trusted choice for AI & web solutions.',
     url: 'https://bytewisetechnologies.com/about',
     siteName: 'Bytewise Technologies',
   },

@@ -62,15 +62,15 @@ const cardData = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Services - Bytewise Technologies',
-  description: 'We offer a wide range of services to help you grow your business. Our services are tailored to your needs and designed to help you succeed.',
-  keywords: 'services, range, help, grow, business, tailored, needs, succeed',
+  title: 'Services',
+  description: 'Here are our custom software development services, from AI agents & web apps to UI/UX design. Find your end-to-end web and app development solution today.',
+  keywords: 'agile methodology in web development, custom software development services,web and app development services,services in web development,ui ux design services, ai app development services,',
   authors: { name: 'Bytewise Technologies', url: 'https://bytewisetechnologies.com' },
   openGraph: {
     locale: 'en_US',
     type: 'website',
-    title: 'Services - Bytewise Technologies',
-    description: 'We offer a wide range of services to help you grow your business. Our services are tailored to your needs and designed to help you succeed.',
+    title: 'Services',
+    description: 'Here are our custom software development services, from AI agents & web apps to UI/UX design. Find your end-to-end web and app development solution today.',
     url: 'https://bytewisetechnologies.com/services',
     siteName: 'Bytewise Technologies',
   },
@@ -125,7 +125,7 @@ export default async function ServicesPage() {
           <h1 className="display-4 text-dark fw-bold pt-5">
             Tech-Driven Product Engineering Experts Solution Services
           </h1>
-          <p className="lead mb-4 ms-5 me-5 text-dark" >
+          <p className="lead mb-4 ms-5 fs-4 me-5 text-dark" >
             We Build Powerful Digital Solutions And Experiences for Every Team From early-stage startups to large enterprises, we provide innovative strategies, cutting-edge technologies, and seamless user experiences that help your business grow and succeed in the digital world.
           </p>
           <div className="d-flex justify-content-center gap-3 flex-wrap">
@@ -173,10 +173,10 @@ export default async function ServicesPage() {
                     <div className="links_wrapper">
                       <ul className="category_btns_group unordered_list">
                         <li>
-                          <a href="#!">{service.heading || 'Growth'}</a>
+                          <a>{service.heading || 'Growth'}</a>
                         </li>
                         <li>
-                          <a href="#!">{service.heading2 || 'Marketing'}</a>
+                          <a>{service.heading2 || 'Marketing'}</a>
                         </li>
                       </ul>
                       <Link
@@ -205,7 +205,7 @@ export default async function ServicesPage() {
                     <Fragment key={section.title}>
                       <h1 className="heading_text ">{section.title}</h1>
                       <div className='px-5'>
-                        <p className='text-black des-padding fs-4 '>{section.description}</p>
+                        <p className='text-dark des-padding fs-4 '>{section.description}</p>
                       </div>
                     </Fragment>
                   ))}
@@ -237,9 +237,9 @@ export default async function ServicesPage() {
           <div className="row justify-content-center mb-5">
             <div className="col-lg-8 text-center">
               <h2 className="display-5 fw-bold mb-3">Our Fields of Expertise</h2>
-              <p className="lead  text-black">
-                Explore our specialized domains where we excel in delivering exceptional solutions and services
-              </p>
+                <p className="lead  text-dark fs-4">
+                  Explore our specialized domains where we excel in delivering exceptional solutions and services
+                </p>
             </div>
           </div>
           <div className='px-5'>
@@ -272,7 +272,7 @@ export default async function ServicesPage() {
                 <ul className="service_facilities_group unordered_list">
                   {servicesPage.whyUs.map((item, index) => (
                     <li key={index}>
-                      <a className="iconbox_block layout_icon_left" href="#!">
+                      <a className="iconbox_block layout_icon_left">
                         <span className="iconbox_icon">
                           {item.icon && item.title && (
                             <Image src={whyUsImages[item.icon]} alt={item.title} />

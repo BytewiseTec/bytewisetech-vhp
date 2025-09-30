@@ -50,9 +50,9 @@ const axiBold = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'Bytewise Technologies - Tailored Business Solutions',
-  description: 'Bytewise Technologies offers tailored tech solutions to drive your business success. Explore our services and expertise to achieve business growth.',
-  keywords: 'Bytewise Technologies, business solutions, tech services, tailored solutions, business growth',
+  title: 'Bytewise Technologies ',
+  description: 'Drive growth with Bytewise Technologies, one of the best custom software development companies. We build AI, web, mobile, and cloud solutions. Partner with us.',
+  keywords: 'best software companies, best custom software development companies,best software companies in canada,best software companies to work for in canada,best software company,best custom software development company in the us,web and app development services',
   authors: { name: 'Bytewise Technologies', url: 'https://bytewisetechnologies.com' },
   manifest: '/site.webmanifest',
   applicationName: 'Bytewise Technologies',
@@ -60,8 +60,8 @@ export const metadata: Metadata = {
   openGraph: {
     locale: 'en_US',
     type: 'website',
-    title: 'Bytewise Technologies - Tailored Business Solutions',
-    description: 'Bytewise Technologies offers tailored tech solutions to drive your business success. Explore our services and expertise to achieve business growth.',
+    title: 'Bytewise Technologies ',
+    description: 'Drive growth with Bytewise Technologies, one of the best custom software development companies. We build AI, web, mobile, and cloud solutions. Partner with us.',
     url: 'https://bytewisetechnologies.com',
     siteName: 'Bytewise Technologies',
     images: [

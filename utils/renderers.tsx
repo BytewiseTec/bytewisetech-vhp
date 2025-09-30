@@ -9,23 +9,19 @@ import { query } from '@/app/ApolloClient'
 export const renderDomToReact = (document: Document, options: Options = {}) => {
   const defaultOptions: Options = {
     renderNode: {
-      [BLOCKS.HEADING_2]: (_, children) => {
-        return <h2 className="details_item_title">{children}</h2>
-      },
-      [BLOCKS.HEADING_3]: (_, children) => {
-        return <h3 className="details_item_info_title mb-5">{children}</h3>
-      },
+      [BLOCKS.HEADING_2]: (_, children) => (
+        <h2 className="details_item_title">{children}</h2>
+      ),
+      [BLOCKS.HEADING_3]: (_, children) => (
+        <h3 className="details_item_info_title mb-5">{children}</h3>
+      ),
       [BLOCKS.EMBEDDED_ASSET]: async (node) => {
         const { data } = await query<GetAssetQuery, GetAssetQueryVariables>({
           query: GET_ASSET,
-          variables: {
-            id: node.data.target.sys.id,
-          },
+          variables: { id: node.data.target.sys.id },
         })
 
-        if (!data?.asset) {
-          return null
-        }
+        if (!data?.asset) return null
 
         return (
           <div className="details_item_image m-0">
@@ -38,27 +34,49 @@ export const renderDomToReact = (document: Document, options: Options = {}) => {
           </div>
         )
       },
-      [BLOCKS.UL_LIST]: (_, children) => {
-        return <ul className="icon_list unordered_list_block">{children}</ul>
-      },
+
+      // ✅ UL wrapper
+      [BLOCKS.UL_LIST]: (_, children) => (
+        <ul className="icon_list unordered_list_block un_list">{children}</ul>
+      ),
+
+      // ✅ LI without nested <p>
       [BLOCKS.LIST_ITEM]: (_, children) => {
-        const newChildren = React.Children.map(children, (child) => {
-          if (React.isValidElement<HTMLElement>(child)) {
-            return React.cloneElement(child, {
-              className: 'icon_list_text',
-            })
-          }
-          return child
-        })
+        const childArray = React.Children.toArray(children)
 
         return (
-          <li>
-            {newChildren}
+          <li className="icon_list_text d-inline dots">
+            {childArray.map((child, i) => {
+              if (React.isValidElement(child) && child.type === 'p') {
+                // unwrap <p>
+                const el = child as React.ReactElement<{ children?: React.ReactNode }>
+                return <React.Fragment key={i}>{el.props.children}</React.Fragment>
+              }
+              return child
+            })}
           </li>
         )
       },
-    }
+
+      // ✅ Paragraph cleanup (remove empty <p>)
+      [BLOCKS.PARAGRAPH]: (_, children) => {
+        const childArray = React.Children.toArray(children)
+
+        // Skip empty paragraphs (extra spacing)
+        if (
+          childArray.length === 0 ||
+          (childArray.length === 1 && childArray[0] === '')
+        ) {
+          return null
+        }
+
+        return <p>{children}</p>
+      },
+    },
   }
 
-  return documentToReactComponents(document, { ...defaultOptions, ...options})
+  return documentToReactComponents(document, {
+    ...defaultOptions,
+    ...options,
+  })
 }

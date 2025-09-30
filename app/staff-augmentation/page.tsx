@@ -8,15 +8,15 @@ import { HiOutlineShieldCheck, HiOutlineTrendingUp } from 'react-icons/hi'
 import PageBanner from '../../components/PageBanner'
 
 export const metadata: Metadata = {
-    title: 'Staff Augmentation - Bytewise Technologies',
-    description: 'Scale your development team with our skilled professionals. Expert developers, designers, and technical specialists to augment your existing team.',
-    keywords: 'staff augmentation, remote developers, team scaling, technical talent, software development, IT staffing',
+    title: 'Staff Augmentation Services',
+    description: 'Scale your team fast. Highlight speed, expertise, and flexibility.  Our staff augmentation services let you hire app developers, AI experts, and UX designers. Get the top talent you need, seamlessly.',
+    keywords: 'staff augmentation, remote developers, software development,hire app developers, staff augmentation services',
     authors: { name: 'Bytewise Technologies', url: 'https://bytewisetechnologies.com' },
     openGraph: {
         locale: 'en_US',
         type: 'website',
-        title: 'Staff Augmentation - Bytewise Technologies',
-        description: 'Scale your development team with our skilled professionals.',
+        title: 'Staff Augmentation Services',
+        description: 'Scale your team fast. Highlight speed, expertise, and flexibility.  Our staff augmentation services let you hire app developers, AI experts, and UX designers. Get the top talent you need, seamlessly.',
         url: 'https://bytewisetechnologies.com/staff-augmentation',
         siteName: 'Bytewise Technologies',
     },
