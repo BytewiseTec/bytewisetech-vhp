@@ -41,9 +41,9 @@ export default function StaffAugmentationPage() {
                     {/* Intro Section */}
                     <div className="row justify-content-center mb-4">
                         <div className="col-lg-8 text-center">
-                            <h2 className="display-5 fw-bold mb-3">Supercharge Your Team with Proven Professionals</h2>
+                            <h2 className="display-5 fw-bold mb-3">Is Staff Augmentation Your Solution?</h2>
                             <p className="lead text-muted mb-0">
-                                Our staff augmentation services provide you with skilled professionals who integrate seamlessly with your existing team to accelerate project delivery.
+                                We’re here to help you maximize your ROI and navigate any challenges, ensuring your augmented team member becomes a true asset.
                             </p>
                         </div>
                     </div>
@@ -54,22 +54,29 @@ export default function StaffAugmentationPage() {
                             <div className='p-4' >
                                 <h3 className="h4 mb-3  " style={{ color: '#020842' }}>What is Staff Augmentation?</h3>
                                 <p >
-                                    Staff augmentation is a cost-effective way to quickly scale your workforce by hiring skilled professionals on demand. Instead of lengthy recruitment or full-time hires, you can bring in experts who seamlessly integrate with your team, follow your processes, and help deliver projects faster. <br /> This flexible approach lets you fill skill gaps, handle peak workloads, and stay in control of quality, timelines, and outcomes — keeping your business agile, competitive, and focused on growth.
+                                    Staff augmentation is ultimately about strategic flexibility. It’s the power to access top-tier, specialized tech talent on demand, allowing you to overcome hiring challenges, mitigate risk, and keep your projects moving forward at the pace the market demands.
                                 </p>
-                                 
-                                    <h3 className="h4 mb-3 " style={{ color: '#020842' }}>Why Choose Us?</h3>
-                                    
-                                        <li className="list-group-item"><FaCheckCircle className=" me-2" style={{ color: '#0044EB' }} />Pre-vetted, experienced professionals</li>
-                                        <li className="list-group-item"><FaCheckCircle className=" me-2" style={{ color: '#0044EB' }} />Quick onboarding and integration</li>
-                                        <li className="list-group-item"><FaCheckCircle className=" me-2" style={{ color: '#0044EB' }} />Flexible engagement models</li>
-                                        <li className="list-group-item"><FaCheckCircle className=" me-2" style={{ color: '#0044EB' }} />Cost-effective scaling solution</li>
-                                        <li className="list-group-item"><FaCheckCircle className=" me-2" style={{ color: '#0044EB' }} />Maintain full project control</li>
-                                    
-                               
+                                <p>You have a vision. We have the missing piece to your team</p>
+                                <p className='text-dark'>Let&apos;s have a conversation about your project&apos;s specific needs and how the right talent can help you accelerate your time-to-market.</p>
+
+                                {/* Call to Action */}
+                                {/* <div className=" mb-5">
+                        <h3 className="fw-bold mb-3 " style={{ color: '#020842' }}>Ready to Scale Your Team?</h3>
+                        <p className="lead mb-4" style={{ maxWidth: '700px' }}>
+                            Accelerate your projects with our staff augmentation services and gain instant access to a pool of pre-vetted professionals who integrate seamlessly into your workflows.
+                        </p>
+                    </div> */}
+                                <a href="/contact" className="btn btn-primary btn-lg shadow mb-3 ">Get a Free Consultation</a>
+
+                                <h3 className="h4 mb-3 " style={{ color: '#020842' }}>We provide a partner who is ready to contribute from day one.</h3>
+                                <li className="list-group-item"><FaCheckCircle className=" me-2" style={{ color: '#0044EB' }} />Create a Clear 30-60-90 Day Plan</li>
+                                <li className="list-group-item"><FaCheckCircle className=" me-2" style={{ color: '#0044EB' }} />Onboarding for Day-One Productivity</li>
+                                <li className="list-group-item"><FaCheckCircle className=" me-2" style={{ color: '#0044EB' }} />Ongoing Partnership & Support</li>
+                                <li className="list-group-item"><FaCheckCircle className=" me-2" style={{ color: '#0044EB' }} />Cost-effective scaling solution</li>
                             </div>
-                            
-                              
-                            
+
+
+
                         </div>
                     </div>
 
@@ -125,14 +132,7 @@ export default function StaffAugmentationPage() {
                         </div>
                     </div>
 
-                    {/* Call to Action */}
-                    <div className="text-center mb-5">
-                        <h3 className="fw-bold mb-3 " style={{ color: '#020842' }}>Ready to Scale Your Team?</h3>
-                        <p className="lead mx-auto mb-4" style={{ maxWidth: '700px' }}>
-                            Accelerate your projects with our staff augmentation services and gain instant access to a pool of pre-vetted professionals who integrate seamlessly into your workflows.
-                        </p>
-                        <a href="/contact" className="btn btn-primary btn-lg shadow">Get Started</a>
-                    </div>
+
                 </div>
             </section>
         </>

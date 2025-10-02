@@ -10,7 +10,7 @@ import TaglineBg from '../../public/assets/images/about/funfacts_tagline_bg.jpg'
 export default function AboutFunFacts() {
   return (
     <div className="row funfact_wrapper">
-      <div className="col-lg-8">
+      <div className="col-lg-8 ">
         <div className="row">
           <div className="col-md-6">
             <div className="funfact_block">

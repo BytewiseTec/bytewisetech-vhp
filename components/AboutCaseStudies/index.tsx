@@ -59,7 +59,7 @@ export default async function AboutCaseStudies() {
                       <span>1</span>
                       <span>00+</span>
                     </div>
-                    <h3 className="funfact_title mb-0">Projects Done</h3>
+                    <h3 className="funfact_title mb-4">Projects Done</h3>
                   </div>
                   <div className="funfact_item">
                     <div className="counter_value">
@@ -69,8 +69,8 @@ export default async function AboutCaseStudies() {
                     <h3 className="funfact_title mb-0">Results Guaranteed</h3>
                   </div>
                 </div>
-                <Link className="btn btn-primary" href="/about" title="Learn More">
-                  <span className="btn_label" data-text="Learn More">Learn More</span>
+                <Link className="btn btn-primary  ms-5 " href="/about" title="Learn More">
+                  <span className="btn_label " data-text="Learn More" >Learn More</span>
                   <span className="btn_icon">
                     <PiArrowUpRightBold size={20} />
                   </span>

@@ -2,14 +2,16 @@ import Script from 'next/script'
 
 import getStructuredData from '@/utils/structured-data'
 import { FAQsQuery, GET_FAQS } from '@/components/FAQs/query'
+import FeaturedServices from '@/components/FeaturedServices'
 // import BlogPosts from '@/components/BlogPosts'
 import { GET_LATEST_BLOG_POSTS, GetLatestBlogPostsQuery } from '@/components/BlogPosts/query'
+import { GET_SERVICES, ServicesQuery } from './services/query'
 
 // import AboutCaseStudies from '../components/AboutCaseStudies'
 import ContactUs from '../components/ContactUs'
 import Featured from '../components/Featured'
 import Hero from '../components/Hero'
-import Services from '../components/Services'
+// import Services from '../components/Services'
 import TechnologyReview from '../components/TechnologyReview'
 import FAQs from '../components/FAQs'
 
@@ -25,7 +27,12 @@ export default async function Home() {
       query: GET_LATEST_BLOG_POSTS
     })
   ])
-
+// add featured services component
+  const { data: servicesData } = await query<ServicesQuery>({
+    query: GET_SERVICES,
+  })
+  const services = servicesData?.serviceCollection?.items || []
+// end featured services component 
   const faqs = faqsResponse.data?.faqsCollection?.items || []
   const latestBlogPosts = latestBlogPostsResponse.data?.blogCollection?.items || []
 
@@ -52,7 +59,8 @@ export default async function Home() {
       />
       <Hero />
       <Featured />
-      <Services />
+         <FeaturedServices services={services} />
+      {/* <Services /> */}
       {/* <AboutCaseStudies /> */}
       <TechnologyReview />
       <FAQs faqs={faqs} />

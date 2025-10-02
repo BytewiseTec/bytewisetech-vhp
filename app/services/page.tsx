@@ -30,36 +30,37 @@ const whyUsImages: Record<string, StaticImageData> = {
 
 const cardData = [
   {
-    title: 'Industry-Specific Expertise',
+    title: 'Built with Insight, Not Just Code',
     description:
-      'Your industry has unique challenges; our solutions have precise answers. We deliver nuanced software informed by deep sector-specific knowledge.',
+      'We speak the language of your business. Our solutions are informed by deep sector knowledge, ensuring they resonate with your customers and streamline your unique operational realities.',
   },
   {
-    title: 'Cutting-Edge Technologies',
+    title: 'Future-Leading Technology',
     description:
-      'We harness leading-edge technologies and innovative frameworks to build dynamic, high-performance applications poised for the future.',
+      'We build with a modern tech stack designed for longevity and performance. This forward-thinking approach gives you a competitive edge.',
   },
   {
     title: 'Security-Focused Development',
     description:
-      'Security is our cornerstone. We proactively embed enterprise-grade protections throughout the development lifecycle to safeguard your valuable assets.',
+      'Your data and your customers trust are paramount. We engineer resilience and proactive vigilance into your products DNA, creating a foundation of unshakable security.',
   },
   {
-    title: 'Scalable Architecture',
+    title: 'Grow Without Limits',
     description:
-      'We engineer for evolution. Our solutions are built on a robust, scalable architecture designed to effortlessly accommodate your expanding ambitions.',
+      'Our scalable solutions are engineered to expand effortlessly with your business, so your growth never becomes a technical bottleneck.',
   },
   {
     title: 'Collaborative Process',
     description:
-      'Your vision, our execution—seamlessly integrated. We foster a transparent, partnership-driven approach, ensuring you are intimately involved in the journey.',
+      'We work shoulder-to-shoulder with you, ensuring alignment at every step and a final product that perfectly captures your ambition.',
   },
   {
-    title: 'Continuous Support',
+    title: 'Your Success, Our Ongoing Mission',
     description:
-      'Our commitment extends far beyond deployment. We provide unwavering, expert support to ensure your software continues to perform at its peak.',
+      'Our partnership extends far beyond launch. We provide relentless support and optimization to ensure your digital asset remains a high-performance engine for your business.',
   },
 ]
+
 
 export const metadata: Metadata = {
   title: 'Services',
@@ -115,18 +116,18 @@ export default async function ServicesPage() {
 
       <PageBanner
         title={servicesPage.title}
-      // breadcrumb={[
-      //   { name: 'Home', url: '/' },
-      //   { name: servicesPage.title },
-      // ]}
+      breadcrumb={[
+        { name: 'Home', url: '/' },
+        { name: servicesPage.title },
+      ]}
       />
       <section className="hero-section position-relative custom-gradient text-white d-flex align-items-center" style={{ minHeight: '55vh' }}>
         <div className="container text-center  position-relative" style={{ zIndex: 3 }}>
           <h1 className="display-4 text-dark fw-bold pt-5">
-            Tech-Driven Product Engineering Experts Solution Services
+            Engineering Your Digital Future, Together
           </h1>
           <p className="lead mb-4 ms-5 fs-4 me-5 text-dark" >
-            We Build Powerful Digital Solutions And Experiences for Every Team From early-stage startups to large enterprises, we provide innovative strategies, cutting-edge technologies, and seamless user experiences that help your business grow and succeed in the digital world.
+           We transform your complex business challenges into seamless digital experiences and undeniable competitive advantages. Let&apos;s build the software that propels you ahead.
           </p>
           <div className="d-flex justify-content-center gap-3 flex-wrap">
             <Link href="/contact" className="btn btn-primary btn-lg mb-5 d-flex align-items-center">
@@ -223,9 +224,9 @@ export default async function ServicesPage() {
               <div className="p-4 shadow-lg rounded-4 text-light h-100 d-flex flex-column" style={{ backgroundColor: '#020842' }}>
                 <h2 className="fw-bold mb-3 text-light">{card.title}</h2>
                 <p className="text-light flex-grow-1">{card.description}</p>
-                <a href="/about" className="text-white">
+                {/* <a href="/about" className="text-white">
                   Learn More <PiArrowUpRightBold size={20} />
-                </a>
+                </a> */}
               </div>
             </div>
           ))}
@@ -266,7 +267,8 @@ export default async function ServicesPage() {
                     Better
                   </div> */}
                   <h2 className="heading_text mb-0">
-                    Why Our Services are Better Than Others?
+                    A Business-First Approach to Software That Maximizes Your ROI
+                   
                   </h2>
                 </div>
                 <ul className="service_facilities_group unordered_list">

@@ -50,7 +50,7 @@ export default async function Footer() {
           <div className="row justify-content-lg-between">
             <div className="col-lg-4 col-md-12 mb-4">
   <h5 className="fs-4 fw-bold mb-6 footer_info_title" >
-    Let&apos;s Make Things Happen
+    Bytewise Technologies
   </h5>
 
   {/* Stylish Quote Box */}
@@ -80,8 +80,7 @@ export default async function Footer() {
 
     {/* Text */}
     <p className="text-white fs-5 lh-lg mb-0" style={{ fontWeight: '500' }}>
-      We deliver scalable, high-quality software solutions that help businesses grow
-      and stay competitive in the digital era.
+     The best digital products aren&apos;t just built. They&apos;re forged in partnership.
     </p>
 
     {/* Right Quote */}

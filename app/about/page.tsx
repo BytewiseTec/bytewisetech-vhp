@@ -106,8 +106,8 @@ export default async function AboutPage() {
       <section className="intro_about_section section_space bg-light">
         <div className="container">
           <div className="heading_block mb-0 mt-0 ms-5 me-5">
-            <div className="row justify-content-lg-between  ">
-              <div className="col-lg-4">
+            <div className="row justify-content-lg-between g-1 ">
+              <div className="col-lg-6">
                 <h2 className="heading_text mb-0">
                   {about.headingsections}
                 </h2>
@@ -152,7 +152,7 @@ export default async function AboutPage() {
           <div className="row align-items-center justify-content-lg-between">
             <div className="col-lg-6">
               <div className="image_wrap">
-                <Image src={BetterServices} alt="Bytewise Tech - About Image" />    
+                <Image src={BetterServices} alt="Bytewise Tech - About Image" />
               </div>
             </div>
             <div className="col-lg-6">
@@ -163,7 +163,7 @@ export default async function AboutPage() {
                     Better
                   </div>
                   <h2 className="heading_text mb-0">
-                   Empowering Your Success, Every Step
+                    Empowering Your Success, Every Step
                   </h2>
                 </div>
                 <ul className="service_facilities_group unordered_list">

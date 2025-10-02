@@ -52,7 +52,7 @@ export const metadata = {
 }
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
-  const limit = 10
+  const limit = 9
   const currentPage = Number((await searchParams).page) || 1
 
   const [getBlogPostsListQuery, blogPostCategoriesResponse] = await Promise.all([
@@ -110,6 +110,139 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       />
 
       <section className="blog_section section_space bg-light">
+        <div className="container">
+          <div className="pb-0">
+            <div className="row">
+              {/* Blog Posts Full Width */}
+              {blogPosts.map((post) => (
+                <div className="col-lg-4 col-md-6 mb-4" key={post._id}>
+                  <div className="card h-100 shadow-sm border-0">
+                    {/* Image */}
+                    <Link href={`/blog/${post.slug}`} title={post.title}>
+                      <Image
+                        src={post.thumbnail.url}
+                        alt={post.thumbnail.title}
+                        width={post.thumbnail.width}
+                        height={post.thumbnail.height}
+                        className="card-img-top"
+                        style={{ objectFit: 'cover', height: '220px' }}
+                      />
+                    </Link>
+
+                    {/* Card Body */}
+                    <div className="card-body d-flex flex-column">
+                      {/* Date */}
+                      <div className="text-muted small mb-2 d-flex align-items-center">
+                        <Image
+                          src={IconCalendar}
+                          alt="Calendar"
+                          width={16}
+                          height={16}
+                          className="me-2"
+                        />
+                        {dayjs(post.publishedDate).format('MMMM DD, YYYY')}
+                      </div>
+
+                      {/* Title */}
+                      <h5 className="card-title">
+                        <Link
+                          href={`/blog/${post.slug}`}
+                          className="text-dark text-decoration-none"
+                        >
+                          {post.title}
+                        </Link>
+                      </h5>
+
+                      {/* Excerpt */}
+                      <p className="card-text flex-grow-1">{post.excerpt}</p>
+
+                      {/* Read More */}
+                      <Link
+                        className="btn btn-dark mt-auto align-self-start"
+                        href={`/blog/${post.slug}`}
+                        title={post.title}
+                      >
+                        <span className="btn_label" data-text="Read More">
+                          Read More
+                        </span>
+                        <span className="btn_icon ms-2">
+                          <PiArrowUpRightBold size={18} />
+                        </span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              ))}
+
+              {/* Pagination */}
+              <div className="col-12">
+                <div className="pagination_wrap pb-0 mt-4">
+                  <ul className="pagination_nav unordered_list justify-content-center">
+                    <li className={currentPage === 1 ? 'disabled' : ''}>
+                      <Link
+                        href={currentPage === 1 ? '#' : `?page=${currentPage - 1}`}
+                        title="Previous"
+                      >
+                        <FaAnglesLeft />
+                      </Link>
+                    </li>
+                    {getPageNumbers(currentPage, totalPages).map((page, index) => (
+                      <li key={index} className={page === currentPage ? 'active' : ''}>
+                        {page === '...' ? (
+                          <span>...</span>
+                        ) : (
+                          <Link href={`?page=${page}`} title={`Page ${page}`}>
+                            {page}
+                          </Link>
+                        )}
+                      </li>
+                    ))}
+                    <li className={currentPage === totalPages ? 'disabled' : ''}>
+                      <Link
+                        href={currentPage === totalPages ? '#' : `?page=${currentPage + 1}`}
+                        title="Next"
+                      >
+                        <FaAnglesRight />
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {/* <section className="blog_section section_space bg-light">
         <div className="container">
           <div className="pb-0">
             <div className="row">
@@ -182,10 +315,10 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                     </li>
                   </ul>
                 </div>
-              </div>
-              <div className="col-lg-4">
-                <aside className="sidebar sticky-sidebar ps-lg-5" style={{position:'sticky',top:0,overflow:'auto',paddingTop:'5rem'}}>
-                  {/* <div className="search_form">
+              </div> */}
+      {/* <div className="col-lg-4"> */}
+      {/* <aside className="sidebar sticky-sidebar ps-lg-5" style={{position:'sticky',top:0,overflow:'auto',paddingTop:'5rem'}}> */}
+      {/* <div className="search_form">
                     <h3 className="sidebar_widget_title">Search</h3>
                     <div className="form-group">
                       <input className="form-control" type="search" name="search" placeholder="Search your keyword" />
@@ -194,7 +327,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                       </button>
                     </div>
                   </div> */}
-                  <div className="post_category_wrap">
+      {/* <div className="post_category_wrap">
                     <h3 className="sidebar_widget_title">Categories</h3>
                     <ul className="post_category_list unordered_list_block">
                       {Object.entries(categoryCounts).map(([category, count]) => (
@@ -207,10 +340,10 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                         </li>
                       ))}
                     </ul>
-                  </div>
-                  </aside>
-                  </div>
-                  {/* <div className="popular_tags">
+                  </div> */}
+      {/* </aside> */}
+      {/* </div> */}
+      {/* <div className="popular_tags">
                     <h3 className="sidebar_widget_title">Popular Tags</h3>
                     <ul className="tags_list unordered_list">
                       {allTags.map((tag) => (
@@ -220,10 +353,10 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                       ))}
                     </ul>
                   </div> */}
-            </div>
+      {/* </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   )
 }

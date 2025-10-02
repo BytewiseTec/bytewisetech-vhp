@@ -196,13 +196,13 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
               </ul>
             </div>
           </div>
-          <hr className="mb-10"/>
+          <hr className="mb-10" />
           <div className="pb-0 ">
             <div className="row">
               <div className="col-lg-12">
                 <div className='padding-setting w-90'>
-                <h1>{post.title}</h1>
-                {renderDomToReact(post.body.json)}
+                  <h1>{post.title}</h1>
+                  {renderDomToReact(post.body.json)}
                 </div>
                 <hr className="mt-0 mb-5" />
                 <div className="row padding-setting">
@@ -257,8 +257,8 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
                         </li>
                       ))}
                     </ul> */}
-                  </div>
-                  {/* <div className="popular_tags">
+            </div>
+            {/* <div className="popular_tags">
                     <h3 className="sidebar_widget_title">Popular Tags</h3>
                     <ul className="tags_list unordered_list">
                       {allTags.map((tag) => (
@@ -268,7 +268,7 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
                       ))}
                     </ul>
                   </div> */}
-                {/* </aside>
+            {/* </aside>
               </div> 
             {/* </div> */}
           </div>
