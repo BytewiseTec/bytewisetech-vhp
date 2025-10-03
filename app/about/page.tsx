@@ -1,7 +1,8 @@
 import { Metadata } from 'next'
 import Image, { StaticImageData } from 'next/image'
 import Script from 'next/script'
-
+import TeamSwiper from '../../components/TeamSwiper/TeamSwiper'
+import CertificateSwiper from '@/components/CertificateSlider/CertificateSwiper'
 import PageBanner from '@/components/PageBanner'
 import generateStructuredData from '@/utils/structured-data'
 import AboutFunFacts from '@/components/AboutFunFacts'
@@ -142,7 +143,6 @@ export default async function AboutPage() {
               )
             })}
           </div>
-
           <AboutFunFacts />
         </div>
       </section>
@@ -158,10 +158,10 @@ export default async function AboutPage() {
             <div className="col-lg-6">
               <div className="ps-lg-5">
                 <div className="heading_block">
-                  <div className="heading_focus_text">
+                  {/* <div className="heading_focus_text">
                     <span className="badge bg-secondary text-white">Why Us</span>
                     Better
-                  </div>
+                  </div> */}
                   <h2 className="heading_text mb-0">
                     Empowering Your Success, Every Step
                   </h2>
@@ -187,6 +187,20 @@ export default async function AboutPage() {
           </div>
         </div>
       </section>
+
+         <section className="team_section section_space pt-5 ">
+          <h1 className='text-center text-dark '>Our Leadership Team</h1>
+          <div className="container mx-auto">
+            <TeamSwiper />
+          </div>
+        </section>
+
+        <section className="team_section ">
+          <h1 className='text-center text-dark pb-5 '>Awards & Certifications</h1>
+          <div className="container mx-auto">
+            <CertificateSwiper />
+          </div>
+        </section>
     </>
   )
 }

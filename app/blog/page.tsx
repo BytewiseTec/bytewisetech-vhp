@@ -125,7 +125,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                         width={post.thumbnail.width}
                         height={post.thumbnail.height}
                         className="card-img-top"
-                        style={{ objectFit: 'cover', height: '220px' }}
+                        style={{ objectFit: 'cover' }}
                       />
                     </Link>
 

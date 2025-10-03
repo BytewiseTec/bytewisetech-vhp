@@ -24,7 +24,9 @@
     "@types/nodemailer": "^6.4.16",
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",
+    "class-variance-authority": "^0.7.1",
     "classnames": "^2.5.1",
+    "clsx": "^2.1.1",
     "contentful": "^10.12.10",
     "dayjs": "^1.11.13",
     "eslint": "^8",
@@ -35,7 +37,6 @@
     "lucide-react": "^0.542.0",
     "next": "15.1.6",
     "nodemailer": "^6.9.15",
-    "postcss": "^8",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-hook-form": "^7.53.0",
@@ -45,11 +46,14 @@
     "schema-dts": "^1.1.2",
     "sonner": "^1.7.3",
     "swiper": "^11.2.1",
-    "tailwindcss": "^3.4.1",
+    "tailwind-merge": "^3.3.1",
     "typescript": "^5"
   },
   "overrides": {
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3"
+  },
+  "devDependencies": {
+    "postcss": "^8.5.6"
   }
 }
