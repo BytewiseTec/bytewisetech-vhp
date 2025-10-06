@@ -6,7 +6,7 @@ import CertificateSwiper from '@/components/CertificateSlider/CertificateSwiper'
 import PageBanner from '@/components/PageBanner'
 import generateStructuredData from '@/utils/structured-data'
 import AboutFunFacts from '@/components/AboutFunFacts'
-
+import CardSwiper from '@/components/EffectiveCard/CardSwiper'
 import { query } from '../ApolloClient'
 import IconCheck2 from '../../public/assets/images/icons/icon_check_2.svg'
 import IconLeaf from '../../public/assets/images/icons/icon_leaf.svg'
@@ -18,7 +18,7 @@ import BetterServices from '../../public/assets/images/about/better-services.jpg
 import IconClock from '../../public/assets/images/icons/icon_clock.svg'
 import IconDartBoard2 from '../../public/assets/images/icons/icon_dart_board_2.svg'
 import IconTarget from '../../public/assets/images/icons/icon_target.svg'
-
+import WorkSpace from '@/components/WorkSpace/WorkSpace'
 
 
 import { AboutQuery, GET_ABOUT } from './query'
@@ -103,7 +103,6 @@ export default async function AboutPage() {
           { name: 'About us' },
         ]}
       />
-
       <section className="intro_about_section section_space bg-light">
         <div className="container">
           <div className="heading_block mb-0 mt-0 ms-5 me-5">
@@ -122,6 +121,56 @@ export default async function AboutPage() {
           </div>
         </div>
       </section>
+      <section >
+        <WorkSpace />
+      </section>
+
+      <section className="team_section  pt-5 mt-5 ">
+        <h1 className='text-center text-dark '>Our Leadership Team</h1>
+        <div className="container mx-auto">
+          <TeamSwiper />
+        </div>
+      </section>
+
+      <section className="py-5 mt-5 me-5 ms-5">
+        <div className="text-center mb-5">
+          <h1 className="text-dark mb-3">
+            Our Valued Clients
+          </h1>
+        </div>
+        <div className="container">
+          <div className="row align-items-center justify-content-between">
+            <div className="col-lg-6 col-md-12 mb-4 mb-lg-0">
+              <div className="pe-lg-4">
+                <h2 className="h1 fw-bold text-dark mb-4">
+                  People Who Trust Bytewise
+                </h2>
+                <p className="fs-5 lh-lg text-black mb-4" style={{textAlign:"justify"}}>
+                  We're lucky to team up with amazing people and brands who share our passion for innovation.
+                  Their trust inspires us to deliver our best, every project, every time.
+                </p>
+                <div className="d-flex flex-wrap gap-3">
+                  <span className="badge bg-light text-primary fs-6 px-3 py-2">
+                    ✓ 99% Satisfaction
+                  </span>
+                  <span className="badge bg-light text-primary fs-6 px-3 py-2">
+                    ✓ 50+ Countries
+                  </span>
+                  <span className="badge bg-light text-primary fs-6 px-3 py-2">
+                    ✓ 24/7 Support
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-5 col-md-12 col-sm-12  ">
+              <div className="d-flex justify-content-center align-items-center ">
+                <CardSwiper />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="policy_section bg-light">
         <div className="container">
           <div className="row">
@@ -188,19 +237,13 @@ export default async function AboutPage() {
         </div>
       </section>
 
-         <section className="team_section section_space pt-5 ">
-          <h1 className='text-center text-dark '>Our Leadership Team</h1>
-          <div className="container mx-auto">
-            <TeamSwiper />
-          </div>
-        </section>
-
-        <section className="team_section ">
-          <h1 className='text-center text-dark pb-5 '>Awards & Certifications</h1>
-          <div className="container mx-auto">
-            <CertificateSwiper />
-          </div>
-        </section>
+      <section className="team_section ">
+        <h1 className='text-center text-dark p-5 '>Awards & Certifications</h1>
+        <div className="container mx-auto">
+          <CertificateSwiper />
+        </div>
+      </section>
     </>
+
   )
 }
