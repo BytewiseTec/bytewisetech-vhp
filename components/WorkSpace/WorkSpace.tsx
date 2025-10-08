@@ -1,29 +1,32 @@
-"use client"
+'use client'
 import React from 'react'
-import { Lightbulb, Users, Coffee } from 'lucide-react'
 
+import { Lightbulb, Users, Coffee } from 'lucide-react'
+import image1 from '@/public/assets/images/workspace/building.jpeg'
+import image2 from '@/public/assets/images/workspace/left.jpg'
+import image3 from '@/public/assets/images/workspace/right.jpeg'
 const WorkSpace = () => {
   return (
     <>
-      <section className="office-ambiance-section py-5 py-lg-5 ps-5 pe-5 bg-light ">
+      <section className="office-ambiance-section py-5  py-lg-5 ps-5 pe-5 ">
         <div className="container">
-          <div className="text-center mb-5">
+          <div className="text-center">
             <h1 className="display-5 fw-bold text-dark mb-3">
               Our Workspace
             </h1>
-            <p className="fs-5 text-black w-75 w-md-100 mx-auto">
+            <p className="fs-5 w-75 w-md-100 mx-auto">
               Where innovation meets collaboration. Explore our modern workspace designed to inspire creativity and productivity.
             </p>
           </div>
 
-          <div className="row align-items-center justify-content-between">
+          <div className="row align-items-center justify-content-between p-3">
             <div className="col-lg-5 col-md-12 mb-5 mb-lg-0 order-2 order-lg-1">
               <div className="pe-lg-4 text-center text-lg-start">
-                <h2 className="h1 fw-bold text-dark mb-4">
+                <h2 className="h1 fw-bold text-dark ">
                   Where Ideas Come to Life
                 </h2>
-                <p className="fs-5 lh-lg text-black  mb-4" style={{textAlign:'justify'}}>
-                  At Bytewise, we've created an environment that fosters innovation, collaboration, and growth. 
+                <p className="fs-5 lh-lg  mb-4" style={{textAlign:'justify'}}>
+                  At Bytewise, we&apos;ve created an environment that fosters innovation, collaboration, and growth. 
                   Our modern workspace is designed to inspire our team and provide the perfect setting for 
                   groundbreaking ideas to flourish.
                 </p>
@@ -105,11 +108,11 @@ const WorkSpace = () => {
                 }}
               >
                 <div 
-                  className="position-absolute top-50 start-50 translate-middle z-3"
+                  className="position-absolute top-100 start-50 translate-middle z-3 d-none d-md-none d-lg-block"
                   style={{ width: '70%' }}
                 >
-                  <img 
-                    src="https://images.unsplash.com/photo-1611570884860-6f9d61c3a64d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fG1pbmltYWwlMjBvZmZpY2UlMjBwaWNzfGVufDB8fDB8fHww" 
+                  <img
+                    src={image1.src} 
                     alt="Bytewise Office Main Space"
                     className="img-fluid rounded-4 shadow-lg w-100"
                   />
@@ -117,28 +120,30 @@ const WorkSpace = () => {
                 
                 <div 
                   className="position-absolute top-0 end-0 z-2"
-                  style={{ width: '45%' }}
+                  style={{ width: '50%' }}
                 >
                   <img 
-                    src="https://plus.unsplash.com/premium_photo-1732730224574-d05fc344b03c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fG1pbmltYWwlMjBvZmZpY2UlMjBwaWNzfGVufDB8fDB8fHww" 
+                    src={image3.src}
                     alt="Meeting Room"
                     className="img-fluid rounded-3 shadow w-100"
                   />
                 </div>
                 
-                <div 
-                  className="position-absolute bottom-0 start-0 z-1"
+                   <div 
+                  className="position-absolute top-0 start-0 z-1"
                   style={{ width: '45%' }}
                 >
                   <img 
-                    src="https://images.unsplash.com/photo-1692133226337-55e513450a32?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fG1pbmltYWwlMjBvZmZpY2UlMjBwaWNzfGVufDB8fDB8fHww" 
+                    src={image2.src}
                     alt="Breakout Area"
                     className="img-fluid rounded-3 shadow w-100"
                   />
                 </div>
 
+
               </div>
             </div>
+            
           </div>
         </div>
 

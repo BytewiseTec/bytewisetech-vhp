@@ -14,7 +14,7 @@ import IconBox from '../../public/assets/images/icons/icon_box.svg'
 import IconReceiptAdd from '../../public/assets/images/icons/icon_receipt_add.svg'
 import IconMonitor from '../../public/assets/images/icons/icon_monitor.svg'
 import IconMicroscope from '../../public/assets/images/icons/icon_microscope.svg'
-import BetterServices from '../../public/assets/images/about/better-services.jpg'
+// import BetterServices from '../../public/assets/images/about/better-services.jpg'
 import IconClock from '../../public/assets/images/icons/icon_clock.svg'
 import IconDartBoard2 from '../../public/assets/images/icons/icon_dart_board_2.svg'
 import IconTarget from '../../public/assets/images/icons/icon_target.svg'
@@ -103,36 +103,47 @@ export default async function AboutPage() {
           { name: 'About us' },
         ]}
       />
-      <section className="intro_about_section section_space bg-light">
+      <section className="intro_about_section p-4 p-md-5 bg-light">
         <div className="container">
-          <div className="heading_block mb-0 mt-0 ms-5 me-5">
-            <div className="row justify-content-lg-between g-1 ">
-              <div className="col-lg-6">
-                <h2 className="heading_text mb-0">
-                  {about.headingsections}
-                </h2>
-              </div>
-              <div className="col-lg-6">
-                <p className="heading_description mb-0">
-                  {about.sections}
-                </p>
-              </div>
-            </div>
+          <div className="heading_block text-center">
+            <h1 className="display-5 mb-3">{about.headingsections}</h1>
+            <p className="fs-5">{about.sections}</p>
           </div>
         </div>
       </section>
-      <section >
-        <WorkSpace />
-      </section>
 
-      <section className="team_section  pt-5 mt-5 ">
-        <h1 className='text-center text-dark '>Our Leadership Team</h1>
-        <div className="container mx-auto">
-          <TeamSwiper />
+      <section className="policy_section bg-light">
+        <div className="container">
+          <div className="row">
+            {about?.tiles?.map((item, index) => (
+              <div className="col-12 col-md-6 col-lg-4 mb-4" key={index}>
+                <div className="iconbox_block text-center text-md-start">
+                  <div className="iconbox_icon mb-3">
+                    {item.icon && item.title && (
+                      <Image src={tileIcons[item.icon]} alt={item.title} width={50} height={50} />
+                    )}
+                  </div>
+                  <div className="iconbox_content">
+                    <h3 className="iconbox_title">{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <AboutFunFacts />
         </div>
       </section>
 
-      <section className="py-5 mt-5 me-5 ms-5">
+
+
+      <section className="section_space py-5 mt-5 mb-5">
+        <div className="container">
+          <WorkSpace />
+        </div>
+      </section>
+
+      <section className="me-5 ms-5  pt-5">
         <div className="text-center mb-5">
           <h1 className="text-dark mb-3">
             Our Valued Clients
@@ -145,8 +156,8 @@ export default async function AboutPage() {
                 <h2 className="h1 fw-bold text-dark mb-4">
                   People Who Trust Bytewise
                 </h2>
-                <p className="fs-5 lh-lg text-black mb-4" style={{textAlign:"justify"}}>
-                  We're lucky to team up with amazing people and brands who share our passion for innovation.
+                <p className="fs-5 lh-lg  mb-4" style={{ textAlign: 'justify' }}>
+                  We&apos;re lucky to team up with amazing people and brands who share our passion for innovation.
                   Their trust inspires us to deliver our best, every project, every time.
                 </p>
                 <div className="d-flex flex-wrap gap-3">
@@ -171,32 +182,18 @@ export default async function AboutPage() {
         </div>
       </section>
 
-      <section className="policy_section bg-light">
+
+      <section className="team_section section_space mt-5">
+        <h1 className="text-center text-dark mb-4">Our Leadership Team</h1>
         <div className="container">
-          <div className="row">
-            {about?.tiles?.map((item, index) => {
-              return (
-                <div className="col-lg-4 mb-4" key={index}>
-                  <div className="iconbox_block">
-                    <div className="iconbox_icon">
-                      {item.icon && item.title && (
-                        <Image src={tileIcons[item.icon]} alt={item.title} />
-                      )}
-                    </div>
-                    <div className="iconbox_content">
-                      <h3 className="iconbox_title">{item.title}</h3>
-                      <p className="mb-0">{item.description}</p>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-          <AboutFunFacts />
+          <TeamSwiper />
         </div>
       </section>
 
-      <section className="service_section section_space bg-light">
+
+
+
+      {/* <section className="service_section section_space bg-light">
         <div className="container">
           <div className="row align-items-center justify-content-lg-between">
             <div className="col-lg-6">
@@ -207,10 +204,10 @@ export default async function AboutPage() {
             <div className="col-lg-6">
               <div className="ps-lg-5">
                 <div className="heading_block">
-                  {/* <div className="heading_focus_text">
+                  <div className="heading_focus_text">
                     <span className="badge bg-secondary text-white">Why Us</span>
                     Better
-                  </div> */}
+                  </div>
                   <h2 className="heading_text mb-0">
                     Empowering Your Success, Every Step
                   </h2>
@@ -235,14 +232,15 @@ export default async function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="team_section ">
-        <h1 className='text-center text-dark p-5 '>Awards & Certifications</h1>
-        <div className="container mx-auto">
+      <section className="team_section pb-5">
+        <h1 className='text-center text-dark p-5'>Awards & Certifications</h1>
+        <div className="container">
           <CertificateSwiper />
         </div>
       </section>
+
     </>
 
   )

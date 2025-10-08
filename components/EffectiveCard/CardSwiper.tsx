@@ -1,22 +1,22 @@
-'use client';
+'use client'
 
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCards, Autoplay } from 'swiper/modules';
+import React from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { EffectCards, Autoplay } from 'swiper/modules'
 
-import image1 from '@/public/assets/images/clients/client_logo_1.webp';
-import image2 from '@/public/assets/images/clients/client_logo_2.webp';
-import image3 from '@/public/assets/images/clients/client_logo_3.webp';
-import image4 from '@/public/assets/images/clients/client_logo_4.webp';
-import image5 from '@/public/assets/images/clients/client_logo_5.webp';
-import image6 from '@/public/assets/images/clients/client_logo_6.webp';
-import image7 from '@/public/assets/images/clients/client_logo_7.webp';
-import image8 from '@/public/assets/images/clients/client_logo_8.webp';
-import image9 from '@/public/assets/images/clients/client_logo_9.webp';
-import image10 from '@/public/assets/images/clients/client_logo_10.webp';
+import image1 from '@/public/assets/images/clients/client_logo_1.webp'
+import image2 from '@/public/assets/images/clients/client_logo_2.webp'
+import image3 from '@/public/assets/images/clients/client_logo_3.webp'
+import image4 from '@/public/assets/images/clients/client_logo_4.webp'
+import image5 from '@/public/assets/images/clients/client_logo_5.webp'
+import image6 from '@/public/assets/images/clients/client_logo_6.webp'
+import image7 from '@/public/assets/images/clients/client_logo_7.webp'
+import image8 from '@/public/assets/images/clients/client_logo_8.webp'
+import image9 from '@/public/assets/images/clients/client_logo_9.webp'
+import image10 from '@/public/assets/images/clients/client_logo_10.webp'
 
-import 'swiper/css';
-import 'swiper/css/effect-cards';
+import 'swiper/css'
+import 'swiper/css/effect-cards'
 
 const slides = [
   { id: 1, title: 'Slide 1', image: image1.src },
@@ -29,7 +29,7 @@ const slides = [
   { id: 8, title: 'Slide 8', image: image8.src },
   { id: 9, title: 'Slide 9', image: image9.src },
   { id: 10, title: 'Slide 10', image: image10.src },
-];
+]
 
 const CardSwiper: React.FC = () => {
   return (
@@ -114,7 +114,7 @@ const CardSwiper: React.FC = () => {
         }
       `}</style>
     </div>
-  );
-};
+  )
+}
 
-export default CardSwiper;
+export default CardSwiper
