@@ -1,4 +1,10 @@
-.card-padding{
+/* =====================================================
+   🌐 GLOBAL SETTINGS
+===================================================== */
+.main-div{
+  margin-top: 10vh;
+}
+.card-padding {
   padding-left: 6vw;
   padding-right: 6vw;
 }
@@ -10,169 +16,175 @@
 .card-item > div {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.padding-setting{
-margin-left: 5%;
- margin-right: 5%;
+
+.padding-setting {
+  margin-left: 5%;
+  margin-right: 5%;
   text-align: justify;
- 
 }
 
-
-
-
-
-.dots {
-  display: flex;
-  align-items: center;
-  position: relative;
-  padding-left: 1.2rem;
-}
-
-.dots::before {
-  content: "•"; 
-  position: absolute;
-  left: 0;
-  font-size: 1.2rem;
-  color: black;
-}
-
-.un_list{
-  padding-bottom: 5vh;
-}
-
-/* [class*="_details_section"] p {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 32px;
-    margin-bottom: 25px;
-    font-family: var(--axi-medium);
-} */
-
-
-
-
-
-.card-item > div:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
-}
-
-.des-padding{
-  padding-left: 5vw;
-  padding-right: 5vw;
-  font-size: large;
-}
+/* =====================================================
+   🧱 GRID LAYOUT
+===================================================== */
 .columns_container {
   display: grid;
-  grid-template-columns: 1fr; 
-  gap: 1.5rem;
-  padding: 0 5vw;
+  grid-template-columns: 1fr; /* Mobile default */
+  gap: 1.25rem;
+  padding: 0 3vw;
   margin-top: 3rem;
   animation: fadeInUp 1s ease forwards;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1199px) {
   .columns_container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* Tablet */
     gap: 2rem;
+    padding: 0 4vw;
   }
 }
 
 @media (min-width: 1200px) {
   .columns_container {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Desktop */
+    gap: 2rem;
+    padding: 0 5vw;
   }
 }
 
-.columns_item {
-  display: flex;
-}
-
-/* Card / service block */
+/* =====================================================
+   🪄 CARD STYLES
+===================================================== */
 .service_block {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex-grow: 1;
-  min-height: 380px; 
   border-radius: 1rem;
   padding: 1rem;
   background-color: #020842;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
-
 
 .service_block:hover {
   transform: translateY(-10px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
 }
 
-
+/* =====================================================
+   🖼️ IMAGE SETTINGS
+===================================================== */
 .service_image {
-  height: 150px; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  width: 100%;
   border-radius: 0.75rem;
+  overflow: hidden;
+  background-color: #000;
+  margin-bottom: 0.75rem;
+  object-fit: cover;
   transition: transform 0.5s ease;
+}
+
+/* Desktop: natural 16/9 aspect ratio */
+@media (min-width: 1200px) {
+  .service_image {
+    aspect-ratio: 16/9;
+    max-height: 300px; /* optional */
+  }
+}
+
+/* Tablet: uniform fixed height for alignment */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .service_image {
+    height: 180px;
+    aspect-ratio: auto;
+  }
+}
+
+/* Mobile: smaller fixed height */
+@media (max-width: 767px) {
+  .service_image {
+    height: 160px;
+    aspect-ratio: auto;
+  }
 }
 
 .service_image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
-
 
 .service_block:hover .service_image img {
   transform: scale(1.05);
 }
 
-
-.service_title a {
-  color: #fff;
-  text-decoration: none;
-  position: relative;
-  font-weight: 600;
-}
-
-.service_title a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  left: 0;
-  bottom: -3px;
-  background-color: #ffcc00;
-  transition: width 0.3s ease;
-}
-
-.service_title a:hover::after {
+/* =====================================================
+   🏷️ CARD TITLE
+===================================================== */
+.service_title {
+  margin: 0 0 0.5rem 0;
   width: 100%;
 }
 
+.service_title a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: clamp(0.85rem, 2.5vw, 1.3rem);
+  word-break: break-word;
+  line-height: 1.2;
+}
 
-.links_wrapper {
-  margin-top: auto;
+/* =====================================================
+   🔗 ICONS + LINKS
+===================================================== */
+.links_icons_wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap;
+  margin-top: auto;
+  gap: 0.5rem;
+}
+
+.icons_group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon_block {
+  color: #0044eb;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon_block:hover {
+  color: #fff;
+  transform: translateX(5px);
+}
+
+.links_wrapper {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .links_wrapper ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
 }
 
 .links_wrapper ul li a {
   display: inline-block;
-  background: #0044EB;;
+  background: #0044eb;
   color: #020842;
   font-size: 0.85rem;
   padding: 0.5rem 0.75rem;
@@ -181,27 +193,13 @@ margin-left: 5%;
 }
 
 .links_wrapper ul li a:hover {
-  background: #0044EB;
+  background: #0044eb;
   transform: translateY(-2px);
 }
 
-
-.links_wrapper .icon_block {
-  color: #0044EB;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.links_wrapper .icon_block:hover {
-  color: "white";
-  transform: translateX(5px);
-}
-
-
-.main-div {
-  padding-top: 50px;
-}
-
-/* Fade in animation */
+/* =====================================================
+   ✨ ANIMATIONS
+===================================================== */
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -213,18 +211,12 @@ margin-left: 5%;
   }
 }
 
-/* Card title spacing */
-.service_block .service_title {
-  margin: 0.75rem 0 0.5rem; 
-}
-
-/* Responsive tweaks */
-@media (max-width: 992px) { 
-  .service_image {
-    height: 150px;
-  }
-  .service_title {
-    font-size: 1rem;
+/* =====================================================
+   📱 RESPONSIVE FONTS & SPACING
+===================================================== */
+@media (max-width: 992px) {
+  .service_title a {
+    font-size: clamp(0.9rem, 2vw, 1.15rem);
   }
   .links_wrapper ul li a {
     font-size: 0.8rem;
@@ -232,23 +224,29 @@ margin-left: 5%;
   }
 }
 
-@media (max-width: 576px) { 
-   
-  .columns_container {
-    gap: 1rem;
+@media (max-width: 768px) {
+  .service_title a {
+    font-size: clamp(0.85rem, 2vw, 1.05rem);
   }
+}
+
+@media (max-width: 480px) {
   .service_block {
-    padding: 1rem;
-    min-height: 380px;
+    padding: 0.8rem;
+    width: 100%;
+  }
+  .service_title a {
+  font-size: clamp(1rem, 4vw, 1.2rem);
   }
 
-  .service_block .service_image {
-    height: 150px;
+  /* Keep icons left, links right on small mobile */
+  .links_icons_wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
   }
-  
-  .service_title {
-    font-size: 0.95rem;
-  }
+
   .links_wrapper ul li a {
     font-size: 0.75rem;
     padding: 0.35rem 0.5rem;

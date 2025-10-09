@@ -137,13 +137,13 @@ export default async function AboutPage() {
 
 
 
-      <section className="section_space py-5 mt-5 mb-5">
+      <section className="mb-5 py-lg-5">
         <div className="container">
           <WorkSpace />
         </div>
       </section>
 
-      <section className="me-5 ms-5  pt-5">
+      <section className="me-5 ms-5 py-lg-5 ">
         <div className="text-center mb-5">
           <h1 className="text-dark mb-3">
             Our Valued Clients
@@ -183,7 +183,7 @@ export default async function AboutPage() {
       </section>
 
 
-      <section className="team_section section_space mt-5">
+      <section className="team_section py-lg-5 mt-5">
         <h1 className="text-center text-dark mb-4">Our Leadership Team</h1>
         <div className="container">
           <TeamSwiper />

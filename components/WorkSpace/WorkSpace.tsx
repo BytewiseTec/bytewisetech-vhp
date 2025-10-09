@@ -8,7 +8,7 @@ import image3 from '@/public/assets/images/workspace/right.jpeg'
 const WorkSpace = () => {
   return (
     <>
-      <section className="office-ambiance-section py-5  py-lg-5 ps-5 pe-5 ">
+      <section className="office-ambiance-section  py-lg-5 ps-5 pe-5 ">
         <div className="container">
           <div className="text-center">
             <h1 className="display-5 fw-bold text-dark mb-3">

@@ -9,7 +9,7 @@ import { GET_SERVICES, ServicesQuery } from './services/query'
 
 // import AboutCaseStudies from '../components/AboutCaseStudies'
 import ContactUs from '../components/ContactUs'
-import Featured from '../components/Featured'
+// import Featured from '../components/Featured'
 import Hero from '../components/Hero'
 // import Services from '../components/Services'
 import TechnologyReview from '../components/TechnologyReview'
@@ -58,8 +58,8 @@ export default async function Home() {
         id="structured-data"
       />
       <Hero />
-      <Featured />
-         <FeaturedServices services={services} />
+      {/* <Featured /> */}
+      <FeaturedServices services={services} />
       {/* <Services /> */}
       {/* <AboutCaseStudies /> */}
       <TechnologyReview />
