@@ -11,7 +11,7 @@ const WorkSpace = () => {
       <section className="office-ambiance-section  py-lg-5 ps-5 pe-5 ">
         <div className="container">
           <div className="text-center">
-            <h1 className="display-5 fw-bold text-dark mb-3">
+            <h1 className=" fw-bold text-dark mb-3">
               Our Workspace
             </h1>
             <p className="fs-5 w-75 w-md-100 mx-auto">
@@ -20,9 +20,9 @@ const WorkSpace = () => {
           </div>
 
           <div className="row align-items-center justify-content-between p-3">
-            <div className="col-lg-5 col-md-12 mb-5 mb-lg-0 order-2 order-lg-1">
+            <div className="col-lg-5 col-md-12 mb-5 mb-lg-0 order-2 order-lg-1 ">
               <div className="pe-lg-4 text-center text-lg-start">
-                <h2 className="h1 fw-bold text-dark ">
+                <h2 className=" fw-bold text-dark mt-5 pt-3">
                   Where Ideas Come to Life
                 </h2>
                 <p className="fs-5 lh-lg  mb-4" style={{textAlign:'justify'}}>
@@ -99,7 +99,7 @@ const WorkSpace = () => {
             </div>
 
           
-            <div className="col-lg-6 col-md-12 order-1 order-lg-2 mb-4 mb-lg-0">
+            <div className="col-lg-6 col-md-12 order-1 order-lg-2 mb-lg-0 ">
               <div 
                 className="position-relative mx-auto"
                 style={{
