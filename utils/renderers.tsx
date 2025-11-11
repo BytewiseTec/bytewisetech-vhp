@@ -37,7 +37,10 @@ export const renderDomToReact = (document: Document, options: Options = {}) => {
 
       // ✅ UL wrapper
       [BLOCKS.UL_LIST]: (_, children) => (
-        <ul className="icon_list unordered_list_block un_list">{children}</ul>
+        <ul className="richtext-list richtext-list--unordered">{children}</ul>
+      ),
+      [BLOCKS.OL_LIST]: (_, children) => (
+        <ol className="richtext-list richtext-list--ordered">{children}</ol>
       ),
 
       // ✅ LI without nested <p>
@@ -45,7 +48,7 @@ export const renderDomToReact = (document: Document, options: Options = {}) => {
         const childArray = React.Children.toArray(children)
 
         return (
-          <li className="icon_list_text d-inline dots">
+          <li className="richtext-list__item">
             {childArray.map((child, i) => {
               if (React.isValidElement(child) && child.type === 'p') {
                 // unwrap <p>

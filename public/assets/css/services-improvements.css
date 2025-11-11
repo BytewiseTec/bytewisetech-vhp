@@ -20,7 +20,28 @@
 .padding-setting {
   margin-left: 5%;
   margin-right: 5%;
+}
+
+.padding-setting p {
   text-align: justify;
+}
+
+@media (max-width: 992px) {
+  .padding-setting {
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+}
+
+@media (max-width: 576px) {
+  .padding-setting {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .padding-setting p {
+    text-align: left;
+  }
 }
 
 /* =====================================================
