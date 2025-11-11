@@ -10,7 +10,8 @@ import { GET_SERVICES, ServicesQuery } from './services/query'
 import AboutCaseStudies from '../components/AboutCaseStudies'
 import ContactUs from '../components/ContactUs'
 import ScheduleSection from '../components/ScheduleSection'
-import { scheduleSectionContent } from '../components/ScheduleSection/content'
+import { scheduleSectionContent, scheduleSectionContent2, scheduleSectionContent3 } from '../components/ScheduleSection/content'  
+
 // import Featured from '../components/Featured'
 import Hero from '../components/Hero'
 // import Services from '../components/Services'
@@ -60,6 +61,15 @@ export default async function Home() {
       />
       <Hero />
       {/* <Featured /> */}
+      <ScheduleSection
+        title={scheduleSectionContent2.title}
+        description={scheduleSectionContent2.description}
+        bullets={[...scheduleSectionContent2.bullets]}
+        image={{
+          asset: scheduleSectionContent2.image,
+          alt: scheduleSectionContent2.imageAlt
+        }}
+      />
       <FeaturedServices services={services} />
       <ScheduleSection
         title={scheduleSectionContent.title}
@@ -72,6 +82,15 @@ export default async function Home() {
       />
       {/* <Services /> */}
       <AboutCaseStudies />
+      <ScheduleSection
+        title={scheduleSectionContent3.title}
+        description={scheduleSectionContent3.description}
+        bullets={[...scheduleSectionContent3.bullets]}
+        image={{
+          asset: scheduleSectionContent3.image,
+          alt: scheduleSectionContent3.imageAlt
+        }}
+      />
       <TechnologyReview />
       <BlogPosts posts={latestBlogPosts} />
       <FAQs faqs={faqs} />
