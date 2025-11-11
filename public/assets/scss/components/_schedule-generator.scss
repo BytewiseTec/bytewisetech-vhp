@@ -1,0 +1,125 @@
+.schedule_section {
+  padding: 80px 100px;
+  .container {
+    max-width: 1200px;
+  }
+  .schedule_row {
+    --schedule-column-gap: clamp(40px, 6vw, 90px);
+    --schedule-row-gap: clamp(24px, 5vw, 48px);
+    justify-content: space-between;
+    column-gap: var(--schedule-column-gap);
+    row-gap: var(--schedule-row-gap);
+  }
+  .schedule_content {
+    max-width: 520px;
+    margin: 0;
+  }
+  .schedule_eyebrow {
+    margin-bottom: 12px;
+    color: var(--bs-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .schedule_title {
+    margin-bottom: 20px;
+    font-size: clamp(32px, 4vw, 46px);
+    line-height: 1.2;
+    font-family: var(--axi-bold);
+  }
+  .schedule_description {
+    margin-bottom: 32px;
+    color: var(--bs-body-color);
+    font-size: 18px;
+    line-height: 30px;
+  }
+  .schedule_list {
+    gap: 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    >li {
+      gap: 14px;
+      display: flex;
+      align-items: flex-start;
+      width: 100%;
+    }
+  }
+  .schedule_list_icon {
+    color: var(--bs-primary);
+    margin-top: 2px;
+    flex: 0 0 auto;
+  }
+  .schedule_list_text {
+    font-size: 17px;
+    line-height: 28px;
+    color: var(--bs-dark);
+    flex: 1;
+  }
+  .schedule_image {
+    text-align: left;
+    max-width: 520px;
+    img {
+      width: 100%;
+      max-width: 560px;
+      border-radius: 16px;
+      box-shadow: 0 25px 45px rgba(6, 25, 56, 0.12);
+    }
+  }
+  @media (min-width: 992px) {
+    .schedule_row > [class*='col-'] {
+      flex: 0 1 calc(50% - var(--schedule-column-gap) / 2);
+      max-width: calc(50% - var(--schedule-column-gap) / 2);
+    }
+  }
+  @media (max-width: 1199.98px) {
+    .schedule_row {
+      --schedule-column-gap: clamp(32px, 5vw, 70px);
+    }
+  }
+  @media (max-width: 991.98px) {
+    text-align: center;
+    .schedule_row {
+      justify-content: center;
+    }
+    .schedule_image {
+      text-align: center;
+      img {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 320px;
+      }
+    }
+    .schedule_content {
+      text-align: center;
+      margin: 0 auto;
+    }
+    .schedule_list {
+      align-items: center;
+      >li {
+        justify-content: center;
+      }
+      .schedule_list_text {
+        text-align: left;
+      }
+    }
+  }
+  @media (max-width: 575.98px) {
+    padding: 60px 0;
+    .schedule_title {
+      font-size: clamp(28px, 8vw, 34px);
+    }
+    .schedule_description {
+      font-size: 16px;
+      line-height: 28px;
+    }
+    .schedule_list_text {
+      font-size: 16px;
+      line-height: 26px;
+    }
+    .schedule_image {
+      max-width: 100%;
+    }
+  }
+}
+

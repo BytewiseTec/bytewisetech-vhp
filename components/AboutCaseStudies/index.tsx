@@ -27,7 +27,7 @@ export default async function AboutCaseStudies() {
       className="about_and_case_section section_space section_decoration bg-dark"
     >
       <div className="container">
-        <div className="row align-items-center justify-content-lg-between">
+        {/* <div className="row align-items-center justify-content-lg-between">
           <div className="col-lg-7 order-lg-last">
             <div className="about_image_2">
               <div className="image_wrap">
@@ -102,12 +102,12 @@ export default async function AboutCaseStudies() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="pt-170">
+        </div> */}
+        <div >
           <div className="heading_block text-center text-white">
             <div
               className="heading_focus_text has_underline d-inline-flex"
-              style={{ backgroundImage: 'url(\'/assets/images/shapes/shape_title_under_line.svg\')' }}
+              style={{ backgroundImage: 'url(\'/assets/images/shapes/shape_title_under_line.svg\')' }} 
             >
               Case Studies
             </div>

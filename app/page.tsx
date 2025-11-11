@@ -3,18 +3,19 @@ import Script from 'next/script'
 import getStructuredData from '@/utils/structured-data'
 import { FAQsQuery, GET_FAQS } from '@/components/FAQs/query'
 import FeaturedServices from '@/components/FeaturedServices'
-// import BlogPosts from '@/components/BlogPosts'
+import BlogPosts from '@/components/BlogPosts'
 import { GET_LATEST_BLOG_POSTS, GetLatestBlogPostsQuery } from '@/components/BlogPosts/query'
 import { GET_SERVICES, ServicesQuery } from './services/query'
 
-// import AboutCaseStudies from '../components/AboutCaseStudies'
+import AboutCaseStudies from '../components/AboutCaseStudies'
 import ContactUs from '../components/ContactUs'
+import ScheduleSection from '../components/ScheduleSection'
+import { scheduleSectionContent } from '../components/ScheduleSection/content'
 // import Featured from '../components/Featured'
 import Hero from '../components/Hero'
 // import Services from '../components/Services'
 import TechnologyReview from '../components/TechnologyReview'
 import FAQs from '../components/FAQs'
-
 import { query } from './ApolloClient'
 
 
@@ -60,11 +61,20 @@ export default async function Home() {
       <Hero />
       {/* <Featured /> */}
       <FeaturedServices services={services} />
+      <ScheduleSection
+        title={scheduleSectionContent.title}
+        description={scheduleSectionContent.description}
+        bullets={[...scheduleSectionContent.bullets]}
+        image={{
+          asset: scheduleSectionContent.image,
+          alt: scheduleSectionContent.imageAlt
+        }}
+      />
       {/* <Services /> */}
-      {/* <AboutCaseStudies /> */}
+      <AboutCaseStudies />
       <TechnologyReview />
+      <BlogPosts posts={latestBlogPosts} />
       <FAQs faqs={faqs} />
-      {/* <BlogPosts posts={latestBlogPosts} /> */}
       <ContactUs />
     </>
   )
