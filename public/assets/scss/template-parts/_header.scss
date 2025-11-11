@@ -48,7 +48,10 @@
 
 // Main Menu - Start
 .main_menu_list {
-	gap: 48px;
+	gap: 32px;
+	@media (min-width: 992px) {
+		flex-wrap: nowrap;
+	}
 	>li {
 		>a {
 			z-index: 1;

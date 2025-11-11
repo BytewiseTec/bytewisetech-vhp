@@ -137,7 +137,7 @@ export default async function Navbar() {
                         </Link>
                       </li>
                       <li>
-                        <Link href={contact.href} title={contact.label}>
+                        <Link className="nav-link" href={contact.href} title={contact.label}>
                           Contact
                         </Link>
                       </li>
