@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaCircle, FaEnvelope, FaLocationDot, FaPhoneVolume } from 'react-icons/fa6'
+import { FaEnvelope, FaLocationDot, FaPhoneVolume } from 'react-icons/fa6'
 import { BiSolidQuoteLeft, BiSolidQuoteRight } from 'react-icons/bi'
 
 import { getSocialMediaIcon, getSocialMediaName } from '@/utils/helpers'
@@ -217,36 +217,27 @@ export default async function Footer() {
         </div>
       </div>
       <div
-        className="footer_bottom "
+        className="footer_bottom"
         style={{
           backgroundImage: 'url(\'/assets/images/shapes/shape_space_6.svg\')'
         }}
       >
-        <div className="container d-md-flex align-items-md-center justify-content-md-between">
-          <p className="copyright_text m-0 fs-6 ">
+        <div className="container footer_bottom_container">
+          <p className="copyright_text m-0 fs-6">
             Copyright © 2024 Bytewise Technologies, All rights reserved
           </p>
-          <ul className="icon_list unordered_list " >
+          <ul className="icon_list unordered_list footer_bottom_links">
             <li>
               <Link href="/terms-of-service" title="Terms of Service">
-                <span className="icon_list_icon">
-                  <FaCircle color="#0044EB" size={6} />
-                </span>
                 <span className="icon_list_text">Terms of Service</span>
               </Link>
             </li>
             <li>
               <Link href="/cookie-policy" title="Cookie Policy">
-                <span className="icon_list_icon">
-                  <FaCircle color="#0044EB" size={6} />
-                </span>
                 <span className="icon_list_text">Cookie Policy</span>
               </Link>
             </li>
             <li>
-              <span className="icon_list_icon">
-                <FaCircle color="#0044EB" size={6} />
-              </span>
               <a href="#" className="icon_list_text termly-display-preferences">Consent Preferences</a>
             </li>
           </ul>
