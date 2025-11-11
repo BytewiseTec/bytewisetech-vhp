@@ -32,17 +32,16 @@ export default function FeaturedServices({ services }: { services: Service[] }) 
            <div className="columns_item" key={service._id}>
              <div className="service_block">
                
-               {/* Image */}
                <div className="service_image">
-                 {service.banner && (
-                   <Image
-                     src={service.banner.url}
-                     alt={service.banner.title}
-                     width={service.banner.width}
-                     height={service.banner.height}
-                     style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-                   />
-                 )}
+                {service.banner && (
+                  <Image
+                    src={service.banner.url}
+                    alt={service.banner.title}
+                    fill
+                    sizes="(min-width: 1200px) 25vw, (min-width: 768px) 40vw, 100vw"
+                    className="service_image_media"
+                  />
+                )}
                </div>
    
                {/* Heading */}
