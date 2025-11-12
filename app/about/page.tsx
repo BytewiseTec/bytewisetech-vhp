@@ -1,12 +1,15 @@
 import { Metadata } from 'next'
 import Image, { StaticImageData } from 'next/image'
 import Script from 'next/script'
-import TeamSwiper from '../../components/TeamSwiper/TeamSwiper'
+
 import CertificateSwiper from '@/components/CertificateSlider/CertificateSwiper'
 import PageBanner from '@/components/PageBanner'
 import generateStructuredData from '@/utils/structured-data'
 import AboutFunFacts from '@/components/AboutFunFacts'
 import CardSwiper from '@/components/EffectiveCard/CardSwiper'
+import WorkSpace from '@/components/WorkSpace/WorkSpace'
+
+import TeamSwiper from '../../components/TeamSwiper/TeamSwiper'
 import { query } from '../ApolloClient'
 import IconCheck2 from '../../public/assets/images/icons/icon_check_2.svg'
 import IconLeaf from '../../public/assets/images/icons/icon_leaf.svg'
@@ -18,7 +21,7 @@ import IconMicroscope from '../../public/assets/images/icons/icon_microscope.svg
 import IconClock from '../../public/assets/images/icons/icon_clock.svg'
 import IconDartBoard2 from '../../public/assets/images/icons/icon_dart_board_2.svg'
 import IconTarget from '../../public/assets/images/icons/icon_target.svg'
-import WorkSpace from '@/components/WorkSpace/WorkSpace'
+
 
 
 import { AboutQuery, GET_ABOUT } from './query'

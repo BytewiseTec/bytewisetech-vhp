@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
-
 import { Lightbulb, Users, Coffee } from 'lucide-react'
+
 import image1 from '@/public/assets/images/workspace/building.jpeg'
 import image2 from '@/public/assets/images/workspace/left.jpg'
 import image3 from '@/public/assets/images/workspace/right.jpeg'
