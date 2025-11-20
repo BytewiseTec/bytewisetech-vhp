@@ -62,80 +62,41 @@ export default async function Navbar() {
               <nav className="main_menu navbar navbar-expand-lg">
                 <div className="main_menu_inner collapse navbar-collapse justify-content-lg-center" id="main_menu_dropdown">
                   <ul className="main_menu_list unordered_list justify-content-center">
-                    <li className="dropdown">
-                      {/* <a className="nav-link" href="#" id="company_submenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {company.label}
-                        <FaAngleDown />
-                      </a> */}
-                      <div className="dropdown-menu mega_menu_wrapper rounded-none" aria-labelledby="company_submenu">
-                        <div className="container">
-                          <div className="row">
-                            <div className="col-lg-9">
-                              <div className="megamenu_pages_wrapper mb-5">
-                                <div className="row">
-                                  {company?.children?.map((link, index) => (
-                                    <div className="col-lg-3 col-md-6" key={index}>
-                                      <Link className="iconbox_block_2" href={link.href} title={link.label}>
-                                        <span className="icon_title_wrap">
-                                          <small className="iconbox_icon">
-                                            {link.icon && <Image width={200} height={200} src={companyLinkIcons[link.icon]} alt={link.label} />}
-                                          </small>
-                                          <small className="iconbox_title">{link.label}</small>
-                                        </span>
-                                        <span className="description mb-0">
-                                          {link.description}
-                                        </span>
-                                      </Link>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                              <ul className="btns_group p-0 unordered_list justify-content-start">
-                                <li>
-                                  <Link className="btn btn-primary" href={contact.href} title="Free Consultation">
-                                    <span className="btn_label" data-text="Free Consultation">Free Consultation</span>
-                                    <span className="btn_icon">
-                                      <PiArrowUpRightBold size={20} />
-                                    </span>
-                                  </Link>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                    <ActiveListItem path={home.href}>
+                      <Link className="nav-link" href={home.href} title={home.label}>
+                        Home
+                      </Link>
+                    </ActiveListItem>
+                    <li>
+                      <Link className="nav-link" href="/about" title="About">
+                        About
+                      </Link>
                     </li>
-                    
-                      <li>
-                        <Link className="nav-link" href="/about" title="About">
-                          About
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="nav-link" href={services.href} title={services.label}>
-                          {services.label}
-                        </Link>
-                      </li>
-                      <ActiveListItem path={portfolio.href}>
-                        <Link className="nav-link" href={portfolio.href} role="button" title={portfolio.label}>
-                          {portfolio.label}
-                        </Link>
-                      </ActiveListItem>
-                      <li>
-                        <Link className="nav-link" href="/staff-augmentation" title="Staff Augmentation">
-                          Staff Augmentation
-                        </Link>
-                      </li>
-                      <li>
-                        <Link className="nav-link" href="/blog" title="Blog">
-                          Blog
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href={contact.href} title={contact.label}>
-                          Contact
-                        </Link>
-                      </li>
+                    <li>
+                      <Link className="nav-link" href={services.href} title={services.label}>
+                        {services.label}
+                      </Link>
+                    </li>
+                    <ActiveListItem path={portfolio.href}>
+                      <Link className="nav-link" href={portfolio.href} role="button" title={portfolio.label}>
+                        {portfolio.label}
+                      </Link>
+                    </ActiveListItem>
+                    <li>
+                      <Link className="nav-link" href="/staff-augmentation" title="Staff Augmentation">
+                        Staff Augmentation
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="nav-link" href="/blog" title="Blog">
+                        Blog
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="nav-link" href={contact.href} title={contact.label}>
+                        Contact
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               </nav>
