@@ -37,7 +37,7 @@ export default async function PortfolioPage() {
   const jsonLd = generateStructuredData([
     {
       '@type': 'BreadcrumbList',
-      '@id': 'https://bytewisetechnologies.com/#breadcrumb',
+      // '@id': 'https://bytewisetechnologies.com/#breadcrumb',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bytewisetechnologies.com/' },
         { '@type': 'ListItem', position: 2, name: 'Portfolio' },

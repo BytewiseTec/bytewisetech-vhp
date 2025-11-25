@@ -69,7 +69,7 @@ export default async function AboutPage() {
   const jsonLd = generateStructuredData([
     {
       '@type': 'BreadcrumbList',
-      '@id': 'https://bytewisetechnologies.com/#breadcrumb',
+      // '@id': 'https://bytewisetechnologies.com/#breadcrumb',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://bytewisetechnologies.com/' },
         { '@type': 'ListItem', position: 2, name: 'About us' },
@@ -80,7 +80,7 @@ export default async function AboutPage() {
       '@id': 'https://bytewisetechnologies.com/#about',
       name: 'About us',
       description: 'We are a team of professionals who are passionate about what we do. We are here to help you grow your business.',
-      breadcrumb: 'https://bytewisetechnologies.com/#breadcrumb',
+      // breadcrumb: 'https://bytewisetechnologies.com/#breadcrumb',
       inLanguage: 'en-US',
       potentialAction: [
         {
