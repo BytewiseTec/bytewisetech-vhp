@@ -3,6 +3,7 @@ import dayjs from 'dayjs'
 import { PiArrowUpRightBold } from 'react-icons/pi'
 import Script from 'next/script'
 import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
 import generateStructuredData from '@/utils/structured-data'
 import { query } from '@/app/ApolloClient'
@@ -110,7 +111,7 @@ export default async function BlogDetailsPage({ params }: BlogDetailsPageProps) 
   const { items } = blogPostIdResponse.data?.blogCollection || {}
 
   if (!items?.length) {
-    return null
+    notFound()
   }
 
   const { data: blogPostData } = await query<GetBlogPostQuery>({
