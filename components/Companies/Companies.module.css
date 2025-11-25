@@ -1,0 +1,146 @@
+.companiesSection {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+}
+
+.companiesSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+}
+
+.headingWrapper {
+  margin-bottom: 60px;
+}
+
+.headingWrapper h2 {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1a1a1a;
+  margin-bottom: 0;
+  letter-spacing: -0.5px;
+}
+
+.headingWrapper h2 mark {
+  background: linear-gradient(120deg, #3b82f6 0%, #1e40af 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  padding: 0;
+  background-color: transparent;
+}
+
+.carouselWrapper {
+  position: relative;
+  padding: 20px 0;
+}
+
+.swiperContainer {
+  padding: 20px 0 40px;
+  overflow: visible;
+}
+
+.swiperContainer :global(.swiper-slide) {
+  height: auto;
+  display: flex;
+  align-items: stretch;
+}
+
+.swiperContainer :global(.swiper-wrapper) {
+  align-items: stretch;
+}
+
+.logoItem {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.logoItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.05), transparent);
+  transition: left 0.5s ease;
+}
+
+.logoItem:hover {
+  transform: translateY(-4px);
+  border-color: #3b82f6;
+  box-shadow: 0 12px 24px rgba(59, 130, 246, 0.15);
+}
+
+.logoItem:hover::before {
+  left: 100%;
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.logoItem:hover .logoImage {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+@media (max-width: 767.98px) {
+  .companiesSection {
+    padding: 60px 0;
+  }
+
+  .headingWrapper {
+    margin-bottom: 40px;
+  }
+
+  .headingWrapper h2 {
+    font-size: 32px;
+  }
+
+  .logoItem {
+    height: 100px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .companiesSection {
+    padding: 50px 0;
+  }
+
+  .headingWrapper h2 {
+    font-size: 28px;
+  }
+
+  .logoItem {
+    height: 90px;
+    padding: 12px;
+    border-radius: 8px;
+  }
+}
+

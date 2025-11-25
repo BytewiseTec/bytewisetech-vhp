@@ -10,6 +10,7 @@ import { GET_LATEST_BLOG_POSTS, GetLatestBlogPostsQuery } from '@/components/Blo
 import AboutCaseStudies from '../components/AboutCaseStudies'
 import ContactUs from '../components/ContactUs'
 import ScheduleSection from '../components/ScheduleSection'
+import Companies from '../components/Companies'
 
 import { scheduleSectionContent, scheduleSectionContent2, scheduleSectionContent3 } from '../components/ScheduleSection/content'  
 
@@ -74,6 +75,7 @@ export default async function Home() {
         }}
       />
       <FeaturedServices services={services} />
+      <Companies />
       <ScheduleSection
         title={scheduleSectionContent.title}
         description={scheduleSectionContent.description}
