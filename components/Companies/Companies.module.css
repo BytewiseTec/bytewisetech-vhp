@@ -28,15 +28,7 @@
   letter-spacing: -0.5px;
 }
 
-.headingWrapper h2 mark {
-  background: linear-gradient(120deg, #3b82f6 0%, #1e40af 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  padding: 0;
-  background-color: transparent;
-}
+
 
 .carouselWrapper {
   position: relative;

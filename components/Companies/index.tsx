@@ -32,7 +32,7 @@ const companyLogos = [
 export default function Companies() {
   return (
     <section className={styles.companiesSection}>
-      <div className="container">
+      <div className="container mt-5">
         <div className="row">
           <div className="col-12">
             <div className={`${styles.headingWrapper} text-center`}>

@@ -16,17 +16,17 @@ export default function BlogPosts({ posts }: BlogPostsProps) {
   return (
     <section className="blog_section blog_section_space section_decoration">
       <div className="container">
-        <div className="heading_block text-center">
-          <div
-            className="heading_focus_text has_underline d-inline-flex"
-          >
-            Our Articles
-          </div>
-          <h2 className="heading_text mb-0">
-            Latest <mark>Articles</mark>
-          </h2>
+          <div className="heading_block text-center">
+            <div
+              className="heading_focus_text has_underline d-inline-flex"
+              style={{ backgroundImage: 'url(\'/assets/images/shapes/shape_title_under_line.svg\')' }}
+            >
+              Our Articles
+            </div>
+            <h2 className="heading_text mb-0">
+              Latest <mark>Articles</mark>
+            </h2>     
         </div>
-
         <div className="row justify-content-center">
           {posts.map((post) => (
             <div className="col-lg-4" key={post.slug}>

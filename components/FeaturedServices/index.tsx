@@ -24,7 +24,7 @@ export default function FeaturedServices({ services }: { services: Service[] }) 
        <section className="service_section main-div">
      <div className="container">
        <div className="heading_block text-center">
-         <h2 className="heading_text mb-0">Featured Services</h2>
+         <h2 className="heading_text mb-0">Featured <mark>Services</mark></h2>
        </div>
    
        <div className="columns_container">
