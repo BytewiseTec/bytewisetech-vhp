@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import './CertificateSwiper.css'
+import Image from 'next/image'
 
 import image1 from '../../public/assets/images/awards/Bitmap.webp'
 import image2 from '../../public/assets/images/awards/allaboutapps.webp'
@@ -46,9 +47,11 @@ export default function CertificatesSwiper() {
       {certificates.map((cert, idx) => (
         <SwiperSlide key={idx}>
           <div className="cert-card text-center">
-            <img
+            <Image
               src={cert}
               alt={`Certificate ${idx + 1}`}
+              width={200}
+              height={200}
               className="cert-img rounded mb-3"
             />
           </div>

@@ -6,17 +6,12 @@ import FeaturedServices from '@/components/FeaturedServices'
 import BlogPosts from '@/components/BlogPosts'
 import { GET_LATEST_BLOG_POSTS, GetLatestBlogPostsQuery } from '@/components/BlogPosts/query'
 
-
 import AboutCaseStudies from '../components/AboutCaseStudies'
 import ContactUs from '../components/ContactUs'
 import ScheduleSection from '../components/ScheduleSection'
 import Companies from '../components/Companies'
-
-import { scheduleSectionContent, scheduleSectionContent2, scheduleSectionContent3 } from '../components/ScheduleSection/content'  
-
-// import Featured from '../components/Featured'
+import { scheduleSectionContent, scheduleSectionContent2, scheduleSectionContent3 } from '../components/ScheduleSection/content'
 import Hero from '../components/Hero'
-// import Services from '../components/Services'
 import TechnologyReview from '../components/TechnologyReview'
 import FAQs from '../components/FAQs'
 

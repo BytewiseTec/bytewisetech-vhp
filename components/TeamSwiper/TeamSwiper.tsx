@@ -1,9 +1,12 @@
 'use client'
+import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Autoplay } from 'swiper/modules'
 
+
 import 'swiper/css'
 import 'swiper/css/pagination'
+
 import image1 from '@/public/assets/images/team/sir khan1.png'
 import image2 from '@/public/assets/images/team/sir ismaeel.jpg'
 import image3 from '@/public/assets/images/team/sir daniyal2.png'
@@ -58,9 +61,11 @@ export default function TeamSwiper() {
       <SwiperSlide key={idx}>
   <div className="bg-white rounded-lg  shadow text-center w-full max-w-xs mx-auto">
     <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden flex items-center justify-center bg-gray-100">
-      <img
+      <Image
         src={member.image}
         alt={member.name}
+        width={600}
+        height={600}
         className="w-full h-full object-cover"
       />
     </div>

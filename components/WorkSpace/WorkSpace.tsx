@@ -1,5 +1,6 @@
 'use client'
 import React from 'react'
+import Image from 'next/image'
 import { Lightbulb, Users, Coffee } from 'lucide-react'
 
 import image1 from '@/public/assets/images/workspace/building.jpeg'
@@ -111,9 +112,11 @@ const WorkSpace = () => {
                   className="position-absolute top-100 start-50 translate-middle z-3 d-none d-md-none d-lg-block"
                   style={{ width: '70%' }}
                 >
-                  <img
+                  <Image
                     src={image1.src} 
                     alt="Bytewise Office Main Space"
+                    width={600}
+                    height={500}
                     className="img-fluid rounded-4 shadow-lg w-100"
                   />
                 </div>
@@ -122,9 +125,11 @@ const WorkSpace = () => {
                   className="position-absolute top-0 end-0 z-2"
                   style={{ width: '50%' }}
                 >
-                  <img 
+                  <Image 
                     src={image3.src}
                     alt="Meeting Room"
+                    width={400}
+                    height={300}
                     className="img-fluid rounded-3 shadow w-100"
                   />
                 </div>
@@ -133,9 +138,11 @@ const WorkSpace = () => {
                   className="position-absolute top-0 start-0 z-1"
                   style={{ width: '45%' }}
                 >
-                  <img 
+                  <Image 
                     src={image2.src}
                     alt="Breakout Area"
+                    width={400}
+                    height={300}
                     className="img-fluid rounded-3 shadow w-100"
                   />
                 </div>

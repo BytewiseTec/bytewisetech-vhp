@@ -6,8 +6,6 @@ import { Autoplay } from 'swiper/modules'
 
 import 'swiper/css'
 
-import styles from './Companies.module.css'
-
 import clientLogo1 from '@/public/assets/images/companies/Amazon_Web_Services-Logo.wine.png'
 import clientLogo2 from '@/public/assets/images/companies/Microsoft_Azure-Logo.wine.png'
 import clientLogo3 from '@/public/assets/images/companies/Microsoft-Logo.wine.png'
@@ -16,6 +14,8 @@ import clientLogo5 from '@/public/assets/images/companies/Google-Logo.wine.png'
 import clientLogo6 from '@/public/assets/images/companies/n8n-logo-hd.png'
 import clientLogo7 from '@/public/assets/images/companies/SAP_SE-Logo.wine.png'
 import clientLogo8 from '@/public/assets/images/companies/Meta_Platforms-Logo.wine.png'
+
+import styles from './Companies.module.css'
 
 
 const companyLogos = [

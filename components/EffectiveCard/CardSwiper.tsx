@@ -1,8 +1,12 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectCards, Autoplay } from 'swiper/modules'
+
+import 'swiper/css'
+import 'swiper/css/effect-cards'
 
 import image1 from '@/public/assets/images/clients/client_logo_1.webp'
 import image2 from '@/public/assets/images/clients/client_logo_2.webp'
@@ -15,8 +19,6 @@ import image8 from '@/public/assets/images/clients/client_logo_8.webp'
 import image9 from '@/public/assets/images/clients/client_logo_9.webp'
 import image10 from '@/public/assets/images/clients/client_logo_10.webp'
 
-import 'swiper/css'
-import 'swiper/css/effect-cards'
 
 const slides = [
   { id: 1, title: 'Slide 1', image: image1.src },
@@ -69,7 +71,9 @@ const CardSwiper: React.FC = () => {
                 padding: '20px',
               }}
             >
-              <img
+              <Image
+                width={200}
+                height={200}
                 src={slide.image}
                 alt={slide.title}
                 style={{
