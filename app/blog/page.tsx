@@ -8,9 +8,9 @@ import Script from 'next/script'
 import generateStructuredData from '@/utils/structured-data'
 
 import PageBanner from '../../components/PageBanner'
+import BlogSearch from '../../components/BlogSearch'
 import { query } from '../ApolloClient'
 import IconCalendar from '../../public/assets/images/icons/icon_calendar.svg'
-import SearchIcon from '../../public/assets/images/icons/icon_search.svg'
 
 import {
   GET_BLOG_POSTS_LIST,
@@ -30,7 +30,7 @@ const getPageNumbers = (current: number, total: number) => {
 }
 
 interface BlogPageProps {
-  searchParams: Promise<Record<'page', string | number | undefined>>
+  searchParams: Promise<Record<'page' | 'search', string | number | undefined>>
 }
 
 export const metadata = {
@@ -53,14 +53,16 @@ export const metadata = {
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
   const limit = 9
-  const currentPage = Number((await searchParams).page) || 1
+  const params = await searchParams
+  const currentPage = Number(params.page) || 1
+  const searchQuery = params.search as string | undefined
 
   const [getBlogPostsListQuery, blogPostCategoriesResponse] = await Promise.all([
     query<GetBlogPostsListQuery, GetBlogPostsListQueryVariables>({
       query: GET_BLOG_POSTS_LIST,
       variables: {
-        limit,
-        skip: (currentPage - 1) * limit
+        limit: searchQuery ? 1000 : limit,
+        skip: searchQuery ? 0 : (currentPage - 1) * limit
       }
     }),
     query<GetBlogPostCategoriesQuery>({
@@ -82,9 +84,24 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   //   return acc
   // }, new Set<string>()) || [])
 
-  const blogPosts = getBlogPostsListQuery.data?.blogCollection.items || []
+  let blogPosts = getBlogPostsListQuery.data?.blogCollection.items || []
 
-  const totalPages = Math.ceil(getBlogPostsListQuery.data?.blogCollection.total / limit)
+  if (searchQuery) {
+    const searchLower = searchQuery.toLowerCase()
+    blogPosts = blogPosts.filter((post) => {
+      const titleMatch = post.title.toLowerCase().includes(searchLower)
+      const categoryMatch = post.category?.toLowerCase().includes(searchLower)
+      const excerptMatch = post.excerpt?.toLowerCase().includes(searchLower)
+      return titleMatch || categoryMatch || excerptMatch
+    })
+  }
+
+  const totalPosts = searchQuery ? blogPosts.length : (getBlogPostsListQuery.data?.blogCollection.total || 0)
+  const totalPages = Math.ceil(totalPosts / limit)
+  
+  const paginatedPosts = searchQuery 
+    ? blogPosts.slice((currentPage - 1) * limit, currentPage * limit)
+    : blogPosts
 
   const jsonLd = generateStructuredData([
     {
@@ -109,12 +126,29 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         ]}
       />
 
-      <section className="blog_section section_space bg-light">
+      <section className="blog_section p-5   bg-light">
         <div className="container">
           <div className="pb-0">
-            <div className="row">
-              {/* Blog Posts Full Width */}
-              {blogPosts.map((post) => (
+            <BlogSearch />
+            {searchQuery && (
+              <div className="mb-4">
+                <p className="text-muted">
+                  Search results for: <strong>&quot;{searchQuery}&quot;</strong>
+                  {totalPosts > 0 && (
+                    <span className="ms-2">({totalPosts} {totalPosts === 1 ? 'result' : 'results'})</span>
+                  )}
+                </p>
+              </div>
+            )}
+            {paginatedPosts.length === 0 && searchQuery ? (
+              <div className="text-center py-5">
+                <p className="text-muted fs-5">No blog posts found matching &quot;{searchQuery}&quot;</p>
+                <p className="text-muted">Try searching with different keywords or <Link href="/blog" className="text-primary">view all blogs</Link></p>
+              </div>
+            ) : (
+              <div className="row">
+                {/* Blog Posts Full Width */}
+              {paginatedPosts.map((post) => (
                 <div className="col-lg-4 col-md-6 mb-4" key={post._id}>
                   <div className="card h-100 shadow-sm border-0">
                     {/* Image */}
@@ -174,41 +208,44 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                 </div>
               ))}
 
-              {/* Pagination */}
-              <div className="col-12">
-                <div className="pagination_wrap pb-0 mt-4">
-                  <ul className="pagination_nav unordered_list justify-content-center">
-                    <li className={currentPage === 1 ? 'disabled' : ''}>
-                      <Link
-                        href={currentPage === 1 ? '#' : `?page=${currentPage - 1}`}
-                        title="Previous"
-                      >
-                        <FaAnglesLeft />
-                      </Link>
-                    </li>
-                    {getPageNumbers(currentPage, totalPages).map((page, index) => (
-                      <li key={index} className={page === currentPage ? 'active' : ''}>
-                        {page === '...' ? (
-                          <span>...</span>
-                        ) : (
-                          <Link href={`?page=${page}`} title={`Page ${page}`}>
-                            {page}
+                {/* Pagination */}
+                {totalPages > 0 && (
+                  <div className="col-12">
+                    <div className="pagination_wrap pb-0 mt-4">
+                      <ul className="pagination_nav unordered_list justify-content-center">
+                        <li className={currentPage === 1 ? 'disabled' : ''}>
+                          <Link
+                            href={currentPage === 1 ? '#' : `?${searchQuery ? `search=${encodeURIComponent(searchQuery)}&` : ''}page=${currentPage - 1}`}
+                            title="Previous"
+                          >
+                            <FaAnglesLeft />
                           </Link>
-                        )}
-                      </li>
-                    ))}
-                    <li className={currentPage === totalPages ? 'disabled' : ''}>
-                      <Link
-                        href={currentPage === totalPages ? '#' : `?page=${currentPage + 1}`}
-                        title="Next"
-                      >
-                        <FaAnglesRight />
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
+                        </li>
+                        {getPageNumbers(currentPage, totalPages).map((page, index) => (
+                          <li key={index} className={page === currentPage ? 'active' : ''}>
+                            {page === '...' ? (
+                              <span>...</span>
+                            ) : (
+                              <Link href={`?${searchQuery ? `search=${encodeURIComponent(searchQuery)}&` : ''}page=${page}`} title={`Page ${page}`}>
+                                {page}
+                              </Link>
+                            )}
+                          </li>
+                        ))}
+                        <li className={currentPage === totalPages ? 'disabled' : ''}>
+                          <Link
+                            href={currentPage === totalPages ? '#' : `?${searchQuery ? `search=${encodeURIComponent(searchQuery)}&` : ''}page=${currentPage + 1}`}
+                            title="Next"
+                          >
+                            <FaAnglesRight />
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
+            )}
           </div>
         </div>
       </section>

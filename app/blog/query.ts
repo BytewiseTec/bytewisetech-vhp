@@ -75,7 +75,9 @@ export const GET_BLOG_POSTS_LIST = gql`
   query GetBlogPostsList($limit: Int!, $skip: Int!) {
     blogCollection(
       order: [publishedDate_DESC],
-      where: { private: false },
+      where: { 
+        private: false
+      },
       limit: $limit,
       skip: $skip
     ) {
