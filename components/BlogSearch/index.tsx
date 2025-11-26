@@ -5,6 +5,7 @@ import { useState, FormEvent } from 'react'
 import Image from 'next/image'
 
 import SearchIcon from '@/public/assets/images/icons/icon_search.svg'
+
 import styles from './BlogSearch.module.css'
 
 export default function BlogSearch() {
