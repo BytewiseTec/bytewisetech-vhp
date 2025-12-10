@@ -9,6 +9,7 @@ import generateStructuredData from '@/utils/structured-data'
 
 import PageBanner from '../../components/PageBanner'
 import BlogSearch from '../../components/BlogSearch'
+import BlogCategoryFilter from '../../components/BlogCategoryFilter'
 import { query } from '../ApolloClient'
 import IconCalendar from '../../public/assets/images/icons/icon_calendar.svg'
 
@@ -29,8 +30,16 @@ const getPageNumbers = (current: number, total: number) => {
   return [1, '...', current - 1, current, current + 1, '...', total]
 }
 
+const buildPaginationParams = (search?: string, category?: string, page?: number) => {
+  const params = new URLSearchParams()
+  if (search) params.set('search', search)
+  if (category) params.set('category', category)
+  if (page) params.set('page', page.toString())
+  return params.toString()
+}
+
 interface BlogPageProps {
-  searchParams: Promise<Record<'page' | 'search', string | number | undefined>>
+  searchParams: Promise<Record<'page' | 'search' | 'category', string | number | undefined>>
 }
 
 export const metadata = {
@@ -56,13 +65,14 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   const params = await searchParams
   const currentPage = Number(params.page) || 1
   const searchQuery = params.search as string | undefined
+  const selectedCategory = params.category as string | undefined
 
   const [getBlogPostsListQuery, blogPostCategoriesResponse] = await Promise.all([
     query<GetBlogPostsListQuery, GetBlogPostsListQueryVariables>({
       query: GET_BLOG_POSTS_LIST,
       variables: {
-        limit: searchQuery ? 1000 : limit,
-        skip: searchQuery ? 0 : (currentPage - 1) * limit
+        limit: (searchQuery || selectedCategory) ? 1000 : limit,
+        skip: (searchQuery || selectedCategory) ? 0 : (currentPage - 1) * limit
       }
     }),
     query<GetBlogPostCategoriesQuery>({
@@ -77,14 +87,13 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
     return acc
   }, {} as Record<string, number>)
 
-  // const allTags = Array.from(categories.reduce((acc, { tags }) => {
-  //   tags?.forEach((tag) => {
-  //     acc.add(tag)
-  //   })
-  //   return acc
-  // }, new Set<string>()) || [])
+  const uniqueCategories = Array.from(new Set(categories.map(({ category }) => category).filter(Boolean)))
 
   let blogPosts = getBlogPostsListQuery.data?.blogCollection.items || []
+
+  if (selectedCategory) {
+    blogPosts = blogPosts.filter((post) => post.category === selectedCategory)
+  }
 
   if (searchQuery) {
     const searchLower = searchQuery.toLowerCase()
@@ -96,10 +105,10 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
     })
   }
 
-  const totalPosts = searchQuery ? blogPosts.length : (getBlogPostsListQuery.data?.blogCollection.total || 0)
+  const totalPosts = (searchQuery || selectedCategory) ? blogPosts.length : (getBlogPostsListQuery.data?.blogCollection.total || 0)
   const totalPages = Math.ceil(totalPosts / limit)
   
-  const paginatedPosts = searchQuery 
+  const paginatedPosts = (searchQuery || selectedCategory)
     ? blogPosts.slice((currentPage - 1) * limit, currentPage * limit)
     : blogPosts
 
@@ -129,21 +138,52 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       <section className="blog_section p-5   bg-light">
         <div className="container">
           <div className="pb-0">
-            <BlogSearch />
-            {searchQuery && (
+            <div className="d-flex flex-column flex-md-row align-items-start align-items-md-stretch gap-3 mb-4">
+              <div className="flex-grow-1" style={{ minWidth: 0, flex: '1 1 auto' }}>
+                <BlogSearch />
+              </div>
+              <div className="flex-shrink-0" style={{ flex: '0 0 auto' }}>
+                <BlogCategoryFilter 
+                  categories={uniqueCategories}
+                  categoryCounts={categoryCounts}
+                />
+              </div>
+            </div>
+            {(searchQuery || selectedCategory) && (
               <div className="mb-4">
                 <p className="text-muted">
-                  Search results for: <strong>&quot;{searchQuery}&quot;</strong>
+                  {searchQuery && (
+                    <>
+                      Search results for: <strong>&quot;{searchQuery}&quot;</strong>
+                      {selectedCategory && ' in '}
+                    </>
+                  )}
+                  {selectedCategory && (
+                    <>
+                      Category: <strong>{selectedCategory}</strong>
+                    </>
+                  )}
                   {totalPosts > 0 && (
                     <span className="ms-2">({totalPosts} {totalPosts === 1 ? 'result' : 'results'})</span>
                   )}
                 </p>
               </div>
             )}
-            {paginatedPosts.length === 0 && searchQuery ? (
+            {paginatedPosts.length === 0 && (searchQuery || selectedCategory) ? (
               <div className="text-center py-5">
-                <p className="text-muted fs-5">No blog posts found matching &quot;{searchQuery}&quot;</p>
-                <p className="text-muted">Try searching with different keywords or <Link href="/blog" className="text-primary">view all blogs</Link></p>
+                <p className="text-muted fs-5">
+                  {searchQuery && selectedCategory 
+                    ? `No blog posts found matching "${searchQuery}" in ${selectedCategory}`
+                    : searchQuery
+                    ? `No blog posts found matching "${searchQuery}"`
+                    : `No blog posts found in ${selectedCategory}`
+                  }
+                </p>
+                <p className="text-muted">
+                  Try {searchQuery ? 'searching with different keywords or ' : ''}
+                  {selectedCategory ? 'selecting a different category or ' : ''}
+                  <Link href="/blog" className="text-primary">view all blogs</Link>
+                </p>
               </div>
             ) : (
               <div className="row">
@@ -215,7 +255,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                       <ul className="pagination_nav unordered_list justify-content-center">
                         <li className={currentPage === 1 ? 'disabled' : ''}>
                           <Link
-                            href={currentPage === 1 ? '#' : `?${searchQuery ? `search=${encodeURIComponent(searchQuery)}&` : ''}page=${currentPage - 1}`}
+                            href={currentPage === 1 ? '#' : `?${buildPaginationParams(searchQuery, selectedCategory, currentPage - 1)}`}
                             title="Previous"
                           >
                             <FaAnglesLeft />
@@ -226,7 +266,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                             {page === '...' ? (
                               <span>...</span>
                             ) : (
-                              <Link href={`?${searchQuery ? `search=${encodeURIComponent(searchQuery)}&` : ''}page=${page}`} title={`Page ${page}`}>
+                              <Link href={`?${buildPaginationParams(searchQuery, selectedCategory, typeof page === 'number' ? page : undefined)}`} title={`Page ${page}`}>
                                 {page}
                               </Link>
                             )}
@@ -234,7 +274,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
                         ))}
                         <li className={currentPage === totalPages ? 'disabled' : ''}>
                           <Link
-                            href={currentPage === totalPages ? '#' : `?${searchQuery ? `search=${encodeURIComponent(searchQuery)}&` : ''}page=${currentPage + 1}`}
+                            href={currentPage === totalPages ? '#' : `?${buildPaginationParams(searchQuery, selectedCategory, currentPage + 1)}`}
                             title="Next"
                           >
                             <FaAnglesRight />

@@ -1,17 +1,21 @@
 .searchForm {
-  margin-bottom: 40px;
+  margin-bottom: 0;
+  width: 100%;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 .searchWrapper {
   position: relative;
-  max-width: 800px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
 }
 
 .searchInput {
   width: 100%;
+  max-width: 100%;
   height: 64px;
-  padding: 0 70px 0 24px;
+  padding: 0 120px 0 24px;
   font-size: 16px;
   color: #1a1a1a;
   background-color: #ffffff;
@@ -19,6 +23,7 @@
   border-radius: 12px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
 }
 
 .searchInput:focus {
@@ -48,8 +53,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
   padding: 0;
   border: none;
   background: #f3f4f6;
@@ -60,6 +67,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
   flex-shrink: 0;
+  touch-action: manipulation;
 }
 
 .clearButton:hover {
@@ -78,6 +86,8 @@
   justify-content: center;
   width: 48px;
   height: 48px;
+  min-width: 48px;
+  min-height: 48px;
   padding: 0;
   border: none;
   background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
@@ -87,6 +97,7 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
   box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+  touch-action: manipulation;
 }
 
 .searchButton:hover {
@@ -106,27 +117,59 @@
   filter: brightness(0) invert(1);
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 991.98px) {
   .searchInput {
     height: 56px;
-    padding: 0 60px 0 20px;
+    padding: 0 110px 0 20px;
     font-size: 15px;
   }
 
   .searchButton {
     width: 44px;
     height: 44px;
+    min-width: 44px;
+    min-height: 44px;
   }
 
   .clearButton {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 18px;
+  }
+
+  .actionsContainer {
+    gap: 8px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .searchInput {
+    height: 52px;
+    padding: 0 100px 0 18px;
+    font-size: 15px;
+  }
+
+  .searchButton {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .clearButton {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
     font-size: 18px;
   }
 
   .actionsContainer {
     gap: 6px;
-    padding: 0 2px;
+    right: 8px;
   }
 }
 
