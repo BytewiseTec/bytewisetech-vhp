@@ -42,8 +42,8 @@ export default function Companies() {
               >
                 Our Partners
               </div>
-              <h2>
-                Trusted by <mark>Leading Companies</mark>
+              <h2 style={{ color: '#020842' }}>
+                Built with <mark>Modern Technologies</mark>
               </h2>
             </div>
           </div>
