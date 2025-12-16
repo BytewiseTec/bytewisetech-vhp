@@ -30,9 +30,7 @@ const nextConfig: NextConfig = withBundleAnalyzer({
   sassOptions: {
     silenceDeprecations: ['legacy-js-api'],
   },
-  experimental: {
-    turbo: {},
-  },
+  turbopack: {},
   // Add suppressHydrationWarning for specific attributes
   reactStrictMode: true,
   compiler: {
